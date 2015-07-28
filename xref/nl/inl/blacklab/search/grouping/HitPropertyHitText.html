@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>HitPropertyHitText xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../../apidocs/nl/inl/blacklab/search/grouping/HitPropertyHitText.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_javadoccomment">/*******************************************************************************</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> * Copyright (c) 2010, 2012 Institute for Dutch Lexicology</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> * you may not use this file except in compliance with the License.</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> * You may obtain a copy of the License at</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> *     <a href="http://www.apache.org/licenses/LICENSE-2." target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.</a>0</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> * Unless required by applicable law or agreed to in writing, software</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> * distributed under the License is distributed on an "AS IS" BASIS,</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> * See the License for the specific language governing permissions and</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> * limitations under the License.</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> *******************************************************************************/</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">package</strong> nl.inl.blacklab.search.grouping;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.forwardindex.Terms;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.Hits;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.Searcher;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment"> * A hit property for grouping on the text actually matched. Requires HitConcordances as input (so</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> * we have the hit text available).</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitProperty.html">HitProperty</a> {
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  	<strong class="jxr_keyword">private</strong> String luceneFieldName;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	<strong class="jxr_keyword">private</strong> String propName;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	<strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/forwardindex/Terms.html">Terms</a> terms;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> sensitive;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  	<strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/search/Searcher.html">Searcher</a> searcher;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String field, String property) {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  		<strong class="jxr_keyword">this</strong>(hits, field, property, hits.getSearcher().isDefaultSearchCaseSensitive());
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  	}
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String field) {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  		<strong class="jxr_keyword">this</strong>(hits, field, <strong class="jxr_keyword">null</strong>, hits.getSearcher().isDefaultSearchCaseSensitive());
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  	}
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits) {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		<strong class="jxr_keyword">this</strong>(hits, hits.getSearcher().getContentsFieldMainPropName(), hits.getSearcher().isDefaultSearchCaseSensitive());
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  	}
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String field, String property, <strong class="jxr_keyword">boolean</strong> sensitive) {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		<strong class="jxr_keyword">super</strong>(hits);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  		<strong class="jxr_keyword">this</strong>.searcher = hits.getSearcher();
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  		<strong class="jxr_keyword">if</strong> (property == <strong class="jxr_keyword">null</strong> || property.length() == 0) {
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  			<strong class="jxr_keyword">this</strong>.luceneFieldName = ComplexFieldUtil.mainPropertyField(searcher.getIndexStructure(), field);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  			<strong class="jxr_keyword">this</strong>.propName = ComplexFieldUtil.getDefaultMainPropName();
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  			<strong class="jxr_keyword">this</strong>.luceneFieldName = ComplexFieldUtil.propertyField(field, property);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  			<strong class="jxr_keyword">this</strong>.propName = property;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  		}
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		<strong class="jxr_keyword">this</strong>.terms = searcher.getTerms(luceneFieldName);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		<strong class="jxr_keyword">this</strong>.sensitive = sensitive;
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  	}
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String field, <strong class="jxr_keyword">boolean</strong> sensitive) {
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  		<strong class="jxr_keyword">this</strong>(hits, field, <strong class="jxr_keyword">null</strong>, sensitive);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  	}
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, <strong class="jxr_keyword">boolean</strong> sensitive) {
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		<strong class="jxr_keyword">this</strong>(hits, hits.getSearcher().getContentsFieldMainPropName(), sensitive);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  	}
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  	@Override
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a> get(<strong class="jxr_keyword">int</strong> hitNumber) {
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  		<strong class="jxr_keyword">int</strong>[] context = hits.getHitContext(hitNumber);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<strong class="jxr_keyword">int</strong> contextHitStart = context[Hits.CONTEXTS_HIT_START_INDEX];
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  		<strong class="jxr_keyword">int</strong> contextRightStart = context[Hits.CONTEXTS_RIGHT_START_INDEX];
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  		<strong class="jxr_keyword">int</strong> contextLength = context[Hits.CONTEXTS_LENGTH_INDEX];
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		<em class="jxr_comment">// Copy the desired part of the context</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  		<strong class="jxr_keyword">int</strong> n = contextRightStart - contextHitStart;
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  		<strong class="jxr_keyword">if</strong> (n &lt;= 0)
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a>(hits, propName, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[0], sensitive);
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  		<strong class="jxr_keyword">int</strong>[] dest = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[n];
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  		<strong class="jxr_keyword">int</strong> contextStart = contextLength * contextIndices.get(0) + Hits.CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS;
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  		<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  			System.arraycopy(context, contextStart + contextHitStart, dest, 0, n);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  		} <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  		}
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a>(hits, propName, dest, sensitive);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  	}
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  	@Override
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compare(Object i, Object j) {
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 		<strong class="jxr_keyword">int</strong>[] ca = hits.getHitContext((Integer)i);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> 		<strong class="jxr_keyword">int</strong> caHitStart = ca[Hits.CONTEXTS_HIT_START_INDEX];
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> 		<strong class="jxr_keyword">int</strong> caRightStart = ca[Hits.CONTEXTS_RIGHT_START_INDEX];
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> 		<strong class="jxr_keyword">int</strong> caLength = ca[Hits.CONTEXTS_LENGTH_INDEX];
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 		<strong class="jxr_keyword">int</strong>[] cb = hits.getHitContext((Integer)j);
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> 		<strong class="jxr_keyword">int</strong> cbHitStart = cb[Hits.CONTEXTS_HIT_START_INDEX];
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> 		<strong class="jxr_keyword">int</strong> cbRightStart = cb[Hits.CONTEXTS_RIGHT_START_INDEX];
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> 		<strong class="jxr_keyword">int</strong> cbLength = cb[Hits.CONTEXTS_LENGTH_INDEX];
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 		<em class="jxr_comment">// Compare the hit context for these two hits</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 		<strong class="jxr_keyword">int</strong> contextIndex = contextIndices.get(0);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> 		<strong class="jxr_keyword">int</strong> ai = caHitStart;
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> 		<strong class="jxr_keyword">int</strong> bi = cbHitStart;
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> 		<strong class="jxr_keyword">while</strong> (ai &lt; caRightStart &amp;&amp; bi &lt; cbRightStart) {
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> 			<strong class="jxr_keyword">int</strong> cmp = terms.compareSortPosition(ca[contextIndex * caLength + ai + Hits.CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS],
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 					cb[contextIndex * cbLength + bi + Hits.CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS], sensitive);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> 			<strong class="jxr_keyword">if</strong> (cmp != 0)
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> 				<strong class="jxr_keyword">return</strong> reverse ? -cmp : cmp;
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> 			ai++;
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> 			bi++;
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> 		}
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> 		<em class="jxr_comment">// One or both ran out, and so far, they're equal.</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> 		<strong class="jxr_keyword">if</strong> (ai == caRightStart) {
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 			<strong class="jxr_keyword">if</strong> (bi != cbRightStart) {
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> 				<em class="jxr_comment">// b longer than a =&gt; a &lt; b</em>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 				<strong class="jxr_keyword">return</strong> reverse ? 1 : -1;
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 			}
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> 			<strong class="jxr_keyword">return</strong> 0; <em class="jxr_comment">// same length; a == b</em>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> 		}
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 		<strong class="jxr_keyword">return</strong> reverse ? -1 : 1; <em class="jxr_comment">// a longer than b =&gt; a &gt; b</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 	}
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> 	@Override
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> 	<strong class="jxr_keyword">public</strong> List&lt;String&gt; needsContext() {
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> 		<strong class="jxr_keyword">return</strong> Arrays.asList(luceneFieldName);
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> 	}
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> 
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> 	@Override
+<a class="jxr_linenumber" name="L138" href="#L138">138</a> 	<strong class="jxr_keyword">public</strong> String getName() {
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 		<strong class="jxr_keyword">return</strong> <span class="jxr_string">"hit text"</span>;
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> 	}
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 	@Override
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 	<strong class="jxr_keyword">public</strong> String serialize() {
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		<strong class="jxr_keyword">return</strong> serializeReverse() + PropValSerializeUtil.combineParts(<span class="jxr_string">"hit"</span>, propName, sensitive ? <span class="jxr_string">"s"</span> : <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> 	}
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a> deserialize(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String info) {
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> 		String[] parts = PropValSerializeUtil.splitParts(info);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		String fieldName = hits.getConcordanceFieldName();
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> 		String propName = parts[0];
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">if</strong> (propName.length() == 0)
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 			propName = ComplexFieldUtil.getDefaultMainPropName();
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> 		<strong class="jxr_keyword">boolean</strong> sensitive = parts.length &gt; 1 ? parts[1].equalsIgnoreCase(<span class="jxr_string">"s"</span>) : <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		<strong class="jxr_keyword">if</strong> (fieldName == <strong class="jxr_keyword">null</strong> || fieldName.length() == 0)
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(hits, sensitive);
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html">HitPropertyHitText</a>(hits, fieldName, propName, sensitive);
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 	}
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+</body>
+</html>
