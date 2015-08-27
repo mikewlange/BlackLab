@@ -134,7 +134,7 @@
                 
       <li>
   
-                          <a href="download.html" title="Downloads">
+                          <a href="downloads.html" title="Downloads">
           <span class="none"></span>
         Downloads</a>
             </li>
@@ -214,8 +214,8 @@
 <p>First you need to get the BlackLab library JAR, either by downloading a prebuilt binary, or by building it yourself (it&#x2019;s easy, promise!).</p></div>
 <div class="section">
 <h2><a name="Downloading_a_prebuilt_binary"></a>Downloading a prebuilt binary</h2>
-<p>TODO</p>
-<p>NOTE: we are working towards releasing BlackLab to Maven Central, so you can simply add it to your project configuration file and have it be automatically downloaded when you build your project.</p></div>
+<p>A prebuilt binary JAR for BlackLab is available from the <a href="downloads.html">Downloads</a> page. Note that this may not include the most recent improvements.</p>
+<p><b>NOTE</b>: we are working towards releasing BlackLab to Maven Central, so you can simply add it to your project configuration file and have it be automatically downloaded when you build your project.</p></div>
 <div class="section">
 <h2><a name="Building_from_source"></a>Building from source</h2>
 <p>If you want the very latest version of BlackLab, you should build it from source code.</p>
@@ -241,13 +241,12 @@
 <p>In order to search your data using BlackLab, it needs to be in a supported format, and it needs to be indexed by BlackLab.</p>
 <div class="section">
 <h3><a name="Supported_formats"></a>Supported formats</h3>
-<p>BlackLab supports a number of input formats, but the most well-known are <a class="externalLink" href="http://www.tei-c.org/index.xml">TEI</a> (Text Encoding Initiative) and <a class="externalLink" href="http://proycon.github.io/folia/">FoLiA</a> (Format for Linguistic Annotation). These are both XML formats.</p>
-<p>If your data is not already in one of these formats, you need to convert it.</p>
-<p>TODO mention OpenConvert</p>
-<p>If you don&#x2019;t have a data set of your own in one of the supported formats, see the next section.</p></div>
+<p>BlackLab supports a number of input formats, but the most well-known are <a class="externalLink" href="http://www.tei-c.org/index.xml">TEI</a> (Text Encoding Initiative) and <a class="externalLink" href="http://proycon.github.io/folia/">FoLiA</a> (Format for Linguistic Annotation). These are both XML formats. If your data is not already in one of the supported formats, you need to convert it. (see the next section if you want to use a test dataset instead of your own)</p>
+<p>One way to convert your data is using our tool <a class="externalLink" href="https://github.com/INL/OpenConvert">OpenConvert</a>, which can generate TEI or FoLiA from txt, doc(x) or html files, among others. After conversion, you can tag the file using a tool such as <a class="externalLink" href="http://ilk.uvt.nl/frog/">Frog</a>. </p>
+<p>A <a class="externalLink" href="http://openconvert.clarin.inl.nl/">web-based user interface</a> for converting and tagging (Dutch) input files is available. You will need a CLARIN.eu account, which can be obtained <a class="externalLink" href="https://user.clarin.eu/user">here</a> (<a class="externalLink" href="https://www.clarin.eu/content/clarin-identity-provider">more information</a>).</p></div>
 <div class="section">
 <h3><a name="Testing_with_the_Brown_corpus"></a>Testing with the Brown corpus</h3>
-<p>We&#x2019;ve provided an <a class="externalLink" href="https://github.com/INL/BlackLab/wiki/brownCorpus.lemmatized.xml.zip">annotated TEI version of the Brown corpus</a> for you to test with if you can&#x2019;t use your own data yet.</p>
+<p>If you can&#x2019;t use your own data yet, we&#x2019;ve provided an <a class="externalLink" href="https://github.com/INL/BlackLab/wiki/brownCorpus.lemmatized.xml.zip">annotated TEI version of the Brown corpus</a> for you to test with. </p>
 <p>The <a class="externalLink" href="http://en.wikipedia.org/wiki/Brown_Corpus" title="http://en.wikipedia.org/wiki/Brown_Corpus">Brown corpus</a> is a corpus compiled in the 1960s by <a class="externalLink" href="http://archive.org/details/BrownCorpus">Nelson Francis and Henry Kucera</a> at Brown University. It is small by today&#x2019;s standard (500 documents, 1M words). It was converted to TEI format by <a class="externalLink" href="http://users.ox.ac.uk/~lou/">Lou Burnard</a>. It is available from archive.org under the <a class="externalLink" href="http://creativecommons.org/licenses/by-nc/3.0/">CC-BY-NC 3.0</a> license, but we&#x2019;ve created our own version which includes lemmata. (Please note that we didn&#x2019;t check the lemmatization, and it probably contains errors - useful for testing purposes only!)</p></div>
 <div class="section">
 <h3><a name="Indexing_data"></a>Indexing data</h3>
