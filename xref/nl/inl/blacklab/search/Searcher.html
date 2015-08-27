@@ -2028,60 +2028,67 @@
 <a class="jxr_linenumber" name="L2020" href="#L2020">2020</a> 			}
 <a class="jxr_linenumber" name="L2021" href="#L2021">2021</a> 			JarURLConnection jarConn = (JarURLConnection) res.openConnection();
 <a class="jxr_linenumber" name="L2022" href="#L2022">2022</a> 			Manifest mf = jarConn.getManifest();
-<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a> 			Attributes atts = mf.getMainAttributes();
-<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> 			String value = atts.getValue(<span class="jxr_string">"Build-Date"</span>);
-<a class="jxr_linenumber" name="L2025" href="#L2025">2025</a> 			<strong class="jxr_keyword">return</strong> value == <strong class="jxr_keyword">null</strong> ? <span class="jxr_string">"UNKNOWN"</span> : value;
-<a class="jxr_linenumber" name="L2026" href="#L2026">2026</a> 		} <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Could not read build date from manifest"</span>, e);
-<a class="jxr_linenumber" name="L2028" href="#L2028">2028</a> 		}
-<a class="jxr_linenumber" name="L2029" href="#L2029">2029</a> 	}
-<a class="jxr_linenumber" name="L2030" href="#L2030">2030</a> 
-<a class="jxr_linenumber" name="L2031" href="#L2031">2031</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2032" href="#L2032">2032</a> <em class="jxr_javadoccomment">	 * Instantiate analyzer based on an analyzer alias.</em>
-<a class="jxr_linenumber" name="L2033" href="#L2033">2033</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2034" href="#L2034">2034</a> <em class="jxr_javadoccomment">	 * @param analyzerName the classname, optionally preceded by the package name</em>
-<a class="jxr_linenumber" name="L2035" href="#L2035">2035</a> <em class="jxr_javadoccomment">	 * @return the analyzer, or null if the name wasn't recognized</em>
-<a class="jxr_linenumber" name="L2036" href="#L2036">2036</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2037" href="#L2037">2037</a> 	<strong class="jxr_keyword">static</strong> Analyzer getAnalyzerInstance(String analyzerName) {
-<a class="jxr_linenumber" name="L2038" href="#L2038">2038</a> 		analyzerName = analyzerName.toLowerCase();
-<a class="jxr_linenumber" name="L2039" href="#L2039">2039</a> 		<strong class="jxr_keyword">if</strong> (analyzerName.equals(<span class="jxr_string">"whitespace"</span>)) {
-<a class="jxr_linenumber" name="L2040" href="#L2040">2040</a> 			<strong class="jxr_keyword">return</strong> whitespaceAnalyzer;
-<a class="jxr_linenumber" name="L2041" href="#L2041">2041</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (analyzerName.equals(<span class="jxr_string">"default"</span>)) {
-<a class="jxr_linenumber" name="L2042" href="#L2042">2042</a> 			<strong class="jxr_keyword">return</strong> defaultAnalyzer;
-<a class="jxr_linenumber" name="L2043" href="#L2043">2043</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (analyzerName.equals(<span class="jxr_string">"standard"</span>)) {
-<a class="jxr_linenumber" name="L2044" href="#L2044">2044</a> 			<strong class="jxr_keyword">return</strong> standardAnalyzer;
-<a class="jxr_linenumber" name="L2045" href="#L2045">2045</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (analyzerName.matches(<span class="jxr_string">"(non|un)tokeniz(ing|ed)"</span>)) {
-<a class="jxr_linenumber" name="L2046" href="#L2046">2046</a> 			<strong class="jxr_keyword">return</strong> nonTokenizingAnalyzer;
-<a class="jxr_linenumber" name="L2047" href="#L2047">2047</a> 		}
-<a class="jxr_linenumber" name="L2048" href="#L2048">2048</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a> 	}
-<a class="jxr_linenumber" name="L2050" href="#L2050">2050</a> 
-<a class="jxr_linenumber" name="L2051" href="#L2051">2051</a> 	<strong class="jxr_keyword">public</strong> String getMainContentsFieldName() {
-<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a> 		<strong class="jxr_keyword">return</strong> mainContentsFieldName;
-<a class="jxr_linenumber" name="L2053" href="#L2053">2053</a> 	}
-<a class="jxr_linenumber" name="L2054" href="#L2054">2054</a> 
-<a class="jxr_linenumber" name="L2055" href="#L2055">2055</a> 	<strong class="jxr_keyword">public</strong> String getConcWordFI() {
-<a class="jxr_linenumber" name="L2056" href="#L2056">2056</a> 		<strong class="jxr_keyword">return</strong> concWordFI;
-<a class="jxr_linenumber" name="L2057" href="#L2057">2057</a> 	}
-<a class="jxr_linenumber" name="L2058" href="#L2058">2058</a> 
-<a class="jxr_linenumber" name="L2059" href="#L2059">2059</a> 	<strong class="jxr_keyword">public</strong> String getConcPunctFI() {
-<a class="jxr_linenumber" name="L2060" href="#L2060">2060</a> 		<strong class="jxr_keyword">return</strong> concPunctFI;
-<a class="jxr_linenumber" name="L2061" href="#L2061">2061</a> 	}
-<a class="jxr_linenumber" name="L2062" href="#L2062">2062</a> 
-<a class="jxr_linenumber" name="L2063" href="#L2063">2063</a> 	<strong class="jxr_keyword">public</strong> Collection&lt;String&gt; getConcAttrFI() {
-<a class="jxr_linenumber" name="L2064" href="#L2064">2064</a> 		<strong class="jxr_keyword">return</strong> concAttrFI;
-<a class="jxr_linenumber" name="L2065" href="#L2065">2065</a> 	}
-<a class="jxr_linenumber" name="L2066" href="#L2066">2066</a> 
-<a class="jxr_linenumber" name="L2067" href="#L2067">2067</a> 	<strong class="jxr_keyword">public</strong> Map&lt;String, ForwardIndex&gt; getForwardIndices() {
-<a class="jxr_linenumber" name="L2068" href="#L2068">2068</a> 		<strong class="jxr_keyword">return</strong> forwardIndices;
-<a class="jxr_linenumber" name="L2069" href="#L2069">2069</a> 	}
-<a class="jxr_linenumber" name="L2070" href="#L2070">2070</a> 
-<a class="jxr_linenumber" name="L2071" href="#L2071">2071</a> 	<strong class="jxr_keyword">public</strong> IndexSearcher getIndexSearcher() {
-<a class="jxr_linenumber" name="L2072" href="#L2072">2072</a> 		<strong class="jxr_keyword">return</strong> indexSearcher;
-<a class="jxr_linenumber" name="L2073" href="#L2073">2073</a> 	}
-<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a> 
-<a class="jxr_linenumber" name="L2075" href="#L2075">2075</a> 
-<a class="jxr_linenumber" name="L2076" href="#L2076">2076</a> }
+<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a> 			String value = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> 			<strong class="jxr_keyword">if</strong> (mf != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L2025" href="#L2025">2025</a> 				Attributes atts = mf.getMainAttributes();
+<a class="jxr_linenumber" name="L2026" href="#L2026">2026</a> 				<strong class="jxr_keyword">if</strong> (atts != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a> 					value = atts.getValue(<span class="jxr_string">"Build-Time"</span>);
+<a class="jxr_linenumber" name="L2028" href="#L2028">2028</a> 					<strong class="jxr_keyword">if</strong> (value == <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L2029" href="#L2029">2029</a> 						value = atts.getValue(<span class="jxr_string">"Build-Date"</span>); <em class="jxr_comment">// Old name for this info</em>
+<a class="jxr_linenumber" name="L2030" href="#L2030">2030</a> 				}
+<a class="jxr_linenumber" name="L2031" href="#L2031">2031</a> 			}
+<a class="jxr_linenumber" name="L2032" href="#L2032">2032</a> 			<strong class="jxr_keyword">return</strong> value == <strong class="jxr_keyword">null</strong> ? <span class="jxr_string">"UNKNOWN"</span> : value;
+<a class="jxr_linenumber" name="L2033" href="#L2033">2033</a> 		} <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L2034" href="#L2034">2034</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Could not read build date from manifest"</span>, e);
+<a class="jxr_linenumber" name="L2035" href="#L2035">2035</a> 		}
+<a class="jxr_linenumber" name="L2036" href="#L2036">2036</a> 	}
+<a class="jxr_linenumber" name="L2037" href="#L2037">2037</a> 
+<a class="jxr_linenumber" name="L2038" href="#L2038">2038</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2039" href="#L2039">2039</a> <em class="jxr_javadoccomment">	 * Instantiate analyzer based on an analyzer alias.</em>
+<a class="jxr_linenumber" name="L2040" href="#L2040">2040</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2041" href="#L2041">2041</a> <em class="jxr_javadoccomment">	 * @param analyzerName the classname, optionally preceded by the package name</em>
+<a class="jxr_linenumber" name="L2042" href="#L2042">2042</a> <em class="jxr_javadoccomment">	 * @return the analyzer, or null if the name wasn't recognized</em>
+<a class="jxr_linenumber" name="L2043" href="#L2043">2043</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2044" href="#L2044">2044</a> 	<strong class="jxr_keyword">static</strong> Analyzer getAnalyzerInstance(String analyzerName) {
+<a class="jxr_linenumber" name="L2045" href="#L2045">2045</a> 		analyzerName = analyzerName.toLowerCase();
+<a class="jxr_linenumber" name="L2046" href="#L2046">2046</a> 		<strong class="jxr_keyword">if</strong> (analyzerName.equals(<span class="jxr_string">"whitespace"</span>)) {
+<a class="jxr_linenumber" name="L2047" href="#L2047">2047</a> 			<strong class="jxr_keyword">return</strong> whitespaceAnalyzer;
+<a class="jxr_linenumber" name="L2048" href="#L2048">2048</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (analyzerName.equals(<span class="jxr_string">"default"</span>)) {
+<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a> 			<strong class="jxr_keyword">return</strong> defaultAnalyzer;
+<a class="jxr_linenumber" name="L2050" href="#L2050">2050</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (analyzerName.equals(<span class="jxr_string">"standard"</span>)) {
+<a class="jxr_linenumber" name="L2051" href="#L2051">2051</a> 			<strong class="jxr_keyword">return</strong> standardAnalyzer;
+<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (analyzerName.matches(<span class="jxr_string">"(non|un)tokeniz(ing|ed)"</span>)) {
+<a class="jxr_linenumber" name="L2053" href="#L2053">2053</a> 			<strong class="jxr_keyword">return</strong> nonTokenizingAnalyzer;
+<a class="jxr_linenumber" name="L2054" href="#L2054">2054</a> 		}
+<a class="jxr_linenumber" name="L2055" href="#L2055">2055</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L2056" href="#L2056">2056</a> 	}
+<a class="jxr_linenumber" name="L2057" href="#L2057">2057</a> 
+<a class="jxr_linenumber" name="L2058" href="#L2058">2058</a> 	<strong class="jxr_keyword">public</strong> String getMainContentsFieldName() {
+<a class="jxr_linenumber" name="L2059" href="#L2059">2059</a> 		<strong class="jxr_keyword">return</strong> mainContentsFieldName;
+<a class="jxr_linenumber" name="L2060" href="#L2060">2060</a> 	}
+<a class="jxr_linenumber" name="L2061" href="#L2061">2061</a> 
+<a class="jxr_linenumber" name="L2062" href="#L2062">2062</a> 	<strong class="jxr_keyword">public</strong> String getConcWordFI() {
+<a class="jxr_linenumber" name="L2063" href="#L2063">2063</a> 		<strong class="jxr_keyword">return</strong> concWordFI;
+<a class="jxr_linenumber" name="L2064" href="#L2064">2064</a> 	}
+<a class="jxr_linenumber" name="L2065" href="#L2065">2065</a> 
+<a class="jxr_linenumber" name="L2066" href="#L2066">2066</a> 	<strong class="jxr_keyword">public</strong> String getConcPunctFI() {
+<a class="jxr_linenumber" name="L2067" href="#L2067">2067</a> 		<strong class="jxr_keyword">return</strong> concPunctFI;
+<a class="jxr_linenumber" name="L2068" href="#L2068">2068</a> 	}
+<a class="jxr_linenumber" name="L2069" href="#L2069">2069</a> 
+<a class="jxr_linenumber" name="L2070" href="#L2070">2070</a> 	<strong class="jxr_keyword">public</strong> Collection&lt;String&gt; getConcAttrFI() {
+<a class="jxr_linenumber" name="L2071" href="#L2071">2071</a> 		<strong class="jxr_keyword">return</strong> concAttrFI;
+<a class="jxr_linenumber" name="L2072" href="#L2072">2072</a> 	}
+<a class="jxr_linenumber" name="L2073" href="#L2073">2073</a> 
+<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a> 	<strong class="jxr_keyword">public</strong> Map&lt;String, ForwardIndex&gt; getForwardIndices() {
+<a class="jxr_linenumber" name="L2075" href="#L2075">2075</a> 		<strong class="jxr_keyword">return</strong> forwardIndices;
+<a class="jxr_linenumber" name="L2076" href="#L2076">2076</a> 	}
+<a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> 
+<a class="jxr_linenumber" name="L2078" href="#L2078">2078</a> 	<strong class="jxr_keyword">public</strong> IndexSearcher getIndexSearcher() {
+<a class="jxr_linenumber" name="L2079" href="#L2079">2079</a> 		<strong class="jxr_keyword">return</strong> indexSearcher;
+<a class="jxr_linenumber" name="L2080" href="#L2080">2080</a> 	}
+<a class="jxr_linenumber" name="L2081" href="#L2081">2081</a> 
+<a class="jxr_linenumber" name="L2082" href="#L2082">2082</a> 
+<a class="jxr_linenumber" name="L2083" href="#L2083">2083</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
