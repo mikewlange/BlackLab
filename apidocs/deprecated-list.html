@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Deprecated List (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Deprecated List (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Deprecated List (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="Deprecated List (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -83,16 +83,6 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/analysis/BLDefaultAnalyzer.html" title="class in nl.inl.blacklab.analysis">nl.inl.blacklab.analysis.BLDefaultAnalyzer</a>
-<div class="block"><i>renamed to BLStandardAnalyzer because this is not actually the default (BLDutchAnalyzer is)</i></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/analysis/BLLatinAnalyzer.html" title="class in nl.inl.blacklab.analysis">nl.inl.blacklab.analysis.BLLatinAnalyzer</a>
-<div class="block"><i>use BLDefaultAnalyzer instead, it's more generic.</i></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/perdocument/DocGrouper.html" title="class in nl.inl.blacklab.perdocument">nl.inl.blacklab.perdocument.DocGrouper</a>
 <div class="block"><i>renamed to DocGroups</i></div>
 </td>
@@ -110,6 +100,31 @@
 <tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/grouping/RandomAccessGroups.html" title="class in nl.inl.blacklab.search.grouping">nl.inl.blacklab.search.grouping.RandomAccessGroups</a>
 <div class="block"><i>renamed to HitGroups</i></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternAnd</a>
+<div class="block"><i>use TextPatternAndNot</i></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="nl/inl/blacklab/search/TextPatternBoolean.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternBoolean</a>
+<div class="block"><i>not used</i></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="nl/inl/blacklab/search/TextPatternContaining.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternContaining</a>
+<div class="block"><i>use TextPatternPositionFilter</i></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="nl/inl/blacklab/search/TextPatternTranslatorString.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternTranslatorString</a>
+<div class="block"><i>use TextPattern.toString()</i></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="nl/inl/blacklab/search/TextPatternWithin.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternWithin</a>
+<div class="block"><i>use TextPatternPositionFilter</i></div>
 </td>
 </tr>
 </tbody>
@@ -178,96 +193,97 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/Hits.html#add(nl.inl.blacklab.search.Hit)">nl.inl.blacklab.search.Hits.add(Hit)</a>
-<div class="block"><i>use constructor that takes a list of Hits instead</i></div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/grouping/HitGroup.html#add(nl.inl.blacklab.search.Hit)">nl.inl.blacklab.search.grouping.HitGroup.add(Hit)</a>
 <div class="block"><i>use constructor that takes a list of Hit objects instead</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addAlternative(java.lang.String)">nl.inl.blacklab.index.complex.ComplexField.addAlternative(String)</a>
 <div class="block"><i>use SensitivitySetting, or create additional properties</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldProperty.html#addAlternative(java.lang.String,%20nl.inl.blacklab.index.complex.TokenFilterAdder)">nl.inl.blacklab.index.complex.ComplexFieldProperty.addAlternative(String, TokenFilterAdder)</a>
 <div class="block"><i>use SensitivitySetting, or create additional properties</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addAlternative(java.lang.String,%20nl.inl.blacklab.index.complex.TokenFilterAdder)">nl.inl.blacklab.index.complex.ComplexField.addAlternative(String, TokenFilterAdder)</a>
 <div class="block"><i>use SensitivitySetting, or create additional properties</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/grouping/ResultsGrouper.html#addHit(nl.inl.blacklab.search.Hits,%20int)">nl.inl.blacklab.search.grouping.ResultsGrouper.addHit(Hits, int)</a>
 <div class="block"><i>No longer supported, will throw an exception. Use Hits.groupedBy() instead.</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addPropertyAlternative(java.lang.String,%20java.lang.String)">nl.inl.blacklab.index.complex.ComplexField.addPropertyAlternative(String, String)</a>
 <div class="block"><i>use SensitivitySetting, or create additional properties</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addPropertyAlternative(java.lang.String,%20java.lang.String,%20nl.inl.blacklab.index.complex.TokenFilterAdder)">nl.inl.blacklab.index.complex.ComplexField.addPropertyAlternative(String, String, TokenFilterAdder)</a>
 <div class="block"><i>use SensitivitySetting, or create additional properties</i></div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addPropertyValue(java.lang.String,%20java.lang.String)">nl.inl.blacklab.index.complex.ComplexField.addPropertyValue(String, String)</a>
+<div class="block"><i>keep a reference to the property object and add values to that.</i></div>
+</td>
+</tr>
 <tr class="altColor">
+<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addPropertyValue(java.lang.String,%20java.lang.String,%20int)">nl.inl.blacklab.index.complex.ComplexField.addPropertyValue(String, String, int)</a>
+<div class="block"><i>keep a reference to the property object and add values to that.</i></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addValue(java.lang.String)">nl.inl.blacklab.index.complex.ComplexField.addValue(String)</a>
 <div class="block"><i>use getMainProperty().addValue()</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#addValue(java.lang.String,%20int)">nl.inl.blacklab.index.complex.ComplexField.addValue(String, int)</a>
 <div class="block"><i>use getMainProperty().addValue()</i></div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><a href="nl/inl/util/TarGzipReader.html#canProcessTar()">nl.inl.util.TarGzipReader.canProcessTar()</a>
+<div class="block"><i>always returns true</i></div>
+</td>
+</tr>
 <tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#buildAllTermIndices()">nl.inl.blacklab.search.Searcher.buildAllTermIndices()</a>
-<div class="block"><i>called automatically now in search mode, no need to call it manually. This
-   method will be made private eventually.</i></div>
+<td class="colOne"><a href="nl/inl/util/TarGzipReader.html#canProcessTarGzip()">nl.inl.util.TarGzipReader.canProcessTarGzip()</a>
+<div class="block"><i>always returns true</i></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#concordancesIncludeXmlTags()">nl.inl.blacklab.search.Searcher.concordancesIncludeXmlTags()</a>
-<div class="block"><i>always returns true now</i></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#fieldName(java.lang.String,%20java.lang.String)">nl.inl.blacklab.index.complex.ComplexFieldUtil.fieldName(String, String)</a>
 <div class="block"><i>replace with either propertyField or bookkeepingField</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#fieldName(java.lang.String,%20java.lang.String,%20java.lang.String)">nl.inl.blacklab.index.complex.ComplexFieldUtil.fieldName(String, String, String)</a>
 <div class="block"><i>replace with either propertyField or bookkeepingField</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#getAlternative(java.lang.String)">nl.inl.blacklab.index.complex.ComplexFieldUtil.getAlternative(String)</a>
 <div class="block"><i>use getNameComponents</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/indexstructure/PropertyDesc.html#getAlternativeDesc(java.lang.String)">nl.inl.blacklab.search.indexstructure.PropertyDesc.getAlternativeDesc(String)</a>
 <div class="block"><i>use getSensitivity instead of querying individual alternatives</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/indexstructure/PropertyDesc.html#getAlternatives()">nl.inl.blacklab.search.indexstructure.PropertyDesc.getAlternatives()</a>
 <div class="block"><i>use getSensitivity</i></div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/queryParser/corpusql/JavaCharStream.html#getColumn()">nl.inl.blacklab.queryParser.corpusql.JavaCharStream.getColumn()</a></td>
-</tr>
 <tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/queryParser/lucene/CharStream.html#getColumn()">nl.inl.blacklab.queryParser.lucene.CharStream.getColumn()</a></td>
+<td class="colOne"><a href="nl/inl/blacklab/queryParser/corpusql/JavaCharStream.html#getColumn()">nl.inl.blacklab.queryParser.corpusql.JavaCharStream.getColumn()</a></td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/queryParser/contextql/JavaCharStream.html#getColumn()">nl.inl.blacklab.queryParser.contextql.JavaCharStream.getColumn()</a></td>
@@ -327,43 +343,47 @@
 <td class="colOne"><a href="nl/inl/blacklab/queryParser/corpusql/JavaCharStream.html#getLine()">nl.inl.blacklab.queryParser.corpusql.JavaCharStream.getLine()</a></td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/queryParser/lucene/CharStream.html#getLine()">nl.inl.blacklab.queryParser.lucene.CharStream.getLine()</a></td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/queryParser/contextql/JavaCharStream.html#getLine()">nl.inl.blacklab.queryParser.contextql.JavaCharStream.getLine()</a></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#getMakeConcordancesFromForwardIndex()">nl.inl.blacklab.search.Searcher.getMakeConcordancesFromForwardIndex()</a>
 <div class="block"><i>use getDefaultConcordanceType</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/indexstructure/IndexStructure.html#getMetadataType(java.lang.String)">nl.inl.blacklab.search.indexstructure.IndexStructure.getMetadataType(String)</a>
 <div class="block"><i>use getMetadataFieldDesc(fieldName).getType() instead</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/indexstructure/PropertyDesc.html#getOffsetsAlternative()">nl.inl.blacklab.search.indexstructure.PropertyDesc.getOffsetsAlternative()</a>
 <div class="block"><i>use offsetsAlternative()</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#getProperty(java.lang.String)">nl.inl.blacklab.index.complex.ComplexFieldUtil.getProperty(String)</a>
 <div class="block"><i>use getNameComponents</i></div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#getPropertyPositionIncrements(java.lang.String)">nl.inl.blacklab.index.complex.ComplexField.getPropertyPositionIncrements(String)</a>
+<div class="block"><i>ask the property object itself instead</i></div>
+</td>
+</tr>
 <tr class="rowColor">
+<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexField.html#getPropertyValues(java.lang.String)">nl.inl.blacklab.index.complex.ComplexField.getPropertyValues(String)</a>
+<div class="block"><i>ask the property object itself instead</i></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/perdocument/DocResults.html#getResults()">nl.inl.blacklab.perdocument.DocResults.getResults()</a>
 <div class="block"><i>Breaks optimizations. Use iterator or subList() instead.</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#getSearchAnalyzer()">nl.inl.blacklab.search.Searcher.getSearchAnalyzer()</a>
 <div class="block"><i>use getAnalyzer() (we can use the same analyzer for indexing and searching after all because wildcard queries are never analyzed)</i></div>
 </td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/grouping/HitGroup.html#getSpans()">nl.inl.blacklab.search.grouping.HitGroup.getSpans()</a></td>
 </tr>
 <tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/indexstructure/IndexStructure.html#hasOffsets(java.lang.String)">nl.inl.blacklab.search.indexstructure.IndexStructure.hasOffsets(String)</a>
@@ -391,72 +411,12 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/index/Indexer.html#indexFileList(java.io.File)">nl.inl.blacklab.index.Indexer.indexFileList(File)</a>
-<div class="block"><i>not really used, implement your own if required</i></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/index/Indexer.html#indexFileList(java.io.File,%20java.io.File)">nl.inl.blacklab.index.Indexer.indexFileList(File, File)</a>
-<div class="block"><i>not really used, implement your own if required</i></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/index/Indexer.html#indexFileList(java.util.List)">nl.inl.blacklab.index.Indexer.indexFileList(List<File>)</a>
-<div class="block"><i>not really used, implement your own if required</i></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#isMainAlternativeNameless()">nl.inl.blacklab.index.complex.ComplexFieldUtil.isMainAlternativeNameless()</a>
-<div class="block"><i>alternatives can't be nameless anymore; always returns false</i></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#isMainPropertyNameless()">nl.inl.blacklab.index.complex.ComplexFieldUtil.isMainPropertyNameless()</a>
-<div class="block"><i>main property can't be nameless anymore; always returns false</i></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#isProperty(java.lang.String,%20java.lang.String)">nl.inl.blacklab.index.complex.ComplexFieldUtil.isProperty(String, String)</a>
 <div class="block"><i>use getNameComponents()</i></div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/queryParser/contextql/ContextualQueryLanguageParser.html#parse(java.lang.String)">nl.inl.blacklab.queryParser.contextql.ContextualQueryLanguageParser.parse(String)</a>
-<div class="block"><i>use version that also takes a Searcher, so we can tell the properties from the metadata fields</i></div>
-</td>
-</tr>
 <tr class="altColor">
-<td class="colOne"><a href="nl/inl/util/LuceneUtil.html#parseLuceneQuery(java.lang.String,%20java.lang.String)">nl.inl.util.LuceneUtil.parseLuceneQuery(String, String)</a>
-<div class="block"><i>use version that takes analyzer</i></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/indexstructure/IndexStructure.html#print(java.io.PrintStream)">nl.inl.blacklab.search.indexstructure.IndexStructure.print(PrintStream)</a>
-<div class="block"><i>use version that takes a PrintWriter</i></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/indexstructure/ComplexFieldDesc.html#print(java.io.PrintStream)">nl.inl.blacklab.search.indexstructure.ComplexFieldDesc.print(PrintStream)</a></td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/util/PropertiesUtil.html#readFromFile(java.lang.String)">nl.inl.util.PropertiesUtil.readFromFile(String)</a>
-<div class="block"><i>use version that takes a File</i></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/util/FileUtil.html#readLines(java.lang.String)">nl.inl.util.FileUtil.readLines(String)</a>
-<div class="block"><i>use File version instead</i></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/util/FileUtil.html#readLines(java.lang.String,%20java.lang.String)">nl.inl.util.FileUtil.readLines(String, String)</a>
-<div class="block"><i>use File version instead</i></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/util/StringUtil.html#removeApostrophes(java.lang.String)">nl.inl.util.StringUtil.removeApostrophes(String)</a>
-<div class="block"><i>was used for sorting; should be done with Collator instead.</i></div>
-</td>
+<td class="colOne"><a href="nl/inl/blacklab/search/sequences/TextPatternSequence.html#makeAlternatives(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List,%20java.util.List)">nl.inl.blacklab.search.sequences.TextPatternSequence.makeAlternatives(TextPatternTranslator<T>, QueryExecutionContext, List<T>, List<Boolean>)</a></td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/forwardindex/ForwardIndex.html#retrieveParts(int,%20int[],%20int[])">nl.inl.blacklab.forwardindex.ForwardIndex.retrieveParts(int, int[], int[])</a>
@@ -472,73 +432,53 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#setFieldNameSeparators(boolean,%20boolean)">nl.inl.blacklab.index.complex.ComplexFieldUtil.setFieldNameSeparators(boolean, boolean)</a>
-<div class="block"><i>use version that takes a single parameter</i></div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#setForwardIndexConcordanceParameters(java.lang.String,%20java.lang.String,%20java.util.Collection)">nl.inl.blacklab.search.Searcher.setForwardIndexConcordanceParameters(String, String, Collection<String>)</a>
 <div class="block"><i>renamed to setConcordanceXmlProperties</i></div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/forwardindex/ForwardIndex.html#setKeepInMemory(boolean)">nl.inl.blacklab.forwardindex.ForwardIndex.setKeepInMemory(boolean)</a>
-<div class="block"><i>keeping forward index in memory is 'never' a good idea (better to use OS caching)</i></div>
-</td>
-</tr>
 <tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/forwardindex/ForwardIndex.html#setKeepInMemory(boolean,%20long)">nl.inl.blacklab.forwardindex.ForwardIndex.setKeepInMemory(boolean, long)</a>
-<div class="block"><i>keeping forward index in memory is 'never' a good idea (better to use OS caching)</i></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#setMakeConcordancesFromForwardIndex(boolean)">nl.inl.blacklab.search.Searcher.setMakeConcordancesFromForwardIndex(boolean)</a>
 <div class="block"><i>use setDefaultConcordanceType()</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/Indexer.html#setMaxDocs(int)">nl.inl.blacklab.index.Indexer.setMaxDocs(int)</a>
 <div class="block"><i>renamed to setMaxNumberOfDocsToIndex</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/Indexer.html#setProcessZipFilesAsDirectories(boolean)">nl.inl.blacklab.index.Indexer.setProcessZipFilesAsDirectories(boolean)</a>
 <div class="block"><i>renamed to setProcessArchivesAsDirectories()</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty...)">nl.inl.blacklab.search.Hits.sort(HitProperty...)</a>
 <div class="block"><i>use single HitProperty version, possibly with HitPropertyMultiple</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty[],%20boolean)">nl.inl.blacklab.search.Hits.sort(HitProperty[], boolean)</a>
 <div class="block"><i>use single HitProperty version, possibly with HitPropertyMultiple</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/perdocument/DocGroups.html#sortGroups(nl.inl.blacklab.perdocument.DocGroupProperty,%20boolean)">nl.inl.blacklab.perdocument.DocGroups.sortGroups(DocGroupProperty, boolean)</a>
 <div class="block"><i>renamed to sort()</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#split(java.lang.String)">nl.inl.blacklab.index.complex.ComplexFieldUtil.split(String)</a>
 <div class="block"><i>Not used anywhere, superseded by getNameComponents()</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="nl/inl/blacklab/index/DocIndexerAbstract.html#startCaptureContent()">nl.inl.blacklab.index.DocIndexerAbstract.startCaptureContent()</a>
 <div class="block"><i>pass the field name you're capturing content for</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="nl/inl/blacklab/search/Hits.html#subList(int,%20int)">nl.inl.blacklab.search.Hits.subList(int, int)</a>
 <div class="block"><i>use window()</i></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#termOccursInIndex(org.apache.lucene.index.Term)">nl.inl.blacklab.search.Searcher.termOccursInIndex(Term)</a>
-<div class="block"><i>moved to LuceneUtil</i></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -567,23 +507,6 @@
 <tr class="rowColor">
 <td class="colOne"><a href="nl/inl/util/XmlUtil.html#transformString(java.lang.String,%20java.io.File,%20java.io.Writer)">nl.inl.util.XmlUtil.transformString(String, File, Writer)</a>
 <div class="block"><i>renamed to transformXslt()</i></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/index/complex/ComplexFieldUtil.html#usingOldFieldNames()">nl.inl.blacklab.index.complex.ComplexFieldUtil.usingOldFieldNames()</a>
-<div class="block"><i>always returns false</i></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/forwardindex/ForwardIndex.html#warmUp()">nl.inl.blacklab.forwardindex.ForwardIndex.warmUp()</a>
-<div class="block"><i>use vmtouch tool, documented here:
-    https://github.com/INL/BlackLab/wiki/Improve-search-speed-using-the-disk-cache</i></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="nl/inl/blacklab/search/Searcher.html#warmUpForwardIndices()">nl.inl.blacklab.search.Searcher.warmUpForwardIndices()</a>
-<div class="block"><i>use the external tool vmtouch, described here:
-   https://github.com/INL/BlackLab/wiki/Improve-search-speed-using-the-disk-cache</i></div>
 </td>
 </tr>
 </tbody>
@@ -668,7 +591,9 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="nl/inl/blacklab/queryParser/lucene/helpers/TPTermRange.html#TPTermRange(java.lang.String,%20java.lang.String,%20java.lang.String,%20boolean,%20boolean,%20java.text.Collator)">nl.inl.blacklab.queryParser.lucene.helpers.TPTermRange(String, String, String, boolean, boolean, Collator)</a></td>
+<td class="colOne"><a href="nl/inl/blacklab/search/lucene/SpanQueryPositionFilter.html#SpanQueryPositionFilter(org.apache.lucene.search.spans.SpanQuery,%20org.apache.lucene.search.spans.SpanQuery,%20boolean)">nl.inl.blacklab.search.lucene.SpanQueryPositionFilter(SpanQuery, SpanQuery, boolean)</a>
+<div class="block"><i>specify operation explicitly</i></div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -720,6 +645,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

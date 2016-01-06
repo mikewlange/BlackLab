@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>PerDocumentSortedSpans (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PerDocumentSortedSpans (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="PerDocumentSortedSpans (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="PerDocumentSortedSpans (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -86,6 +86,9 @@
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
+<li>org.apache.lucene.search.DocIdSetIterator</li>
+<li>
+<ul class="inheritance">
 <li>org.apache.lucene.search.spans.Spans</li>
 <li>
 <ul class="inheritance">
@@ -96,6 +99,8 @@
 <li>
 <ul class="inheritance">
 <li>nl.inl.blacklab.search.sequences.PerDocumentSortedSpans</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -143,6 +148,20 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 <h3>Fields inherited from class&nbsp;nl.inl.blacklab.search.lucene.<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" title="class in nl.inl.blacklab.search.lucene">BLSpans</a></h3>
 <code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#childClausesCaptureGroups">childClausesCaptureGroups</a></code></li>
 </ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.lucene.search.spans.Spans">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.lucene.search.spans.Spans</h3>
+<code>NO_MORE_POSITIONS</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.lucene.search.DocIdSetIterator">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.lucene.search.DocIdSetIterator</h3>
+<code>NO_MORE_DOCS</code></li>
+</ul>
 </li>
 </ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -178,80 +197,88 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#doc()">doc</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#advance(int)">advance</a></strong>(int&nbsp;target)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#end()">end</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#docID()">docID</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#endPosition()">endPosition</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#getCapturedGroups(nl.inl.blacklab.search.Span[])">getCapturedGroups</a></strong>(<a href="../../../../../nl/inl/blacklab/search/Span.html" title="class in nl.inl.blacklab.search">Span</a>[]&nbsp;capturedGroups)</code>
 <div class="block">Get the start and end position for the captured groups contained in
  this BLSpans (sub)tree.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#getHit()">getHit</a></strong>()</code>
 <div class="block">Makes a new Hit object from the document id, start and end positions.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;byte[]&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#getPayload()">getPayload</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#hitsAllSameLength()">hitsAllSameLength</a></strong>()</code>
 <div class="block">Are all hits the same number of tokens long?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#hitsAreUnique()">hitsAreUnique</a></strong>()</code>
 <div class="block">Is it guaranteed that no two hits have the same start and end position?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#hitsEndPointSorted()">hitsEndPointSorted</a></strong>()</code>
 <div class="block">When hit B follows hit A, is it guaranteed that B.end &gt;= A.end?
  Also, if A.end == B.end, is B.start &gt; A.start?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#hitsHaveUniqueEnd()">hitsHaveUniqueEnd</a></strong>()</code>
 <div class="block">Is it guaranteed that no two hits have the same end position?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#hitsHaveUniqueStart()">hitsHaveUniqueStart</a></strong>()</code>
 <div class="block">Is it guaranteed that no two hits have the same start position?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#hitsLength()">hitsLength</a></strong>()</code>
 <div class="block">If all hits are the same number of tokens long, how long?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#hitsStartPointSorted()">hitsStartPointSorted</a></strong>()</code>
 <div class="block">When hit B follows hit A, is it guaranteed that B.start &gt;= A.start?
  Also, if A.start == B.start, is B.end &gt; A.end?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#isPayloadAvailable()">isPayloadAvailable</a></strong>()</code>&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#nextDoc()">nextDoc</a></strong>()</code>&nbsp;</td>
+</tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#next()">next</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#nextStartPosition()">nextStartPosition</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -260,14 +287,10 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#skipTo(int)">skipTo</a></strong>(int&nbsp;target)</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#startPosition()">startPosition</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#start()">start</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -277,7 +300,28 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.lucene.<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" title="class in nl.inl.blacklab.search.lucene">BLSpans</a></h3>
-<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#getSpan()">getSpan</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></code></li>
+<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#advanceStartPosition(int)">advanceStartPosition</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#advanceStartPosition(org.apache.lucene.search.spans.Spans,%20int)">advanceStartPosition</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#getSpan()">getSpan</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_nl.inl.blacklab.search.lucene.SpansAbstract">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.lucene.<a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></h3>
+<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#cost()">cost</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.spans.Spans">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.lucene.search.spans.Spans</h3>
+<code>asTwoPhaseIterator</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.DocIdSetIterator">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.lucene.search.DocIdSetIterator</h3>
+<code>all, empty, slowAdvance</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -336,91 +380,43 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="doc()">
+<a name="docID()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>doc</h4>
-<pre>public&nbsp;int&nbsp;doc()</pre>
+<h4>docID</h4>
+<pre>public&nbsp;int&nbsp;docID()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#doc()">doc</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#docID()">docID</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="start()">
+<a name="startPosition()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>start</h4>
-<pre>public&nbsp;int&nbsp;start()</pre>
+<h4>startPosition</h4>
+<pre>public&nbsp;int&nbsp;startPosition()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#start()">start</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#startPosition()">startPosition</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="end()">
+<a name="endPosition()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>end</h4>
-<pre>public&nbsp;int&nbsp;end()</pre>
+<h4>endPosition</h4>
+<pre>public&nbsp;int&nbsp;endPosition()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#end()">end</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#endPosition()">endPosition</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
 </dl>
-</li>
-</ul>
-<a name="getHit()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getHit</h4>
-<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&nbsp;getHit()</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#getHit()">BLSpans</a></code></strong></div>
-<div class="block">Makes a new Hit object from the document id, start and end positions.
-
- Subclasses that already have a Hit object available should override this and return the
- existing Hit object, to avoid excessive Hit instantiations.     *</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#getHit()">getHit</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" title="class in nl.inl.blacklab.search.lucene">BLSpans</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>the Hit object for the current hit</dd></dl>
-</li>
-</ul>
-<a name="next()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>next</h4>
-<pre>public&nbsp;boolean&nbsp;next()
-             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#next()">next</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
-</li>
-</ul>
-<a name="skipTo(int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>skipTo</h4>
-<pre>public&nbsp;boolean&nbsp;skipTo(int&nbsp;target)
-               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#skipTo(int)">skipTo</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="getPayload()">
@@ -449,6 +445,69 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 </dl>
 </li>
 </ul>
+<a name="getHit()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHit</h4>
+<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&nbsp;getHit()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#getHit()">BLSpans</a></code></strong></div>
+<div class="block">Makes a new Hit object from the document id, start and end positions.
+
+ Subclasses that already have a Hit object available should override this and return the
+ existing Hit object, to avoid excessive Hit instantiations.     *</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#getHit()">getHit</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" title="class in nl.inl.blacklab.search.lucene">BLSpans</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the Hit object for the current hit</dd></dl>
+</li>
+</ul>
+<a name="nextDoc()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nextDoc</h4>
+<pre>public&nbsp;int&nbsp;nextDoc()
+            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#nextDoc()">nextDoc</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="nextStartPosition()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nextStartPosition</h4>
+<pre>public&nbsp;int&nbsp;nextStartPosition()
+                      throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#nextStartPosition()">nextStartPosition</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="advance(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>advance</h4>
+<pre>public&nbsp;int&nbsp;advance(int&nbsp;target)
+            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html#advance(int)">advance</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/SpansAbstract.html" title="class in nl.inl.blacklab.search.lucene">SpansAbstract</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
 <a name="toString()">
 <!--   -->
 </a>
@@ -458,7 +517,7 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString()</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.Spans</code></dd>
 </dl>
 </li>
 </ul>
@@ -668,6 +727,6 @@ extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" titl
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

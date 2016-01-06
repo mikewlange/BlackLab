@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>TextPatternSequence (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TextPatternSequence (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="TextPatternSequence (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="TextPatternSequence (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -61,7 +61,7 @@
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.TextPatternCombiner">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.TextPatternAndNot">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
@@ -89,15 +89,10 @@
 <li><a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPattern</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternCombiner</a></li>
-<li>
-<ul class="inheritance">
-<li><a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternAnd</a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">nl.inl.blacklab.search.TextPatternAndNot</a></li>
 <li>
 <ul class="inheritance">
 <li>nl.inl.blacklab.search.sequences.TextPatternSequence</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -115,7 +110,7 @@
 <hr>
 <br>
 <pre>public class <span class="strong">TextPatternSequence</span>
-extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search">TextPatternAnd</a></pre>
+extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></pre>
 <div class="block">A sequence of patterns. The patterns specified may be any pattern, and may themselves be
  sequences if desired.</div>
 </li>
@@ -131,11 +126,11 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 </a>
 <h3>Field Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="fields_inherited_from_class_nl.inl.blacklab.search.TextPatternCombiner">
+<li class="blockList"><a name="fields_inherited_from_class_nl.inl.blacklab.search.TextPatternAndNot">
 <!--   -->
 </a>
-<h3>Fields inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html" title="class in nl.inl.blacklab.search">TextPatternCombiner</a></h3>
-<code><a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html#clauses">clauses</a></code></li>
+<h3>Fields inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></h3>
+<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#exclude">exclude</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#include">include</a></code></li>
 </ul>
 </li>
 </ul>
@@ -169,12 +164,28 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#equals(java.lang.Object)">equals</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#getMaxLength()">getMaxLength</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#getMinLength()">getMinLength</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#hasConstantLength()">hasConstantLength</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#makeAlternatives(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List,%20java.util.List)">makeAlternatives</a></strong>(<a href="../../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
                 <a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;chResults,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;matchesEmptySeq)</code>
-<div class="block">Given translated clauses, builds several alternatives and combines them with OR.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -187,16 +198,21 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#rewrite()">rewrite</a></strong>()</code>
-<div class="block">Rewrites the query by calling rewrite() on its children and, if any of its
- children are rewritten, cloning this with the rewritten children.</div>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#noEmpty()">noEmpty</a></strong>()</code>
+<div class="block">Return a version of this clause that cannot match the empty sequence.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#toString()">toString</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#rewrite()">rewrite</a></strong>()</code>
+<div class="block">Rewrite the TextPattern before translation.</div>
+</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#toString(nl.inl.blacklab.search.QueryExecutionContext)">toString</a></strong>(<a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">translate</a></strong>(<a href="../../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
          <a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
@@ -205,25 +221,25 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_nl.inl.blacklab.search.TextPatternCombiner">
+<li class="blockList"><a name="methods_inherited_from_class_nl.inl.blacklab.search.TextPatternAndNot">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html" title="class in nl.inl.blacklab.search">TextPatternCombiner</a></h3>
-<code><a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html#addClause(nl.inl.blacklab.search.TextPattern)">addClause</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html#clone()">clone</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html#numberOfClauses()">numberOfClauses</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html#replaceClause(nl.inl.blacklab.search.TextPattern,%20nl.inl.blacklab.search.TextPattern...)">replaceClause</a></code></li>
+<h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></h3>
+<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#clone()">clone</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#hashCode()">hashCode</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#inverted()">inverted</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#isSingleTokenNot()">isSingleTokenNot</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#okayToInvertForOptimization()">okayToInvertForOptimization</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#replaceClause(nl.inl.blacklab.search.TextPattern,%20nl.inl.blacklab.search.TextPattern...)">replaceClause</a>, <a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#replaceClauseNot(nl.inl.blacklab.search.TextPattern,%20nl.inl.blacklab.search.TextPattern...)">replaceClauseNot</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_nl.inl.blacklab.search.TextPattern">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></h3>
-<code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html#inverted()">inverted</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher)">toString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher,%20java.lang.String)">toString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString(java.lang.String)">toString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator)">translate</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.Searcher)">translate</a></code></li>
+<code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List,%20nl.inl.blacklab.search.QueryExecutionContext)">clausesToString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#combineWithPrecedingPart(nl.inl.blacklab.search.TextPattern)">combineWithPrecedingPart</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#producesSingleTokens()">producesSingleTokens</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString()">toString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher)">toString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher,%20java.lang.String)">toString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString(java.lang.String)">toString</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator)">translate</a>, <a href="../../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.Searcher)">translate</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -270,7 +286,7 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
  For example, TextPatternTranslatorSpanQuery translates it into Lucene SpanQuerys.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">translate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search">TextPatternAnd</a></code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">translate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></code></dd>
 <dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - type of object to translate to</dd><dt><span class="strong">Parameters:</span></dt><dd><code>translator</code> - the translator to use</dd><dd><code>context</code> - query execution context to use</dd>
 <dt><span class="strong">Returns:</span></dt><dd>result of the translation</dd></dl>
 </li>
@@ -281,10 +297,12 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 <ul class="blockList">
 <li class="blockList">
 <h4>makeAlternatives</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;makeAlternatives(<a href="../../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
-                     <a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-                     <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;chResults,
-                     <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;matchesEmptySeq)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;&lt;T&gt;&nbsp;T&nbsp;makeAlternatives(<a href="../../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
+                                <a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+                                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;chResults,
+                                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&gt;&nbsp;matchesEmptySeq)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Given translated clauses, builds several alternatives and combines them with OR.
 
  This is necessary because of how sequence matching works: first the hits in each
@@ -293,19 +311,6 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
  matches because there's no hit in the clause to combine with the hits from other clauses.</div>
 <dl><dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - type to translate to</dd><dt><span class="strong">Parameters:</span></dt><dd><code>translator</code> - translator</dd><dd><code>context</code> - the query execution context</dd><dd><code>chResults</code> - translation results for each of the clauses so far</dd><dd><code>matchesEmptySeq</code> - whether each of the clauses matches the empty sequence</dd>
 <dt><span class="strong">Returns:</span></dt><dd>several alternatives combined with or</dd></dl>
-</li>
-</ul>
-<a name="toString()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toString</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString()</pre>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-</dl>
 </li>
 </ul>
 <a name="matchesEmptySequence()">
@@ -335,20 +340,103 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 <dt><span class="strong">Returns:</span></dt><dd>true if this pattern matches the empty sequence, false otherwise</dd></dl>
 </li>
 </ul>
+<a name="noEmpty()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>noEmpty</h4>
+<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;noEmpty()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html#noEmpty()">TextPattern</a></code></strong></div>
+<div class="block">Return a version of this clause that cannot match the empty sequence.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html#noEmpty()">noEmpty</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>a version that doesn't match the empty sequence</dd></dl>
+</li>
+</ul>
 <a name="rewrite()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rewrite</h4>
+<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;rewrite()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPattern.html#rewrite()">TextPattern</a></code></strong></div>
+<div class="block">Rewrite the TextPattern before translation.
+
+ This changes the structure of certain queries so they can be executed
+ more efficiently.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#rewrite()">rewrite</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>either the original TextPattern (if no rewriting was necessary),
+ or the rewritten TextPattern</dd></dl>
+</li>
+</ul>
+<a name="equals(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>equals</h4>
+<pre>public&nbsp;boolean&nbsp;equals(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="hasConstantLength()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasConstantLength</h4>
+<pre>public&nbsp;boolean&nbsp;hasConstantLength()</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#hasConstantLength()">hasConstantLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getMinLength()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMinLength</h4>
+<pre>public&nbsp;int&nbsp;getMinLength()</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#getMinLength()">getMinLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getMaxLength()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMaxLength</h4>
+<pre>public&nbsp;int&nbsp;getMaxLength()</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#getMaxLength()">getMaxLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="toString(nl.inl.blacklab.search.QueryExecutionContext)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>rewrite</h4>
-<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;rewrite()</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html#rewrite()">TextPatternCombiner</a></code></strong></div>
-<div class="block">Rewrites the query by calling rewrite() on its children and, if any of its
- children are rewritten, cloning this with the rewritten children.</div>
+<h4>toString</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString(<a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html#rewrite()">rewrite</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternCombiner.html" title="class in nl.inl.blacklab.search">TextPatternCombiner</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>the rewritten query (or, if no rewriting was necessary, this)</dd></dl>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html#toString(nl.inl.blacklab.search.QueryExecutionContext)">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/TextPatternAndNot.html" title="class in nl.inl.blacklab.search">TextPatternAndNot</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -403,7 +491,7 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.TextPatternCombiner">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.TextPatternAndNot">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
@@ -418,6 +506,6 @@ extends <a href="../../../../../nl/inl/blacklab/search/TextPatternAnd.html" titl
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

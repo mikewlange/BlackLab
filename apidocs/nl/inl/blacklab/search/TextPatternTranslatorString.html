@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>TextPatternTranslatorString (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TextPatternTranslatorString (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="TextPatternTranslatorString (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="TextPatternTranslatorString (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -99,8 +99,12 @@
 <ul class="blockList">
 <li class="blockList">
 <hr>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>use TextPattern.toString()</i></div>
+</div>
 <br>
-<pre>public class <span class="strong">TextPatternTranslatorString</span>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public class <span class="strong">TextPatternTranslatorString</span>
 extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</pre>
 <div class="block">Translates a TextPattern to a String, for debugging and testing purposes.</div>
 </li>
@@ -121,7 +125,9 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#TextPatternTranslatorString()">TextPatternTranslatorString</a></strong>()</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#TextPatternTranslatorString()">TextPatternTranslatorString</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -142,50 +148,65 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#and(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">and</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
    <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Token-level AND.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#any(nl.inl.blacklab.search.QueryExecutionContext)">any</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
-<div class="block">Any token in field.</div>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#andNot(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.lang.String)">andNot</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;include,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exclude)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+<div class="block">Token-level AND NOT.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#captureGroup(java.lang.String,%20java.lang.String)">captureGroup</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
-            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Mark a clause as a captured group</div>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#any(nl.inl.blacklab.search.QueryExecutionContext,%20int,%20int)">any</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+   int&nbsp;min,
+   int&nbsp;max)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+<div class="block">All N-grams.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#containing(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.lang.String)">containing</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;containers,
-          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;search)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#captureGroup(java.lang.String,%20java.lang.String)">captureGroup</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
+            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+<div class="block">Mark a clause as a captured group</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#docLevelAnd(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">docLevelAnd</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-           <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</code>&nbsp;</td>
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#docLevelAndNot(java.lang.String,%20java.lang.String)">docLevelAndNot</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;include,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exclude)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Inclusion/exclusion.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#edge(java.lang.String,%20boolean)">edge</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
-    boolean&nbsp;rightEdge)</code>&nbsp;</td>
+    boolean&nbsp;rightEdge)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#endsAt(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.lang.String)">endsAt</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;producer,
-      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter)</code>&nbsp;</td>
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -194,39 +215,69 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
       boolean&nbsp;expandToLeft,
       int&nbsp;min,
       int&nbsp;max)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Expand the given clause by a number of tokens, either to the left or to the right.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#fuzzy(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20int,%20int)">fuzzy</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
-     int&nbsp;maxEdits,
-     int&nbsp;prefixLength)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#filterNGrams(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20nl.inl.blacklab.search.TextPatternPositionFilter.Operation,%20int,%20int)">filterNGrams</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
+            <a href="../../../../nl/inl/blacklab/search/TextPatternPositionFilter.Operation.html" title="enum in nl.inl.blacklab.search">TextPatternPositionFilter.Operation</a>&nbsp;op,
+            int&nbsp;min,
+            int&nbsp;max)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#fuzzy(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20int,%20int)">fuzzy</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+     int&nbsp;maxEdits,
+     int&nbsp;prefixLength)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#not(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">not</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Token-level NOT.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#or(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">or</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+  <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+<div class="block">Token-level OR.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#or(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">or</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-  <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</code>
-<div class="block">Token-level OR.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#positionFilter(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.lang.String,%20nl.inl.blacklab.search.TextPatternPositionFilter.Operation,%20boolean,%20int,%20int)">positionFilter</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;producer,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter,
+              <a href="../../../../nl/inl/blacklab/search/TextPatternPositionFilter.Operation.html" title="enum in nl.inl.blacklab.search">TextPatternPositionFilter.Operation</a>&nbsp;op,
+              boolean&nbsp;invert,
+              int&nbsp;leftAdjust,
+              int&nbsp;rightAdjust)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#prefix(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">prefix</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>&nbsp;</td>
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#regex(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">regex</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">A regular expression query</div>
 </td>
 </tr>
@@ -235,6 +286,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#repetition(java.lang.String,%20int,%20int)">repetition</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
           int&nbsp;min,
           int&nbsp;max)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Repetition of a clause.</div>
 </td>
 </tr>
@@ -242,6 +294,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#sequence(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">sequence</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Sequence query.</div>
 </td>
 </tr>
@@ -249,31 +302,32 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#startsAt(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.lang.String)">startsAt</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;producer,
-        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter)</code>&nbsp;</td>
+        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#tags(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.util.Map)">tags</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;elementName,
-    <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;attr)</code>&nbsp;</td>
+    <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;attr)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#term(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">term</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">A simple field/value query</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#wildcard(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">wildcard</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html#within(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.lang.String)">within</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;search,
-      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;containers)</code>&nbsp;</td>
+        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -311,6 +365,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <li class="blockList">
 <h4>TextPatternTranslatorString</h4>
 <pre>public&nbsp;TextPatternTranslatorString()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -329,12 +384,32 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>and</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;and(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#and(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Token-level AND.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#and(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">and</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - the current query execution context</dd><dd><code>clauses</code> - the clauses to combine using AND</dd>
+<dt><span class="strong">Returns:</span></dt><dd>result of the query execution</dd></dl>
+</li>
+</ul>
+<a name="andNot(nl.inl.blacklab.search.QueryExecutionContext, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>andNot</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;andNot(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;include,
+            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exclude)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#andNot(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20T)">TextPatternTranslator</a></code></strong></div>
+<div class="block">Token-level AND NOT.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#andNot(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20T)">andNot</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - the current query execution context</dd><dd><code>include</code> - the clauses to combine using AND (must have at least 1)</dd><dd><code>exclude</code> - the clauses to combine using AND NOT</dd>
 <dt><span class="strong">Returns:</span></dt><dd>result of the query execution</dd></dl>
 </li>
 </ul>
@@ -346,6 +421,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>or</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;or(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#or(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Token-level OR.</div>
 <dl>
@@ -363,6 +439,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>regex</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;regex(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#regex(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">TextPatternTranslator</a></code></strong></div>
 <div class="block">A regular expression query</div>
 <dl>
@@ -380,6 +457,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>sequence</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sequence(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#sequence(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Sequence query.</div>
 <dl>
@@ -397,6 +475,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>docLevelAnd</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;docLevelAnd(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;clauses)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#docLevelAnd(nl.inl.blacklab.search.QueryExecutionContext,%20java.util.List)">docLevelAnd</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
@@ -413,6 +492,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
            int&nbsp;maxEdits,
            int&nbsp;prefixLength)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#fuzzy(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20int,%20int)">fuzzy</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
@@ -428,39 +508,30 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tags(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;elementName,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;attr)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#tags(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String,%20java.util.Map)">tags</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
-<a name="containing(nl.inl.blacklab.search.QueryExecutionContext, java.lang.String, java.lang.String)">
+<a name="positionFilter(nl.inl.blacklab.search.QueryExecutionContext, java.lang.String, java.lang.String, nl.inl.blacklab.search.TextPatternPositionFilter.Operation, boolean, int, int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>containing</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;containing(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;containers,
-                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;search)</pre>
+<h4>positionFilter</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;positionFilter(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;producer,
+                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter,
+                    <a href="../../../../nl/inl/blacklab/search/TextPatternPositionFilter.Operation.html" title="enum in nl.inl.blacklab.search">TextPatternPositionFilter.Operation</a>&nbsp;op,
+                    boolean&nbsp;invert,
+                    int&nbsp;leftAdjust,
+                    int&nbsp;rightAdjust)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#containing(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20T)">containing</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
-</dl>
-</li>
-</ul>
-<a name="within(nl.inl.blacklab.search.QueryExecutionContext, java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>within</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;within(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
-            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;search,
-            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;containers)</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#within(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20T)">within</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
+<dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#positionFilter(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20T,%20nl.inl.blacklab.search.TextPatternPositionFilter.Operation,%20boolean,%20int,%20int)">positionFilter</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -473,6 +544,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;startsAt(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;producer,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#startsAt(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20T)">startsAt</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
@@ -488,6 +560,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endsAt(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;producer,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filter)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#endsAt(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20T)">endsAt</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
@@ -502,6 +575,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>term</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;term(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#term(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">TextPatternTranslator</a></code></strong></div>
 <div class="block">A simple field/value query</div>
 <dl>
@@ -522,6 +596,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
             boolean&nbsp;expandToLeft,
             int&nbsp;min,
             int&nbsp;max)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#expand(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20boolean,%20int,%20int)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Expand the given clause by a number of tokens, either to the left or to the right.
 
@@ -533,6 +608,24 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <dt><span class="strong">Returns:</span></dt><dd>the resulting clause</dd></dl>
 </li>
 </ul>
+<a name="filterNGrams(nl.inl.blacklab.search.QueryExecutionContext, java.lang.String, nl.inl.blacklab.search.TextPatternPositionFilter.Operation, int, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filterNGrams</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filterNGrams(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
+                  <a href="../../../../nl/inl/blacklab/search/TextPatternPositionFilter.Operation.html" title="enum in nl.inl.blacklab.search">TextPatternPositionFilter.Operation</a>&nbsp;op,
+                  int&nbsp;min,
+                  int&nbsp;max)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#filterNGrams(nl.inl.blacklab.search.QueryExecutionContext,%20T,%20nl.inl.blacklab.search.TextPatternPositionFilter.Operation,%20int,%20int)">filterNGrams</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
 <a name="repetition(java.lang.String, int, int)">
 <!--   -->
 </a>
@@ -542,6 +635,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;repetition(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
                 int&nbsp;min,
                 int&nbsp;max)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#repetition(T,%20int,%20int)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Repetition of a clause.</div>
 <dl>
@@ -559,6 +653,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>docLevelAndNot</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;docLevelAndNot(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;include,
                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exclude)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#docLevelAndNot(T,%20T)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Inclusion/exclusion.</div>
 <dl>
@@ -576,6 +671,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>wildcard</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wildcard(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#wildcard(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">wildcard</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
@@ -590,6 +686,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>prefix</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#prefix(nl.inl.blacklab.search.QueryExecutionContext,%20java.lang.String)">prefix</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
@@ -604,6 +701,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>not</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;not(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#not(nl.inl.blacklab.search.QueryExecutionContext,%20T)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Token-level NOT.</div>
 <dl>
@@ -613,19 +711,22 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <dt><span class="strong">Returns:</span></dt><dd>result of the query execution</dd></dl>
 </li>
 </ul>
-<a name="any(nl.inl.blacklab.search.QueryExecutionContext)">
+<a name="any(nl.inl.blacklab.search.QueryExecutionContext, int, int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>any</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;any(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#any(nl.inl.blacklab.search.QueryExecutionContext)">TextPatternTranslator</a></code></strong></div>
-<div class="block">Any token in field.</div>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;any(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context,
+         int&nbsp;min,
+         int&nbsp;max)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#any(nl.inl.blacklab.search.QueryExecutionContext,%20int,%20int)">TextPatternTranslator</a></code></strong></div>
+<div class="block">All N-grams.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#any(nl.inl.blacklab.search.QueryExecutionContext)">any</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - the current query translation context</dd>
+<dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#any(nl.inl.blacklab.search.QueryExecutionContext,%20int,%20int)">any</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - the current query translation context</dd><dd><code>min</code> - minimum length</dd><dd><code>max</code> - maximum length</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the resulting any-token clause</dd></dl>
 </li>
 </ul>
@@ -637,6 +738,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>edge</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;edge(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
           boolean&nbsp;rightEdge)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#edge(T,%20boolean)">edge</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></dd>
@@ -651,6 +753,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <h4>captureGroup</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;captureGroup(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clause,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html#captureGroup(T,%20java.lang.String)">TextPatternTranslator</a></code></strong></div>
 <div class="block">Mark a clause as a captured group</div>
 <dl>
@@ -727,6 +830,6 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" 
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

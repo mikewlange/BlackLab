@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>SpansInBucketsPerDocumentSorted (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SpansInBucketsPerDocumentSorted (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SpansInBucketsPerDocumentSorted (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="SpansInBucketsPerDocumentSorted (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -154,16 +154,17 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#currentDoc">currentDoc</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#more">more</a></strong></code>
-<div class="block">Does the source Spans have more hits?</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>protected org.apache.lucene.search.spans.Spans</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#source">source</a></strong></code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_nl.inl.blacklab.search.sequences.SpansInBuckets">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;nl.inl.blacklab.search.sequences.<a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></h3>
+<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#ARRAYLIST_REALLOC_THRESHOLD">ARRAYLIST_REALLOC_THRESHOLD</a>, <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#NO_MORE_BUCKETS">NO_MORE_BUCKETS</a></code></li>
+</ul>
 </li>
 </ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -202,39 +203,59 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#bucketSize()">bucketSize</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#advance(int)">advance</a></strong>(int&nbsp;target)</code>
+<div class="block">Skip to specified document id.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#doc()">doc</a></strong>()</code>
-<div class="block">Document id of current bucket</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#bucketSize()">bucketSize</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#end(int)">end</a></strong>(int&nbsp;indexInBucket)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#docID()">docID</a></strong>()</code>
+<div class="block">Document id of current bucket</div>
+</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#endPosition(int)">endPosition</a></strong>(int&nbsp;indexInBucket)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#gatherHits()">gatherHits</a></strong>()</code>
 <div class="block">Subclasses should override this to gather the hits they wish to put in the next bucket.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#getCapturedGroups(int,%20nl.inl.blacklab.search.Span[])">getCapturedGroups</a></strong>(int&nbsp;indexInBucket,
                  <a href="../../../../../nl/inl/blacklab/search/Span.html" title="class in nl.inl.blacklab.search">Span</a>[]&nbsp;capturedGroups)</code>
 <div class="block">Get the captured groups information for the current hit.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#getHit(int)">getHit</a></strong>(int&nbsp;indexInBucket)</code>&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;byte[]&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#getPayload(int)">getPayload</a></strong>(int&nbsp;indexInBucket)</code>&nbsp;</td>
+</tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#next()">next</a></strong>()</code>
-<div class="block">Go to the next bucket.</div>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#isPayloadAvailable(int)">isPayloadAvailable</a></strong>(int&nbsp;indexInBucket)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#nextBucket()">nextBucket</a></strong>()</code>
+<div class="block">Go to the next bucket in this doc.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#nextDoc()">nextDoc</a></strong>()</code>
+<div class="block">Go to the next document.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -244,20 +265,14 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#skipTo(int)">skipTo</a></strong>(int&nbsp;target)</code>
-<div class="block">Skip to specified document id.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#sortHits(java.util.Comparator)">sortHits</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;&nbsp;hitComparator)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#start(int)">start</a></strong>(int&nbsp;indexInBucket)</code>&nbsp;</td>
-</tr>
 <tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#startPosition(int)">startPosition</a></strong>(int&nbsp;indexInBucket)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocumentSorted.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -299,16 +314,6 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 <li class="blockList">
 <h4>currentDoc</h4>
 <pre>protected&nbsp;int currentDoc</pre>
-</li>
-</ul>
-<a name="more">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>more</h4>
-<pre>protected&nbsp;boolean more</pre>
-<div class="block">Does the source Spans have more hits?</div>
 </li>
 </ul>
 <a name="clauseCapturesGroups">
@@ -355,7 +360,11 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 <h4>gatherHits</h4>
 <pre>protected&nbsp;void&nbsp;gatherHits()
                    throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Subclasses should override this to gather the hits they wish to put in the next bucket.</div>
+<div class="block">Subclasses should override this to gather the hits they wish to put in the next bucket.
+
+ Upon entering this method, the source spans is at the last unused hit (or the first hit in a
+ new document). At the end, it should be at the first hit that doesn't fit in the bucket (or
+ beyond the last hit, i.e. Spans.NO_MORE_POSITIONS).</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocument.html#gatherHits()">gatherHits</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsPerDocument.html" title="class in nl.inl.blacklab.search.sequences">SpansInBucketsPerDocument</a></code></dd>
@@ -394,29 +403,29 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 </dl>
 </li>
 </ul>
-<a name="start(int)">
+<a name="startPosition(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>start</h4>
-<pre>public&nbsp;int&nbsp;start(int&nbsp;indexInBucket)</pre>
+<h4>startPosition</h4>
+<pre>public&nbsp;int&nbsp;startPosition(int&nbsp;indexInBucket)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#start(int)">start</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#startPosition(int)">startPosition</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="end(int)">
+<a name="endPosition(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>end</h4>
-<pre>public&nbsp;int&nbsp;end(int&nbsp;indexInBucket)</pre>
+<h4>endPosition</h4>
+<pre>public&nbsp;int&nbsp;endPosition(int&nbsp;indexInBucket)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#end(int)">end</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#endPosition(int)">endPosition</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -433,56 +442,103 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 </dl>
 </li>
 </ul>
-<a name="next()">
+<a name="getPayload(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>next</h4>
-<pre>public&nbsp;boolean&nbsp;next()
-             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#next()">SpansInBuckets</a></code></strong></div>
-<div class="block">Go to the next bucket.</div>
+<h4>getPayload</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;byte[]&gt;&nbsp;getPayload(int&nbsp;indexInBucket)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#next()">next</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if we're at the next valid group, false if we're done</dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#getPayload(int)">getPayload</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="isPayloadAvailable(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isPayloadAvailable</h4>
+<pre>public&nbsp;boolean&nbsp;isPayloadAvailable(int&nbsp;indexInBucket)</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#isPayloadAvailable(int)">isPayloadAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="nextDoc()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nextDoc</h4>
+<pre>public&nbsp;int&nbsp;nextDoc()
+            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#nextDoc()">SpansInBuckets</a></code></strong></div>
+<div class="block">Go to the next document.
+
+ You still have to call nextBucket() to get to the first valid bucket.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#nextDoc()">nextDoc</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>docID if we're at the next valid doc, NO_MORE_DOCS if we're done</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="skipTo(int)">
+<a name="nextBucket()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>skipTo</h4>
-<pre>public&nbsp;boolean&nbsp;skipTo(int&nbsp;target)
+<h4>nextBucket</h4>
+<pre>public&nbsp;int&nbsp;nextBucket()
                throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#skipTo(int)">SpansInBuckets</a></code></strong></div>
-<div class="block">Skip to specified document id. NOTE: if we're already at the target document, don't advance.
- This differs from how Spans.skipTo() is defined, which always advances at least one hit.</div>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#nextBucket()">SpansInBuckets</a></code></strong></div>
+<div class="block">Go to the next bucket in this doc.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#skipTo(int)">skipTo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>target</code> - document id to skip to</dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if we're at a valid group, false if we're done</dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#nextBucket()">nextBucket</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>docID if we're at the next valid bucket, NO_MORE_BUCKETS if we're done</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="doc()">
+<a name="advance(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>doc</h4>
-<pre>public&nbsp;int&nbsp;doc()</pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#doc()">SpansInBuckets</a></code></strong></div>
+<h4>advance</h4>
+<pre>public&nbsp;int&nbsp;advance(int&nbsp;target)
+            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#advance(int)">SpansInBuckets</a></code></strong></div>
+<div class="block">Skip to specified document id.
+
+ If we're already at the target id, go to the next document (just like Spans).</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#advance(int)">advance</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>target</code> - document id to skip to</dd>
+<dt><span class="strong">Returns:</span></dt><dd>docID if we're at a valid document, NO_MORE_DOCS if we're done</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="docID()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>docID</h4>
+<pre>public&nbsp;int&nbsp;docID()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#docID()">SpansInBuckets</a></code></strong></div>
 <div class="block">Document id of current bucket</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#doc()">doc</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#docID()">docID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html" title="interface in nl.inl.blacklab.search.sequences">SpansInBuckets</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>Document id of current bucket</dd></dl>
 </li>
 </ul>
@@ -597,6 +653,6 @@ extends <a href="../../../../../nl/inl/blacklab/search/sequences/SpansInBucketsP
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

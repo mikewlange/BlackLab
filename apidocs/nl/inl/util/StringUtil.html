@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>StringUtil (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>StringUtil (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="StringUtil (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="StringUtil (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -367,12 +367,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../nl/inl/util/StringUtil.html#ordinal(int)">ordinal</a></strong>(int&nbsp;docNumber)</code>
+<div class="block">For a number n, return a string like "nth".</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../nl/inl/util/StringUtil.html#pluralize(java.lang.String,%20long)">pluralize</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;singular,
          long&nbsp;number)</code>
 <div class="block">Return the singular or the plural form of a noun depending on a number.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../nl/inl/util/StringUtil.html#pluralize(java.lang.String,%20java.lang.String,%20long)">pluralize</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;singular,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;plural,
@@ -380,18 +386,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Return the singular or the plural form of a noun depending on a number.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../nl/inl/util/StringUtil.html#removeAccents(java.lang.String)">removeAccents</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;input)</code>
 <div class="block">Convert accented letters to their unaccented counterparts.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../nl/inl/util/StringUtil.html#removeApostrophes(java.lang.String)">removeApostrophes</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>was used for sorting; should be done with Collator instead.</i></div>
-</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -801,20 +799,6 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="strong">Returns:</span></dt><dd>the result</dd></dl>
 </li>
 </ul>
-<a name="removeApostrophes(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeApostrophes</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;removeApostrophes(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>was used for sorting; should be done with Collator instead.</i></div>
-<div class="block">Removes apostrophes from a string</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>str</code> - the input string</dd>
-<dt><span class="strong">Returns:</span></dt><dd>the string with apostrophes removed.</dd></dl>
-</li>
-</ul>
 <a name="removeTags(java.lang.String)">
 <!--   -->
 </a>
@@ -1024,7 +1008,7 @@ public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/S
 <a name="camelCaseToDisplayable(java.lang.String, boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>camelCaseToDisplayable</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;camelCaseToDisplayable(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;camelCaseString,
@@ -1037,6 +1021,20 @@ public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/S
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>camelCaseString</code> - a string in camel case, i.e. multiple capitalized
    words glued together.</dd><dd><code>dashesToSpaces</code> - if true, also converts dashes to spaces</dd>
 <dt><span class="strong">Returns:</span></dt><dd>a human-readable version of the input string</dd></dl>
+</li>
+</ul>
+<a name="ordinal(int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ordinal</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ordinal(int&nbsp;docNumber)</pre>
+<div class="block">For a number n, return a string like "nth".
+
+ So 1 returns "1st", 2 returns "2nd", and so on.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>docNumber</code> - number</dd>
+<dt><span class="strong">Returns:</span></dt><dd>ordinal for that number</dd></dl>
 </li>
 </ul>
 </li>
@@ -1106,6 +1104,6 @@ public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/S
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

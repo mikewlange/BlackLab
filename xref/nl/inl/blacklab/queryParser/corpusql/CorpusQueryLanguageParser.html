@@ -14,14 +14,14 @@
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPattern;
 <a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternAnd;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternContaining;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternEdge;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternNot;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternOr;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternProperty;
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternRegex;
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternTags;
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternWithin;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternEdge;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternNot;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternOr;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternPositionFilter;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternPositionFilter.Operation;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternProperty;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternRegex;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternTags;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.TextPatternCaptureGroup;
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.indexstructure.IndexStructure;
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.sequences.TextPatternAnyToken;
@@ -58,7 +58,7 @@
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>      <strong class="jxr_keyword">private</strong> String getStringBetweenQuotes(String input) <strong class="jxr_keyword">throws</strong> SingleQuotesException
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>      {
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">if</strong> (!allowSingleQuotes &amp;&amp; input.charAt(0) == '\u005c'')
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">if</strong> (!allowSingleQuotes &amp;&amp; input.charAt(0) == '\'')
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/SingleQuotesException.html">SingleQuotesException</a>();
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>          <strong class="jxr_keyword">return</strong> chopEnds(input);
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>      }
@@ -124,26 +124,26 @@
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/TextPattern.html">TextPattern</a> complexQuery() <strong class="jxr_keyword">throws</strong> ParseException {
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>     <a href="../../../../../nl/inl/blacklab/search/TextPattern.html">TextPattern</a> a = <strong class="jxr_keyword">null</strong>, b = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> op = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L119" href="#L119">119</a>     a = simpleQuery();
-<a class="jxr_linenumber" name="L120" href="#L120">120</a>     <strong class="jxr_keyword">switch</strong> ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-<a class="jxr_linenumber" name="L121" href="#L121">121</a>     <strong class="jxr_keyword">case</strong> WITHIN:
-<a class="jxr_linenumber" name="L122" href="#L122">122</a>     <strong class="jxr_keyword">case</strong> CONTAINING:
-<a class="jxr_linenumber" name="L123" href="#L123">123</a>       op = queryOperator();
-<a class="jxr_linenumber" name="L124" href="#L124">124</a>       b = complexQuery();
-<a class="jxr_linenumber" name="L125" href="#L125">125</a>       <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L126" href="#L126">126</a>     <strong class="jxr_keyword">default</strong>:
-<a class="jxr_linenumber" name="L127" href="#L127">127</a>       jj_la1[0] = jj_gen;
-<a class="jxr_linenumber" name="L128" href="#L128">128</a>       ;
-<a class="jxr_linenumber" name="L129" href="#L129">129</a>     }
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>         <strong class="jxr_keyword">if</strong> (op == <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L131" href="#L131">131</a>             {<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">true</strong>) <strong class="jxr_keyword">return</strong> a;}
-<a class="jxr_linenumber" name="L132" href="#L132">132</a>         <strong class="jxr_keyword">if</strong> (op.toString().equals(<span class="jxr_string">"within"</span>)) {
-<a class="jxr_linenumber" name="L133" href="#L133">133</a>             <em class="jxr_comment">// a within b</em>
-<a class="jxr_linenumber" name="L134" href="#L134">134</a>             {<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">true</strong>) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> TextPatternWithin(a, b);}
-<a class="jxr_linenumber" name="L135" href="#L135">135</a>         }
-<a class="jxr_linenumber" name="L136" href="#L136">136</a> 
-<a class="jxr_linenumber" name="L137" href="#L137">137</a>         <em class="jxr_comment">// a containing b</em>
-<a class="jxr_linenumber" name="L138" href="#L138">138</a>         {<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">true</strong>) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> TextPatternContaining(a, b);}
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>     <a href="../../../../../nl/inl/blacklab/search/TextPatternPositionFilter.html">Operation</a> oper = Operation.CONTAINING;
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>     a = simpleQuery();
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>     <strong class="jxr_keyword">switch</strong> ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>     <strong class="jxr_keyword">case</strong> WITHIN:
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>     <strong class="jxr_keyword">case</strong> CONTAINING:
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>       op = queryOperator();
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>       b = complexQuery();
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>       <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     <strong class="jxr_keyword">default</strong>:
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>       jj_la1[0] = jj_gen;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>       ;
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     }
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>         <strong class="jxr_keyword">if</strong> (op == <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>             {<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">true</strong>) <strong class="jxr_keyword">return</strong> a;}
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>         <strong class="jxr_keyword">if</strong> (op.toString().equals(<span class="jxr_string">"within"</span>)) {
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>             <em class="jxr_comment">// a within b</em>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>             oper = Operation.WITHIN;
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         }
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> 
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>         {<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">true</strong>) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> TextPatternPositionFilter(a, b, oper);}
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Error(<span class="jxr_string">"Missing return statement in function"</span>);
 <a class="jxr_linenumber" name="L140" href="#L140">140</a>   }
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> 
@@ -634,64 +634,64 @@
 <a class="jxr_linenumber" name="L626" href="#L626">626</a>     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Error(<span class="jxr_string">"Missing return statement in function"</span>);
 <a class="jxr_linenumber" name="L627" href="#L627">627</a>   }
 <a class="jxr_linenumber" name="L628" href="#L628">628</a> 
-<a class="jxr_linenumber" name="L629" href="#L629">629</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_1(<strong class="jxr_keyword">int</strong> xla) {
+<a class="jxr_linenumber" name="L629" href="#L629">629</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_1(<strong class="jxr_keyword">int</strong> xla) {
 <a class="jxr_linenumber" name="L630" href="#L630">630</a>     jj_la = xla; jj_lastpos = jj_scanpos = token;
 <a class="jxr_linenumber" name="L631" href="#L631">631</a>     <strong class="jxr_keyword">try</strong> { <strong class="jxr_keyword">return</strong> !jj_3_1(); }
 <a class="jxr_linenumber" name="L632" href="#L632">632</a>     <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>; }
 <a class="jxr_linenumber" name="L633" href="#L633">633</a>     <strong class="jxr_keyword">finally</strong> { jj_save(0, xla); }
 <a class="jxr_linenumber" name="L634" href="#L634">634</a>   }
 <a class="jxr_linenumber" name="L635" href="#L635">635</a> 
-<a class="jxr_linenumber" name="L636" href="#L636">636</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_2(<strong class="jxr_keyword">int</strong> xla) {
+<a class="jxr_linenumber" name="L636" href="#L636">636</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_2(<strong class="jxr_keyword">int</strong> xla) {
 <a class="jxr_linenumber" name="L637" href="#L637">637</a>     jj_la = xla; jj_lastpos = jj_scanpos = token;
 <a class="jxr_linenumber" name="L638" href="#L638">638</a>     <strong class="jxr_keyword">try</strong> { <strong class="jxr_keyword">return</strong> !jj_3_2(); }
 <a class="jxr_linenumber" name="L639" href="#L639">639</a>     <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>; }
 <a class="jxr_linenumber" name="L640" href="#L640">640</a>     <strong class="jxr_keyword">finally</strong> { jj_save(1, xla); }
 <a class="jxr_linenumber" name="L641" href="#L641">641</a>   }
 <a class="jxr_linenumber" name="L642" href="#L642">642</a> 
-<a class="jxr_linenumber" name="L643" href="#L643">643</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_3(<strong class="jxr_keyword">int</strong> xla) {
+<a class="jxr_linenumber" name="L643" href="#L643">643</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_3(<strong class="jxr_keyword">int</strong> xla) {
 <a class="jxr_linenumber" name="L644" href="#L644">644</a>     jj_la = xla; jj_lastpos = jj_scanpos = token;
 <a class="jxr_linenumber" name="L645" href="#L645">645</a>     <strong class="jxr_keyword">try</strong> { <strong class="jxr_keyword">return</strong> !jj_3_3(); }
 <a class="jxr_linenumber" name="L646" href="#L646">646</a>     <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>; }
 <a class="jxr_linenumber" name="L647" href="#L647">647</a>     <strong class="jxr_keyword">finally</strong> { jj_save(2, xla); }
 <a class="jxr_linenumber" name="L648" href="#L648">648</a>   }
 <a class="jxr_linenumber" name="L649" href="#L649">649</a> 
-<a class="jxr_linenumber" name="L650" href="#L650">650</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_4(<strong class="jxr_keyword">int</strong> xla) {
+<a class="jxr_linenumber" name="L650" href="#L650">650</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_4(<strong class="jxr_keyword">int</strong> xla) {
 <a class="jxr_linenumber" name="L651" href="#L651">651</a>     jj_la = xla; jj_lastpos = jj_scanpos = token;
 <a class="jxr_linenumber" name="L652" href="#L652">652</a>     <strong class="jxr_keyword">try</strong> { <strong class="jxr_keyword">return</strong> !jj_3_4(); }
 <a class="jxr_linenumber" name="L653" href="#L653">653</a>     <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>; }
 <a class="jxr_linenumber" name="L654" href="#L654">654</a>     <strong class="jxr_keyword">finally</strong> { jj_save(3, xla); }
 <a class="jxr_linenumber" name="L655" href="#L655">655</a>   }
 <a class="jxr_linenumber" name="L656" href="#L656">656</a> 
-<a class="jxr_linenumber" name="L657" href="#L657">657</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_5(<strong class="jxr_keyword">int</strong> xla) {
+<a class="jxr_linenumber" name="L657" href="#L657">657</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_5(<strong class="jxr_keyword">int</strong> xla) {
 <a class="jxr_linenumber" name="L658" href="#L658">658</a>     jj_la = xla; jj_lastpos = jj_scanpos = token;
 <a class="jxr_linenumber" name="L659" href="#L659">659</a>     <strong class="jxr_keyword">try</strong> { <strong class="jxr_keyword">return</strong> !jj_3_5(); }
 <a class="jxr_linenumber" name="L660" href="#L660">660</a>     <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>; }
 <a class="jxr_linenumber" name="L661" href="#L661">661</a>     <strong class="jxr_keyword">finally</strong> { jj_save(4, xla); }
 <a class="jxr_linenumber" name="L662" href="#L662">662</a>   }
 <a class="jxr_linenumber" name="L663" href="#L663">663</a> 
-<a class="jxr_linenumber" name="L664" href="#L664">664</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_6(<strong class="jxr_keyword">int</strong> xla) {
+<a class="jxr_linenumber" name="L664" href="#L664">664</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_2_6(<strong class="jxr_keyword">int</strong> xla) {
 <a class="jxr_linenumber" name="L665" href="#L665">665</a>     jj_la = xla; jj_lastpos = jj_scanpos = token;
 <a class="jxr_linenumber" name="L666" href="#L666">666</a>     <strong class="jxr_keyword">try</strong> { <strong class="jxr_keyword">return</strong> !jj_3_6(); }
 <a class="jxr_linenumber" name="L667" href="#L667">667</a>     <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>; }
 <a class="jxr_linenumber" name="L668" href="#L668">668</a>     <strong class="jxr_keyword">finally</strong> { jj_save(5, xla); }
 <a class="jxr_linenumber" name="L669" href="#L669">669</a>   }
 <a class="jxr_linenumber" name="L670" href="#L670">670</a> 
-<a class="jxr_linenumber" name="L671" href="#L671">671</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_3() {
+<a class="jxr_linenumber" name="L671" href="#L671">671</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_3() {
 <a class="jxr_linenumber" name="L672" href="#L672">672</a>     <strong class="jxr_keyword">if</strong> (jj_3R_3()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L673" href="#L673">673</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L674" href="#L674">674</a>   }
 <a class="jxr_linenumber" name="L675" href="#L675">675</a> 
-<a class="jxr_linenumber" name="L676" href="#L676">676</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_17() {
+<a class="jxr_linenumber" name="L676" href="#L676">676</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_17() {
 <a class="jxr_linenumber" name="L677" href="#L677">677</a>     <strong class="jxr_keyword">if</strong> (jj_3R_5()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L678" href="#L678">678</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L679" href="#L679">679</a>   }
 <a class="jxr_linenumber" name="L680" href="#L680">680</a> 
-<a class="jxr_linenumber" name="L681" href="#L681">681</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_1() {
+<a class="jxr_linenumber" name="L681" href="#L681">681</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_1() {
 <a class="jxr_linenumber" name="L682" href="#L682">682</a>     <strong class="jxr_keyword">if</strong> (jj_3R_2()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L683" href="#L683">683</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L684" href="#L684">684</a>   }
 <a class="jxr_linenumber" name="L685" href="#L685">685</a> 
-<a class="jxr_linenumber" name="L686" href="#L686">686</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_20() {
+<a class="jxr_linenumber" name="L686" href="#L686">686</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_20() {
 <a class="jxr_linenumber" name="L687" href="#L687">687</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L688" href="#L688">688</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L689" href="#L689">689</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(9)) {
@@ -702,7 +702,7 @@
 <a class="jxr_linenumber" name="L694" href="#L694">694</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L695" href="#L695">695</a>   }
 <a class="jxr_linenumber" name="L696" href="#L696">696</a> 
-<a class="jxr_linenumber" name="L697" href="#L697">697</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_18() {
+<a class="jxr_linenumber" name="L697" href="#L697">697</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_18() {
 <a class="jxr_linenumber" name="L698" href="#L698">698</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L699" href="#L699">699</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L700" href="#L700">700</a>     <strong class="jxr_keyword">if</strong> (jj_3R_20()) jj_scanpos = xsp;
@@ -719,7 +719,7 @@
 <a class="jxr_linenumber" name="L711" href="#L711">711</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L712" href="#L712">712</a>   }
 <a class="jxr_linenumber" name="L713" href="#L713">713</a> 
-<a class="jxr_linenumber" name="L714" href="#L714">714</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_7() {
+<a class="jxr_linenumber" name="L714" href="#L714">714</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_7() {
 <a class="jxr_linenumber" name="L715" href="#L715">715</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L716" href="#L716">716</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L717" href="#L717">717</a>     <strong class="jxr_keyword">if</strong> (jj_3_6()) {
@@ -729,14 +729,14 @@
 <a class="jxr_linenumber" name="L721" href="#L721">721</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L722" href="#L722">722</a>   }
 <a class="jxr_linenumber" name="L723" href="#L723">723</a> 
-<a class="jxr_linenumber" name="L724" href="#L724">724</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_6() {
+<a class="jxr_linenumber" name="L724" href="#L724">724</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_6() {
 <a class="jxr_linenumber" name="L725" href="#L725">725</a>     <strong class="jxr_keyword">if</strong> (jj_3R_5()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L726" href="#L726">726</a>     <strong class="jxr_keyword">if</strong> (jj_3R_6()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L727" href="#L727">727</a>     <strong class="jxr_keyword">if</strong> (jj_3R_7()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L728" href="#L728">728</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L729" href="#L729">729</a>   }
 <a class="jxr_linenumber" name="L730" href="#L730">730</a> 
-<a class="jxr_linenumber" name="L731" href="#L731">731</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_26() {
+<a class="jxr_linenumber" name="L731" href="#L731">731</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_26() {
 <a class="jxr_linenumber" name="L732" href="#L732">732</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(13)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L733" href="#L733">733</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L734" href="#L734">734</a>     xsp = jj_scanpos;
@@ -745,19 +745,19 @@
 <a class="jxr_linenumber" name="L737" href="#L737">737</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L738" href="#L738">738</a>   }
 <a class="jxr_linenumber" name="L739" href="#L739">739</a> 
-<a class="jxr_linenumber" name="L740" href="#L740">740</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_14() {
+<a class="jxr_linenumber" name="L740" href="#L740">740</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_14() {
 <a class="jxr_linenumber" name="L741" href="#L741">741</a>     <strong class="jxr_keyword">if</strong> (jj_3R_5()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L742" href="#L742">742</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L743" href="#L743">743</a>   }
 <a class="jxr_linenumber" name="L744" href="#L744">744</a> 
-<a class="jxr_linenumber" name="L745" href="#L745">745</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_13() {
+<a class="jxr_linenumber" name="L745" href="#L745">745</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_13() {
 <a class="jxr_linenumber" name="L746" href="#L746">746</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(NAME)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L747" href="#L747">747</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(32)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L748" href="#L748">748</a>     <strong class="jxr_keyword">if</strong> (jj_3R_5()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L749" href="#L749">749</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L750" href="#L750">750</a>   }
 <a class="jxr_linenumber" name="L751" href="#L751">751</a> 
-<a class="jxr_linenumber" name="L752" href="#L752">752</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_6() {
+<a class="jxr_linenumber" name="L752" href="#L752">752</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_6() {
 <a class="jxr_linenumber" name="L753" href="#L753">753</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L754" href="#L754">754</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L755" href="#L755">755</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(23)) {
@@ -770,7 +770,7 @@
 <a class="jxr_linenumber" name="L762" href="#L762">762</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L763" href="#L763">763</a>   }
 <a class="jxr_linenumber" name="L764" href="#L764">764</a> 
-<a class="jxr_linenumber" name="L765" href="#L765">765</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_4() {
+<a class="jxr_linenumber" name="L765" href="#L765">765</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_4() {
 <a class="jxr_linenumber" name="L766" href="#L766">766</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L767" href="#L767">767</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L768" href="#L768">768</a>     <strong class="jxr_keyword">if</strong> (jj_3_5()) {
@@ -783,20 +783,20 @@
 <a class="jxr_linenumber" name="L775" href="#L775">775</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L776" href="#L776">776</a>   }
 <a class="jxr_linenumber" name="L777" href="#L777">777</a> 
-<a class="jxr_linenumber" name="L778" href="#L778">778</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_5() {
+<a class="jxr_linenumber" name="L778" href="#L778">778</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_5() {
 <a class="jxr_linenumber" name="L779" href="#L779">779</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(NAME)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L780" href="#L780">780</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(16)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L781" href="#L781">781</a>     <strong class="jxr_keyword">if</strong> (jj_3R_5()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L782" href="#L782">782</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L783" href="#L783">783</a>   }
 <a class="jxr_linenumber" name="L784" href="#L784">784</a> 
-<a class="jxr_linenumber" name="L785" href="#L785">785</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_23() {
+<a class="jxr_linenumber" name="L785" href="#L785">785</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_23() {
 <a class="jxr_linenumber" name="L786" href="#L786">786</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(27)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L787" href="#L787">787</a>     <strong class="jxr_keyword">if</strong> (jj_3R_28()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L788" href="#L788">788</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L789" href="#L789">789</a>   }
 <a class="jxr_linenumber" name="L790" href="#L790">790</a> 
-<a class="jxr_linenumber" name="L791" href="#L791">791</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_8() {
+<a class="jxr_linenumber" name="L791" href="#L791">791</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_8() {
 <a class="jxr_linenumber" name="L792" href="#L792">792</a>     <strong class="jxr_keyword">if</strong> (jj_3R_18()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L793" href="#L793">793</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L794" href="#L794">794</a>     xsp = jj_scanpos;
@@ -804,17 +804,17 @@
 <a class="jxr_linenumber" name="L796" href="#L796">796</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L797" href="#L797">797</a>   }
 <a class="jxr_linenumber" name="L798" href="#L798">798</a> 
-<a class="jxr_linenumber" name="L799" href="#L799">799</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_37() {
+<a class="jxr_linenumber" name="L799" href="#L799">799</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_37() {
 <a class="jxr_linenumber" name="L800" href="#L800">800</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(31)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L801" href="#L801">801</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L802" href="#L802">802</a>   }
 <a class="jxr_linenumber" name="L803" href="#L803">803</a> 
-<a class="jxr_linenumber" name="L804" href="#L804">804</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_36() {
+<a class="jxr_linenumber" name="L804" href="#L804">804</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_36() {
 <a class="jxr_linenumber" name="L805" href="#L805">805</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(27)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L806" href="#L806">806</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L807" href="#L807">807</a>   }
 <a class="jxr_linenumber" name="L808" href="#L808">808</a> 
-<a class="jxr_linenumber" name="L809" href="#L809">809</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_35() {
+<a class="jxr_linenumber" name="L809" href="#L809">809</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_35() {
 <a class="jxr_linenumber" name="L810" href="#L810">810</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L811" href="#L811">811</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L812" href="#L812">812</a>     <strong class="jxr_keyword">if</strong> (jj_3_4()) {
@@ -827,12 +827,12 @@
 <a class="jxr_linenumber" name="L819" href="#L819">819</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L820" href="#L820">820</a>   }
 <a class="jxr_linenumber" name="L821" href="#L821">821</a> 
-<a class="jxr_linenumber" name="L822" href="#L822">822</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_4() {
+<a class="jxr_linenumber" name="L822" href="#L822">822</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_4() {
 <a class="jxr_linenumber" name="L823" href="#L823">823</a>     <strong class="jxr_keyword">if</strong> (jj_3R_4()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L824" href="#L824">824</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L825" href="#L825">825</a>   }
 <a class="jxr_linenumber" name="L826" href="#L826">826</a> 
-<a class="jxr_linenumber" name="L827" href="#L827">827</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_12() {
+<a class="jxr_linenumber" name="L827" href="#L827">827</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_12() {
 <a class="jxr_linenumber" name="L828" href="#L828">828</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(20)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L829" href="#L829">829</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(NUMBER)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L830" href="#L830">830</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(22)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
@@ -843,34 +843,34 @@
 <a class="jxr_linenumber" name="L835" href="#L835">835</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L836" href="#L836">836</a>   }
 <a class="jxr_linenumber" name="L837" href="#L837">837</a> 
-<a class="jxr_linenumber" name="L838" href="#L838">838</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_2() {
+<a class="jxr_linenumber" name="L838" href="#L838">838</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3_2() {
 <a class="jxr_linenumber" name="L839" href="#L839">839</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(20)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L840" href="#L840">840</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(NUMBER)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L841" href="#L841">841</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(21)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L842" href="#L842">842</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L843" href="#L843">843</a>   }
 <a class="jxr_linenumber" name="L844" href="#L844">844</a> 
-<a class="jxr_linenumber" name="L845" href="#L845">845</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_22() {
+<a class="jxr_linenumber" name="L845" href="#L845">845</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_22() {
 <a class="jxr_linenumber" name="L846" href="#L846">846</a>     <strong class="jxr_keyword">if</strong> (jj_3R_27()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L847" href="#L847">847</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L848" href="#L848">848</a>   }
 <a class="jxr_linenumber" name="L849" href="#L849">849</a> 
-<a class="jxr_linenumber" name="L850" href="#L850">850</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_11() {
+<a class="jxr_linenumber" name="L850" href="#L850">850</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_11() {
 <a class="jxr_linenumber" name="L851" href="#L851">851</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(19)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L852" href="#L852">852</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L853" href="#L853">853</a>   }
 <a class="jxr_linenumber" name="L854" href="#L854">854</a> 
-<a class="jxr_linenumber" name="L855" href="#L855">855</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_10() {
+<a class="jxr_linenumber" name="L855" href="#L855">855</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_10() {
 <a class="jxr_linenumber" name="L856" href="#L856">856</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(18)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L857" href="#L857">857</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L858" href="#L858">858</a>   }
 <a class="jxr_linenumber" name="L859" href="#L859">859</a> 
-<a class="jxr_linenumber" name="L860" href="#L860">860</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_9() {
+<a class="jxr_linenumber" name="L860" href="#L860">860</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_9() {
 <a class="jxr_linenumber" name="L861" href="#L861">861</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(17)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L862" href="#L862">862</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L863" href="#L863">863</a>   }
 <a class="jxr_linenumber" name="L864" href="#L864">864</a> 
-<a class="jxr_linenumber" name="L865" href="#L865">865</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_3() {
+<a class="jxr_linenumber" name="L865" href="#L865">865</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_3() {
 <a class="jxr_linenumber" name="L866" href="#L866">866</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L867" href="#L867">867</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L868" href="#L868">868</a>     <strong class="jxr_keyword">if</strong> (jj_3R_9()) {
@@ -889,37 +889,37 @@
 <a class="jxr_linenumber" name="L881" href="#L881">881</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L882" href="#L882">882</a>   }
 <a class="jxr_linenumber" name="L883" href="#L883">883</a> 
-<a class="jxr_linenumber" name="L884" href="#L884">884</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_21() {
+<a class="jxr_linenumber" name="L884" href="#L884">884</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_21() {
 <a class="jxr_linenumber" name="L885" href="#L885">885</a>     <strong class="jxr_keyword">if</strong> (jj_3R_26()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L886" href="#L886">886</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L887" href="#L887">887</a>   }
 <a class="jxr_linenumber" name="L888" href="#L888">888</a> 
-<a class="jxr_linenumber" name="L889" href="#L889">889</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_31() {
+<a class="jxr_linenumber" name="L889" href="#L889">889</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_31() {
 <a class="jxr_linenumber" name="L890" href="#L890">890</a>     <strong class="jxr_keyword">if</strong> (jj_3R_8()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L891" href="#L891">891</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L892" href="#L892">892</a>   }
 <a class="jxr_linenumber" name="L893" href="#L893">893</a> 
-<a class="jxr_linenumber" name="L894" href="#L894">894</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_34() {
+<a class="jxr_linenumber" name="L894" href="#L894">894</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_34() {
 <a class="jxr_linenumber" name="L895" href="#L895">895</a>     <strong class="jxr_keyword">if</strong> (jj_3R_35()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L896" href="#L896">896</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L897" href="#L897">897</a>   }
 <a class="jxr_linenumber" name="L898" href="#L898">898</a> 
-<a class="jxr_linenumber" name="L899" href="#L899">899</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_2() {
+<a class="jxr_linenumber" name="L899" href="#L899">899</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_2() {
 <a class="jxr_linenumber" name="L900" href="#L900">900</a>     <strong class="jxr_keyword">if</strong> (jj_3R_8()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L901" href="#L901">901</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L902" href="#L902">902</a>   }
 <a class="jxr_linenumber" name="L903" href="#L903">903</a> 
-<a class="jxr_linenumber" name="L904" href="#L904">904</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_32() {
+<a class="jxr_linenumber" name="L904" href="#L904">904</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_32() {
 <a class="jxr_linenumber" name="L905" href="#L905">905</a>     <strong class="jxr_keyword">if</strong> (jj_3R_19()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L906" href="#L906">906</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L907" href="#L907">907</a>   }
 <a class="jxr_linenumber" name="L908" href="#L908">908</a> 
-<a class="jxr_linenumber" name="L909" href="#L909">909</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_33() {
+<a class="jxr_linenumber" name="L909" href="#L909">909</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_33() {
 <a class="jxr_linenumber" name="L910" href="#L910">910</a>     <strong class="jxr_keyword">if</strong> (jj_3R_34()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L911" href="#L911">911</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L912" href="#L912">912</a>   }
 <a class="jxr_linenumber" name="L913" href="#L913">913</a> 
-<a class="jxr_linenumber" name="L914" href="#L914">914</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_30() {
+<a class="jxr_linenumber" name="L914" href="#L914">914</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_30() {
 <a class="jxr_linenumber" name="L915" href="#L915">915</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(29)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L916" href="#L916">916</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L917" href="#L917">917</a>     xsp = jj_scanpos;
@@ -928,7 +928,7 @@
 <a class="jxr_linenumber" name="L920" href="#L920">920</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L921" href="#L921">921</a>   }
 <a class="jxr_linenumber" name="L922" href="#L922">922</a> 
-<a class="jxr_linenumber" name="L923" href="#L923">923</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_27() {
+<a class="jxr_linenumber" name="L923" href="#L923">923</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_27() {
 <a class="jxr_linenumber" name="L924" href="#L924">924</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L925" href="#L925">925</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L926" href="#L926">926</a>     <strong class="jxr_keyword">if</strong> (jj_3R_29()) {
@@ -938,22 +938,22 @@
 <a class="jxr_linenumber" name="L930" href="#L930">930</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L931" href="#L931">931</a>   }
 <a class="jxr_linenumber" name="L932" href="#L932">932</a> 
-<a class="jxr_linenumber" name="L933" href="#L933">933</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_29() {
+<a class="jxr_linenumber" name="L933" href="#L933">933</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_29() {
 <a class="jxr_linenumber" name="L934" href="#L934">934</a>     <strong class="jxr_keyword">if</strong> (jj_3R_32()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L935" href="#L935">935</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L936" href="#L936">936</a>   }
 <a class="jxr_linenumber" name="L937" href="#L937">937</a> 
-<a class="jxr_linenumber" name="L938" href="#L938">938</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_25() {
-<a class="jxr_linenumber" name="L939" href="#L939">939</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(SINGLE_QUOTED_STRING)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L938" href="#L938">938</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_28() {
+<a class="jxr_linenumber" name="L939" href="#L939">939</a>     <strong class="jxr_keyword">if</strong> (jj_3R_31()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L940" href="#L940">940</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L941" href="#L941">941</a>   }
 <a class="jxr_linenumber" name="L942" href="#L942">942</a> 
-<a class="jxr_linenumber" name="L943" href="#L943">943</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_28() {
-<a class="jxr_linenumber" name="L944" href="#L944">944</a>     <strong class="jxr_keyword">if</strong> (jj_3R_31()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L943" href="#L943">943</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_25() {
+<a class="jxr_linenumber" name="L944" href="#L944">944</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(SINGLE_QUOTED_STRING)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L945" href="#L945">945</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L946" href="#L946">946</a>   }
 <a class="jxr_linenumber" name="L947" href="#L947">947</a> 
-<a class="jxr_linenumber" name="L948" href="#L948">948</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_19() {
+<a class="jxr_linenumber" name="L948" href="#L948">948</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_19() {
 <a class="jxr_linenumber" name="L949" href="#L949">949</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L950" href="#L950">950</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L951" href="#L951">951</a>     <strong class="jxr_keyword">if</strong> (jj_3R_24()) {
@@ -963,19 +963,19 @@
 <a class="jxr_linenumber" name="L955" href="#L955">955</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L956" href="#L956">956</a>   }
 <a class="jxr_linenumber" name="L957" href="#L957">957</a> 
-<a class="jxr_linenumber" name="L958" href="#L958">958</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_24() {
+<a class="jxr_linenumber" name="L958" href="#L958">958</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_24() {
 <a class="jxr_linenumber" name="L959" href="#L959">959</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(QUOTED_STRING)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L960" href="#L960">960</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L961" href="#L961">961</a>   }
 <a class="jxr_linenumber" name="L962" href="#L962">962</a> 
-<a class="jxr_linenumber" name="L963" href="#L963">963</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_16() {
+<a class="jxr_linenumber" name="L963" href="#L963">963</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_16() {
 <a class="jxr_linenumber" name="L964" href="#L964">964</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(27)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L965" href="#L965">965</a>     <strong class="jxr_keyword">if</strong> (jj_3R_7()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L966" href="#L966">966</a>     <strong class="jxr_keyword">if</strong> (jj_scan_token(28)) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L967" href="#L967">967</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L968" href="#L968">968</a>   }
 <a class="jxr_linenumber" name="L969" href="#L969">969</a> 
-<a class="jxr_linenumber" name="L970" href="#L970">970</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_5() {
+<a class="jxr_linenumber" name="L970" href="#L970">970</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_5() {
 <a class="jxr_linenumber" name="L971" href="#L971">971</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> xsp;
 <a class="jxr_linenumber" name="L972" href="#L972">972</a>     xsp = jj_scanpos;
 <a class="jxr_linenumber" name="L973" href="#L973">973</a>     <strong class="jxr_keyword">if</strong> (jj_3R_15()) {
@@ -985,93 +985,93 @@
 <a class="jxr_linenumber" name="L977" href="#L977">977</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L978" href="#L978">978</a>   }
 <a class="jxr_linenumber" name="L979" href="#L979">979</a> 
-<a class="jxr_linenumber" name="L980" href="#L980">980</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_15() {
+<a class="jxr_linenumber" name="L980" href="#L980">980</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_3R_15() {
 <a class="jxr_linenumber" name="L981" href="#L981">981</a>     <strong class="jxr_keyword">if</strong> (jj_3R_19()) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L982" href="#L982">982</a>     <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L983" href="#L983">983</a>   }
 <a class="jxr_linenumber" name="L984" href="#L984">984</a> 
-<a class="jxr_linenumber" name="L985" href="#L985">985</a>   <em class="jxr_javadoccomment">/** Generated Token Manager. */</em>
-<a class="jxr_linenumber" name="L986" href="#L986">986</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a> token_source;
-<a class="jxr_linenumber" name="L987" href="#L987">987</a>   <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/JavaCharStream.html">JavaCharStream</a> jj_input_stream;
-<a class="jxr_linenumber" name="L988" href="#L988">988</a>   <em class="jxr_javadoccomment">/** Current token. */</em>
-<a class="jxr_linenumber" name="L989" href="#L989">989</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> token;
-<a class="jxr_linenumber" name="L990" href="#L990">990</a>   <em class="jxr_javadoccomment">/** Next token. */</em>
-<a class="jxr_linenumber" name="L991" href="#L991">991</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> jj_nt;
-<a class="jxr_linenumber" name="L992" href="#L992">992</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_ntk;
-<a class="jxr_linenumber" name="L993" href="#L993">993</a>   <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> jj_scanpos, jj_lastpos;
-<a class="jxr_linenumber" name="L994" href="#L994">994</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_la;
-<a class="jxr_linenumber" name="L995" href="#L995">995</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_gen;
-<a class="jxr_linenumber" name="L996" href="#L996">996</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_la1 = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[21];
-<a class="jxr_linenumber" name="L997" href="#L997">997</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_la1_0;
-<a class="jxr_linenumber" name="L998" href="#L998">998</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_la1_1;
-<a class="jxr_linenumber" name="L999" href="#L999">999</a>   <strong class="jxr_keyword">static</strong> {
-<a class="jxr_linenumber" name="L1000" href="#L1000">1000</a>       jj_la1_init_0();
-<a class="jxr_linenumber" name="L1001" href="#L1001">1001</a>       jj_la1_init_1();
-<a class="jxr_linenumber" name="L1002" href="#L1002">1002</a>    }
-<a class="jxr_linenumber" name="L1003" href="#L1003">1003</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> jj_la1_init_0() {
-<a class="jxr_linenumber" name="L1004" href="#L1004">1004</a>       jj_la1_0 = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0x180,0x180,0x3800000,0x4000,0x200,0x4000,0x1800,0x400,0xe0000,0x100000,0x3800000,0x600,0x600,0x28003800,0x88001a00,0x20001800,0x3800000,0x88000000,0x8001a00,0x8001800,0x8001800,};
-<a class="jxr_linenumber" name="L1005" href="#L1005">1005</a>    }
-<a class="jxr_linenumber" name="L1006" href="#L1006">1006</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> jj_la1_init_1() {
-<a class="jxr_linenumber" name="L1007" href="#L1007">1007</a>       jj_la1_1 = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
-<a class="jxr_linenumber" name="L1008" href="#L1008">1008</a>    }
-<a class="jxr_linenumber" name="L1009" href="#L1009">1009</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a>[] jj_2_rtns = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a>[6];
-<a class="jxr_linenumber" name="L1010" href="#L1010">1010</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_rescan = false;
-<a class="jxr_linenumber" name="L1011" href="#L1011">1011</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_gc = 0;
-<a class="jxr_linenumber" name="L1012" href="#L1012">1012</a> 
-<a class="jxr_linenumber" name="L1013" href="#L1013">1013</a>   <em class="jxr_javadoccomment">/** Constructor with InputStream. */</em>
-<a class="jxr_linenumber" name="L1014" href="#L1014">1014</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(java.io.InputStream stream) {
-<a class="jxr_linenumber" name="L1015" href="#L1015">1015</a>      <strong class="jxr_keyword">this</strong>(stream, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L1016" href="#L1016">1016</a>   }
-<a class="jxr_linenumber" name="L1017" href="#L1017">1017</a>   <em class="jxr_javadoccomment">/** Constructor with InputStream and supplied encoding */</em>
-<a class="jxr_linenumber" name="L1018" href="#L1018">1018</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(java.io.InputStream stream, String encoding) {
-<a class="jxr_linenumber" name="L1019" href="#L1019">1019</a>     <strong class="jxr_keyword">try</strong> { jj_input_stream = <strong class="jxr_keyword">new</strong> JavaCharStream(stream, encoding, 1, 1); } <strong class="jxr_keyword">catch</strong>(java.io.UnsupportedEncodingException e) { <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e); }
-<a class="jxr_linenumber" name="L1020" href="#L1020">1020</a>     token_source = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a>(jj_input_stream);
-<a class="jxr_linenumber" name="L1021" href="#L1021">1021</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
-<a class="jxr_linenumber" name="L1022" href="#L1022">1022</a>     jj_ntk = -1;
-<a class="jxr_linenumber" name="L1023" href="#L1023">1023</a>     jj_gen = 0;
-<a class="jxr_linenumber" name="L1024" href="#L1024">1024</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
-<a class="jxr_linenumber" name="L1025" href="#L1025">1025</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
+<a class="jxr_linenumber" name="L985" href="#L985">985</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a> token_source;
+<a class="jxr_linenumber" name="L986" href="#L986">986</a>   <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/JavaCharStream.html">JavaCharStream</a> jj_input_stream;
+<a class="jxr_linenumber" name="L987" href="#L987">987</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> token, jj_nt;
+<a class="jxr_linenumber" name="L988" href="#L988">988</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_ntk;
+<a class="jxr_linenumber" name="L989" href="#L989">989</a>   <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> jj_scanpos, jj_lastpos;
+<a class="jxr_linenumber" name="L990" href="#L990">990</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_la;
+<a class="jxr_linenumber" name="L991" href="#L991">991</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> lookingAhead = false;
+<a class="jxr_linenumber" name="L992" href="#L992">992</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_semLA;
+<a class="jxr_linenumber" name="L993" href="#L993">993</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_gen;
+<a class="jxr_linenumber" name="L994" href="#L994">994</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_la1 = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[21];
+<a class="jxr_linenumber" name="L995" href="#L995">995</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_la1_0;
+<a class="jxr_linenumber" name="L996" href="#L996">996</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_la1_1;
+<a class="jxr_linenumber" name="L997" href="#L997">997</a>   <strong class="jxr_keyword">static</strong> {
+<a class="jxr_linenumber" name="L998" href="#L998">998</a>       jj_la1_0();
+<a class="jxr_linenumber" name="L999" href="#L999">999</a>       jj_la1_1();
+<a class="jxr_linenumber" name="L1000" href="#L1000">1000</a>    }
+<a class="jxr_linenumber" name="L1001" href="#L1001">1001</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> jj_la1_0() {
+<a class="jxr_linenumber" name="L1002" href="#L1002">1002</a>       jj_la1_0 = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0x180,0x180,0x3800000,0x4000,0x200,0x4000,0x1800,0x400,0xe0000,0x100000,0x3800000,0x600,0x600,0x28003800,0x88001a00,0x20001800,0x3800000,0x88000000,0x8001a00,0x8001800,0x8001800,};
+<a class="jxr_linenumber" name="L1003" href="#L1003">1003</a>    }
+<a class="jxr_linenumber" name="L1004" href="#L1004">1004</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> jj_la1_1() {
+<a class="jxr_linenumber" name="L1005" href="#L1005">1005</a>       jj_la1_1 = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
+<a class="jxr_linenumber" name="L1006" href="#L1006">1006</a>    }
+<a class="jxr_linenumber" name="L1007" href="#L1007">1007</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a>[] jj_2_rtns = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a>[6];
+<a class="jxr_linenumber" name="L1008" href="#L1008">1008</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_rescan = false;
+<a class="jxr_linenumber" name="L1009" href="#L1009">1009</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_gc = 0;
+<a class="jxr_linenumber" name="L1010" href="#L1010">1010</a> 
+<a class="jxr_linenumber" name="L1011" href="#L1011">1011</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(java.io.InputStream stream) {
+<a class="jxr_linenumber" name="L1012" href="#L1012">1012</a>      <strong class="jxr_keyword">this</strong>(stream, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L1013" href="#L1013">1013</a>   }
+<a class="jxr_linenumber" name="L1014" href="#L1014">1014</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(java.io.InputStream stream, String encoding) {
+<a class="jxr_linenumber" name="L1015" href="#L1015">1015</a>     <strong class="jxr_keyword">try</strong> { jj_input_stream = <strong class="jxr_keyword">new</strong> JavaCharStream(stream, encoding, 1, 1); } <strong class="jxr_keyword">catch</strong>(java.io.UnsupportedEncodingException e) { <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e); }
+<a class="jxr_linenumber" name="L1016" href="#L1016">1016</a>     token_source = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a>(jj_input_stream);
+<a class="jxr_linenumber" name="L1017" href="#L1017">1017</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
+<a class="jxr_linenumber" name="L1018" href="#L1018">1018</a>     jj_ntk = -1;
+<a class="jxr_linenumber" name="L1019" href="#L1019">1019</a>     jj_gen = 0;
+<a class="jxr_linenumber" name="L1020" href="#L1020">1020</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
+<a class="jxr_linenumber" name="L1021" href="#L1021">1021</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
+<a class="jxr_linenumber" name="L1022" href="#L1022">1022</a>   }
+<a class="jxr_linenumber" name="L1023" href="#L1023">1023</a> 
+<a class="jxr_linenumber" name="L1024" href="#L1024">1024</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(java.io.InputStream stream) {
+<a class="jxr_linenumber" name="L1025" href="#L1025">1025</a>      ReInit(stream, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L1026" href="#L1026">1026</a>   }
-<a class="jxr_linenumber" name="L1027" href="#L1027">1027</a> 
-<a class="jxr_linenumber" name="L1028" href="#L1028">1028</a>   <em class="jxr_javadoccomment">/** Reinitialise. */</em>
-<a class="jxr_linenumber" name="L1029" href="#L1029">1029</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(java.io.InputStream stream) {
-<a class="jxr_linenumber" name="L1030" href="#L1030">1030</a>      ReInit(stream, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L1031" href="#L1031">1031</a>   }
-<a class="jxr_linenumber" name="L1032" href="#L1032">1032</a>   <em class="jxr_javadoccomment">/** Reinitialise. */</em>
-<a class="jxr_linenumber" name="L1033" href="#L1033">1033</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(java.io.InputStream stream, String encoding) {
-<a class="jxr_linenumber" name="L1034" href="#L1034">1034</a>     <strong class="jxr_keyword">try</strong> { jj_input_stream.ReInit(stream, encoding, 1, 1); } <strong class="jxr_keyword">catch</strong>(java.io.UnsupportedEncodingException e) { <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e); }
-<a class="jxr_linenumber" name="L1035" href="#L1035">1035</a>     token_source.ReInit(jj_input_stream);
-<a class="jxr_linenumber" name="L1036" href="#L1036">1036</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
-<a class="jxr_linenumber" name="L1037" href="#L1037">1037</a>     jj_ntk = -1;
-<a class="jxr_linenumber" name="L1038" href="#L1038">1038</a>     jj_gen = 0;
-<a class="jxr_linenumber" name="L1039" href="#L1039">1039</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
-<a class="jxr_linenumber" name="L1040" href="#L1040">1040</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
-<a class="jxr_linenumber" name="L1041" href="#L1041">1041</a>   }
-<a class="jxr_linenumber" name="L1042" href="#L1042">1042</a> 
-<a class="jxr_linenumber" name="L1043" href="#L1043">1043</a>   <em class="jxr_javadoccomment">/** Constructor. */</em>
-<a class="jxr_linenumber" name="L1044" href="#L1044">1044</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(java.io.Reader stream) {
-<a class="jxr_linenumber" name="L1045" href="#L1045">1045</a>     jj_input_stream = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/JavaCharStream.html">JavaCharStream</a>(stream, 1, 1);
-<a class="jxr_linenumber" name="L1046" href="#L1046">1046</a>     token_source = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a>(jj_input_stream);
-<a class="jxr_linenumber" name="L1047" href="#L1047">1047</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
-<a class="jxr_linenumber" name="L1048" href="#L1048">1048</a>     jj_ntk = -1;
-<a class="jxr_linenumber" name="L1049" href="#L1049">1049</a>     jj_gen = 0;
-<a class="jxr_linenumber" name="L1050" href="#L1050">1050</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
-<a class="jxr_linenumber" name="L1051" href="#L1051">1051</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
-<a class="jxr_linenumber" name="L1052" href="#L1052">1052</a>   }
-<a class="jxr_linenumber" name="L1053" href="#L1053">1053</a> 
-<a class="jxr_linenumber" name="L1054" href="#L1054">1054</a>   <em class="jxr_javadoccomment">/** Reinitialise. */</em>
-<a class="jxr_linenumber" name="L1055" href="#L1055">1055</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(java.io.Reader stream) {
-<a class="jxr_linenumber" name="L1056" href="#L1056">1056</a>     jj_input_stream.ReInit(stream, 1, 1);
-<a class="jxr_linenumber" name="L1057" href="#L1057">1057</a>     token_source.ReInit(jj_input_stream);
-<a class="jxr_linenumber" name="L1058" href="#L1058">1058</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
-<a class="jxr_linenumber" name="L1059" href="#L1059">1059</a>     jj_ntk = -1;
-<a class="jxr_linenumber" name="L1060" href="#L1060">1060</a>     jj_gen = 0;
-<a class="jxr_linenumber" name="L1061" href="#L1061">1061</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
-<a class="jxr_linenumber" name="L1062" href="#L1062">1062</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
-<a class="jxr_linenumber" name="L1063" href="#L1063">1063</a>   }
-<a class="jxr_linenumber" name="L1064" href="#L1064">1064</a> 
-<a class="jxr_linenumber" name="L1065" href="#L1065">1065</a>   <em class="jxr_javadoccomment">/** Constructor with generated Token Manager. */</em>
-<a class="jxr_linenumber" name="L1066" href="#L1066">1066</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a> tm) {
+<a class="jxr_linenumber" name="L1027" href="#L1027">1027</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(java.io.InputStream stream, String encoding) {
+<a class="jxr_linenumber" name="L1028" href="#L1028">1028</a>     <strong class="jxr_keyword">try</strong> { jj_input_stream.ReInit(stream, encoding, 1, 1); } <strong class="jxr_keyword">catch</strong>(java.io.UnsupportedEncodingException e) { <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e); }
+<a class="jxr_linenumber" name="L1029" href="#L1029">1029</a>     token_source.ReInit(jj_input_stream);
+<a class="jxr_linenumber" name="L1030" href="#L1030">1030</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
+<a class="jxr_linenumber" name="L1031" href="#L1031">1031</a>     jj_ntk = -1;
+<a class="jxr_linenumber" name="L1032" href="#L1032">1032</a>     jj_gen = 0;
+<a class="jxr_linenumber" name="L1033" href="#L1033">1033</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
+<a class="jxr_linenumber" name="L1034" href="#L1034">1034</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
+<a class="jxr_linenumber" name="L1035" href="#L1035">1035</a>   }
+<a class="jxr_linenumber" name="L1036" href="#L1036">1036</a> 
+<a class="jxr_linenumber" name="L1037" href="#L1037">1037</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(java.io.Reader stream) {
+<a class="jxr_linenumber" name="L1038" href="#L1038">1038</a>     jj_input_stream = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/JavaCharStream.html">JavaCharStream</a>(stream, 1, 1);
+<a class="jxr_linenumber" name="L1039" href="#L1039">1039</a>     token_source = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a>(jj_input_stream);
+<a class="jxr_linenumber" name="L1040" href="#L1040">1040</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
+<a class="jxr_linenumber" name="L1041" href="#L1041">1041</a>     jj_ntk = -1;
+<a class="jxr_linenumber" name="L1042" href="#L1042">1042</a>     jj_gen = 0;
+<a class="jxr_linenumber" name="L1043" href="#L1043">1043</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
+<a class="jxr_linenumber" name="L1044" href="#L1044">1044</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
+<a class="jxr_linenumber" name="L1045" href="#L1045">1045</a>   }
+<a class="jxr_linenumber" name="L1046" href="#L1046">1046</a> 
+<a class="jxr_linenumber" name="L1047" href="#L1047">1047</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(java.io.Reader stream) {
+<a class="jxr_linenumber" name="L1048" href="#L1048">1048</a>     jj_input_stream.ReInit(stream, 1, 1);
+<a class="jxr_linenumber" name="L1049" href="#L1049">1049</a>     token_source.ReInit(jj_input_stream);
+<a class="jxr_linenumber" name="L1050" href="#L1050">1050</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
+<a class="jxr_linenumber" name="L1051" href="#L1051">1051</a>     jj_ntk = -1;
+<a class="jxr_linenumber" name="L1052" href="#L1052">1052</a>     jj_gen = 0;
+<a class="jxr_linenumber" name="L1053" href="#L1053">1053</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
+<a class="jxr_linenumber" name="L1054" href="#L1054">1054</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
+<a class="jxr_linenumber" name="L1055" href="#L1055">1055</a>   }
+<a class="jxr_linenumber" name="L1056" href="#L1056">1056</a> 
+<a class="jxr_linenumber" name="L1057" href="#L1057">1057</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">CorpusQueryLanguageParser</a>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a> tm) {
+<a class="jxr_linenumber" name="L1058" href="#L1058">1058</a>     token_source = tm;
+<a class="jxr_linenumber" name="L1059" href="#L1059">1059</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
+<a class="jxr_linenumber" name="L1060" href="#L1060">1060</a>     jj_ntk = -1;
+<a class="jxr_linenumber" name="L1061" href="#L1061">1061</a>     jj_gen = 0;
+<a class="jxr_linenumber" name="L1062" href="#L1062">1062</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
+<a class="jxr_linenumber" name="L1063" href="#L1063">1063</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
+<a class="jxr_linenumber" name="L1064" href="#L1064">1064</a>   }
+<a class="jxr_linenumber" name="L1065" href="#L1065">1065</a> 
+<a class="jxr_linenumber" name="L1066" href="#L1066">1066</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a> tm) {
 <a class="jxr_linenumber" name="L1067" href="#L1067">1067</a>     token_source = tm;
 <a class="jxr_linenumber" name="L1068" href="#L1068">1068</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
 <a class="jxr_linenumber" name="L1069" href="#L1069">1069</a>     jj_ntk = -1;
@@ -1080,212 +1080,199 @@
 <a class="jxr_linenumber" name="L1072" href="#L1072">1072</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
 <a class="jxr_linenumber" name="L1073" href="#L1073">1073</a>   }
 <a class="jxr_linenumber" name="L1074" href="#L1074">1074</a> 
-<a class="jxr_linenumber" name="L1075" href="#L1075">1075</a>   <em class="jxr_javadoccomment">/** Reinitialise. */</em>
-<a class="jxr_linenumber" name="L1076" href="#L1076">1076</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> ReInit(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParserTokenManager.html">CorpusQueryLanguageParserTokenManager</a> tm) {
-<a class="jxr_linenumber" name="L1077" href="#L1077">1077</a>     token_source = tm;
-<a class="jxr_linenumber" name="L1078" href="#L1078">1078</a>     token = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a>();
+<a class="jxr_linenumber" name="L1075" href="#L1075">1075</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> jj_consume_token(<strong class="jxr_keyword">int</strong> kind) <strong class="jxr_keyword">throws</strong> ParseException {
+<a class="jxr_linenumber" name="L1076" href="#L1076">1076</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> oldToken;
+<a class="jxr_linenumber" name="L1077" href="#L1077">1077</a>     <strong class="jxr_keyword">if</strong> ((oldToken = token).next != <strong class="jxr_keyword">null</strong>) token = token.next;
+<a class="jxr_linenumber" name="L1078" href="#L1078">1078</a>     <strong class="jxr_keyword">else</strong> token = token.next = token_source.getNextToken();
 <a class="jxr_linenumber" name="L1079" href="#L1079">1079</a>     jj_ntk = -1;
-<a class="jxr_linenumber" name="L1080" href="#L1080">1080</a>     jj_gen = 0;
-<a class="jxr_linenumber" name="L1081" href="#L1081">1081</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) jj_la1[i] = -1;
-<a class="jxr_linenumber" name="L1082" href="#L1082">1082</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) jj_2_rtns[i] = <strong class="jxr_keyword">new</strong> JJCalls();
-<a class="jxr_linenumber" name="L1083" href="#L1083">1083</a>   }
-<a class="jxr_linenumber" name="L1084" href="#L1084">1084</a> 
-<a class="jxr_linenumber" name="L1085" href="#L1085">1085</a>   <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> jj_consume_token(<strong class="jxr_keyword">int</strong> kind) <strong class="jxr_keyword">throws</strong> ParseException {
-<a class="jxr_linenumber" name="L1086" href="#L1086">1086</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> oldToken;
-<a class="jxr_linenumber" name="L1087" href="#L1087">1087</a>     <strong class="jxr_keyword">if</strong> ((oldToken = token).next != <strong class="jxr_keyword">null</strong>) token = token.next;
-<a class="jxr_linenumber" name="L1088" href="#L1088">1088</a>     <strong class="jxr_keyword">else</strong> token = token.next = token_source.getNextToken();
-<a class="jxr_linenumber" name="L1089" href="#L1089">1089</a>     jj_ntk = -1;
-<a class="jxr_linenumber" name="L1090" href="#L1090">1090</a>     <strong class="jxr_keyword">if</strong> (token.kind == kind) {
-<a class="jxr_linenumber" name="L1091" href="#L1091">1091</a>       jj_gen++;
-<a class="jxr_linenumber" name="L1092" href="#L1092">1092</a>       <strong class="jxr_keyword">if</strong> (++jj_gc &gt; 100) {
-<a class="jxr_linenumber" name="L1093" href="#L1093">1093</a>         jj_gc = 0;
-<a class="jxr_linenumber" name="L1094" href="#L1094">1094</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) {
-<a class="jxr_linenumber" name="L1095" href="#L1095">1095</a>           <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> c = jj_2_rtns[i];
-<a class="jxr_linenumber" name="L1096" href="#L1096">1096</a>           <strong class="jxr_keyword">while</strong> (c != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1097" href="#L1097">1097</a>             <strong class="jxr_keyword">if</strong> (c.gen &lt; jj_gen) c.first = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L1098" href="#L1098">1098</a>             c = c.next;
-<a class="jxr_linenumber" name="L1099" href="#L1099">1099</a>           }
-<a class="jxr_linenumber" name="L1100" href="#L1100">1100</a>         }
-<a class="jxr_linenumber" name="L1101" href="#L1101">1101</a>       }
-<a class="jxr_linenumber" name="L1102" href="#L1102">1102</a>       <strong class="jxr_keyword">return</strong> token;
-<a class="jxr_linenumber" name="L1103" href="#L1103">1103</a>     }
-<a class="jxr_linenumber" name="L1104" href="#L1104">1104</a>     token = oldToken;
-<a class="jxr_linenumber" name="L1105" href="#L1105">1105</a>     jj_kind = kind;
-<a class="jxr_linenumber" name="L1106" href="#L1106">1106</a>     <strong class="jxr_keyword">throw</strong> generateParseException();
-<a class="jxr_linenumber" name="L1107" href="#L1107">1107</a>   }
-<a class="jxr_linenumber" name="L1108" href="#L1108">1108</a> 
-<a class="jxr_linenumber" name="L1109" href="#L1109">1109</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> <strong class="jxr_keyword">extends</strong> java.lang.Error { }
-<a class="jxr_linenumber" name="L1110" href="#L1110">1110</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> jj_ls = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a>();
-<a class="jxr_linenumber" name="L1111" href="#L1111">1111</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_scan_token(<strong class="jxr_keyword">int</strong> kind) {
-<a class="jxr_linenumber" name="L1112" href="#L1112">1112</a>     <strong class="jxr_keyword">if</strong> (jj_scanpos == jj_lastpos) {
-<a class="jxr_linenumber" name="L1113" href="#L1113">1113</a>       jj_la--;
-<a class="jxr_linenumber" name="L1114" href="#L1114">1114</a>       <strong class="jxr_keyword">if</strong> (jj_scanpos.next == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1115" href="#L1115">1115</a>         jj_lastpos = jj_scanpos = jj_scanpos.next = token_source.getNextToken();
-<a class="jxr_linenumber" name="L1116" href="#L1116">1116</a>       } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1117" href="#L1117">1117</a>         jj_lastpos = jj_scanpos = jj_scanpos.next;
-<a class="jxr_linenumber" name="L1118" href="#L1118">1118</a>       }
-<a class="jxr_linenumber" name="L1119" href="#L1119">1119</a>     } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1120" href="#L1120">1120</a>       jj_scanpos = jj_scanpos.next;
-<a class="jxr_linenumber" name="L1121" href="#L1121">1121</a>     }
-<a class="jxr_linenumber" name="L1122" href="#L1122">1122</a>     <strong class="jxr_keyword">if</strong> (jj_rescan) {
-<a class="jxr_linenumber" name="L1123" href="#L1123">1123</a>       <strong class="jxr_keyword">int</strong> i = 0; <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> tok = token;
-<a class="jxr_linenumber" name="L1124" href="#L1124">1124</a>       <strong class="jxr_keyword">while</strong> (tok != <strong class="jxr_keyword">null</strong> &amp;&amp; tok != jj_scanpos) { i++; tok = tok.next; }
-<a class="jxr_linenumber" name="L1125" href="#L1125">1125</a>       <strong class="jxr_keyword">if</strong> (tok != <strong class="jxr_keyword">null</strong>) jj_add_error_token(kind, i);
-<a class="jxr_linenumber" name="L1126" href="#L1126">1126</a>     }
-<a class="jxr_linenumber" name="L1127" href="#L1127">1127</a>     <strong class="jxr_keyword">if</strong> (jj_scanpos.kind != kind) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1128" href="#L1128">1128</a>     <strong class="jxr_keyword">if</strong> (jj_la == 0 &amp;&amp; jj_scanpos == jj_lastpos) <strong class="jxr_keyword">throw</strong> jj_ls;
-<a class="jxr_linenumber" name="L1129" href="#L1129">1129</a>     <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L1130" href="#L1130">1130</a>   }
-<a class="jxr_linenumber" name="L1131" href="#L1131">1131</a> 
-<a class="jxr_linenumber" name="L1132" href="#L1132">1132</a> 
-<a class="jxr_linenumber" name="L1133" href="#L1133">1133</a> <em class="jxr_javadoccomment">/** Get the next Token. */</em>
-<a class="jxr_linenumber" name="L1134" href="#L1134">1134</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> getNextToken() {
-<a class="jxr_linenumber" name="L1135" href="#L1135">1135</a>     <strong class="jxr_keyword">if</strong> (token.next != <strong class="jxr_keyword">null</strong>) token = token.next;
-<a class="jxr_linenumber" name="L1136" href="#L1136">1136</a>     <strong class="jxr_keyword">else</strong> token = token.next = token_source.getNextToken();
-<a class="jxr_linenumber" name="L1137" href="#L1137">1137</a>     jj_ntk = -1;
-<a class="jxr_linenumber" name="L1138" href="#L1138">1138</a>     jj_gen++;
-<a class="jxr_linenumber" name="L1139" href="#L1139">1139</a>     <strong class="jxr_keyword">return</strong> token;
-<a class="jxr_linenumber" name="L1140" href="#L1140">1140</a>   }
-<a class="jxr_linenumber" name="L1141" href="#L1141">1141</a> 
-<a class="jxr_linenumber" name="L1142" href="#L1142">1142</a> <em class="jxr_javadoccomment">/** Get the specific Token. */</em>
-<a class="jxr_linenumber" name="L1143" href="#L1143">1143</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> getToken(<strong class="jxr_keyword">int</strong> index) {
-<a class="jxr_linenumber" name="L1144" href="#L1144">1144</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> t = token;
-<a class="jxr_linenumber" name="L1145" href="#L1145">1145</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; index; i++) {
-<a class="jxr_linenumber" name="L1146" href="#L1146">1146</a>       <strong class="jxr_keyword">if</strong> (t.next != <strong class="jxr_keyword">null</strong>) t = t.next;
-<a class="jxr_linenumber" name="L1147" href="#L1147">1147</a>       <strong class="jxr_keyword">else</strong> t = t.next = token_source.getNextToken();
-<a class="jxr_linenumber" name="L1148" href="#L1148">1148</a>     }
-<a class="jxr_linenumber" name="L1149" href="#L1149">1149</a>     <strong class="jxr_keyword">return</strong> t;
-<a class="jxr_linenumber" name="L1150" href="#L1150">1150</a>   }
+<a class="jxr_linenumber" name="L1080" href="#L1080">1080</a>     <strong class="jxr_keyword">if</strong> (token.kind == kind) {
+<a class="jxr_linenumber" name="L1081" href="#L1081">1081</a>       jj_gen++;
+<a class="jxr_linenumber" name="L1082" href="#L1082">1082</a>       <strong class="jxr_keyword">if</strong> (++jj_gc &gt; 100) {
+<a class="jxr_linenumber" name="L1083" href="#L1083">1083</a>         jj_gc = 0;
+<a class="jxr_linenumber" name="L1084" href="#L1084">1084</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_2_rtns.length; i++) {
+<a class="jxr_linenumber" name="L1085" href="#L1085">1085</a>           <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> c = jj_2_rtns[i];
+<a class="jxr_linenumber" name="L1086" href="#L1086">1086</a>           <strong class="jxr_keyword">while</strong> (c != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L1087" href="#L1087">1087</a>             <strong class="jxr_keyword">if</strong> (c.gen &lt; jj_gen) c.first = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L1088" href="#L1088">1088</a>             c = c.next;
+<a class="jxr_linenumber" name="L1089" href="#L1089">1089</a>           }
+<a class="jxr_linenumber" name="L1090" href="#L1090">1090</a>         }
+<a class="jxr_linenumber" name="L1091" href="#L1091">1091</a>       }
+<a class="jxr_linenumber" name="L1092" href="#L1092">1092</a>       <strong class="jxr_keyword">return</strong> token;
+<a class="jxr_linenumber" name="L1093" href="#L1093">1093</a>     }
+<a class="jxr_linenumber" name="L1094" href="#L1094">1094</a>     token = oldToken;
+<a class="jxr_linenumber" name="L1095" href="#L1095">1095</a>     jj_kind = kind;
+<a class="jxr_linenumber" name="L1096" href="#L1096">1096</a>     <strong class="jxr_keyword">throw</strong> generateParseException();
+<a class="jxr_linenumber" name="L1097" href="#L1097">1097</a>   }
+<a class="jxr_linenumber" name="L1098" href="#L1098">1098</a> 
+<a class="jxr_linenumber" name="L1099" href="#L1099">1099</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> <strong class="jxr_keyword">extends</strong> java.lang.Error { }
+<a class="jxr_linenumber" name="L1100" href="#L1100">1100</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> jj_ls = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a>();
+<a class="jxr_linenumber" name="L1101" href="#L1101">1101</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> jj_scan_token(<strong class="jxr_keyword">int</strong> kind) {
+<a class="jxr_linenumber" name="L1102" href="#L1102">1102</a>     <strong class="jxr_keyword">if</strong> (jj_scanpos == jj_lastpos) {
+<a class="jxr_linenumber" name="L1103" href="#L1103">1103</a>       jj_la--;
+<a class="jxr_linenumber" name="L1104" href="#L1104">1104</a>       <strong class="jxr_keyword">if</strong> (jj_scanpos.next == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L1105" href="#L1105">1105</a>         jj_lastpos = jj_scanpos = jj_scanpos.next = token_source.getNextToken();
+<a class="jxr_linenumber" name="L1106" href="#L1106">1106</a>       } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1107" href="#L1107">1107</a>         jj_lastpos = jj_scanpos = jj_scanpos.next;
+<a class="jxr_linenumber" name="L1108" href="#L1108">1108</a>       }
+<a class="jxr_linenumber" name="L1109" href="#L1109">1109</a>     } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1110" href="#L1110">1110</a>       jj_scanpos = jj_scanpos.next;
+<a class="jxr_linenumber" name="L1111" href="#L1111">1111</a>     }
+<a class="jxr_linenumber" name="L1112" href="#L1112">1112</a>     <strong class="jxr_keyword">if</strong> (jj_rescan) {
+<a class="jxr_linenumber" name="L1113" href="#L1113">1113</a>       <strong class="jxr_keyword">int</strong> i = 0; <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> tok = token;
+<a class="jxr_linenumber" name="L1114" href="#L1114">1114</a>       <strong class="jxr_keyword">while</strong> (tok != <strong class="jxr_keyword">null</strong> &amp;&amp; tok != jj_scanpos) { i++; tok = tok.next; }
+<a class="jxr_linenumber" name="L1115" href="#L1115">1115</a>       <strong class="jxr_keyword">if</strong> (tok != <strong class="jxr_keyword">null</strong>) jj_add_error_token(kind, i);
+<a class="jxr_linenumber" name="L1116" href="#L1116">1116</a>     }
+<a class="jxr_linenumber" name="L1117" href="#L1117">1117</a>     <strong class="jxr_keyword">if</strong> (jj_scanpos.kind != kind) <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1118" href="#L1118">1118</a>     <strong class="jxr_keyword">if</strong> (jj_la == 0 &amp;&amp; jj_scanpos == jj_lastpos) <strong class="jxr_keyword">throw</strong> jj_ls;
+<a class="jxr_linenumber" name="L1119" href="#L1119">1119</a>     <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L1120" href="#L1120">1120</a>   }
+<a class="jxr_linenumber" name="L1121" href="#L1121">1121</a> 
+<a class="jxr_linenumber" name="L1122" href="#L1122">1122</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> getNextToken() {
+<a class="jxr_linenumber" name="L1123" href="#L1123">1123</a>     <strong class="jxr_keyword">if</strong> (token.next != <strong class="jxr_keyword">null</strong>) token = token.next;
+<a class="jxr_linenumber" name="L1124" href="#L1124">1124</a>     <strong class="jxr_keyword">else</strong> token = token.next = token_source.getNextToken();
+<a class="jxr_linenumber" name="L1125" href="#L1125">1125</a>     jj_ntk = -1;
+<a class="jxr_linenumber" name="L1126" href="#L1126">1126</a>     jj_gen++;
+<a class="jxr_linenumber" name="L1127" href="#L1127">1127</a>     <strong class="jxr_keyword">return</strong> token;
+<a class="jxr_linenumber" name="L1128" href="#L1128">1128</a>   }
+<a class="jxr_linenumber" name="L1129" href="#L1129">1129</a> 
+<a class="jxr_linenumber" name="L1130" href="#L1130">1130</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> getToken(<strong class="jxr_keyword">int</strong> index) {
+<a class="jxr_linenumber" name="L1131" href="#L1131">1131</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> t = lookingAhead ? jj_scanpos : token;
+<a class="jxr_linenumber" name="L1132" href="#L1132">1132</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; index; i++) {
+<a class="jxr_linenumber" name="L1133" href="#L1133">1133</a>       <strong class="jxr_keyword">if</strong> (t.next != <strong class="jxr_keyword">null</strong>) t = t.next;
+<a class="jxr_linenumber" name="L1134" href="#L1134">1134</a>       <strong class="jxr_keyword">else</strong> t = t.next = token_source.getNextToken();
+<a class="jxr_linenumber" name="L1135" href="#L1135">1135</a>     }
+<a class="jxr_linenumber" name="L1136" href="#L1136">1136</a>     <strong class="jxr_keyword">return</strong> t;
+<a class="jxr_linenumber" name="L1137" href="#L1137">1137</a>   }
+<a class="jxr_linenumber" name="L1138" href="#L1138">1138</a> 
+<a class="jxr_linenumber" name="L1139" href="#L1139">1139</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_ntk() {
+<a class="jxr_linenumber" name="L1140" href="#L1140">1140</a>     <strong class="jxr_keyword">if</strong> ((jj_nt=token.next) == <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L1141" href="#L1141">1141</a>       <strong class="jxr_keyword">return</strong> (jj_ntk = (token.next=token_source.getNextToken()).kind);
+<a class="jxr_linenumber" name="L1142" href="#L1142">1142</a>     <strong class="jxr_keyword">else</strong>
+<a class="jxr_linenumber" name="L1143" href="#L1143">1143</a>       <strong class="jxr_keyword">return</strong> (jj_ntk = jj_nt.kind);
+<a class="jxr_linenumber" name="L1144" href="#L1144">1144</a>   }
+<a class="jxr_linenumber" name="L1145" href="#L1145">1145</a> 
+<a class="jxr_linenumber" name="L1146" href="#L1146">1146</a>   <strong class="jxr_keyword">private</strong> java.util.Vector jj_expentries = <strong class="jxr_keyword">new</strong> java.util.Vector();
+<a class="jxr_linenumber" name="L1147" href="#L1147">1147</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_expentry;
+<a class="jxr_linenumber" name="L1148" href="#L1148">1148</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_kind = -1;
+<a class="jxr_linenumber" name="L1149" href="#L1149">1149</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_lasttokens = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[100];
+<a class="jxr_linenumber" name="L1150" href="#L1150">1150</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_endpos;
 <a class="jxr_linenumber" name="L1151" href="#L1151">1151</a> 
-<a class="jxr_linenumber" name="L1152" href="#L1152">1152</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_ntk() {
-<a class="jxr_linenumber" name="L1153" href="#L1153">1153</a>     <strong class="jxr_keyword">if</strong> ((jj_nt=token.next) == <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L1154" href="#L1154">1154</a>       <strong class="jxr_keyword">return</strong> (jj_ntk = (token.next=token_source.getNextToken()).kind);
-<a class="jxr_linenumber" name="L1155" href="#L1155">1155</a>     <strong class="jxr_keyword">else</strong>
-<a class="jxr_linenumber" name="L1156" href="#L1156">1156</a>       <strong class="jxr_keyword">return</strong> (jj_ntk = jj_nt.kind);
-<a class="jxr_linenumber" name="L1157" href="#L1157">1157</a>   }
-<a class="jxr_linenumber" name="L1158" href="#L1158">1158</a> 
-<a class="jxr_linenumber" name="L1159" href="#L1159">1159</a>   <strong class="jxr_keyword">private</strong> java.util.List&lt;<strong class="jxr_keyword">int</strong>[]&gt; jj_expentries = <strong class="jxr_keyword">new</strong> java.util.ArrayList&lt;<strong class="jxr_keyword">int</strong>[]&gt;();
-<a class="jxr_linenumber" name="L1160" href="#L1160">1160</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_expentry;
-<a class="jxr_linenumber" name="L1161" href="#L1161">1161</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_kind = -1;
-<a class="jxr_linenumber" name="L1162" href="#L1162">1162</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[] jj_lasttokens = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[100];
-<a class="jxr_linenumber" name="L1163" href="#L1163">1163</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> jj_endpos;
-<a class="jxr_linenumber" name="L1164" href="#L1164">1164</a> 
-<a class="jxr_linenumber" name="L1165" href="#L1165">1165</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> jj_add_error_token(<strong class="jxr_keyword">int</strong> kind, <strong class="jxr_keyword">int</strong> pos) {
-<a class="jxr_linenumber" name="L1166" href="#L1166">1166</a>     <strong class="jxr_keyword">if</strong> (pos &gt;= 100) <strong class="jxr_keyword">return</strong>;
-<a class="jxr_linenumber" name="L1167" href="#L1167">1167</a>     <strong class="jxr_keyword">if</strong> (pos == jj_endpos + 1) {
-<a class="jxr_linenumber" name="L1168" href="#L1168">1168</a>       jj_lasttokens[jj_endpos++] = kind;
-<a class="jxr_linenumber" name="L1169" href="#L1169">1169</a>     } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (jj_endpos != 0) {
-<a class="jxr_linenumber" name="L1170" href="#L1170">1170</a>       jj_expentry = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[jj_endpos];
-<a class="jxr_linenumber" name="L1171" href="#L1171">1171</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_endpos; i++) {
-<a class="jxr_linenumber" name="L1172" href="#L1172">1172</a>         jj_expentry[i] = jj_lasttokens[i];
-<a class="jxr_linenumber" name="L1173" href="#L1173">1173</a>       }
-<a class="jxr_linenumber" name="L1174" href="#L1174">1174</a>       <strong class="jxr_keyword">boolean</strong> exists = false;
-<a class="jxr_linenumber" name="L1175" href="#L1175">1175</a>       <strong class="jxr_keyword">for</strong> (java.util.Iterator&lt;?&gt; it = jj_expentries.iterator(); it.hasNext();) {
-<a class="jxr_linenumber" name="L1176" href="#L1176">1176</a>         exists = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1177" href="#L1177">1177</a>         <strong class="jxr_keyword">int</strong>[] oldentry = (<strong class="jxr_keyword">int</strong>[])(it.next());
-<a class="jxr_linenumber" name="L1178" href="#L1178">1178</a>         <strong class="jxr_keyword">if</strong> (oldentry.length == jj_expentry.length) {
-<a class="jxr_linenumber" name="L1179" href="#L1179">1179</a>           <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_expentry.length; i++) {
-<a class="jxr_linenumber" name="L1180" href="#L1180">1180</a>             <strong class="jxr_keyword">if</strong> (oldentry[i] != jj_expentry[i]) {
-<a class="jxr_linenumber" name="L1181" href="#L1181">1181</a>               exists = false;
-<a class="jxr_linenumber" name="L1182" href="#L1182">1182</a>               <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1183" href="#L1183">1183</a>             }
-<a class="jxr_linenumber" name="L1184" href="#L1184">1184</a>           }
-<a class="jxr_linenumber" name="L1185" href="#L1185">1185</a>           <strong class="jxr_keyword">if</strong> (exists) <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1186" href="#L1186">1186</a>         }
-<a class="jxr_linenumber" name="L1187" href="#L1187">1187</a>       }
-<a class="jxr_linenumber" name="L1188" href="#L1188">1188</a>       <strong class="jxr_keyword">if</strong> (!exists) jj_expentries.add(jj_expentry);
-<a class="jxr_linenumber" name="L1189" href="#L1189">1189</a>       <strong class="jxr_keyword">if</strong> (pos != 0) jj_lasttokens[(jj_endpos = pos) - 1] = kind;
-<a class="jxr_linenumber" name="L1190" href="#L1190">1190</a>     }
-<a class="jxr_linenumber" name="L1191" href="#L1191">1191</a>   }
-<a class="jxr_linenumber" name="L1192" href="#L1192">1192</a> 
-<a class="jxr_linenumber" name="L1193" href="#L1193">1193</a>   <em class="jxr_javadoccomment">/** Generate ParseException. */</em>
-<a class="jxr_linenumber" name="L1194" href="#L1194">1194</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/ParseException.html">ParseException</a> generateParseException() {
-<a class="jxr_linenumber" name="L1195" href="#L1195">1195</a>     jj_expentries.clear();
-<a class="jxr_linenumber" name="L1196" href="#L1196">1196</a>     <strong class="jxr_keyword">boolean</strong>[] la1tokens = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">boolean</strong>[33];
-<a class="jxr_linenumber" name="L1197" href="#L1197">1197</a>     <strong class="jxr_keyword">if</strong> (jj_kind &gt;= 0) {
-<a class="jxr_linenumber" name="L1198" href="#L1198">1198</a>       la1tokens[jj_kind] = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1199" href="#L1199">1199</a>       jj_kind = -1;
-<a class="jxr_linenumber" name="L1200" href="#L1200">1200</a>     }
-<a class="jxr_linenumber" name="L1201" href="#L1201">1201</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) {
-<a class="jxr_linenumber" name="L1202" href="#L1202">1202</a>       <strong class="jxr_keyword">if</strong> (jj_la1[i] == jj_gen) {
-<a class="jxr_linenumber" name="L1203" href="#L1203">1203</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; 32; j++) {
-<a class="jxr_linenumber" name="L1204" href="#L1204">1204</a>           <strong class="jxr_keyword">if</strong> ((jj_la1_0[i] &amp; (1&lt;&lt;j)) != 0) {
-<a class="jxr_linenumber" name="L1205" href="#L1205">1205</a>             la1tokens[j] = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1206" href="#L1206">1206</a>           }
-<a class="jxr_linenumber" name="L1207" href="#L1207">1207</a>           <strong class="jxr_keyword">if</strong> ((jj_la1_1[i] &amp; (1&lt;&lt;j)) != 0) {
-<a class="jxr_linenumber" name="L1208" href="#L1208">1208</a>             la1tokens[32+j] = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1209" href="#L1209">1209</a>           }
-<a class="jxr_linenumber" name="L1210" href="#L1210">1210</a>         }
-<a class="jxr_linenumber" name="L1211" href="#L1211">1211</a>       }
-<a class="jxr_linenumber" name="L1212" href="#L1212">1212</a>     }
-<a class="jxr_linenumber" name="L1213" href="#L1213">1213</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 33; i++) {
-<a class="jxr_linenumber" name="L1214" href="#L1214">1214</a>       <strong class="jxr_keyword">if</strong> (la1tokens[i]) {
-<a class="jxr_linenumber" name="L1215" href="#L1215">1215</a>         jj_expentry = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[1];
-<a class="jxr_linenumber" name="L1216" href="#L1216">1216</a>         jj_expentry[0] = i;
-<a class="jxr_linenumber" name="L1217" href="#L1217">1217</a>         jj_expentries.add(jj_expentry);
-<a class="jxr_linenumber" name="L1218" href="#L1218">1218</a>       }
-<a class="jxr_linenumber" name="L1219" href="#L1219">1219</a>     }
-<a class="jxr_linenumber" name="L1220" href="#L1220">1220</a>     jj_endpos = 0;
-<a class="jxr_linenumber" name="L1221" href="#L1221">1221</a>     jj_rescan_token();
-<a class="jxr_linenumber" name="L1222" href="#L1222">1222</a>     jj_add_error_token(0, 0);
-<a class="jxr_linenumber" name="L1223" href="#L1223">1223</a>     <strong class="jxr_keyword">int</strong>[][] exptokseq = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[jj_expentries.size()][];
-<a class="jxr_linenumber" name="L1224" href="#L1224">1224</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_expentries.size(); i++) {
-<a class="jxr_linenumber" name="L1225" href="#L1225">1225</a>       exptokseq[i] = jj_expentries.get(i);
-<a class="jxr_linenumber" name="L1226" href="#L1226">1226</a>     }
-<a class="jxr_linenumber" name="L1227" href="#L1227">1227</a>     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/ParseException.html">ParseException</a>(token, exptokseq, tokenImage);
-<a class="jxr_linenumber" name="L1228" href="#L1228">1228</a>   }
-<a class="jxr_linenumber" name="L1229" href="#L1229">1229</a> 
-<a class="jxr_linenumber" name="L1230" href="#L1230">1230</a>   <em class="jxr_javadoccomment">/** Enable tracing. */</em>
-<a class="jxr_linenumber" name="L1231" href="#L1231">1231</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> enable_tracing() {
-<a class="jxr_linenumber" name="L1232" href="#L1232">1232</a>   }
-<a class="jxr_linenumber" name="L1233" href="#L1233">1233</a> 
-<a class="jxr_linenumber" name="L1234" href="#L1234">1234</a>   <em class="jxr_javadoccomment">/** Disable tracing. */</em>
-<a class="jxr_linenumber" name="L1235" href="#L1235">1235</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> disable_tracing() {
-<a class="jxr_linenumber" name="L1236" href="#L1236">1236</a>   }
-<a class="jxr_linenumber" name="L1237" href="#L1237">1237</a> 
-<a class="jxr_linenumber" name="L1238" href="#L1238">1238</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> jj_rescan_token() {
-<a class="jxr_linenumber" name="L1239" href="#L1239">1239</a>     jj_rescan = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1240" href="#L1240">1240</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 6; i++) {
-<a class="jxr_linenumber" name="L1241" href="#L1241">1241</a>     <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L1242" href="#L1242">1242</a>       <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> p = jj_2_rtns[i];
-<a class="jxr_linenumber" name="L1243" href="#L1243">1243</a>       <strong class="jxr_keyword">do</strong> {
-<a class="jxr_linenumber" name="L1244" href="#L1244">1244</a>         <strong class="jxr_keyword">if</strong> (p.gen &gt; jj_gen) {
-<a class="jxr_linenumber" name="L1245" href="#L1245">1245</a>           jj_la = p.arg; jj_lastpos = jj_scanpos = p.first;
-<a class="jxr_linenumber" name="L1246" href="#L1246">1246</a>           <strong class="jxr_keyword">switch</strong> (i) {
-<a class="jxr_linenumber" name="L1247" href="#L1247">1247</a>             <strong class="jxr_keyword">case</strong> 0: jj_3_1(); <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1248" href="#L1248">1248</a>             <strong class="jxr_keyword">case</strong> 1: jj_3_2(); <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1249" href="#L1249">1249</a>             <strong class="jxr_keyword">case</strong> 2: jj_3_3(); <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1250" href="#L1250">1250</a>             <strong class="jxr_keyword">case</strong> 3: jj_3_4(); <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1251" href="#L1251">1251</a>             <strong class="jxr_keyword">case</strong> 4: jj_3_5(); <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1252" href="#L1252">1252</a>             <strong class="jxr_keyword">case</strong> 5: jj_3_6(); <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L1253" href="#L1253">1253</a>           }
-<a class="jxr_linenumber" name="L1254" href="#L1254">1254</a>         }
-<a class="jxr_linenumber" name="L1255" href="#L1255">1255</a>         p = p.next;
-<a class="jxr_linenumber" name="L1256" href="#L1256">1256</a>       } <strong class="jxr_keyword">while</strong> (p != <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L1257" href="#L1257">1257</a>       } <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { }
-<a class="jxr_linenumber" name="L1258" href="#L1258">1258</a>     }
-<a class="jxr_linenumber" name="L1259" href="#L1259">1259</a>     jj_rescan = false;
-<a class="jxr_linenumber" name="L1260" href="#L1260">1260</a>   }
-<a class="jxr_linenumber" name="L1261" href="#L1261">1261</a> 
-<a class="jxr_linenumber" name="L1262" href="#L1262">1262</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> jj_save(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> xla) {
-<a class="jxr_linenumber" name="L1263" href="#L1263">1263</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> p = jj_2_rtns[index];
-<a class="jxr_linenumber" name="L1264" href="#L1264">1264</a>     <strong class="jxr_keyword">while</strong> (p.gen &gt; jj_gen) {
-<a class="jxr_linenumber" name="L1265" href="#L1265">1265</a>       <strong class="jxr_keyword">if</strong> (p.next == <strong class="jxr_keyword">null</strong>) { p = p.next = <strong class="jxr_keyword">new</strong> JJCalls(); <strong class="jxr_keyword">break</strong>; }
-<a class="jxr_linenumber" name="L1266" href="#L1266">1266</a>       p = p.next;
-<a class="jxr_linenumber" name="L1267" href="#L1267">1267</a>     }
-<a class="jxr_linenumber" name="L1268" href="#L1268">1268</a>     p.gen = jj_gen + xla - jj_la; p.first = token; p.arg = xla;
-<a class="jxr_linenumber" name="L1269" href="#L1269">1269</a>   }
-<a class="jxr_linenumber" name="L1270" href="#L1270">1270</a> 
-<a class="jxr_linenumber" name="L1271" href="#L1271">1271</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> {
-<a class="jxr_linenumber" name="L1272" href="#L1272">1272</a>     <strong class="jxr_keyword">int</strong> gen;
-<a class="jxr_linenumber" name="L1273" href="#L1273">1273</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> first;
-<a class="jxr_linenumber" name="L1274" href="#L1274">1274</a>     <strong class="jxr_keyword">int</strong> arg;
-<a class="jxr_linenumber" name="L1275" href="#L1275">1275</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> next;
-<a class="jxr_linenumber" name="L1276" href="#L1276">1276</a>   }
-<a class="jxr_linenumber" name="L1277" href="#L1277">1277</a> 
-<a class="jxr_linenumber" name="L1278" href="#L1278">1278</a> }
+<a class="jxr_linenumber" name="L1152" href="#L1152">1152</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> jj_add_error_token(<strong class="jxr_keyword">int</strong> kind, <strong class="jxr_keyword">int</strong> pos) {
+<a class="jxr_linenumber" name="L1153" href="#L1153">1153</a>     <strong class="jxr_keyword">if</strong> (pos &gt;= 100) <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L1154" href="#L1154">1154</a>     <strong class="jxr_keyword">if</strong> (pos == jj_endpos + 1) {
+<a class="jxr_linenumber" name="L1155" href="#L1155">1155</a>       jj_lasttokens[jj_endpos++] = kind;
+<a class="jxr_linenumber" name="L1156" href="#L1156">1156</a>     } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (jj_endpos != 0) {
+<a class="jxr_linenumber" name="L1157" href="#L1157">1157</a>       jj_expentry = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[jj_endpos];
+<a class="jxr_linenumber" name="L1158" href="#L1158">1158</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_endpos; i++) {
+<a class="jxr_linenumber" name="L1159" href="#L1159">1159</a>         jj_expentry[i] = jj_lasttokens[i];
+<a class="jxr_linenumber" name="L1160" href="#L1160">1160</a>       }
+<a class="jxr_linenumber" name="L1161" href="#L1161">1161</a>       <strong class="jxr_keyword">boolean</strong> exists = false;
+<a class="jxr_linenumber" name="L1162" href="#L1162">1162</a>       <strong class="jxr_keyword">for</strong> (java.util.Enumeration e = jj_expentries.elements(); e.hasMoreElements();) {
+<a class="jxr_linenumber" name="L1163" href="#L1163">1163</a>         <strong class="jxr_keyword">int</strong>[] oldentry = (<strong class="jxr_keyword">int</strong>[])(e.nextElement());
+<a class="jxr_linenumber" name="L1164" href="#L1164">1164</a>         <strong class="jxr_keyword">if</strong> (oldentry.length == jj_expentry.length) {
+<a class="jxr_linenumber" name="L1165" href="#L1165">1165</a>           exists = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1166" href="#L1166">1166</a>           <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_expentry.length; i++) {
+<a class="jxr_linenumber" name="L1167" href="#L1167">1167</a>             <strong class="jxr_keyword">if</strong> (oldentry[i] != jj_expentry[i]) {
+<a class="jxr_linenumber" name="L1168" href="#L1168">1168</a>               exists = false;
+<a class="jxr_linenumber" name="L1169" href="#L1169">1169</a>               <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1170" href="#L1170">1170</a>             }
+<a class="jxr_linenumber" name="L1171" href="#L1171">1171</a>           }
+<a class="jxr_linenumber" name="L1172" href="#L1172">1172</a>           <strong class="jxr_keyword">if</strong> (exists) <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1173" href="#L1173">1173</a>         }
+<a class="jxr_linenumber" name="L1174" href="#L1174">1174</a>       }
+<a class="jxr_linenumber" name="L1175" href="#L1175">1175</a>       <strong class="jxr_keyword">if</strong> (!exists) jj_expentries.addElement(jj_expentry);
+<a class="jxr_linenumber" name="L1176" href="#L1176">1176</a>       <strong class="jxr_keyword">if</strong> (pos != 0) jj_lasttokens[(jj_endpos = pos) - 1] = kind;
+<a class="jxr_linenumber" name="L1177" href="#L1177">1177</a>     }
+<a class="jxr_linenumber" name="L1178" href="#L1178">1178</a>   }
+<a class="jxr_linenumber" name="L1179" href="#L1179">1179</a> 
+<a class="jxr_linenumber" name="L1180" href="#L1180">1180</a>   <strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/ParseException.html">ParseException</a> generateParseException() {
+<a class="jxr_linenumber" name="L1181" href="#L1181">1181</a>     jj_expentries.removeAllElements();
+<a class="jxr_linenumber" name="L1182" href="#L1182">1182</a>     <strong class="jxr_keyword">boolean</strong>[] la1tokens = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">boolean</strong>[33];
+<a class="jxr_linenumber" name="L1183" href="#L1183">1183</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 33; i++) {
+<a class="jxr_linenumber" name="L1184" href="#L1184">1184</a>       la1tokens[i] = false;
+<a class="jxr_linenumber" name="L1185" href="#L1185">1185</a>     }
+<a class="jxr_linenumber" name="L1186" href="#L1186">1186</a>     <strong class="jxr_keyword">if</strong> (jj_kind &gt;= 0) {
+<a class="jxr_linenumber" name="L1187" href="#L1187">1187</a>       la1tokens[jj_kind] = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1188" href="#L1188">1188</a>       jj_kind = -1;
+<a class="jxr_linenumber" name="L1189" href="#L1189">1189</a>     }
+<a class="jxr_linenumber" name="L1190" href="#L1190">1190</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 21; i++) {
+<a class="jxr_linenumber" name="L1191" href="#L1191">1191</a>       <strong class="jxr_keyword">if</strong> (jj_la1[i] == jj_gen) {
+<a class="jxr_linenumber" name="L1192" href="#L1192">1192</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; 32; j++) {
+<a class="jxr_linenumber" name="L1193" href="#L1193">1193</a>           <strong class="jxr_keyword">if</strong> ((jj_la1_0[i] &amp; (1&lt;&lt;j)) != 0) {
+<a class="jxr_linenumber" name="L1194" href="#L1194">1194</a>             la1tokens[j] = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1195" href="#L1195">1195</a>           }
+<a class="jxr_linenumber" name="L1196" href="#L1196">1196</a>           <strong class="jxr_keyword">if</strong> ((jj_la1_1[i] &amp; (1&lt;&lt;j)) != 0) {
+<a class="jxr_linenumber" name="L1197" href="#L1197">1197</a>             la1tokens[32+j] = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1198" href="#L1198">1198</a>           }
+<a class="jxr_linenumber" name="L1199" href="#L1199">1199</a>         }
+<a class="jxr_linenumber" name="L1200" href="#L1200">1200</a>       }
+<a class="jxr_linenumber" name="L1201" href="#L1201">1201</a>     }
+<a class="jxr_linenumber" name="L1202" href="#L1202">1202</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 33; i++) {
+<a class="jxr_linenumber" name="L1203" href="#L1203">1203</a>       <strong class="jxr_keyword">if</strong> (la1tokens[i]) {
+<a class="jxr_linenumber" name="L1204" href="#L1204">1204</a>         jj_expentry = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[1];
+<a class="jxr_linenumber" name="L1205" href="#L1205">1205</a>         jj_expentry[0] = i;
+<a class="jxr_linenumber" name="L1206" href="#L1206">1206</a>         jj_expentries.addElement(jj_expentry);
+<a class="jxr_linenumber" name="L1207" href="#L1207">1207</a>       }
+<a class="jxr_linenumber" name="L1208" href="#L1208">1208</a>     }
+<a class="jxr_linenumber" name="L1209" href="#L1209">1209</a>     jj_endpos = 0;
+<a class="jxr_linenumber" name="L1210" href="#L1210">1210</a>     jj_rescan_token();
+<a class="jxr_linenumber" name="L1211" href="#L1211">1211</a>     jj_add_error_token(0, 0);
+<a class="jxr_linenumber" name="L1212" href="#L1212">1212</a>     <strong class="jxr_keyword">int</strong>[][] exptokseq = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[jj_expentries.size()][];
+<a class="jxr_linenumber" name="L1213" href="#L1213">1213</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; jj_expentries.size(); i++) {
+<a class="jxr_linenumber" name="L1214" href="#L1214">1214</a>       exptokseq[i] = (<strong class="jxr_keyword">int</strong>[])jj_expentries.elementAt(i);
+<a class="jxr_linenumber" name="L1215" href="#L1215">1215</a>     }
+<a class="jxr_linenumber" name="L1216" href="#L1216">1216</a>     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/ParseException.html">ParseException</a>(token, exptokseq, tokenImage);
+<a class="jxr_linenumber" name="L1217" href="#L1217">1217</a>   }
+<a class="jxr_linenumber" name="L1218" href="#L1218">1218</a> 
+<a class="jxr_linenumber" name="L1219" href="#L1219">1219</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> enable_tracing() {
+<a class="jxr_linenumber" name="L1220" href="#L1220">1220</a>   }
+<a class="jxr_linenumber" name="L1221" href="#L1221">1221</a> 
+<a class="jxr_linenumber" name="L1222" href="#L1222">1222</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> disable_tracing() {
+<a class="jxr_linenumber" name="L1223" href="#L1223">1223</a>   }
+<a class="jxr_linenumber" name="L1224" href="#L1224">1224</a> 
+<a class="jxr_linenumber" name="L1225" href="#L1225">1225</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> jj_rescan_token() {
+<a class="jxr_linenumber" name="L1226" href="#L1226">1226</a>     jj_rescan = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1227" href="#L1227">1227</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 6; i++) {
+<a class="jxr_linenumber" name="L1228" href="#L1228">1228</a>     <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L1229" href="#L1229">1229</a>       <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> p = jj_2_rtns[i];
+<a class="jxr_linenumber" name="L1230" href="#L1230">1230</a>       <strong class="jxr_keyword">do</strong> {
+<a class="jxr_linenumber" name="L1231" href="#L1231">1231</a>         <strong class="jxr_keyword">if</strong> (p.gen &gt; jj_gen) {
+<a class="jxr_linenumber" name="L1232" href="#L1232">1232</a>           jj_la = p.arg; jj_lastpos = jj_scanpos = p.first;
+<a class="jxr_linenumber" name="L1233" href="#L1233">1233</a>           <strong class="jxr_keyword">switch</strong> (i) {
+<a class="jxr_linenumber" name="L1234" href="#L1234">1234</a>             <strong class="jxr_keyword">case</strong> 0: jj_3_1(); <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1235" href="#L1235">1235</a>             <strong class="jxr_keyword">case</strong> 1: jj_3_2(); <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1236" href="#L1236">1236</a>             <strong class="jxr_keyword">case</strong> 2: jj_3_3(); <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1237" href="#L1237">1237</a>             <strong class="jxr_keyword">case</strong> 3: jj_3_4(); <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1238" href="#L1238">1238</a>             <strong class="jxr_keyword">case</strong> 4: jj_3_5(); <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1239" href="#L1239">1239</a>             <strong class="jxr_keyword">case</strong> 5: jj_3_6(); <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L1240" href="#L1240">1240</a>           }
+<a class="jxr_linenumber" name="L1241" href="#L1241">1241</a>         }
+<a class="jxr_linenumber" name="L1242" href="#L1242">1242</a>         p = p.next;
+<a class="jxr_linenumber" name="L1243" href="#L1243">1243</a>       } <strong class="jxr_keyword">while</strong> (p != <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L1244" href="#L1244">1244</a>       } <strong class="jxr_keyword">catch</strong>(<a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">LookaheadSuccess</a> ls) { }
+<a class="jxr_linenumber" name="L1245" href="#L1245">1245</a>     }
+<a class="jxr_linenumber" name="L1246" href="#L1246">1246</a>     jj_rescan = false;
+<a class="jxr_linenumber" name="L1247" href="#L1247">1247</a>   }
+<a class="jxr_linenumber" name="L1248" href="#L1248">1248</a> 
+<a class="jxr_linenumber" name="L1249" href="#L1249">1249</a>   <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> jj_save(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> xla) {
+<a class="jxr_linenumber" name="L1250" href="#L1250">1250</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> p = jj_2_rtns[index];
+<a class="jxr_linenumber" name="L1251" href="#L1251">1251</a>     <strong class="jxr_keyword">while</strong> (p.gen &gt; jj_gen) {
+<a class="jxr_linenumber" name="L1252" href="#L1252">1252</a>       <strong class="jxr_keyword">if</strong> (p.next == <strong class="jxr_keyword">null</strong>) { p = p.next = <strong class="jxr_keyword">new</strong> JJCalls(); <strong class="jxr_keyword">break</strong>; }
+<a class="jxr_linenumber" name="L1253" href="#L1253">1253</a>       p = p.next;
+<a class="jxr_linenumber" name="L1254" href="#L1254">1254</a>     }
+<a class="jxr_linenumber" name="L1255" href="#L1255">1255</a>     p.gen = jj_gen + xla - jj_la; p.first = token; p.arg = xla;
+<a class="jxr_linenumber" name="L1256" href="#L1256">1256</a>   }
+<a class="jxr_linenumber" name="L1257" href="#L1257">1257</a> 
+<a class="jxr_linenumber" name="L1258" href="#L1258">1258</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> {
+<a class="jxr_linenumber" name="L1259" href="#L1259">1259</a>     <strong class="jxr_keyword">int</strong> gen;
+<a class="jxr_linenumber" name="L1260" href="#L1260">1260</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/Token.html">Token</a> first;
+<a class="jxr_linenumber" name="L1261" href="#L1261">1261</a>     <strong class="jxr_keyword">int</strong> arg;
+<a class="jxr_linenumber" name="L1262" href="#L1262">1262</a>     <a href="../../../../../nl/inl/blacklab/queryParser/corpusql/CorpusQueryLanguageParser.html">JJCalls</a> next;
+<a class="jxr_linenumber" name="L1263" href="#L1263">1263</a>   }
+<a class="jxr_linenumber" name="L1264" href="#L1264">1264</a> 
+<a class="jxr_linenumber" name="L1265" href="#L1265">1265</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
 </body>
 </html>

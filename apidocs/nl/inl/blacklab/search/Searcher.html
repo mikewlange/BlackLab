@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Searcher (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Searcher (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Searcher (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="Searcher (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -178,32 +178,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#buildAllTermIndices()">buildAllTermIndices</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>called automatically now in search mode, no need to call it manually. This
-   method will be made private eventually.</i></div>
-</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#close()">close</a></strong>()</code>
 <div class="block">Finalize the Searcher object.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#collectDocuments(org.apache.lucene.search.Query,%20org.apache.lucene.search.Collector)">collectDocuments</a></strong>(org.apache.lucene.search.Query&nbsp;query,
                 org.apache.lucene.search.Collector&nbsp;collector)</code>
 <div class="block">Perform a document query and collect the results through a Collector.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#concordancesIncludeXmlTags()">concordancesIncludeXmlTags</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>always returns true now</i></div>
-</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -634,8 +617,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>org.apache.lucene.index.IndexWriter</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#openIndexWriter(java.io.File,%20boolean)">openIndexWriter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;indexDir,
-               boolean&nbsp;create)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#openIndexWriter(java.io.File,%20boolean,%20org.apache.lucene.analysis.Analyzer)">openIndexWriter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;indexDir,
+               boolean&nbsp;create,
+               org.apache.lucene.analysis.Analyzer&nbsp;analyzer)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a></code></td>
@@ -650,18 +634,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setAutoWarmForwardIndices(boolean)">setAutoWarmForwardIndices</a></strong>(boolean&nbsp;b)</code>
-<div class="block">Set whether or not to automatically warm up the forward indices in a background thread in Searcher constructor</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setCollator(java.text.Collator)">setCollator</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/text/Collator.html?is-external=true" title="class or interface in java.text">Collator</a>&nbsp;collator)</code>
 <div class="block">Set the collator used for sorting.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setConcordanceXmlProperties(java.lang.String,%20java.lang.String,%20java.util.Collection)">setConcordanceXmlProperties</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wordFI,
                            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;punctFI,
@@ -669,36 +647,36 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Indicate how to use the forward indices to build concordances.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setDefaultCollator(java.text.Collator)">setDefaultCollator</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/text/Collator.html?is-external=true" title="class or interface in java.text">Collator</a>&nbsp;defaultCollator)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setDefaultConcordanceType(nl.inl.blacklab.search.ConcordanceType)">setDefaultConcordanceType</a></strong>(<a href="../../../../nl/inl/blacklab/search/ConcordanceType.html" title="enum in nl.inl.blacklab.search">ConcordanceType</a>&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setDefaultContextSize(int)">setDefaultContextSize</a></strong>(int&nbsp;defaultContextSize)</code>
 <div class="block">Set the default context size to use for building concordances</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setDefaultSearchSensitive(boolean)">setDefaultSearchSensitive</a></strong>(boolean&nbsp;b)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setDefaultSearchSensitive(boolean,%20boolean)">setDefaultSearchSensitive</a></strong>(boolean&nbsp;caseSensitive,
                          boolean&nbsp;diacriticsSensitive)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setDefaultUnbalancedTagsStrategy(nl.inl.blacklab.highlight.XmlHighlighter.UnbalancedTagsStrategy)">setDefaultUnbalancedTagsStrategy</a></strong>(<a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.UnbalancedTagsStrategy.html" title="enum in nl.inl.blacklab.highlight">XmlHighlighter.UnbalancedTagsStrategy</a>&nbsp;strategy)</code>
 <div class="block">Set how to fix well-formedness for snippets of XML.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setForwardIndexConcordanceParameters(java.lang.String,%20java.lang.String,%20java.util.Collection)">setForwardIndexConcordanceParameters</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wordFI,
                                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;punctFI,
@@ -708,7 +686,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#setMakeConcordancesFromForwardIndex(boolean)">setMakeConcordancesFromForwardIndex</a></strong>(boolean&nbsp;concordancesFromForwardIndex)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -716,30 +694,13 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#termFrequencies(org.apache.lucene.search.Query,%20java.lang.String,%20java.lang.String,%20java.lang.String)">termFrequencies</a></strong>(org.apache.lucene.search.Query&nbsp;documentFilterQuery,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fieldName,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;altName)</code>
 <div class="block">Determine the term frequencies in a set of documents (defined by the filter query)</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#termOccursInIndex(org.apache.lucene.index.Term)">termOccursInIndex</a></strong>(org.apache.lucene.index.Term&nbsp;term)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>moved to LuceneUtil</i></div>
-</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Searcher.html#warmUpForwardIndices()">warmUpForwardIndices</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use the external tool vmtouch, described here:
-   https://github.com/INL/BlackLab/wiki/Improve-search-speed-using-the-disk-cache</i></div>
-</div>
 </td>
 </tr>
 </table>
@@ -881,19 +842,6 @@ public&nbsp;boolean&nbsp;getMakeConcordancesFromForwardIndex()</pre>
 <li class="blockList">
 <h4>setDefaultConcordanceType</h4>
 <pre>public&nbsp;void&nbsp;setDefaultConcordanceType(<a href="../../../../nl/inl/blacklab/search/ConcordanceType.html" title="enum in nl.inl.blacklab.search">ConcordanceType</a>&nbsp;type)</pre>
-</li>
-</ul>
-<a name="concordancesIncludeXmlTags()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>concordancesIncludeXmlTags</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;boolean&nbsp;concordancesIncludeXmlTags()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>always returns true now</i></div>
-<div class="block">Do our concordances include the original XML tags, or are they stripped out?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>true iff our concordances include XML tags.</dd></dl>
 </li>
 </ul>
 <a name="setMakeConcordancesFromForwardIndex(boolean)">
@@ -1480,20 +1428,6 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.h
 <dt><span class="strong">Returns:</span></dt><dd>the content store, or null if there is no content store for this field</dd></dl>
 </li>
 </ul>
-<a name="termOccursInIndex(org.apache.lucene.index.Term)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>termOccursInIndex</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;boolean&nbsp;termOccursInIndex(org.apache.lucene.index.Term&nbsp;term)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>moved to LuceneUtil</i></div>
-<div class="block">Test if a term occurs in the index</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>term</code> - the term</dd>
-<dt><span class="strong">Returns:</span></dt><dd>true iff it occurs in the index</dd></dl>
-</li>
-</ul>
 <a name="setCollator(java.text.Collator)">
 <!--   -->
 </a>
@@ -1516,44 +1450,6 @@ public&nbsp;boolean&nbsp;termOccursInIndex(org.apache.lucene.index.Term&nbsp;ter
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/text/Collator.html?is-external=true" title="class or interface in java.text">Collator</a>&nbsp;getCollator()</pre>
 <div class="block">Get the collator being used for sorting.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the collator</dd></dl>
-</li>
-</ul>
-<a name="warmUpForwardIndices()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>warmUpForwardIndices</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;void&nbsp;warmUpForwardIndices()
-                          throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang">InterruptedException</a></pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use the external tool vmtouch, described here:
-   https://github.com/INL/BlackLab/wiki/Improve-search-speed-using-the-disk-cache</i></div>
-<div class="block">"Warm up" the forward indices by performing a large number of reads on them,
- getting them into disk cache.
-
- Not that this is done automatically in a background thread at startup, so you
- shouldn't need to call this unless you've specifically switched this behaviour off.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang">InterruptedException</a></code> - if the thread was interrupted during this operation</dd></dl>
-</li>
-</ul>
-<a name="buildAllTermIndices()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>buildAllTermIndices</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;void&nbsp;buildAllTermIndices()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>called automatically now in search mode, no need to call it manually. This
-   method will be made private eventually.</i></div>
-<div class="block">Builds index for Terms.indexOf() method.
-
- This makes sure the first call to Terms.indexOf() in search mode will be fast.
- Subsequent calls are always fast. (Terms.indexOf() is only used in search mode
- by HitPropValue.deserialize(), so if you're not sure if you need to call this
- method in your application, you probably don't.</div>
 </li>
 </ul>
 <a name="getForwardIndex(java.lang.String)">
@@ -1787,14 +1683,15 @@ public&nbsp;<a href="../../../../nl/inl/blacklab/externalstorage/ContentStore.ht
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getIndexName()</pre>
 </li>
 </ul>
-<a name="openIndexWriter(java.io.File, boolean)">
+<a name="openIndexWriter(java.io.File, boolean, org.apache.lucene.analysis.Analyzer)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>openIndexWriter</h4>
 <pre>public&nbsp;org.apache.lucene.index.IndexWriter&nbsp;openIndexWriter(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;indexDir,
-                                                  boolean&nbsp;create)
+                                                  boolean&nbsp;create,
+                                                  org.apache.lucene.analysis.Analyzer&nbsp;analyzer)
                                                     throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
                                                            org.apache.lucene.index.CorruptIndexException,
                                                            org.apache.lucene.store.LockObtainFailedException</pre>
@@ -1820,17 +1717,6 @@ public&nbsp;<a href="../../../../nl/inl/blacklab/externalstorage/ContentStore.ht
 <li class="blockList">
 <h4>setDefaultCollator</h4>
 <pre>public static&nbsp;void&nbsp;setDefaultCollator(<a href="http://docs.oracle.com/javase/7/docs/api/java/text/Collator.html?is-external=true" title="class or interface in java.text">Collator</a>&nbsp;defaultCollator)</pre>
-</li>
-</ul>
-<a name="setAutoWarmForwardIndices(boolean)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setAutoWarmForwardIndices</h4>
-<pre>public static&nbsp;void&nbsp;setAutoWarmForwardIndices(boolean&nbsp;b)</pre>
-<div class="block">Set whether or not to automatically warm up the forward indices in a background thread in Searcher constructor</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>b</code> - if true, automatically warm up forward indices in Searcher constructor</dd></dl>
 </li>
 </ul>
 <a name="getWriter()">
@@ -2089,6 +1975,6 @@ public&nbsp;org.apache.lucene.analysis.Analyzer&nbsp;getSearchAnalyzer()</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

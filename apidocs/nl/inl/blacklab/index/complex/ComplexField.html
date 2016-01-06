@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>ComplexField (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ComplexField (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ComplexField (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="ComplexField (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -132,9 +132,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#ComplexField(java.lang.String,%20java.lang.String,%20nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting)">ComplexField</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colOne"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#ComplexField(java.lang.String,%20java.lang.String,%20nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting,%20boolean)">ComplexField</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;mainPropertyName,
-            <a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity)</code>
+            <a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity,
+            boolean&nbsp;mainPropHasPayloads)</code>
 <div class="block">Construct a ComplexField object with a main property</div>
 </td>
 </tr>
@@ -180,6 +181,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
            <a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addProperty(java.lang.String,%20nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting,%20boolean)">addProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+           <a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity,
+           boolean&nbsp;includePayloads)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addPropertyAlternative(java.lang.String,%20java.lang.String)">addPropertyAlternative</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;altName)</code>
@@ -188,7 +195,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addPropertyAlternative(java.lang.String,%20java.lang.String,%20nl.inl.blacklab.index.complex.TokenFilterAdder)">addPropertyAlternative</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;altName,
@@ -198,26 +205,34 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addPropertyValue(java.lang.String,%20java.lang.String)">addPropertyValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
-                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>&nbsp;</td>
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>keep a reference to the property object and add values to that.</i></div>
+</div>
+</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addPropertyValue(java.lang.String,%20java.lang.String,%20int)">addPropertyValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
-                int&nbsp;posIncr)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addStartChar(int)">addStartChar</a></strong>(int&nbsp;startChar)</code>&nbsp;</td>
+                int&nbsp;posIncr)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>keep a reference to the property object and add values to that.</i></div>
+</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addToLuceneDoc(org.apache.lucene.document.Document)">addToLuceneDoc</a></strong>(org.apache.lucene.document.Document&nbsp;doc)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addStartChar(int)">addStartChar</a></strong>(int&nbsp;startChar)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addToLuceneDoc(org.apache.lucene.document.Document)">addToLuceneDoc</a></strong>(org.apache.lucene.document.Document&nbsp;doc)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addValue(java.lang.String)">addValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -225,7 +240,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#addValue(java.lang.String,%20int)">addValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
         int&nbsp;posIncr)</code>
@@ -234,35 +249,43 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#clear()">clear</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getMainProperty()">getMainProperty</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getName()">getName</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getProperties()">getProperties</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getProperty(java.lang.String)">getProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getPropertyPositionIncrements(java.lang.String)">getPropertyPositionIncrements</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getPropertyPositionIncrements(java.lang.String)">getPropertyPositionIncrements</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>ask the property object itself instead</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getPropertyValues(java.lang.String)">getPropertyValues</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>ask the property object itself instead</i></div>
+</div>
+</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#getPropertyValues(java.lang.String)">getPropertyValues</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/complex/ComplexField.html#numberOfTokens()">numberOfTokens</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -288,7 +311,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ComplexField(java.lang.String, java.lang.String, nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting)">
+<a name="ComplexField(java.lang.String, java.lang.String, nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting, boolean)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -296,10 +319,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>ComplexField</h4>
 <pre>public&nbsp;ComplexField(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;mainPropertyName,
-            <a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity)</pre>
+            <a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity,
+            boolean&nbsp;mainPropHasPayloads)</pre>
 <div class="block">Construct a ComplexField object with a main property</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - field name</dd><dd><code>mainPropertyName</code> - main property name</dd><dd><code>sensitivity</code> - ways to index main property, with respect to case- and
-   diacritics-sensitivity.</dd></dl>
+   diacritics-sensitivity.</dd><dd><code>mainPropHasPayloads</code> - does the main property have payloads?</dd></dl>
 </li>
 </ul>
 </li>
@@ -317,6 +341,17 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>numberOfTokens</h4>
 <pre>public&nbsp;int&nbsp;numberOfTokens()</pre>
+</li>
+</ul>
+<a name="addProperty(java.lang.String, nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addProperty</h4>
+<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a>&nbsp;addProperty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                               <a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity,
+                               boolean&nbsp;includePayloads)</pre>
 </li>
 </ul>
 <a name="addProperty(java.lang.String, nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting)">
@@ -403,17 +438,6 @@ public&nbsp;void&nbsp;addValue(<a href="http://docs.oracle.com/javase/7/docs/api
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - the value</dd><dd><code>posIncr</code> - the position increment.</dd></dl>
 </li>
 </ul>
-<a name="addPropertyValue(java.lang.String, java.lang.String, int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addPropertyValue</h4>
-<pre>public&nbsp;void&nbsp;addPropertyValue(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
-                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
-                    int&nbsp;posIncr)</pre>
-</li>
-</ul>
 <a name="addToLuceneDoc(org.apache.lucene.document.Document)">
 <!--   -->
 </a>
@@ -472,7 +496,12 @@ public&nbsp;void&nbsp;addAlternative(<a href="http://docs.oracle.com/javase/7/do
 <ul class="blockList">
 <li class="blockList">
 <h4>getPropertyValues</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getPropertyValues(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getPropertyValues(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>ask the property object itself instead</i></div>
+<div class="block">Get the list of values for a property</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - property name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>list of values</dd></dl>
 </li>
 </ul>
 <a name="getPropertyPositionIncrements(java.lang.String)">
@@ -481,7 +510,12 @@ public&nbsp;void&nbsp;addAlternative(<a href="http://docs.oracle.com/javase/7/do
 <ul class="blockList">
 <li class="blockList">
 <h4>getPropertyPositionIncrements</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;getPropertyPositionIncrements(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&nbsp;getPropertyPositionIncrements(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>ask the property object itself instead</i></div>
+<div class="block">Get the list of position increments for a property</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - property name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>list of increments</dd></dl>
 </li>
 </ul>
 <a name="getMainProperty()">
@@ -511,14 +545,33 @@ public&nbsp;void&nbsp;addAlternative(<a href="http://docs.oracle.com/javase/7/do
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a>&gt;&nbsp;getProperties()</pre>
 </li>
 </ul>
+<a name="addPropertyValue(java.lang.String, java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addPropertyValue</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;void&nbsp;addPropertyValue(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+                               int&nbsp;posIncr)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>keep a reference to the property object and add values to that.</i></div>
+<div class="block">Add a value to a property</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - property name</dd><dd><code>value</code> - the value to add</dd><dd><code>posIncr</code> - position increment</dd></dl>
+</li>
+</ul>
 <a name="addPropertyValue(java.lang.String, java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>addPropertyValue</h4>
-<pre>public&nbsp;void&nbsp;addPropertyValue(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
-                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;void&nbsp;addPropertyValue(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>keep a reference to the property object and add values to that.</i></div>
+<div class="block">Add a value to a property</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - property name</dd><dd><code>value</code> - the value to add</dd></dl>
 </li>
 </ul>
 </li>
@@ -588,6 +641,6 @@ public&nbsp;void&nbsp;addAlternative(<a href="http://docs.oracle.com/javase/7/do
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

@@ -66,9 +66,22 @@
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  		<em class="jxr_comment">// Can't simplify, just return ourselves</em>
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  	}
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  }
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  	@Override
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> equals(Object obj) {
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  		<strong class="jxr_keyword">if</strong> (obj instanceof TextPatternWildcard) {
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.equals(obj);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		}
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		<strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  	}
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  	@Override
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  	<strong class="jxr_keyword">public</strong> String toString(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html">QueryExecutionContext</a> context) {
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		<strong class="jxr_keyword">return</strong> <span class="jxr_string">"WILDCARD("</span> + context.luceneField() + <span class="jxr_string">", "</span> + context.optDesensitize(value) + <span class="jxr_string">")"</span>;
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  	}
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
 </body>
 </html>

@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>DocIndexerXmlHandlers (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DocIndexerXmlHandlers (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DocIndexerXmlHandlers (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="DocIndexerXmlHandlers (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -286,40 +286,45 @@ extends <a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html" titl
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#addProperty(java.lang.String)">addProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#addProperty(java.lang.String,%20boolean)">addProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+           boolean&nbsp;includePayloads)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#addProperty(java.lang.String,%20nl.inl.blacklab.index.complex.ComplexFieldProperty.SensitivitySetting)">addProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
            <a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.SensitivitySetting.html" title="enum in nl.inl.blacklab.index.complex">ComplexFieldProperty.SensitivitySetting</a>&nbsp;sensitivity)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#characters(char[],%20int,%20int)">characters</a></strong>(char[]&nbsp;buffer,
           int&nbsp;start,
           int&nbsp;length)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#consumeCharacterContent()">consumeCharacterContent</a></strong>()</code>
 <div class="block">Returns and resets the character content captured since the last call to
  this method.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#describePosition()">describePosition</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#endElement(java.lang.String,%20java.lang.String,%20java.lang.String)">endElement</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;uri,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localName,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;qName)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#endPrefixMapping(java.lang.String)">endPrefixMapping</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix)</code>
 <div class="block">A previously encountered namespace prefix mapping is no longer in effect.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#escapeXmlChars(char[],%20int,%20int)">escapeXmlChars</a></strong>(char[]&nbsp;source,
               int&nbsp;start,
@@ -328,28 +333,24 @@ extends <a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html" titl
  equivalents.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#escapeXmlChars(java.lang.String)">escapeXmlChars</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;source)</code>
 <div class="block">Escape the special XML chars (<, >, &, ") with their named entity
  equivalents.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/index/complex/ComplexField.html" title="class in nl.inl.blacklab.index.complex">ComplexField</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#getContentsField()">getContentsField</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>org.apache.lucene.document.Document</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#getCurrentLuceneDoc()">getCurrentLuceneDoc</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code><a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#getMainProperty()">getMainProperty</a></strong>()</code>&nbsp;</td>
-</tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#getPropEndTag()">getPropEndTag</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html#getMainProperty()">getMainProperty</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a></code></td>
@@ -490,6 +491,16 @@ extends <a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html" titl
 <pre>protected&nbsp;<a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a>&nbsp;addProperty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</pre>
 </li>
 </ul>
+<a name="addProperty(java.lang.String, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addProperty</h4>
+<pre>protected&nbsp;<a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a>&nbsp;addProperty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+                               boolean&nbsp;includePayloads)</pre>
+</li>
+</ul>
 <a name="addNumericFields(java.util.Collection)">
 <!--   -->
 </a>
@@ -593,15 +604,6 @@ extends <a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html" titl
 <li class="blockList">
 <h4>getPropStartTag</h4>
 <pre>public&nbsp;<a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a>&nbsp;getPropStartTag()</pre>
-</li>
-</ul>
-<a name="getPropEndTag()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getPropEndTag</h4>
-<pre>public&nbsp;<a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html" title="class in nl.inl.blacklab.index.complex">ComplexFieldProperty</a>&nbsp;getPropEndTag()</pre>
 </li>
 </ul>
 <a name="getMainProperty()">
@@ -789,6 +791,6 @@ extends <a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html" titl
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

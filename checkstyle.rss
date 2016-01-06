@@ -19,15 +19,15 @@ under the License.
 -->
 <rss version="0.91">
   <channel>
-    <title>BlackLab corpus search Java library - Checkstyle report</title>
+    <title>BlackLab - Checkstyle report</title>
     <link>https://github.com/INL/BlackLab</link>
-    <description>BlackLab corpus search Java library - Checkstyle report</description>
+    <description>BlackLab - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2015 INL</copyright>
+    <copyright>&#169;2016 INL</copyright>
     <item>
-      <title>File: 260,
+      <title>File: 265,
              Errors: 0,
-             Warnings: 141,
+             Warnings: 161,
              Infos: 0
       </title>
             <link>https://github.com/INL/BlackLab/checkstyle.html</link>
@@ -80,7 +80,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  2
                 </td>
                 <td>
                   0
@@ -116,27 +116,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.forwardindex.ForwardIndexImplV2.java">nl/inl/blacklab/forwardindex/ForwardIndexImplV2.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.sequences.TextPatternSequence.java">nl/inl/blacklab/search/sequences/TextPatternSequence.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  2
+                  1
                 </td>
                 <td>
                   0
@@ -312,6 +298,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TextPatternNot.java">nl/inl/blacklab/search/TextPatternNot.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.indexers.DocIndexerFolia.java">nl/inl/blacklab/indexers/DocIndexerFolia.java</a>
                 </td>
                 <td>
@@ -327,20 +327,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.grouping.HitPropertyDocumentId.java">nl/inl/blacklab/search/grouping/HitPropertyDocumentId.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TextPatternNot.java">nl/inl/blacklab/search/TextPatternNot.java</a>
                 </td>
                 <td>
                   0
@@ -389,6 +375,20 @@ under the License.
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpanQueryDocLevelAndNot.java">nl/inl/blacklab/search/lucene/SpanQueryDocLevelAndNot.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
@@ -592,13 +592,27 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpanQueryNGrams.java">nl/inl/blacklab/search/lucene/SpanQueryNGrams.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpanQueryBase.java">nl/inl/blacklab/search/lucene/SpanQueryBase.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -634,20 +648,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpanQueryEdge.java">nl/inl/blacklab/search/lucene/SpanQueryEdge.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TextPatternProperty.java">nl/inl/blacklab/search/TextPatternProperty.java</a>
                 </td>
                 <td>
@@ -662,7 +662,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.index.complex.TokenLongProperty.java">nl/inl/blacklab/index/complex/TokenLongProperty.java</a>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpanQueryEdge.java">nl/inl/blacklab/search/lucene/SpanQueryEdge.java</a>
                 </td>
                 <td>
                   0
@@ -794,7 +794,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  3
                 </td>
                 <td>
                   0
@@ -831,6 +831,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.util.Levenshtein.java">nl/inl/util/Levenshtein.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.sequences.TextPatternExpansion.java">nl/inl/blacklab/search/sequences/TextPatternExpansion.java</a>
                 </td>
                 <td>
                   0
@@ -1046,6 +1060,20 @@ under the License.
                   0
                 </td>
                 <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpanQueryTagsOld.java">nl/inl/blacklab/search/lucene/SpanQueryTagsOld.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
                   1
                 </td>
                 <td>
@@ -1088,7 +1116,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -1194,7 +1222,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpansAndNot.java">nl/inl/blacklab/search/lucene/SpansAndNot.java</a>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.debug.ReconstructTermVector.java">nl/inl/blacklab/debug/ReconstructTermVector.java</a>
                 </td>
                 <td>
                   0
@@ -1208,7 +1236,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.debug.ReconstructTermVector.java">nl/inl/blacklab/debug/ReconstructTermVector.java</a>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TextPatternPositionFilter.java">nl/inl/blacklab/search/TextPatternPositionFilter.java</a>
                 </td>
                 <td>
                   0
@@ -1242,7 +1270,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  3
+                  2
                 </td>
                 <td>
                   0
@@ -1424,7 +1452,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -1489,6 +1517,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.util.PropertiesUtil.java">nl/inl/util/PropertiesUtil.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpansTagsPayload.java">nl/inl/blacklab/search/lucene/SpansTagsPayload.java</a>
                 </td>
                 <td>
                   0
@@ -1760,7 +1802,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -1797,6 +1839,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.filter.DesensitizeFilter.java">nl/inl/blacklab/filter/DesensitizeFilter.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpansDocLevelAndNot.java">nl/inl/blacklab/search/lucene/SpansDocLevelAndNot.java</a>
                 </td>
                 <td>
                   0
@@ -1942,7 +1998,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -2062,20 +2118,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpanQueryAndNot.java">nl/inl/blacklab/search/lucene/SpanQueryAndNot.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.util.ArrayUtil.java">nl/inl/util/ArrayUtil.java</a>
                 </td>
                 <td>
@@ -2091,20 +2133,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.index.complex.TokenStreamWithOffsets.java">nl/inl/blacklab/index/complex/TokenStreamWithOffsets.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.index.complex.TokenStringProperty.java">nl/inl/blacklab/index/complex/TokenStringProperty.java</a>
                 </td>
                 <td>
                   0
@@ -2320,7 +2348,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -2433,6 +2461,20 @@ under the License.
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TextPatternAndNot.java">nl/inl/blacklab/search/TextPatternAndNot.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
@@ -2580,6 +2622,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.sequences.SpanQueryFilterNGrams.java">nl/inl/blacklab/search/sequences/SpanQueryFilterNGrams.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TextPatternDocLevelAnd.java">nl/inl/blacklab/search/TextPatternDocLevelAnd.java</a>
                 </td>
                 <td>
@@ -2650,7 +2706,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.Span.java">nl/inl/blacklab/search/Span.java</a>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TPBooleanClause.java">nl/inl/blacklab/search/TPBooleanClause.java</a>
                 </td>
                 <td>
                   0
@@ -2664,7 +2720,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.TPBooleanClause.java">nl/inl/blacklab/search/TPBooleanClause.java</a>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.Span.java">nl/inl/blacklab/search/Span.java</a>
                 </td>
                 <td>
                   0
@@ -2726,7 +2782,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  2
                 </td>
                 <td>
                   0
@@ -2782,7 +2838,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  5
+                  2
                 </td>
                 <td>
                   0
@@ -2846,7 +2902,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.grouping.Group.java">nl/inl/blacklab/search/grouping/Group.java</a>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.grouping.ResultsGrouper.java">nl/inl/blacklab/search/grouping/ResultsGrouper.java</a>
                 </td>
                 <td>
                   0
@@ -2860,7 +2916,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.grouping.ResultsGrouper.java">nl/inl/blacklab/search/grouping/ResultsGrouper.java</a>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.grouping.Group.java">nl/inl/blacklab/search/grouping/Group.java</a>
                 </td>
                 <td>
                   0
@@ -2880,7 +2936,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -2903,20 +2959,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.perdocument.DocResult.java">nl/inl/blacklab/perdocument/DocResult.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.analysis.BLLatinAnalyzer.java">nl/inl/blacklab/analysis/BLLatinAnalyzer.java</a>
                 </td>
                 <td>
                   0
@@ -2992,7 +3034,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
                   0
@@ -3077,6 +3119,20 @@ under the License.
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.sequences.TextPatternFilterNGrams.java">nl/inl/blacklab/search/sequences/TextPatternFilterNGrams.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
@@ -3188,7 +3244,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -3314,7 +3370,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  10
                 </td>
                 <td>
                   0
@@ -3468,7 +3524,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  3
                 </td>
                 <td>
                   0
@@ -3532,20 +3588,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.analysis.BLDefaultAnalyzer.java">nl/inl/blacklab/analysis/BLDefaultAnalyzer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.index.Indexer.java">nl/inl/blacklab/index/Indexer.java</a>
                 </td>
                 <td>
@@ -3594,7 +3636,21 @@ under the License.
                   0
                 </td>
                 <td>
+                  1
+                </td>
+                <td>
                   0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.sequences.SpansFilterNGramsRaw.java">nl/inl/blacklab/search/sequences/SpansFilterNGramsRaw.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
@@ -3608,7 +3664,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -3617,6 +3673,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.perdocument.ComparatorDocGroupProperty.java">nl/inl/blacklab/perdocument/ComparatorDocGroupProperty.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/INL/BlackLab/checkstyle.html#nl.inl.blacklab.search.lucene.SpansNGrams.java">nl/inl/blacklab/search/lucene/SpansNGrams.java</a>
                 </td>
                 <td>
                   0

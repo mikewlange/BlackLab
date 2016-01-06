@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>IndexStructure (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IndexStructure (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="IndexStructure (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="IndexStructure (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -349,19 +349,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#print(java.io.PrintStream)">print</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a>&nbsp;out)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use version that takes a PrintWriter</i></div>
-</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#print(java.io.PrintWriter)">print</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;out)</code>
 <div class="block">Print the index structure.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#registerComplexField(java.lang.String,%20java.lang.String)">registerComplexField</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fieldName,
                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;mainPropName)</code>
@@ -369,31 +361,38 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  metadata, and if not, add it now.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#registerMetadataField(java.lang.String)">registerMetadataField</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fieldName)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#setContentViewable(boolean)">setContentViewable</a></strong>(boolean&nbsp;contentViewable)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#setDisplayName(java.lang.String)">setDisplayName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;displayName)</code>
 <div class="block">Set the display name for this index.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#setDocumentFormat(java.lang.String)">setDocumentFormat</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;documentFormat)</code>
 <div class="block">Set a document format (or formats) for this index.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#setModified()">setModified</a></strong>()</code>
 <div class="block">Indicate that the index was modified, so that fact
  will be recorded in the metadata file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html#tagLengthInPayload()">tagLengthInPayload</a></strong>()</code>
+<div class="block">Are tag lengths stored in the start tag payload (index v3.1 and higher)
+ or are tag ends stored in a separate property (up until index v3)?</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -691,19 +690,6 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.h
 <dt><span class="strong">Returns:</span></dt><dd>the field name, or null if no fields matched</dd></dl>
 </li>
 </ul>
-<a name="print(java.io.PrintStream)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>print</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;void&nbsp;print(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io">PrintStream</a>&nbsp;out)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use version that takes a PrintWriter</i></div>
-<div class="block">Print the index structure.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>out</code> - where to print it</dd></dl>
-</li>
-</ul>
 <a name="print(java.io.PrintWriter)">
 <!--   -->
 </a>
@@ -842,6 +828,18 @@ public&nbsp;void&nbsp;print(<a href="http://docs.oracle.com/javase/7/docs/api/ja
  occurred after the last word; now we always make sure we have it, so we
  can always skip the last token when matching)</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>true if we do, false if we don't</dd></dl>
+</li>
+</ul>
+<a name="tagLengthInPayload()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>tagLengthInPayload</h4>
+<pre>public&nbsp;boolean&nbsp;tagLengthInPayload()</pre>
+<div class="block">Are tag lengths stored in the start tag payload (index v3.1 and higher)
+ or are tag ends stored in a separate property (up until index v3)?</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if tag lengths are stored in the start tag payload</dd></dl>
 </li>
 </ul>
 <a name="_setPidField(java.lang.String)">
@@ -1014,6 +1012,6 @@ public&nbsp;void&nbsp;_setContentViewable(boolean&nbsp;b)</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>

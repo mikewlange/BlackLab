@@ -23,14 +23,14 @@
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> *******************************************************************************/</em>
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">package</strong> nl.inl.blacklab.search.lucene;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.Term;
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.junit.Assert;
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.Term;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.junit.Assert;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/TestSpanQueryAnd.html">TestSpanQueryAnd</a> {
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  	
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  	@Test(expected = RuntimeException.<strong class="jxr_keyword">class</strong>)
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testFieldMismatch() {
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  		BLSpanTermQuery first = <strong class="jxr_keyword">new</strong> BLSpanTermQuery(<strong class="jxr_keyword">new</strong> Term(<span class="jxr_string">"author"</span>, <span class="jxr_string">"bla"</span>));
@@ -57,6 +57,6 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
 </body>
 </html>

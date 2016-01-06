@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>SingleDocIdFilter (BlackLab 1.2-SNAPSHOT API)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SingleDocIdFilter (BlackLab 1.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SingleDocIdFilter (BlackLab 1.2-SNAPSHOT API)";
+        parent.document.title="SingleDocIdFilter (BlackLab 1.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -86,6 +86,9 @@
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
+<li>org.apache.lucene.search.Query</li>
+<li>
+<ul class="inheritance">
 <li>org.apache.lucene.search.Filter</li>
 <li>
 <ul class="inheritance">
@@ -95,9 +98,15 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="strong">SingleDocIdFilter</span>
@@ -142,16 +151,34 @@ extends org.apache.lucene.search.Filter</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>org.apache.lucene.search.DocIdSet</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/SingleDocIdFilter.html#getDocIdSet(org.apache.lucene.index.AtomicReaderContext,%20org.apache.lucene.util.Bits)">getDocIdSet</a></strong>(org.apache.lucene.index.AtomicReaderContext&nbsp;ctx,
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/SingleDocIdFilter.html#getDocIdSet(org.apache.lucene.index.LeafReaderContext,%20org.apache.lucene.util.Bits)">getDocIdSet</a></strong>(org.apache.lucene.index.LeafReaderContext&nbsp;ctx,
            org.apache.lucene.util.Bits&nbsp;bits)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/SingleDocIdFilter.html#toString(java.lang.String)">toString</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;field)</code>&nbsp;</td>
+</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.Filter">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.lucene.search.Filter</h3>
+<code>createWeight</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.Query">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.lucene.search.Query</h3>
+<code>clone, equals, getBoost, hashCode, rewrite, setBoost, toString</code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -184,17 +211,30 @@ extends org.apache.lucene.search.Filter</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getDocIdSet(org.apache.lucene.index.AtomicReaderContext, org.apache.lucene.util.Bits)">
+<a name="getDocIdSet(org.apache.lucene.index.LeafReaderContext, org.apache.lucene.util.Bits)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getDocIdSet</h4>
-<pre>public&nbsp;org.apache.lucene.search.DocIdSet&nbsp;getDocIdSet(org.apache.lucene.index.AtomicReaderContext&nbsp;ctx,
+<pre>public&nbsp;org.apache.lucene.search.DocIdSet&nbsp;getDocIdSet(org.apache.lucene.index.LeafReaderContext&nbsp;ctx,
                                             org.apache.lucene.util.Bits&nbsp;bits)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getDocIdSet</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.Filter</code></dd>
+</dl>
+</li>
+</ul>
+<a name="toString(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>toString</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;field)</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.Query</code></dd>
 </dl>
 </li>
 </ul>
@@ -265,6 +305,6 @@ extends org.apache.lucene.search.Filter</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2015 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
 </body>
 </html>
