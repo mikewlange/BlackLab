@@ -197,7 +197,9 @@
                                   
             <h1>Change Log</h1>
 <div class="section">
-<h2><a name="Improvements_in_HEAD"></a>Improvements in HEAD</h2>
+<h2><a name="Improvements_in_HEAD"></a>Improvements in HEAD</h2></div>
+<div class="section">
+<h2><a name="Improvements_up_to_v1.2.0"></a>Improvements up to v1.2.0</h2>
 <div class="section">
 <h3><a name="Changed"></a>Changed</h3>
 
@@ -206,15 +208,45 @@
 <li>Switched build from Ant to Maven, and added generating a project site with javadocs, reports, etc.</li>
   
 <li>Using less memory by switching some Maps in the forward index to the gs-collections one.</li>
+  
+<li>Updated to Lucene 5.2.1.</li>
+  
+<li>Added Maven project site, available at <a class="externalLink" href="http://inl.github.io/BlackLab/">http://inl.github.io/BlackLab/</a></li>
+  
+<li>Removed Lucene query parser for corpus queries.</li>
+  
+<li>Keep tag end position in payload of start tag, which results in much faster tag searches.</li>
+  
+<li>Rewrote many slower queries to make them (much) faster. Particularly searches with &#x201c;not&#x201d; parts and &#x201c;containing&#x201d;/&#x201c;within&#x201d; should be faster.</li>
+  
+<li>Sped up &#x201c;containing&#x201d;, &#x201c;within&#x201d;, and other such filter queries.</li>
+  
+<li>TextPatternAnd was renamed and expanded to TextPatternAndNot. TextPatternAnd is still available as a synonym, but has been deprecated.</li>
+  
+<li>Added TextPatternFilterNGrams to speed up queries of the form: []{2,3} containing &#x201c;water&#x201d; (or the &#x201c;within&#x201d; equivalent).</li>
+  
+<li>Added BLSpans.advanceStartPosition(target) to &#x201c;skip&#x201d; within a document.</li>
+  
+<li>Commons-compress (used for reading .gz files) is statically linked now.</li>
+  
+<li>Limited token length to 1000 (really long tokens would cause problems otherwise).</li>
 </ul></div>
 <div class="section">
 <h3><a name="Fixed"></a>Fixed</h3>
 
 <ul>
   
-<li>When an empty version file is read, don&#x2019;t crash on a NullPointerException.</li>
+<li>Empty version file causes NullPointerException.</li>
   
-<li>Made ContentStoreDir independent of default encoding.</li>
+<li>Missing manifest file causes NullPointerException.</li>
+  
+<li>ContentStoreDir contained dependencies on the default encoding.</li>
+  
+<li>A number of subtle search bugs.</li>
+  
+<li>Opening an index by passing a symbolic link throws an exception.</li>
+  
+<li>Miscellaneous small fixes.</li>
 </ul></div></div>
 <div class="section">
 <h2><a name="Improvements_up_to_v1.1.0"></a>Improvements up to v1.1.0</h2>
