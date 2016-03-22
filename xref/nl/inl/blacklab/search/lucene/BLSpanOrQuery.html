@@ -159,7 +159,7 @@
 <a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<em class="jxr_comment">// for the anonymous BLSpan class</em>
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 		<strong class="jxr_keyword">boolean</strong> clausesAllSameLengthSetter = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 		<strong class="jxr_keyword">int</strong> clauseLengthSetter = -1;
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		<strong class="jxr_keyword">final</strong> ArrayList&lt;BLSpans&gt; subSpans = <strong class="jxr_keyword">new</strong> ArrayList&lt;BLSpans&gt;(
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		<strong class="jxr_keyword">final</strong> ArrayList&lt;BLSpans&gt; subSpans = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(
 <a class="jxr_linenumber" name="L155" href="#L155">155</a> 				clauses.length);
 <a class="jxr_linenumber" name="L156" href="#L156">156</a> 		<strong class="jxr_keyword">for</strong> (SpanQuery sq : clauses) {
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 			BLSpans spans = BLSpansWrapper.optWrap(sq.getSpans(context,
@@ -264,7 +264,7 @@
 <a class="jxr_linenumber" name="L256" href="#L256">256</a> 				}
 <a class="jxr_linenumber" name="L257" href="#L257">257</a> 
 <a class="jxr_linenumber" name="L258" href="#L258">258</a> 				<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> TwoPhaseIterator(
-<a class="jxr_linenumber" name="L259" href="#L259">259</a> 						<strong class="jxr_keyword">new</strong> DisjunctionDISIApproximation&lt;Spans&gt;(byDocQueue)) {
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> 						<strong class="jxr_keyword">new</strong> DisjunctionDISIApproximation&lt;&gt;(byDocQueue)) {
 <a class="jxr_linenumber" name="L260" href="#L260">260</a> 					@Override
 <a class="jxr_linenumber" name="L261" href="#L261">261</a> 					<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> matches() <strong class="jxr_keyword">throws</strong> IOException {
 <a class="jxr_linenumber" name="L262" href="#L262">262</a> 						<strong class="jxr_keyword">return</strong> twoPhaseCurrentDocMatches();

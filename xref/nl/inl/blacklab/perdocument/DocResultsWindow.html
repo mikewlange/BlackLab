@@ -63,7 +63,7 @@
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  		<em class="jxr_comment">// Make sublist (don't use sublist because the backing list may change if not</em>
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  		<em class="jxr_comment">// all hits have been read yet)</em>
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  		results = <strong class="jxr_keyword">new</strong> ArrayList&lt;DocResult&gt;();
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  		results = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = first; i &lt; first + number; i++) {
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  			results.add(source.get(i));
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  		}

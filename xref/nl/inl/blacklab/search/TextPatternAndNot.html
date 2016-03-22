@@ -37,9 +37,9 @@
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html">TextPatternAndNot</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../nl/inl/blacklab/search/TextPattern.html">TextPattern</a> {
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  	<strong class="jxr_keyword">protected</strong> List&lt;TextPattern&gt; include = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;();
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  	<strong class="jxr_keyword">protected</strong> List&lt;TextPattern&gt; include = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	<strong class="jxr_keyword">protected</strong> List&lt;TextPattern&gt; exclude = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;();
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	<strong class="jxr_keyword">protected</strong> List&lt;TextPattern&gt; exclude = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html">TextPatternAndNot</a>(TextPattern... clauses) {
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  		<strong class="jxr_keyword">for</strong> (TextPattern clause : clauses) {
@@ -72,11 +72,11 @@
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  	@Override
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  	<strong class="jxr_keyword">public</strong> &lt;T&gt; T translate(TextPatternTranslator&lt;T&gt; translator, <a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html">QueryExecutionContext</a> context) {
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		List&lt;T&gt; chResults = <strong class="jxr_keyword">new</strong> ArrayList&lt;T&gt;(include.size());
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		List&lt;T&gt; chResults = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(include.size());
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">for</strong> (TextPattern cl : include) {
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  			chResults.add(cl.translate(translator, context));
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  		}
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		List&lt;T&gt; chResultsNot = <strong class="jxr_keyword">new</strong> ArrayList&lt;T&gt;(exclude.size());
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		List&lt;T&gt; chResultsNot = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(exclude.size());
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  		<strong class="jxr_keyword">for</strong> (TextPattern cl : exclude) {
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  			chResultsNot.add(cl.translate(translator, context));
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  		}
@@ -101,8 +101,8 @@
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  			TextPatternAndNot clone = (TextPatternAndNot) <strong class="jxr_keyword">super</strong>.clone();
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  			<em class="jxr_comment">// copy list of children so we can modify it independently</em>
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>  			clone.include = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;(include);
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  			clone.exclude = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;(exclude);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  			clone.include = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(include);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  			clone.exclude = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(exclude);
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>  
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>  			<strong class="jxr_keyword">return</strong> clone;
 <a class="jxr_linenumber" name="L100" href="#L100">100</a> 		} <strong class="jxr_keyword">catch</strong> (CloneNotSupportedException e) {
@@ -119,7 +119,7 @@
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> 		}
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 
 <a class="jxr_linenumber" name="L113" href="#L113">113</a> 		<em class="jxr_comment">// ! ( (a &amp; b) &amp; !(c &amp; d) ) --&gt; !a | !b | (c &amp; d)</em>
-<a class="jxr_linenumber" name="L114" href="#L114">114</a> 		List&lt;TextPattern&gt; inclNeg = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;();
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> 		List&lt;TextPattern&gt; inclNeg = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L115" href="#L115">115</a> 		<strong class="jxr_keyword">for</strong> (TextPattern tp: include) {
 <a class="jxr_linenumber" name="L116" href="#L116">116</a> 			inclNeg.add(tp.inverted());
 <a class="jxr_linenumber" name="L117" href="#L117">117</a> 		}
@@ -147,8 +147,8 @@
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 		<em class="jxr_comment">// Flatten nested AND queries, and invert negative-only clauses.</em>
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> 		<em class="jxr_comment">// This doesn't change the query because the AND operator is associative.</em>
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> 		<strong class="jxr_keyword">boolean</strong> anyRewritten = false;
-<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		List&lt;TextPattern&gt; rewrittenCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;();
-<a class="jxr_linenumber" name="L143" href="#L143">143</a> 		List&lt;TextPattern&gt; rewrittenNotCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;();
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		List&lt;TextPattern&gt; rewrittenCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 		List&lt;TextPattern&gt; rewrittenNotCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 		<strong class="jxr_keyword">boolean</strong> isNot = false;
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 		<strong class="jxr_keyword">for</strong> (List&lt;TextPattern&gt; cl: Arrays.asList(include, exclude)) {
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 			<strong class="jxr_keyword">for</strong> (TextPattern child: cl) {

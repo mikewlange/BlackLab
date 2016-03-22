@@ -14,18 +14,18 @@
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.util.Arrays;
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> java.util.List;
 <a class="jxr_linenumber" name="L8" href="#L8">8</a>   
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> org.junit.AfterClass;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> org.junit.Assert;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> org.junit.BeforeClass;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.junit.Ignore;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.example.DocIndexerExample;
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.IndexListenerDevNull;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.Indexer;
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.queryParser.corpusql.CorpusQueryLanguageParser;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.queryParser.corpusql.ParseException;
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.StringUtil;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.example.DocIndexerExample;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.IndexListenerDevNull;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.Indexer;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.queryParser.corpusql.CorpusQueryLanguageParser;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.queryParser.corpusql.ParseException;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.StringUtil;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.junit.AfterClass;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> org.junit.Assert;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.junit.BeforeClass;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.junit.Ignore;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../nl/inl/blacklab/search/TestSearches.html">TestSearches</a> {
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  
@@ -130,7 +130,7 @@
 <a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">	 * @return the resulting BlackLab text pattern</em>
 <a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment">	 * @throws ParseException</em>
 <a class="jxr_linenumber" name="L124" href="#L124">124</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L125" href="#L125">125</a> 	<strong class="jxr_keyword">private</strong> List&lt;String&gt; find(String query) <strong class="jxr_keyword">throws</strong> ParseException {
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> List&lt;String&gt; find(String query) <strong class="jxr_keyword">throws</strong> ParseException {
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> 		<em class="jxr_comment">// Parse query using the CorpusQL parser</em>
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> 		TextPattern tp = CorpusQueryLanguageParser.parse(query);
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> 
@@ -149,7 +149,7 @@
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">	 * @return</em>
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 	<strong class="jxr_keyword">static</strong> List&lt;String&gt; getConcordances(Hits hits) {
-<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		List&lt;String&gt; results = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		List&lt;String&gt; results = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 		<strong class="jxr_keyword">for</strong> (Hit hit : hits) {
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 			Kwic kwic = hits.getKwic(hit);
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> 			String left = StringUtil.join(kwic.getLeft(<span class="jxr_string">"word"</span>), <span class="jxr_string">" "</span>);

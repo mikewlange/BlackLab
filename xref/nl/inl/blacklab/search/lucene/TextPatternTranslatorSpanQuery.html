@@ -66,7 +66,7 @@
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  	@Override
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  	<strong class="jxr_keyword">public</strong> SpanQuery regex(<a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html">QueryExecutionContext</a> context, String value) {
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  		String valueNoStartEndMatch = value.replaceAll(<span class="jxr_string">"&#92;&#92;^|&#92;&#92;$"</span>, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> BLSpanMultiTermQueryWrapper&lt;RegexpQuery&gt;(<strong class="jxr_keyword">new</strong> RegexpQuery(
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> BLSpanMultiTermQueryWrapper&lt;&gt;(<strong class="jxr_keyword">new</strong> RegexpQuery(
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  				<strong class="jxr_keyword">new</strong> Term(context.luceneField(), context.optDesensitize(valueNoStartEndMatch))));
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  	}
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  
@@ -99,7 +99,7 @@
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  			<strong class="jxr_keyword">return</strong> allTags;
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  		<em class="jxr_comment">// Construct attribute filters</em>
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>  		List&lt;SpanQuery&gt; attrFilters = <strong class="jxr_keyword">new</strong> ArrayList&lt;SpanQuery&gt;();
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  		List&lt;SpanQuery&gt; attrFilters = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  		QueryExecutionContext startTagContext = context.withProperty(ComplexFieldUtil.START_TAG_PROP_NAME);
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  		<strong class="jxr_keyword">for</strong> (Map.Entry&lt;String,String&gt; e: attr.entrySet()) {
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  			String value = optInsensitive(context, <span class="jxr_string">"@"</span> + e.getKey() + <span class="jxr_string">"__"</span> + e.getValue());
@@ -162,13 +162,13 @@
 <a class="jxr_linenumber" name="L154" href="#L154">154</a> 
 <a class="jxr_linenumber" name="L155" href="#L155">155</a> 	@Override
 <a class="jxr_linenumber" name="L156" href="#L156">156</a> 	<strong class="jxr_keyword">public</strong> SpanQuery wildcard(<a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html">QueryExecutionContext</a> context, String value) {
-<a class="jxr_linenumber" name="L157" href="#L157">157</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> BLSpanMultiTermQueryWrapper&lt;WildcardQuery&gt;(<strong class="jxr_keyword">new</strong> WildcardQuery(<strong class="jxr_keyword">new</strong> Term(context.luceneField(),
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> BLSpanMultiTermQueryWrapper&lt;&gt;(<strong class="jxr_keyword">new</strong> WildcardQuery(<strong class="jxr_keyword">new</strong> Term(context.luceneField(),
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> 				context.optDesensitize(value))));
 <a class="jxr_linenumber" name="L159" href="#L159">159</a> 	}
 <a class="jxr_linenumber" name="L160" href="#L160">160</a> 
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 	@Override
 <a class="jxr_linenumber" name="L162" href="#L162">162</a> 	<strong class="jxr_keyword">public</strong> SpanQuery prefix(<a href="../../../../../nl/inl/blacklab/search/QueryExecutionContext.html">QueryExecutionContext</a> context, String value) {
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> BLSpanMultiTermQueryWrapper&lt;PrefixQuery&gt;(<strong class="jxr_keyword">new</strong> PrefixQuery(<strong class="jxr_keyword">new</strong> Term(context.luceneField(),
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> BLSpanMultiTermQueryWrapper&lt;&gt;(<strong class="jxr_keyword">new</strong> PrefixQuery(<strong class="jxr_keyword">new</strong> Term(context.luceneField(),
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> 				context.optDesensitize(value))));
 <a class="jxr_linenumber" name="L165" href="#L165">165</a> 	}
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> 

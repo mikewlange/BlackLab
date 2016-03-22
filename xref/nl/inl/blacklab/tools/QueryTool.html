@@ -164,7 +164,7 @@
 <a class="jxr_linenumber" name="L156" href="#L156">156</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> showWhichGroup = -1;
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> 	<em class="jxr_javadoccomment">/** Lists of words read from file to choose random word from (for batch mode) */</em>
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> 	<strong class="jxr_keyword">private</strong> Map&lt;String, List&lt;String&gt;&gt; wordLists = <strong class="jxr_keyword">new</strong> HashMap&lt;String, List&lt;String&gt;&gt;();
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> 	<strong class="jxr_keyword">private</strong> Map&lt;String, List&lt;String&gt;&gt; wordLists = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L160" href="#L160">160</a> 
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 	<em class="jxr_javadoccomment">/** Thrown when an error occurs during parsing */</em>
 <a class="jxr_linenumber" name="L162" href="#L162">162</a> 	<strong class="jxr_keyword">class</strong> <a href="../../../../nl/inl/blacklab/queryParser/contextql/ParseException.html">ParseException</a> <strong class="jxr_keyword">extends</strong> Exception {
@@ -920,7 +920,7 @@
 <a class="jxr_linenumber" name="L912" href="#L912">912</a> 			<strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="L913" href="#L913">913</a> 		}
 <a class="jxr_linenumber" name="L914" href="#L914">914</a> 		Document doc = searcher.document(docId);
-<a class="jxr_linenumber" name="L915" href="#L915">915</a> 		Map&lt;String, String&gt; metadata = <strong class="jxr_keyword">new</strong> TreeMap&lt;String, String&gt;(); <em class="jxr_comment">// sort by key</em>
+<a class="jxr_linenumber" name="L915" href="#L915">915</a> 		Map&lt;String, String&gt; metadata = <strong class="jxr_keyword">new</strong> TreeMap&lt;&gt;(); <em class="jxr_comment">// sort by key</em>
 <a class="jxr_linenumber" name="L916" href="#L916">916</a> 		<strong class="jxr_keyword">for</strong> (IndexableField f: doc.getFields()) {
 <a class="jxr_linenumber" name="L917" href="#L917">917</a> 			metadata.put(f.name(), f.stringValue());
 <a class="jxr_linenumber" name="L918" href="#L918">918</a> 		}
@@ -1530,7 +1530,7 @@
 <a class="jxr_linenumber" name="L1522" href="#L1522">1522</a> 		HitsWindow window = hitsToShow.window(firstResult, resultsPerPage);
 <a class="jxr_linenumber" name="L1523" href="#L1523">1523</a> 
 <a class="jxr_linenumber" name="L1524" href="#L1524">1524</a> 		<em class="jxr_comment">// Compile hits display info and calculate necessary width of left context column</em>
-<a class="jxr_linenumber" name="L1525" href="#L1525">1525</a> 		List&lt;HitToShow&gt; toShow = <strong class="jxr_keyword">new</strong> ArrayList&lt;HitToShow&gt;();
+<a class="jxr_linenumber" name="L1525" href="#L1525">1525</a> 		List&lt;HitToShow&gt; toShow = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L1526" href="#L1526">1526</a> 		window.setContextSize(contextSize); <em class="jxr_comment">// number of words around hit</em>
 <a class="jxr_linenumber" name="L1527" href="#L1527">1527</a> 		<strong class="jxr_keyword">int</strong> leftContextMaxSize = 10; <em class="jxr_comment">// number of characters to reserve on screen for left context</em>
 <a class="jxr_linenumber" name="L1528" href="#L1528">1528</a> 		<strong class="jxr_keyword">for</strong> (Hit hit : window) {

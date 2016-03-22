@@ -64,13 +64,13 @@
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">int</strong> currentDoc = -1;
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  	<strong class="jxr_keyword">private</strong> List&lt;Hit&gt; bucket = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  	<strong class="jxr_keyword">private</strong> List&lt;Hit&gt; bucket = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment">	 * For each hit we fetched, store the captured groups, so we don't</em>
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment">	 * lose this information.</em>
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  	<strong class="jxr_keyword">private</strong> Map&lt;Hit, <a href="../../../../../nl/inl/blacklab/search/Span.html">Span</a>[]&gt; capturedGroupsPerHit = <strong class="jxr_keyword">new</strong> HashMap&lt;Hit, <a href="../../../../../nl/inl/blacklab/search/Span.html">Span</a>[]&gt;();
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  	<strong class="jxr_keyword">private</strong> Map&lt;Hit, <a href="../../../../../nl/inl/blacklab/search/Span.html">Span</a>[]&gt; capturedGroupsPerHit = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> bucketSize = 0;
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  
@@ -191,8 +191,8 @@
 <a class="jxr_linenumber" name="L183" href="#L183">183</a> 			capturedGroupsPerHit.clear();
 <a class="jxr_linenumber" name="L184" href="#L184">184</a> 		} <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L185" href="#L185">185</a> 			<em class="jxr_comment">// Reallocate in this case to avoid holding on to a lot of memory</em>
-<a class="jxr_linenumber" name="L186" href="#L186">186</a> 			bucket = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
-<a class="jxr_linenumber" name="L187" href="#L187">187</a> 			capturedGroupsPerHit = <strong class="jxr_keyword">new</strong> HashMap&lt;Hit, <a href="../../../../../nl/inl/blacklab/search/Span.html">Span</a>[]&gt;();
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 			bucket = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> 			capturedGroupsPerHit = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L188" href="#L188">188</a> 		}
 <a class="jxr_linenumber" name="L189" href="#L189">189</a> 
 <a class="jxr_linenumber" name="L190" href="#L190">190</a> 		bucketSize = 0;

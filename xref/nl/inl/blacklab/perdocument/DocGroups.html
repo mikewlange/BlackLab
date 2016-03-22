@@ -39,9 +39,9 @@
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> * Applies grouping to the results in a DocResults object.</em>
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html">DocGroups</a> <strong class="jxr_keyword">implements</strong> Iterable&lt;DocGroup&gt; {
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	Map&lt;HitPropValue, DocGroup&gt; groups = <strong class="jxr_keyword">new</strong> HashMap&lt;HitPropValue, DocGroup&gt;();
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	Map&lt;HitPropValue, DocGroup&gt; groups = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	List&lt;DocGroup&gt; orderedGroups = <strong class="jxr_keyword">new</strong> ArrayList&lt;DocGroup&gt;();
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	List&lt;DocGroup&gt; orderedGroups = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  	<strong class="jxr_keyword">private</strong> <a href="../../../../nl/inl/blacklab/search/Searcher.html">Searcher</a> searcher;
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  
@@ -72,12 +72,12 @@
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  		searcher = docResults.getSearcher();
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  		<strong class="jxr_keyword">this</strong>.groupBy = groupBy;
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  		<em class="jxr_comment">//Thread currentThread = Thread.currentThread();</em>
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		Map&lt;HitPropValue, List&lt;DocResult&gt;&gt; groupLists = <strong class="jxr_keyword">new</strong> HashMap&lt;HitPropValue, List&lt;DocResult&gt;&gt;();
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		Map&lt;HitPropValue, List&lt;DocResult&gt;&gt; groupLists = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">for</strong> (DocResult r : docResults) {
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  			HitPropValue groupId = groupBy.get(r);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  			List&lt;DocResult&gt; group = groupLists.get(groupId);
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  			<strong class="jxr_keyword">if</strong> (group == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>  				group = <strong class="jxr_keyword">new</strong> ArrayList&lt;DocResult&gt;();
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  				group = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  				groupLists.put(groupId, group);
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  			}
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  			group.add(r);

@@ -80,11 +80,11 @@
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment">	 *  Term values for this property.</em>
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  	<strong class="jxr_keyword">protected</strong> List&lt;String&gt; values = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  	<strong class="jxr_keyword">protected</strong> List&lt;String&gt; values = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  	<em class="jxr_javadoccomment">/** Token position increments. This allows us to index multiple terms at a single token position (just</em>
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment">	 *  set the token increments of the additional tokens to 0). */</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  	<strong class="jxr_keyword">protected</strong> List&lt;Integer&gt; increments = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  	<strong class="jxr_keyword">protected</strong> List&lt;Integer&gt; increments = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment">	 * Payloads for this property, if any.</em>
@@ -99,7 +99,7 @@
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  <em class="jxr_javadoccomment">	 * A property may be indexed in different ways (alternatives). This specifies names and filters</em>
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  <em class="jxr_javadoccomment">	 * for each way.</em>
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>  	<strong class="jxr_keyword">private</strong> Map&lt;String, TokenFilterAdder&gt; alternatives = <strong class="jxr_keyword">new</strong> HashMap&lt;String, TokenFilterAdder&gt;();
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  	<strong class="jxr_keyword">private</strong> Map&lt;String, TokenFilterAdder&gt; alternatives = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  	<em class="jxr_javadoccomment">/** The main alternative (the one that gets character offsets if desired) */</em>
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  	<strong class="jxr_keyword">private</strong> String mainAlternative;
@@ -111,7 +111,7 @@
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> hasForwardIndex = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> 
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> 	<em class="jxr_javadoccomment">/** To keep memory usage down, we make sure we only store 1 copy of each string value */</em>
-<a class="jxr_linenumber" name="L106" href="#L106">106</a> 	<strong class="jxr_keyword">private</strong> Map&lt;String, String&gt; storedValues = <strong class="jxr_keyword">new</strong> HashMap&lt;String, String&gt;();
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> 	<strong class="jxr_keyword">private</strong> Map&lt;String, String&gt; storedValues = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> 	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_javadoccomment">	 * Construct a ComplexFieldProperty object with the default alternative</em>
@@ -146,7 +146,7 @@
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> 
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 		<strong class="jxr_keyword">this</strong>.includeOffsets = includeOffsets;
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> 		<strong class="jxr_keyword">if</strong> (includePayloads)
-<a class="jxr_linenumber" name="L141" href="#L141">141</a> 			payloads = <strong class="jxr_keyword">new</strong> ArrayList&lt;BytesRef&gt;();
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 			payloads = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 	}
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 	TokenStream getTokenStream(String altName, List&lt;Integer&gt; startChars, List&lt;Integer&gt; endChars) {

@@ -145,9 +145,9 @@
 <a class="jxr_linenumber" name="L137" href="#L137">137</a> 	<em class="jxr_javadoccomment">/** Read external metadatafile (OLD; replaced by MetadataFetcher system. This will be removed soon)</em>
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> <em class="jxr_javadoccomment">	 * @param metadataFile the file */</em>
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> readMetadata(File metadataFile) {
-<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		titles = <strong class="jxr_keyword">new</strong> HashMap&lt;String, String&gt;();
-<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		dates = <strong class="jxr_keyword">new</strong> HashMap&lt;String, String&gt;();
-<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		authors = <strong class="jxr_keyword">new</strong> HashMap&lt;String, String&gt;();
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		titles = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		dates = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		authors = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 		<em class="jxr_comment">// File metadataFile = new File("c:&#92;&#92;temp&#92;&#92;dpo_metadata.txt");</em>
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 		BufferedReader r = FileUtil.openForReading(metadataFile);
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 		String l;

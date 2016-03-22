@@ -71,7 +71,7 @@
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  	@Deprecated
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> List&lt;Hit&gt; hitList(<a href="../../../../nl/inl/blacklab/search/lucene/BLSpans.html">BLSpans</a> spans) {
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		List&lt;Hit&gt; result = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		List&lt;Hit&gt; result = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  		<strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  			<strong class="jxr_keyword">while</strong> (spans.nextDoc() != DocIdSetIterator.NO_MORE_DOCS) {
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  				<strong class="jxr_keyword">while</strong>(spans.nextStartPosition() != Spans.NO_MORE_POSITIONS) {

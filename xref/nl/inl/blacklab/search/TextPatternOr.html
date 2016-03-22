@@ -37,7 +37,7 @@
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  	@Override
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<strong class="jxr_keyword">public</strong> &lt;T&gt; T translate(TextPatternTranslator&lt;T&gt; translator, <a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html">QueryExecutionContext</a> context) {
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  		List&lt;T&gt; chResults = <strong class="jxr_keyword">new</strong> ArrayList&lt;T&gt;(clauses.size());
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  		List&lt;T&gt; chResults = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(clauses.size());
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  		<strong class="jxr_keyword">for</strong> (TextPattern cl : clauses) {
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  			chResults.add(cl.translate(translator, context));
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  		}
@@ -59,7 +59,7 @@
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../nl/inl/blacklab/search/TextPattern.html">TextPattern</a> noEmpty() {
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  		<strong class="jxr_keyword">if</strong> (!matchesEmptySequence())
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		List&lt;TextPattern&gt; newCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;();
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		List&lt;TextPattern&gt; newCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  		<strong class="jxr_keyword">for</strong> (TextPattern cl: clauses) {
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  			newCl.add(cl.noEmpty());
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  		}
@@ -74,7 +74,7 @@
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  		<strong class="jxr_keyword">boolean</strong> anyRewritten = false;
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  		<strong class="jxr_keyword">boolean</strong> hasNotChild = false;
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">boolean</strong> allClausesSingleToken = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  		List&lt;TextPattern&gt; rewrittenCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;TextPattern&gt;();
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  		List&lt;TextPattern&gt; rewrittenCl = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  		<strong class="jxr_keyword">for</strong> (TextPattern child: clauses) {
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  			TextPattern rewritten = child.rewrite();
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  			<strong class="jxr_keyword">if</strong> (rewritten instanceof TextPatternOr) {

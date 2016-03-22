@@ -411,7 +411,7 @@
 <a class="jxr_linenumber" name="L403" href="#L403">403</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L404" href="#L404">404</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(<a href="../../../../nl/inl/blacklab/search/Searcher.html">Searcher</a> searcher, String concordanceFieldPropName) {
 <a class="jxr_linenumber" name="L405" href="#L405">405</a> 		<strong class="jxr_keyword">this</strong>.searcher = searcher;
-<a class="jxr_linenumber" name="L406" href="#L406">406</a> 		hits = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> 		hits = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L407" href="#L407">407</a> 		hitsCounted = 0;
 <a class="jxr_linenumber" name="L408" href="#L408">408</a> 		setConcordanceField(concordanceFieldPropName);
 <a class="jxr_linenumber" name="L409" href="#L409">409</a> 		currentContextSize = -1;
@@ -475,8 +475,8 @@
 <a class="jxr_linenumber" name="L467" href="#L467">467</a> 		<strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L468" href="#L468">468</a> 			DirectoryReader reader = searcher == <strong class="jxr_keyword">null</strong> ? <strong class="jxr_keyword">null</strong> : searcher.getIndexReader();
 <a class="jxr_linenumber" name="L469" href="#L469">469</a> 			spanQuery = (SpanQuery) sourceQuery.rewrite(reader);
-<a class="jxr_linenumber" name="L470" href="#L470">470</a> 			termContexts = <strong class="jxr_keyword">new</strong> HashMap&lt;Term, TermContext&gt;();
-<a class="jxr_linenumber" name="L471" href="#L471">471</a> 			Set&lt;Term&gt; terms = <strong class="jxr_keyword">new</strong> HashSet&lt;Term&gt;();
+<a class="jxr_linenumber" name="L470" href="#L470">470</a> 			termContexts = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L471" href="#L471">471</a> 			Set&lt;Term&gt; terms = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;();
 <a class="jxr_linenumber" name="L472" href="#L472">472</a> 			extractTermsFromSpanQuery(terms);
 <a class="jxr_linenumber" name="L473" href="#L473">473</a> 			etiquette = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/util/ThreadPriority.html">ThreadPriority</a>();
 <a class="jxr_linenumber" name="L474" href="#L474">474</a> 			<strong class="jxr_keyword">for</strong> (Term term: terms) {
@@ -592,7 +592,7 @@
 <a class="jxr_linenumber" name="L584" href="#L584">584</a> 		}
 <a class="jxr_linenumber" name="L585" href="#L585">585</a> 		<em class="jxr_comment">// We do it this way because if we return (a copy of) the hits list,</em>
 <a class="jxr_linenumber" name="L586" href="#L586">586</a> 		<em class="jxr_comment">// you get it unsorted.</em>
-<a class="jxr_linenumber" name="L587" href="#L587">587</a> 		List&lt;Hit&gt; list = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L587" href="#L587">587</a> 		List&lt;Hit&gt; list = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L588" href="#L588">588</a> 		<strong class="jxr_keyword">for</strong> (Hit h: <strong class="jxr_keyword">this</strong>) {
 <a class="jxr_linenumber" name="L589" href="#L589">589</a> 			list.add(h);
 <a class="jxr_linenumber" name="L590" href="#L590">590</a> 		}
@@ -677,7 +677,7 @@
 <a class="jxr_linenumber" name="L669" href="#L669">669</a> 								hitQueryContext.setSpans(currentSourceSpans);
 <a class="jxr_linenumber" name="L670" href="#L670">670</a> 								currentSourceSpans.setHitQueryContext(hitQueryContext); <em class="jxr_comment">// let captured groups register themselves</em>
 <a class="jxr_linenumber" name="L671" href="#L671">671</a> 								<strong class="jxr_keyword">if</strong> (capturedGroups == <strong class="jxr_keyword">null</strong> &amp;&amp; hitQueryContext.numberOfCapturedGroups() &gt; 0) {
-<a class="jxr_linenumber" name="L672" href="#L672">672</a> 									capturedGroups = <strong class="jxr_keyword">new</strong> HashMap&lt;Hit, <a href="../../../../nl/inl/blacklab/search/Span.html">Span</a>[]&gt;();
+<a class="jxr_linenumber" name="L672" href="#L672">672</a> 									capturedGroups = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L673" href="#L673">673</a> 								}
 <a class="jxr_linenumber" name="L674" href="#L674">674</a> 
 <a class="jxr_linenumber" name="L675" href="#L675">675</a> 								<strong class="jxr_keyword">int</strong> doc = currentSourceSpans.nextDoc();
@@ -1466,11 +1466,11 @@
 <a class="jxr_linenumber" name="L1458" href="#L1458">1458</a> 	<strong class="jxr_keyword">private</strong> Map&lt;Hit, Kwic&gt; retrieveKwics(<strong class="jxr_keyword">int</strong> contextSize, String fieldName) {
 <a class="jxr_linenumber" name="L1459" href="#L1459">1459</a> 
 <a class="jxr_linenumber" name="L1460" href="#L1460">1460</a> 		<em class="jxr_comment">// Group hits per document</em>
-<a class="jxr_linenumber" name="L1461" href="#L1461">1461</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = <strong class="jxr_keyword">new</strong> HashMap&lt;Integer, List&lt;Hit&gt;&gt;();
+<a class="jxr_linenumber" name="L1461" href="#L1461">1461</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L1462" href="#L1462">1462</a> 		<strong class="jxr_keyword">for</strong> (Hit key: <strong class="jxr_keyword">this</strong>) {
 <a class="jxr_linenumber" name="L1463" href="#L1463">1463</a> 			List&lt;Hit&gt; hitsInDoc = hitsPerDocument.get(key.doc);
 <a class="jxr_linenumber" name="L1464" href="#L1464">1464</a> 			<strong class="jxr_keyword">if</strong> (hitsInDoc == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1465" href="#L1465">1465</a> 				hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L1465" href="#L1465">1465</a> 				hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L1466" href="#L1466">1466</a> 				hitsPerDocument.put(key.doc, hitsInDoc);
 <a class="jxr_linenumber" name="L1467" href="#L1467">1467</a> 			}
 <a class="jxr_linenumber" name="L1468" href="#L1468">1468</a> 			hitsInDoc.add(key);
@@ -1488,7 +1488,7 @@
 <a class="jxr_linenumber" name="L1480" href="#L1480">1480</a> 				punctForwardIndex = searcher.getForwardIndex(ComplexFieldUtil.propertyField(
 <a class="jxr_linenumber" name="L1481" href="#L1481">1481</a> 						fieldName, concPunctFI));
 <a class="jxr_linenumber" name="L1482" href="#L1482">1482</a> 
-<a class="jxr_linenumber" name="L1483" href="#L1483">1483</a> 			Map&lt;String, ForwardIndex&gt; attrForwardIndices = <strong class="jxr_keyword">new</strong> HashMap&lt;String, ForwardIndex&gt;();
+<a class="jxr_linenumber" name="L1483" href="#L1483">1483</a> 			Map&lt;String, ForwardIndex&gt; attrForwardIndices = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L1484" href="#L1484">1484</a> 			<strong class="jxr_keyword">if</strong> (concAttrFI == <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L1485" href="#L1485">1485</a> 				<em class="jxr_comment">// All other FIs are attributes</em>
 <a class="jxr_linenumber" name="L1486" href="#L1486">1486</a> 				<strong class="jxr_keyword">for</strong> (String p: searcher.getForwardIndices().keySet()) {
@@ -1507,7 +1507,7 @@
 <a class="jxr_linenumber" name="L1499" href="#L1499">1499</a> 				}
 <a class="jxr_linenumber" name="L1500" href="#L1500">1500</a> 			}
 <a class="jxr_linenumber" name="L1501" href="#L1501">1501</a> 
-<a class="jxr_linenumber" name="L1502" href="#L1502">1502</a> 			Map&lt;Hit, Kwic&gt; conc1 = <strong class="jxr_keyword">new</strong> HashMap&lt;Hit, Kwic&gt;();
+<a class="jxr_linenumber" name="L1502" href="#L1502">1502</a> 			Map&lt;Hit, Kwic&gt; conc1 = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L1503" href="#L1503">1503</a> 			<strong class="jxr_keyword">for</strong> (List&lt;Hit&gt; l: hitsPerDocument.values()) {
 <a class="jxr_linenumber" name="L1504" href="#L1504">1504</a> 				Hits hitsInThisDoc = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher, l);
 <a class="jxr_linenumber" name="L1505" href="#L1505">1505</a> 				hitsInThisDoc.copySettingsFrom(<strong class="jxr_keyword">this</strong>);
@@ -1540,14 +1540,14 @@
 <a class="jxr_linenumber" name="L1532" href="#L1532">1532</a> 			<strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="L1533" href="#L1533">1533</a> 		}
 <a class="jxr_linenumber" name="L1534" href="#L1534">1534</a> 
-<a class="jxr_linenumber" name="L1535" href="#L1535">1535</a> 		List&lt;ForwardIndex&gt; fis = <strong class="jxr_keyword">new</strong> ArrayList&lt;ForwardIndex&gt;();
+<a class="jxr_linenumber" name="L1535" href="#L1535">1535</a> 		List&lt;ForwardIndex&gt; fis = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L1536" href="#L1536">1536</a> 		<strong class="jxr_keyword">for</strong> (String fieldPropName: fieldProps) {
 <a class="jxr_linenumber" name="L1537" href="#L1537">1537</a> 			fis.add(searcher.getForwardIndex(fieldPropName));
 <a class="jxr_linenumber" name="L1538" href="#L1538">1538</a> 		}
 <a class="jxr_linenumber" name="L1539" href="#L1539">1539</a> 
 <a class="jxr_linenumber" name="L1540" href="#L1540">1540</a> 		<em class="jxr_comment">// Get the context</em>
 <a class="jxr_linenumber" name="L1541" href="#L1541">1541</a> 		<em class="jxr_comment">// Group hits per document</em>
-<a class="jxr_linenumber" name="L1542" href="#L1542">1542</a> 		List&lt;Hit&gt; hitsInSameDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L1542" href="#L1542">1542</a> 		List&lt;Hit&gt; hitsInSameDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L1543" href="#L1543">1543</a> 		<strong class="jxr_keyword">int</strong> currentDoc = -1;
 <a class="jxr_linenumber" name="L1544" href="#L1544">1544</a> 		<strong class="jxr_keyword">int</strong> index = 0;
 <a class="jxr_linenumber" name="L1545" href="#L1545">1545</a> 		<strong class="jxr_keyword">if</strong> (contexts == <strong class="jxr_keyword">null</strong> || contexts.length &lt; hits.size()) {
@@ -1578,7 +1578,7 @@
 <a class="jxr_linenumber" name="L1570" href="#L1570">1570</a> 			findPartOfContext(hitsInSameDoc, index - hitsInSameDoc.size(), fis);
 <a class="jxr_linenumber" name="L1571" href="#L1571">1571</a> 
 <a class="jxr_linenumber" name="L1572" href="#L1572">1572</a> 		currentContextSize = desiredContextSize;
-<a class="jxr_linenumber" name="L1573" href="#L1573">1573</a> 		contextFieldsPropName = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;(fieldProps);
+<a class="jxr_linenumber" name="L1573" href="#L1573">1573</a> 		contextFieldsPropName = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(fieldProps);
 <a class="jxr_linenumber" name="L1574" href="#L1574">1574</a> 	}
 <a class="jxr_linenumber" name="L1575" href="#L1575">1575</a> 
 <a class="jxr_linenumber" name="L1576" href="#L1576">1576</a> 	<em class="jxr_javadoccomment">/**</em>
@@ -1637,7 +1637,7 @@
 <a class="jxr_linenumber" name="L1629" href="#L1629">1629</a> 			ctx = searcher.getDefaultExecutionContext(concordanceFieldName);
 <a class="jxr_linenumber" name="L1630" href="#L1630">1630</a> 		ctx = ctx.withProperty(propName);
 <a class="jxr_linenumber" name="L1631" href="#L1631">1631</a> 		findContext(Arrays.asList(ctx.luceneField(false)));
-<a class="jxr_linenumber" name="L1632" href="#L1632">1632</a> 		Map&lt;Integer, Integer&gt; coll = <strong class="jxr_keyword">new</strong> HashMap&lt;Integer, Integer&gt;();
+<a class="jxr_linenumber" name="L1632" href="#L1632">1632</a> 		Map&lt;Integer, Integer&gt; coll = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L1633" href="#L1633">1633</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; hits.size(); j++) {
 <a class="jxr_linenumber" name="L1634" href="#L1634">1634</a> 			<strong class="jxr_keyword">int</strong>[] context = contexts[j];
 <a class="jxr_linenumber" name="L1635" href="#L1635">1635</a> 
@@ -1665,7 +1665,7 @@
 <a class="jxr_linenumber" name="L1657" href="#L1657">1657</a> 		TermFrequencyList collocations = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/TermFrequencyList.html">TermFrequencyList</a>(coll.size());
 <a class="jxr_linenumber" name="L1658" href="#L1658">1658</a> 		<em class="jxr_comment">// TODO: get collocations for multiple contexts?</em>
 <a class="jxr_linenumber" name="L1659" href="#L1659">1659</a> 		Terms terms = searcher.getTerms(contextFieldsPropName.get(0));
-<a class="jxr_linenumber" name="L1660" href="#L1660">1660</a> 		Map&lt;String, Integer&gt; wordFreq = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Integer&gt;();
+<a class="jxr_linenumber" name="L1660" href="#L1660">1660</a> 		Map&lt;String, Integer&gt; wordFreq = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L1661" href="#L1661">1661</a> 		<strong class="jxr_keyword">for</strong> (Map.Entry&lt;Integer, Integer&gt; e: coll.entrySet()) {
 <a class="jxr_linenumber" name="L1662" href="#L1662">1662</a> 			String word = terms.get(e.getKey());
 <a class="jxr_linenumber" name="L1663" href="#L1663">1663</a> 			<strong class="jxr_keyword">if</strong> (!diacSensitive) {
@@ -1733,7 +1733,7 @@
 <a class="jxr_linenumber" name="L1725" href="#L1725">1725</a> 	<strong class="jxr_keyword">public</strong> Map&lt;String, Span&gt; getCapturedGroupMap(<a href="../../../../nl/inl/blacklab/search/Hit.html">Hit</a> hit) {
 <a class="jxr_linenumber" name="L1726" href="#L1726">1726</a> 		<strong class="jxr_keyword">if</strong> (capturedGroups == <strong class="jxr_keyword">null</strong>)
 <a class="jxr_linenumber" name="L1727" href="#L1727">1727</a> 			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L1728" href="#L1728">1728</a> 		Map&lt;String, Span&gt; result = <strong class="jxr_keyword">new</strong> TreeMap&lt;String, Span&gt;(); <em class="jxr_comment">// TreeMap to maintain group ordering</em>
+<a class="jxr_linenumber" name="L1728" href="#L1728">1728</a> 		Map&lt;String, Span&gt; result = <strong class="jxr_keyword">new</strong> TreeMap&lt;&gt;(); <em class="jxr_comment">// TreeMap to maintain group ordering</em>
 <a class="jxr_linenumber" name="L1729" href="#L1729">1729</a> 		List&lt;String&gt; names = getCapturedGroupNames();
 <a class="jxr_linenumber" name="L1730" href="#L1730">1730</a> 		Span[] groups = capturedGroups.get(hit);
 <a class="jxr_linenumber" name="L1731" href="#L1731">1731</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; names.size(); i++) {
@@ -1805,7 +1805,7 @@
 <a class="jxr_linenumber" name="L1797" href="#L1797">1797</a> 			toIndex = hits.size();
 <a class="jxr_linenumber" name="L1798" href="#L1798">1798</a> 
 <a class="jxr_linenumber" name="L1799" href="#L1799">1799</a> 		<em class="jxr_comment">// Make sure we get sublist in sort order</em>
-<a class="jxr_linenumber" name="L1800" href="#L1800">1800</a> 		List&lt;Hit&gt; result = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L1800" href="#L1800">1800</a> 		List&lt;Hit&gt; result = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L1801" href="#L1801">1801</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = fromIndex; i &lt; toIndex; i++) {
 <a class="jxr_linenumber" name="L1802" href="#L1802">1802</a> 			result.add(get(i));
 <a class="jxr_linenumber" name="L1803" href="#L1803">1803</a> 		}
@@ -1837,7 +1837,7 @@
 <a class="jxr_linenumber" name="L1829" href="#L1829">1829</a> <em class="jxr_javadoccomment">	 * @param contextField the field properties</em>
 <a class="jxr_linenumber" name="L1830" href="#L1830">1830</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L1831" href="#L1831">1831</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setContextField(List&lt;String&gt; contextField) {
-<a class="jxr_linenumber" name="L1832" href="#L1832">1832</a> 		<strong class="jxr_keyword">this</strong>.contextFieldsPropName = contextField == <strong class="jxr_keyword">null</strong> ? <strong class="jxr_keyword">null</strong> : <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;(
+<a class="jxr_linenumber" name="L1832" href="#L1832">1832</a> 		<strong class="jxr_keyword">this</strong>.contextFieldsPropName = contextField == <strong class="jxr_keyword">null</strong> ? <strong class="jxr_keyword">null</strong> : <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(
 <a class="jxr_linenumber" name="L1833" href="#L1833">1833</a> 				contextField);
 <a class="jxr_linenumber" name="L1834" href="#L1834">1834</a> 	}
 <a class="jxr_linenumber" name="L1835" href="#L1835">1835</a> 
@@ -1955,7 +1955,7 @@
 <a class="jxr_linenumber" name="L1947" href="#L1947">1947</a> 		<em class="jxr_comment">// Make the concordances from the context</em>
 <a class="jxr_linenumber" name="L1948" href="#L1948">1948</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; hits.size(); i++) {
 <a class="jxr_linenumber" name="L1949" href="#L1949">1949</a> 			Hit h = hits.get(i);
-<a class="jxr_linenumber" name="L1950" href="#L1950">1950</a> 			List&lt;String&gt; tokens = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L1950" href="#L1950">1950</a> 			List&lt;String&gt; tokens = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L1951" href="#L1951">1951</a> 			<strong class="jxr_keyword">int</strong>[] context = contexts[i];
 <a class="jxr_linenumber" name="L1952" href="#L1952">1952</a> 			<strong class="jxr_keyword">int</strong> contextLength = context[CONTEXTS_LENGTH_INDEX];
 <a class="jxr_linenumber" name="L1953" href="#L1953">1953</a> 			<strong class="jxr_keyword">int</strong> contextRightStart = context[CONTEXTS_RIGHT_START_INDEX];
@@ -1986,7 +1986,7 @@
 <a class="jxr_linenumber" name="L1978" href="#L1978">1978</a> 					tokens.add(<span class="jxr_string">""</span>); <em class="jxr_comment">// weird, but make sure the numbers add up at the end</em>
 <a class="jxr_linenumber" name="L1979" href="#L1979">1979</a> 
 <a class="jxr_linenumber" name="L1980" href="#L1980">1980</a> 			}
-<a class="jxr_linenumber" name="L1981" href="#L1981">1981</a> 			List&lt;String&gt; properties = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L1981" href="#L1981">1981</a> 			List&lt;String&gt; properties = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L1982" href="#L1982">1982</a> 			properties.add(concPunctFI);
 <a class="jxr_linenumber" name="L1983" href="#L1983">1983</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> k = 0; k &lt; attrContext.length; k++) {
 <a class="jxr_linenumber" name="L1984" href="#L1984">1984</a> 				properties.add(attrName[k]);
@@ -2173,7 +2173,7 @@
 <a class="jxr_linenumber" name="L2165" href="#L2165">2165</a> 			Thread.currentThread().interrupt();
 <a class="jxr_linenumber" name="L2166" href="#L2166">2166</a> 			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher);
 <a class="jxr_linenumber" name="L2167" href="#L2167">2167</a> 		}
-<a class="jxr_linenumber" name="L2168" href="#L2168">2168</a> 		List&lt;Hit&gt; hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L2168" href="#L2168">2168</a> 		List&lt;Hit&gt; hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L2169" href="#L2169">2169</a> 		<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
 <a class="jxr_linenumber" name="L2170" href="#L2170">2170</a> 			<strong class="jxr_keyword">if</strong> (hit.doc == docid)
 <a class="jxr_linenumber" name="L2171" href="#L2171">2171</a> 				hitsInDoc.add(hit);
@@ -2218,7 +2218,7 @@
 <a class="jxr_linenumber" name="L2210" href="#L2210">2210</a> 		XmlHighlighter hl = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.html">XmlHighlighter</a>(); <em class="jxr_comment">// used to make fragments well-formed</em>
 <a class="jxr_linenumber" name="L2211" href="#L2211">2211</a> 		hl.setUnbalancedTagsStrategy(searcher.getDefaultUnbalancedTagsStrategy());
 <a class="jxr_linenumber" name="L2212" href="#L2212">2212</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = perDocumentGroupedHits();
-<a class="jxr_linenumber" name="L2213" href="#L2213">2213</a> 		Map&lt;Hit, Concordance&gt; conc = <strong class="jxr_keyword">new</strong> HashMap&lt;Hit, Concordance&gt;();
+<a class="jxr_linenumber" name="L2213" href="#L2213">2213</a> 		Map&lt;Hit, Concordance&gt; conc = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L2214" href="#L2214">2214</a> 		<strong class="jxr_keyword">for</strong> (List&lt;Hit&gt; l: hitsPerDocument.values()) {
 <a class="jxr_linenumber" name="L2215" href="#L2215">2215</a> 			Hits hitsInThisDoc = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher, l);
 <a class="jxr_linenumber" name="L2216" href="#L2216">2216</a> 			hitsInThisDoc.copySettingsFrom(<strong class="jxr_keyword">this</strong>);
@@ -2235,11 +2235,11 @@
 <a class="jxr_linenumber" name="L2227" href="#L2227">2227</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L2228" href="#L2228">2228</a> 	<strong class="jxr_keyword">private</strong> Map&lt;Integer, List&lt;Hit&gt;&gt; perDocumentGroupedHits() {
 <a class="jxr_linenumber" name="L2229" href="#L2229">2229</a> 		<em class="jxr_comment">// Group hits per document</em>
-<a class="jxr_linenumber" name="L2230" href="#L2230">2230</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = <strong class="jxr_keyword">new</strong> HashMap&lt;Integer, List&lt;Hit&gt;&gt;();
+<a class="jxr_linenumber" name="L2230" href="#L2230">2230</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L2231" href="#L2231">2231</a> 		<strong class="jxr_keyword">for</strong> (Hit key: hits) {
 <a class="jxr_linenumber" name="L2232" href="#L2232">2232</a> 			List&lt;Hit&gt; hitsInDoc = hitsPerDocument.get(key.doc);
 <a class="jxr_linenumber" name="L2233" href="#L2233">2233</a> 			<strong class="jxr_keyword">if</strong> (hitsInDoc == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L2234" href="#L2234">2234</a> 				hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L2234" href="#L2234">2234</a> 				hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L2235" href="#L2235">2235</a> 				hitsPerDocument.put(key.doc, hitsInDoc);
 <a class="jxr_linenumber" name="L2236" href="#L2236">2236</a> 			}
 <a class="jxr_linenumber" name="L2237" href="#L2237">2237</a> 			hitsInDoc.add(key);

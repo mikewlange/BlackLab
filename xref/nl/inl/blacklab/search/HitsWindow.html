@@ -80,9 +80,9 @@
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  			number = source.size() - first;
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  		<em class="jxr_comment">// Copy the hits we're interested in.</em>
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		hits = <strong class="jxr_keyword">new</strong> ArrayList&lt;Hit&gt;();
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		hits = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  		<strong class="jxr_keyword">if</strong> (source.hasCapturedGroups())
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  			capturedGroups = <strong class="jxr_keyword">new</strong> HashMap&lt;Hit, <a href="../../../../nl/inl/blacklab/search/Span.html">Span</a>[]&gt;();
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  			capturedGroups = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = first; i &lt; first + number; i++) {
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  			Hit hit = source.get(i);
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  			hits.add(hit);

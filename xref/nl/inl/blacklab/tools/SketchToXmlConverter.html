@@ -56,7 +56,7 @@
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  		File outDir = PropertiesUtil.getFileProp(properties, <span class="jxr_string">"inputDir"</span>, <span class="jxr_string">"input"</span>, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/tools/SketchToXmlConverter.html">SketchToXmlConverter</a>().convertList(listFile, inDir, outDir);
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		SketchToXmlConverter.convertList(listFile, inDir, outDir);
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  	}
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> LINES_PER_CHUNK_FILE = 30000;
@@ -243,7 +243,7 @@
 <a class="jxr_linenumber" name="L235" href="#L235">235</a> <em class="jxr_javadoccomment">	 * @param outDir where to write output files</em>
 <a class="jxr_linenumber" name="L236" href="#L236">236</a> <em class="jxr_javadoccomment">	 * @throws Exception</em>
 <a class="jxr_linenumber" name="L237" href="#L237">237</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L238" href="#L238">238</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> convertList(File listFile, File inDir, File outDir) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> convertList(File listFile, File inDir, File outDir) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L239" href="#L239">239</a> 		SketchToXmlConverter converter = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/tools/SketchToXmlConverter.html">SketchToXmlConverter</a>();
 <a class="jxr_linenumber" name="L240" href="#L240">240</a> 		List&lt;String&gt; filesToRead = FileUtil.readLines(listFile);
 <a class="jxr_linenumber" name="L241" href="#L241">241</a> 		<em class="jxr_comment">// Contains a list of files to index</em>

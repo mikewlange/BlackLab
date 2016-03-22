@@ -433,40 +433,40 @@
 <a class="jxr_linenumber" name="L425" href="#L425">425</a> <em class="jxr_javadoccomment">	 * @param fieldName what forward index to add this to</em>
 <a class="jxr_linenumber" name="L426" href="#L426">426</a> <em class="jxr_javadoccomment">	 * @param tokens the tokens to add</em>
 <a class="jxr_linenumber" name="L427" href="#L427">427</a> <em class="jxr_javadoccomment">	 * @return the id assigned to the content</em>
-<a class="jxr_linenumber" name="L428" href="#L428">428</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L429" href="#L429">429</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> addToForwardIndex(String fieldName, List&lt;String&gt; tokens) {
-<a class="jxr_linenumber" name="L430" href="#L430">430</a> 		ForwardIndex forwardIndex = searcher.getForwardIndex(fieldName);
-<a class="jxr_linenumber" name="L431" href="#L431">431</a> 		<strong class="jxr_keyword">if</strong> (forwardIndex == <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L432" href="#L432">432</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"No forward index for field "</span> + fieldName);
-<a class="jxr_linenumber" name="L433" href="#L433">433</a> 
-<a class="jxr_linenumber" name="L434" href="#L434">434</a> 		<strong class="jxr_keyword">return</strong> forwardIndex.addDocument(tokens);
-<a class="jxr_linenumber" name="L435" href="#L435">435</a> 	}
-<a class="jxr_linenumber" name="L436" href="#L436">436</a> 
-<a class="jxr_linenumber" name="L437" href="#L437">437</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L438" href="#L438">438</a> <em class="jxr_javadoccomment">	 * Add a list of tokens to a forward index</em>
-<a class="jxr_linenumber" name="L439" href="#L439">439</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L440" href="#L440">440</a> <em class="jxr_javadoccomment">	 * @param fieldName what forward index to add this to</em>
-<a class="jxr_linenumber" name="L441" href="#L441">441</a> <em class="jxr_javadoccomment">	 * @param prop the property to get values and position increments from</em>
-<a class="jxr_linenumber" name="L442" href="#L442">442</a> <em class="jxr_javadoccomment">	 * @return the id assigned to the content</em>
+<a class="jxr_linenumber" name="L428" href="#L428">428</a> <em class="jxr_javadoccomment">	 * @deprecated use the version that takes a ComplexFieldProperty insteads</em>
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> 	@Deprecated
+<a class="jxr_linenumber" name="L431" href="#L431">431</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> addToForwardIndex(String fieldName, List&lt;String&gt; tokens) {
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> 		<strong class="jxr_keyword">return</strong> addToForwardIndex(fieldName, tokens, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> 	}
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> 
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L436" href="#L436">436</a> <em class="jxr_javadoccomment">	 * Add a list of tokens to a forward index</em>
+<a class="jxr_linenumber" name="L437" href="#L437">437</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L438" href="#L438">438</a> <em class="jxr_javadoccomment">	 * @param fieldName what forward index to add this to</em>
+<a class="jxr_linenumber" name="L439" href="#L439">439</a> <em class="jxr_javadoccomment">	 * @param tokens the tokens to add</em>
+<a class="jxr_linenumber" name="L440" href="#L440">440</a> <em class="jxr_javadoccomment">	 * @param posIncr position increment associated with each token, or null if always 1</em>
+<a class="jxr_linenumber" name="L441" href="#L441">441</a> <em class="jxr_javadoccomment">	 * @return the id assigned to the content</em>
+<a class="jxr_linenumber" name="L442" href="#L442">442</a> <em class="jxr_javadoccomment">	 * @deprecated use the version that takes a ComplexFieldProperty instead</em>
 <a class="jxr_linenumber" name="L443" href="#L443">443</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L444" href="#L444">444</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> addToForwardIndex(String fieldName, <a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html">ComplexFieldProperty</a> prop) {
-<a class="jxr_linenumber" name="L445" href="#L445">445</a> 		<strong class="jxr_keyword">return</strong> addToForwardIndex(fieldName, prop.getValues(), prop.getPositionIncrements());
-<a class="jxr_linenumber" name="L446" href="#L446">446</a> 	}
-<a class="jxr_linenumber" name="L447" href="#L447">447</a> 
-<a class="jxr_linenumber" name="L448" href="#L448">448</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L449" href="#L449">449</a> <em class="jxr_javadoccomment">	 * Add a list of tokens to a forward index</em>
-<a class="jxr_linenumber" name="L450" href="#L450">450</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L451" href="#L451">451</a> <em class="jxr_javadoccomment">	 * @param fieldName what forward index to add this to</em>
-<a class="jxr_linenumber" name="L452" href="#L452">452</a> <em class="jxr_javadoccomment">	 * @param tokens the tokens to add</em>
-<a class="jxr_linenumber" name="L453" href="#L453">453</a> <em class="jxr_javadoccomment">	 * @param posIncr position increment associated with each token</em>
-<a class="jxr_linenumber" name="L454" href="#L454">454</a> <em class="jxr_javadoccomment">	 * @return the id assigned to the content</em>
-<a class="jxr_linenumber" name="L455" href="#L455">455</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L456" href="#L456">456</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> addToForwardIndex(String fieldName, List&lt;String&gt; tokens, List&lt;Integer&gt; posIncr) {
-<a class="jxr_linenumber" name="L457" href="#L457">457</a> 		ForwardIndex forwardIndex = searcher.getForwardIndex(fieldName);
-<a class="jxr_linenumber" name="L458" href="#L458">458</a> 		<strong class="jxr_keyword">if</strong> (forwardIndex == <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L459" href="#L459">459</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"No forward index for field "</span> + fieldName);
-<a class="jxr_linenumber" name="L460" href="#L460">460</a> 
-<a class="jxr_linenumber" name="L461" href="#L461">461</a> 		<strong class="jxr_keyword">return</strong> forwardIndex.addDocument(tokens, posIncr);
+<a class="jxr_linenumber" name="L444" href="#L444">444</a> 	@Deprecated
+<a class="jxr_linenumber" name="L445" href="#L445">445</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> addToForwardIndex(String fieldName, List&lt;String&gt; tokens, List&lt;Integer&gt; posIncr) {
+<a class="jxr_linenumber" name="L446" href="#L446">446</a> 		ForwardIndex forwardIndex = searcher.getForwardIndex(fieldName);
+<a class="jxr_linenumber" name="L447" href="#L447">447</a> 		<strong class="jxr_keyword">if</strong> (forwardIndex == <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L448" href="#L448">448</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"No forward index for field "</span> + fieldName);
+<a class="jxr_linenumber" name="L449" href="#L449">449</a> 
+<a class="jxr_linenumber" name="L450" href="#L450">450</a> 		<strong class="jxr_keyword">return</strong> forwardIndex.addDocument(tokens, posIncr);
+<a class="jxr_linenumber" name="L451" href="#L451">451</a> 	}
+<a class="jxr_linenumber" name="L452" href="#L452">452</a> 
+<a class="jxr_linenumber" name="L453" href="#L453">453</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L454" href="#L454">454</a> <em class="jxr_javadoccomment">	 * Add a list of tokens to a forward index</em>
+<a class="jxr_linenumber" name="L455" href="#L455">455</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L456" href="#L456">456</a> <em class="jxr_javadoccomment">	 * @param fieldName what forward index to add this to</em>
+<a class="jxr_linenumber" name="L457" href="#L457">457</a> <em class="jxr_javadoccomment">	 * @param prop the property to get values and position increments from</em>
+<a class="jxr_linenumber" name="L458" href="#L458">458</a> <em class="jxr_javadoccomment">	 * @return the id assigned to the content</em>
+<a class="jxr_linenumber" name="L459" href="#L459">459</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L460" href="#L460">460</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> addToForwardIndex(String fieldName, <a href="../../../../nl/inl/blacklab/index/complex/ComplexFieldProperty.html">ComplexFieldProperty</a> prop) {
+<a class="jxr_linenumber" name="L461" href="#L461">461</a> 		<strong class="jxr_keyword">return</strong> addToForwardIndex(fieldName, prop.getValues(), prop.getPositionIncrements());
 <a class="jxr_linenumber" name="L462" href="#L462">462</a> 	}
 <a class="jxr_linenumber" name="L463" href="#L463">463</a> 
 <a class="jxr_linenumber" name="L464" href="#L464">464</a> 	<em class="jxr_javadoccomment">/**</em>

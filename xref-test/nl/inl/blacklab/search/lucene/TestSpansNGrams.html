@@ -33,7 +33,7 @@
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/TestSpansNGrams.html">TestSpansNGrams</a> {
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	<strong class="jxr_keyword">private</strong> SpansNGrams getSpans() {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> SpansNGrams getSpans() {
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  		<em class="jxr_comment">// NOTE: in doc 1, all tokens except 0-1 match; in doc 3, all tokens match</em>
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  		SpansNGrams spans = <strong class="jxr_keyword">new</strong> SpansNGrams(false, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"test"</span>, 2, 3);
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  		spans.setTest(<strong class="jxr_keyword">true</strong>, 1); <em class="jxr_comment">// no IndexReader available</em>

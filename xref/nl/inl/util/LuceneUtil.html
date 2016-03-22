@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  		<strong class="jxr_keyword">boolean</strong> doFuzzy = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  		<strong class="jxr_keyword">if</strong> (maxEdits == 0) {
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  			<em class="jxr_comment">// Exact match; don't use fuzzy query (slow)</em>
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  			Set&lt;String&gt; result = <strong class="jxr_keyword">new</strong> HashSet&lt;String&gt;();
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  			Set&lt;String&gt; result = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;();
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  			<strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  				<strong class="jxr_keyword">for</strong> (String term: searchTerms) {
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  					<strong class="jxr_keyword">if</strong> (reader.docFreq(<strong class="jxr_keyword">new</strong> Term(luceneName, term)) &gt; 0)
@@ -90,7 +90,7 @@
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  		<strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  			Query rewritten = q.rewrite(reader);
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  			WeightedTerm[] wts = QueryTermExtractor.getTerms(rewritten);
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  			Set&lt;String&gt; terms = <strong class="jxr_keyword">new</strong> HashSet&lt;String&gt;();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  			Set&lt;String&gt; terms = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;();
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  			<strong class="jxr_keyword">for</strong> (WeightedTerm wt: wts) {
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  				<strong class="jxr_keyword">if</strong> (doFuzzy || searchTerms.contains(wt.getTerm())) {
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  					terms.add(wt.getTerm());
@@ -312,7 +312,7 @@
 <a class="jxr_linenumber" name="L304" href="#L304">304</a> 			<strong class="jxr_keyword">if</strong> (!sensitive)
 <a class="jxr_linenumber" name="L305" href="#L305">305</a> 				prefix = StringUtil.removeAccents(prefix).toLowerCase();
 <a class="jxr_linenumber" name="L306" href="#L306">306</a> 			org.apache.lucene.index.Terms terms = index.terms(fieldName);
-<a class="jxr_linenumber" name="L307" href="#L307">307</a> 			List&lt;String&gt; results = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L307" href="#L307">307</a> 			List&lt;String&gt; results = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L308" href="#L308">308</a> 			TermsEnum termsEnum = terms.iterator();
 <a class="jxr_linenumber" name="L309" href="#L309">309</a> 			BytesRef brPrefix = <strong class="jxr_keyword">new</strong> BytesRef(prefix.getBytes(<span class="jxr_string">"utf-8"</span>));
 <a class="jxr_linenumber" name="L310" href="#L310">310</a> 			termsEnum.seekCeil(brPrefix); <em class="jxr_comment">// find the prefix in the terms list</em>

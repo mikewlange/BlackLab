@@ -53,10 +53,10 @@
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> currentHit = -1;
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  	<em class="jxr_javadoccomment">/** Starts of hits in current document */</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  	<strong class="jxr_keyword">private</strong> List&lt;Integer&gt; starts = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  	<strong class="jxr_keyword">private</strong> List&lt;Integer&gt; starts = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  	<em class="jxr_javadoccomment">/** Ends of hits in current document */</em>
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  	<strong class="jxr_keyword">private</strong> List&lt;Integer&gt; ends = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  	<strong class="jxr_keyword">private</strong> List&lt;Integer&gt; ends = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/SpansTags.html">SpansTags</a>(Spans startTags, Spans endTags) {
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  		Spans[] origSpans = { startTags, endTags };
@@ -130,7 +130,7 @@
 <a class="jxr_linenumber" name="L122" href="#L122">122</a> 		<em class="jxr_comment">// (Note that we add 2 to the tag position to avoid the problem of x == -x for x == 0;</em>
 <a class="jxr_linenumber" name="L123" href="#L123">123</a> 		<em class="jxr_comment">//  below we subtract it again)</em>
 <a class="jxr_linenumber" name="L124" href="#L124">124</a> 		<em class="jxr_comment">// The list will be sorted by tag position.</em>
-<a class="jxr_linenumber" name="L125" href="#L125">125</a> 		List&lt;Integer&gt; startsAndEnds = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 		List&lt;Integer&gt; startsAndEnds = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> 		<strong class="jxr_keyword">if</strong> (spans[0].nextBucket() == SpansInBuckets.NO_MORE_BUCKETS ||
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> 			spans[1].nextBucket() == SpansInBuckets.NO_MORE_BUCKETS) {
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Both spans must have exactly one bucket per document"</span>);
@@ -169,8 +169,8 @@
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 		}
 <a class="jxr_linenumber" name="L162" href="#L162">162</a> 
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> 		<em class="jxr_comment">// Go through the list of all tags, keep track of unmatched open tags and finding matches</em>
-<a class="jxr_linenumber" name="L164" href="#L164">164</a> 		List&lt;Integer&gt; unmatchedOpenTagIndices = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> 		List&lt;Integer&gt; emptyElementIndices = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;(); <em class="jxr_comment">// empty elements between tokens need special attention (see below)</em>
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> 		List&lt;Integer&gt; unmatchedOpenTagIndices = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 		List&lt;Integer&gt; emptyElementIndices = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;(); <em class="jxr_comment">// empty elements between tokens need special attention (see below)</em>
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> 
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> 		<em class="jxr_comment">// Don't always just call .clear() because the application could</em>
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> 		<em class="jxr_comment">// keep holding on to too much memory after encountering one really</em>
@@ -181,8 +181,8 @@
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 			ends.clear();
 <a class="jxr_linenumber" name="L174" href="#L174">174</a> 		} <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 			<em class="jxr_comment">// Reallocate in this case to avoid holding on to a lot of memory</em>
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 			starts = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> 			ends = <strong class="jxr_keyword">new</strong> ArrayList&lt;Integer&gt;();
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 			starts = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 			ends = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L178" href="#L178">178</a> 		}
 <a class="jxr_linenumber" name="L179" href="#L179">179</a> 
 <a class="jxr_linenumber" name="L180" href="#L180">180</a> 		currentHit = -1; <em class="jxr_comment">// before first hit</em>
