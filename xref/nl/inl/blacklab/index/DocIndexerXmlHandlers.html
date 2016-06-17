@@ -556,7 +556,7 @@
 <a class="jxr_linenumber" name="L548" href="#L548">548</a> 					.append(<span class="jxr_string">"=\&quot;"</span>).append(value).append(<span class="jxr_string">"\&quot;"</span>);
 <a class="jxr_linenumber" name="L549" href="#L549">549</a> 		}
 <a class="jxr_linenumber" name="L550" href="#L550">550</a> 		<em class="jxr_comment">// Append any namespace mapping not yet outputted</em>
-<a class="jxr_linenumber" name="L551" href="#L551">551</a> 		<strong class="jxr_keyword">if</strong> (outputPrefixMapping.size() &gt; 0) {
+<a class="jxr_linenumber" name="L551" href="#L551">551</a> 		<strong class="jxr_keyword">if</strong> (!outputPrefixMapping.isEmpty()) {
 <a class="jxr_linenumber" name="L552" href="#L552">552</a> 			<strong class="jxr_keyword">for</strong> (Map.Entry&lt;String, String&gt; e : outputPrefixMapping.entrySet()) {
 <a class="jxr_linenumber" name="L553" href="#L553">553</a> 				<strong class="jxr_keyword">if</strong> (e.getKey().length() == 0)
 <a class="jxr_linenumber" name="L554" href="#L554">554</a> 					elementBuilder.append(<span class="jxr_string">" xmlns=\&quot;"</span>).append(e.getValue())
@@ -986,6 +986,6 @@
 <a class="jxr_linenumber" name="L978" href="#L978">978</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

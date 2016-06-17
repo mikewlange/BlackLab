@@ -193,7 +193,7 @@
 <a class="jxr_linenumber" name="L185" href="#L185">185</a> 
 <a class="jxr_linenumber" name="L186" href="#L186">186</a> 		<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> startElement(String localName) {
 <a class="jxr_linenumber" name="L187" href="#L187">187</a> 			<em class="jxr_comment">// Should we start a new matcher here?</em>
-<a class="jxr_linenumber" name="L188" href="#L188">188</a> 			<strong class="jxr_keyword">if</strong> ((elementNames.size() == 0 || localName.equals(elementNames.get(0)))
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> 			<strong class="jxr_keyword">if</strong> ((elementNames.isEmpty() || localName.equals(elementNames.get(0)))
 <a class="jxr_linenumber" name="L189" href="#L189">189</a> 					&amp;&amp; (isRelativePath || depth == 0)) {
 <a class="jxr_linenumber" name="L190" href="#L190">190</a> 				<em class="jxr_comment">// Yes, start a new matcher</em>
 <a class="jxr_linenumber" name="L191" href="#L191">191</a> 				matchers.add(<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/index/HookableSaxHandler.html">ExprMatcher</a>());
@@ -518,6 +518,6 @@
 <a class="jxr_linenumber" name="L510" href="#L510">510</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

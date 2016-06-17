@@ -42,12 +42,12 @@
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">	 * an open tag at the beginning for an unmatched closing tag,</em>
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">	 * or by removing the unmatched closing tag.</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> enum <a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.html">UnbalancedTagsStrategy</a> {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  	<strong class="jxr_keyword">public</strong> enum <a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.html">UnbalancedTagsStrategy</a> {
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  		ADD_TAG,
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  		REMOVE_TAG
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  	}
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  	<strong class="jxr_keyword">static</strong> enum <a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.html">TagType</a> {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  	enum <a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.html">TagType</a> {
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  		EXISTING_TAG,       <em class="jxr_comment">// an existing tag</em>
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  		HIGHLIGHT_START,    <em class="jxr_comment">// insert &lt;hl&gt; tag here</em>
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  		HIGHLIGHT_END,      <em class="jxr_comment">// insert &lt;/hl&gt; tag here</em>
@@ -378,7 +378,7 @@
 <a class="jxr_linenumber" name="L370" href="#L370">370</a> 			} <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L371" href="#L371">371</a> 				<em class="jxr_comment">// Close tag. Did we encounter a matching open tag?</em>
 <a class="jxr_linenumber" name="L372" href="#L372">372</a> 				TagLocation openTag = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L373" href="#L373">373</a> 				<strong class="jxr_keyword">if</strong> (openTagStack.size() &gt; 0) {
+<a class="jxr_linenumber" name="L373" href="#L373">373</a> 				<strong class="jxr_keyword">if</strong> (!openTagStack.isEmpty()) {
 <a class="jxr_linenumber" name="L374" href="#L374">374</a> 					<em class="jxr_comment">// Yes, this tag is matched. Find matching tag and link them.</em>
 <a class="jxr_linenumber" name="L375" href="#L375">375</a> 					openTag = openTagStack.remove(openTagStack.size() - 1);
 <a class="jxr_linenumber" name="L376" href="#L376">376</a> 					openTag.name = <strong class="jxr_keyword">null</strong>; <em class="jxr_comment">// no longer necessary to remember tag name</em>
@@ -581,6 +581,6 @@
 <a class="jxr_linenumber" name="L573" href="#L573">573</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

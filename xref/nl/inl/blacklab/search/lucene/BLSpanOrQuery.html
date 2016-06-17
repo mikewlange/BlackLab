@@ -54,13 +54,13 @@
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment"> * BL-specific version (search for "// BL") that produces a BLSpans.</em>
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  @SuppressWarnings({ <span class="jxr_string">"javadoc"</span> })
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_comment">// BL: suppress some innocent warnings</em>
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html">BLSpanOrQuery</a> <strong class="jxr_keyword">extends</strong> SpanOrQuery {
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html">BLSpanOrQuery</a> <strong class="jxr_keyword">extends</strong> SpanOrQuery {
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  	<strong class="jxr_keyword">private</strong> String field;
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  	<strong class="jxr_keyword">private</strong> String field;
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  	<em class="jxr_javadoccomment">/** Construct a BLSpanOrQuery merging the provided clauses. */</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  	<em class="jxr_javadoccomment">/** Construct a BLSpanOrQuery merging the provided clauses.</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">	 * @param clauses clauses to combine using OR</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html">BLSpanOrQuery</a>(SpanQuery... clauses) {
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  		<strong class="jxr_keyword">super</strong>(clauses);
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  		<strong class="jxr_keyword">if</strong> (clauses.length &gt; 0)
@@ -178,7 +178,7 @@
 <a class="jxr_linenumber" name="L170" href="#L170">170</a> 				}
 <a class="jxr_linenumber" name="L171" href="#L171">171</a> 			}
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 		}
-<a class="jxr_linenumber" name="L173" href="#L173">173</a> 		<strong class="jxr_keyword">if</strong> (subSpans.size() == 0)
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 		<strong class="jxr_keyword">if</strong> (subSpans.isEmpty())
 <a class="jxr_linenumber" name="L174" href="#L174">174</a> 			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 		<strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (subSpans.size() == 1)
 <a class="jxr_linenumber" name="L176" href="#L176">176</a> 			<strong class="jxr_keyword">return</strong> BLSpansWrapper.optWrap(subSpans.get(0));
@@ -515,8 +515,8 @@
 <a class="jxr_linenumber" name="L507" href="#L507">507</a> 	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L508" href="#L508">508</a> <em class="jxr_javadoccomment">	 * Convert a SpanOrQuery to a BLSpanOrQuery</em>
 <a class="jxr_linenumber" name="L509" href="#L509">509</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L510" href="#L510">510</a> <em class="jxr_javadoccomment">	 * @param soq</em>
-<a class="jxr_linenumber" name="L511" href="#L511">511</a> <em class="jxr_javadoccomment">	 * @return</em>
+<a class="jxr_linenumber" name="L510" href="#L510">510</a> <em class="jxr_javadoccomment">	 * @param soq query to convert</em>
+<a class="jxr_linenumber" name="L511" href="#L511">511</a> <em class="jxr_javadoccomment">	 * @return the result</em>
 <a class="jxr_linenumber" name="L512" href="#L512">512</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L513" href="#L513">513</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html">BLSpanOrQuery</a> from(SpanOrQuery soq) {
 <a class="jxr_linenumber" name="L514" href="#L514">514</a> 		BLSpanOrQuery blsoq = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html">BLSpanOrQuery</a>(soq.getClauses());
@@ -530,6 +530,6 @@
 <a class="jxr_linenumber" name="L522" href="#L522">522</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

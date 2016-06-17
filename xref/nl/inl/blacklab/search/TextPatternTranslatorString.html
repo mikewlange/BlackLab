@@ -73,7 +73,7 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  	@Override
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  	<strong class="jxr_keyword">public</strong> String tags(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html">QueryExecutionContext</a> context, String elementName, Map&lt;String, String&gt; attr) {
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">if</strong> (attr != <strong class="jxr_keyword">null</strong> &amp;&amp; attr.size() &gt; 0)
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">if</strong> (attr != <strong class="jxr_keyword">null</strong> &amp;&amp; !attr.isEmpty())
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  			<strong class="jxr_keyword">return</strong> <span class="jxr_string">"TAGS("</span> + elementName + <span class="jxr_string">", "</span> + StringUtil.join(attr) + <span class="jxr_string">")"</span>;
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  		<strong class="jxr_keyword">return</strong> <span class="jxr_string">"TAGS("</span> + elementName + <span class="jxr_string">")"</span>;
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  	}
@@ -164,6 +164,6 @@
 <a class="jxr_linenumber" name="L156" href="#L156">156</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

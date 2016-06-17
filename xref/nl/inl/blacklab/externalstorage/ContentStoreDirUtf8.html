@@ -743,87 +743,82 @@
 <a class="jxr_linenumber" name="L735" href="#L735">735</a> 					<strong class="jxr_keyword">int</strong> a = start[i];
 <a class="jxr_linenumber" name="L736" href="#L736">736</a> 					<strong class="jxr_keyword">int</strong> b = end[i];
 <a class="jxr_linenumber" name="L737" href="#L737">737</a> 
-<a class="jxr_linenumber" name="L738" href="#L738">738</a> <em class="jxr_comment">//					if (a == -1 &amp;&amp; b == -1) {</em>
-<a class="jxr_linenumber" name="L739" href="#L739">739</a> <em class="jxr_comment">//						// This means "retrieve whole content"</em>
-<a class="jxr_linenumber" name="L740" href="#L740">740</a> <em class="jxr_comment">//						a = 0;</em>
-<a class="jxr_linenumber" name="L741" href="#L741">741</a> <em class="jxr_comment">//						b = e.entryLengthCharacters;</em>
-<a class="jxr_linenumber" name="L742" href="#L742">742</a> <em class="jxr_comment">//					}</em>
-<a class="jxr_linenumber" name="L743" href="#L743">743</a> 					<strong class="jxr_keyword">if</strong> (a == -1)
-<a class="jxr_linenumber" name="L744" href="#L744">744</a> 						a = 0;
-<a class="jxr_linenumber" name="L745" href="#L745">745</a> 					<strong class="jxr_keyword">if</strong> (b == -1)
-<a class="jxr_linenumber" name="L746" href="#L746">746</a> 						b = e.entryLengthCharacters;
-<a class="jxr_linenumber" name="L747" href="#L747">747</a> 
-<a class="jxr_linenumber" name="L748" href="#L748">748</a> 					<em class="jxr_comment">// Check values</em>
-<a class="jxr_linenumber" name="L749" href="#L749">749</a> 					<strong class="jxr_keyword">if</strong> (a &lt; 0 || b &lt; 0) {
-<a class="jxr_linenumber" name="L750" href="#L750">750</a> 						<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Illegal values, start = "</span> + a + <span class="jxr_string">", end = "</span> + b);
-<a class="jxr_linenumber" name="L751" href="#L751">751</a> 					}
-<a class="jxr_linenumber" name="L752" href="#L752">752</a> 					<strong class="jxr_keyword">if</strong> (a &gt; e.entryLengthCharacters || b &gt; e.entryLengthCharacters) {
-<a class="jxr_linenumber" name="L753" href="#L753">753</a> 						<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Value(s) out of range, start = "</span> + a
-<a class="jxr_linenumber" name="L754" href="#L754">754</a> 								+ <span class="jxr_string">", end = "</span> + b + <span class="jxr_string">", content length = "</span> + e.entryLengthCharacters);
+<a class="jxr_linenumber" name="L738" href="#L738">738</a> 					<strong class="jxr_keyword">if</strong> (a == -1)
+<a class="jxr_linenumber" name="L739" href="#L739">739</a> 						a = 0;
+<a class="jxr_linenumber" name="L740" href="#L740">740</a> 					<strong class="jxr_keyword">if</strong> (b == -1)
+<a class="jxr_linenumber" name="L741" href="#L741">741</a> 						b = e.entryLengthCharacters;
+<a class="jxr_linenumber" name="L742" href="#L742">742</a> 
+<a class="jxr_linenumber" name="L743" href="#L743">743</a> 					<em class="jxr_comment">// Check values</em>
+<a class="jxr_linenumber" name="L744" href="#L744">744</a> 					<strong class="jxr_keyword">if</strong> (a &lt; 0 || b &lt; 0) {
+<a class="jxr_linenumber" name="L745" href="#L745">745</a> 						<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Illegal values, start = "</span> + a + <span class="jxr_string">", end = "</span> + b);
+<a class="jxr_linenumber" name="L746" href="#L746">746</a> 					}
+<a class="jxr_linenumber" name="L747" href="#L747">747</a> 					<strong class="jxr_keyword">if</strong> (a &gt; e.entryLengthCharacters || b &gt; e.entryLengthCharacters) {
+<a class="jxr_linenumber" name="L748" href="#L748">748</a> 						<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Value(s) out of range, start = "</span> + a
+<a class="jxr_linenumber" name="L749" href="#L749">749</a> 								+ <span class="jxr_string">", end = "</span> + b + <span class="jxr_string">", content length = "</span> + e.entryLengthCharacters);
+<a class="jxr_linenumber" name="L750" href="#L750">750</a> 					}
+<a class="jxr_linenumber" name="L751" href="#L751">751</a> 					<strong class="jxr_keyword">if</strong> (b &lt;= a) {
+<a class="jxr_linenumber" name="L752" href="#L752">752</a> 						<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(
+<a class="jxr_linenumber" name="L753" href="#L753">753</a> 								<span class="jxr_string">"Tried to read empty or negative length snippet (from "</span> + a
+<a class="jxr_linenumber" name="L754" href="#L754">754</a> 										+ <span class="jxr_string">" to "</span> + b + <span class="jxr_string">")"</span>);
 <a class="jxr_linenumber" name="L755" href="#L755">755</a> 					}
-<a class="jxr_linenumber" name="L756" href="#L756">756</a> 					<strong class="jxr_keyword">if</strong> (b &lt;= a) {
-<a class="jxr_linenumber" name="L757" href="#L757">757</a> 						<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(
-<a class="jxr_linenumber" name="L758" href="#L758">758</a> 								<span class="jxr_string">"Tried to read empty or negative length snippet (from "</span> + a
-<a class="jxr_linenumber" name="L759" href="#L759">759</a> 										+ <span class="jxr_string">" to "</span> + b + <span class="jxr_string">")"</span>);
-<a class="jxr_linenumber" name="L760" href="#L760">760</a> 					}
-<a class="jxr_linenumber" name="L761" href="#L761">761</a> 
-<a class="jxr_linenumber" name="L762" href="#L762">762</a> 					<em class="jxr_comment">// 1 - determine what blocks to read</em>
-<a class="jxr_linenumber" name="L763" href="#L763">763</a> 					<strong class="jxr_keyword">int</strong> firstBlock = a / e.blockSizeCharacters;
-<a class="jxr_linenumber" name="L764" href="#L764">764</a> 					<strong class="jxr_keyword">int</strong> lastBlock = (b - 1) / e.blockSizeCharacters;
-<a class="jxr_linenumber" name="L765" href="#L765">765</a> 
-<a class="jxr_linenumber" name="L766" href="#L766">766</a> 					<em class="jxr_comment">// 2 - read and decode blocks</em>
-<a class="jxr_linenumber" name="L767" href="#L767">767</a> 					StringBuilder decoded = <strong class="jxr_keyword">new</strong> StringBuilder();
-<a class="jxr_linenumber" name="L768" href="#L768">768</a> 					<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = firstBlock; j &lt;= lastBlock; j++) {
-<a class="jxr_linenumber" name="L769" href="#L769">769</a> 						<strong class="jxr_keyword">long</strong> readStartOffset = e.getBlockStartOffset(j);
-<a class="jxr_linenumber" name="L770" href="#L770">770</a> 						<strong class="jxr_keyword">int</strong> bytesToRead = (<strong class="jxr_keyword">int</strong>) (e.getBlockEndOffset(j) - readStartOffset);
-<a class="jxr_linenumber" name="L771" href="#L771">771</a> 						ByteBuffer buffer = ByteBuffer.allocate(bytesToRead);
-<a class="jxr_linenumber" name="L772" href="#L772">772</a> 						<strong class="jxr_keyword">int</strong> bytesRead = fileChannel.read(buffer, readStartOffset);
-<a class="jxr_linenumber" name="L773" href="#L773">773</a> 						<strong class="jxr_keyword">if</strong> (bytesRead &lt; bytesToRead) {
-<a class="jxr_linenumber" name="L774" href="#L774">774</a> 							<em class="jxr_comment">// Apparently, something went wrong.</em>
-<a class="jxr_linenumber" name="L775" href="#L775">775</a> 							<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Not enough bytes read, "</span> + bytesRead
-<a class="jxr_linenumber" name="L776" href="#L776">776</a> 									+ <span class="jxr_string">" &lt; "</span> + bytesToRead);
-<a class="jxr_linenumber" name="L777" href="#L777">777</a> 						}
-<a class="jxr_linenumber" name="L778" href="#L778">778</a> 						decoded.append(decodeBlock(buffer.array(), 0, bytesRead));
-<a class="jxr_linenumber" name="L779" href="#L779">779</a> 					}
-<a class="jxr_linenumber" name="L780" href="#L780">780</a> 
-<a class="jxr_linenumber" name="L781" href="#L781">781</a> 					<em class="jxr_comment">// 3 - take just what we need</em>
-<a class="jxr_linenumber" name="L782" href="#L782">782</a> 					<strong class="jxr_keyword">int</strong> firstChar = a % e.blockSizeCharacters;
-<a class="jxr_linenumber" name="L783" href="#L783">783</a> 					result[i] = decoded.toString().substring(firstChar, firstChar + b - a);
-<a class="jxr_linenumber" name="L784" href="#L784">784</a> 				}
-<a class="jxr_linenumber" name="L785" href="#L785">785</a> 			} <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L786" href="#L786">786</a> 				fileInputStream.close();
-<a class="jxr_linenumber" name="L787" href="#L787">787</a> 			}
-<a class="jxr_linenumber" name="L788" href="#L788">788</a> 			<strong class="jxr_keyword">return</strong> result;
-<a class="jxr_linenumber" name="L789" href="#L789">789</a> 		} <strong class="jxr_keyword">catch</strong> (Exception e) {
-<a class="jxr_linenumber" name="L790" href="#L790">790</a> 			<strong class="jxr_keyword">throw</strong> ExUtil.wrapRuntimeException(e);
-<a class="jxr_linenumber" name="L791" href="#L791">791</a> 		}
-<a class="jxr_linenumber" name="L792" href="#L792">792</a> 	}
-<a class="jxr_linenumber" name="L793" href="#L793">793</a> 
-<a class="jxr_linenumber" name="L794" href="#L794">794</a> 	@Override
-<a class="jxr_linenumber" name="L795" href="#L795">795</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> delete(<strong class="jxr_keyword">int</strong> id) {
-<a class="jxr_linenumber" name="L796" href="#L796">796</a> 		TocEntry e = toc.get(id);
-<a class="jxr_linenumber" name="L797" href="#L797">797</a> 		e.deleted = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L798" href="#L798">798</a> 		tocModified = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L756" href="#L756">756</a> 
+<a class="jxr_linenumber" name="L757" href="#L757">757</a> 					<em class="jxr_comment">// 1 - determine what blocks to read</em>
+<a class="jxr_linenumber" name="L758" href="#L758">758</a> 					<strong class="jxr_keyword">int</strong> firstBlock = a / e.blockSizeCharacters;
+<a class="jxr_linenumber" name="L759" href="#L759">759</a> 					<strong class="jxr_keyword">int</strong> lastBlock = (b - 1) / e.blockSizeCharacters;
+<a class="jxr_linenumber" name="L760" href="#L760">760</a> 
+<a class="jxr_linenumber" name="L761" href="#L761">761</a> 					<em class="jxr_comment">// 2 - read and decode blocks</em>
+<a class="jxr_linenumber" name="L762" href="#L762">762</a> 					StringBuilder decoded = <strong class="jxr_keyword">new</strong> StringBuilder();
+<a class="jxr_linenumber" name="L763" href="#L763">763</a> 					<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = firstBlock; j &lt;= lastBlock; j++) {
+<a class="jxr_linenumber" name="L764" href="#L764">764</a> 						<strong class="jxr_keyword">long</strong> readStartOffset = e.getBlockStartOffset(j);
+<a class="jxr_linenumber" name="L765" href="#L765">765</a> 						<strong class="jxr_keyword">int</strong> bytesToRead = (<strong class="jxr_keyword">int</strong>) (e.getBlockEndOffset(j) - readStartOffset);
+<a class="jxr_linenumber" name="L766" href="#L766">766</a> 						ByteBuffer buffer = ByteBuffer.allocate(bytesToRead);
+<a class="jxr_linenumber" name="L767" href="#L767">767</a> 						<strong class="jxr_keyword">int</strong> bytesRead = fileChannel.read(buffer, readStartOffset);
+<a class="jxr_linenumber" name="L768" href="#L768">768</a> 						<strong class="jxr_keyword">if</strong> (bytesRead &lt; bytesToRead) {
+<a class="jxr_linenumber" name="L769" href="#L769">769</a> 							<em class="jxr_comment">// Apparently, something went wrong.</em>
+<a class="jxr_linenumber" name="L770" href="#L770">770</a> 							<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Not enough bytes read, "</span> + bytesRead
+<a class="jxr_linenumber" name="L771" href="#L771">771</a> 									+ <span class="jxr_string">" &lt; "</span> + bytesToRead);
+<a class="jxr_linenumber" name="L772" href="#L772">772</a> 						}
+<a class="jxr_linenumber" name="L773" href="#L773">773</a> 						decoded.append(decodeBlock(buffer.array(), 0, bytesRead));
+<a class="jxr_linenumber" name="L774" href="#L774">774</a> 					}
+<a class="jxr_linenumber" name="L775" href="#L775">775</a> 
+<a class="jxr_linenumber" name="L776" href="#L776">776</a> 					<em class="jxr_comment">// 3 - take just what we need</em>
+<a class="jxr_linenumber" name="L777" href="#L777">777</a> 					<strong class="jxr_keyword">int</strong> firstChar = a % e.blockSizeCharacters;
+<a class="jxr_linenumber" name="L778" href="#L778">778</a> 					result[i] = decoded.toString().substring(firstChar, firstChar + b - a);
+<a class="jxr_linenumber" name="L779" href="#L779">779</a> 				}
+<a class="jxr_linenumber" name="L780" href="#L780">780</a> 			} <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L781" href="#L781">781</a> 				fileInputStream.close();
+<a class="jxr_linenumber" name="L782" href="#L782">782</a> 			}
+<a class="jxr_linenumber" name="L783" href="#L783">783</a> 			<strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L784" href="#L784">784</a> 		} <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L785" href="#L785">785</a> 			<strong class="jxr_keyword">throw</strong> ExUtil.wrapRuntimeException(e);
+<a class="jxr_linenumber" name="L786" href="#L786">786</a> 		}
+<a class="jxr_linenumber" name="L787" href="#L787">787</a> 	}
+<a class="jxr_linenumber" name="L788" href="#L788">788</a> 
+<a class="jxr_linenumber" name="L789" href="#L789">789</a> 	@Override
+<a class="jxr_linenumber" name="L790" href="#L790">790</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> delete(<strong class="jxr_keyword">int</strong> id) {
+<a class="jxr_linenumber" name="L791" href="#L791">791</a> 		TocEntry e = toc.get(id);
+<a class="jxr_linenumber" name="L792" href="#L792">792</a> 		e.deleted = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L793" href="#L793">793</a> 		tocModified = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L794" href="#L794">794</a> 	}
+<a class="jxr_linenumber" name="L795" href="#L795">795</a> 
+<a class="jxr_linenumber" name="L796" href="#L796">796</a> 	@Override
+<a class="jxr_linenumber" name="L797" href="#L797">797</a> 	<strong class="jxr_keyword">public</strong> Set&lt;Integer&gt; getDocIds() {
+<a class="jxr_linenumber" name="L798" href="#L798">798</a> 		<strong class="jxr_keyword">return</strong> toc.keySet();
 <a class="jxr_linenumber" name="L799" href="#L799">799</a> 	}
 <a class="jxr_linenumber" name="L800" href="#L800">800</a> 
 <a class="jxr_linenumber" name="L801" href="#L801">801</a> 	@Override
-<a class="jxr_linenumber" name="L802" href="#L802">802</a> 	<strong class="jxr_keyword">public</strong> Set&lt;Integer&gt; getDocIds() {
-<a class="jxr_linenumber" name="L803" href="#L803">803</a> 		<strong class="jxr_keyword">return</strong> toc.keySet();
+<a class="jxr_linenumber" name="L802" href="#L802">802</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isDeleted(<strong class="jxr_keyword">int</strong> id) {
+<a class="jxr_linenumber" name="L803" href="#L803">803</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).deleted;
 <a class="jxr_linenumber" name="L804" href="#L804">804</a> 	}
 <a class="jxr_linenumber" name="L805" href="#L805">805</a> 
 <a class="jxr_linenumber" name="L806" href="#L806">806</a> 	@Override
-<a class="jxr_linenumber" name="L807" href="#L807">807</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isDeleted(<strong class="jxr_keyword">int</strong> id) {
-<a class="jxr_linenumber" name="L808" href="#L808">808</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).deleted;
+<a class="jxr_linenumber" name="L807" href="#L807">807</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getDocLength(<strong class="jxr_keyword">int</strong> id) {
+<a class="jxr_linenumber" name="L808" href="#L808">808</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).entryLengthCharacters;
 <a class="jxr_linenumber" name="L809" href="#L809">809</a> 	}
 <a class="jxr_linenumber" name="L810" href="#L810">810</a> 
-<a class="jxr_linenumber" name="L811" href="#L811">811</a> 	@Override
-<a class="jxr_linenumber" name="L812" href="#L812">812</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getDocLength(<strong class="jxr_keyword">int</strong> id) {
-<a class="jxr_linenumber" name="L813" href="#L813">813</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).entryLengthCharacters;
-<a class="jxr_linenumber" name="L814" href="#L814">814</a> 	}
-<a class="jxr_linenumber" name="L815" href="#L815">815</a> 
-<a class="jxr_linenumber" name="L816" href="#L816">816</a> }
+<a class="jxr_linenumber" name="L811" href="#L811">811</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

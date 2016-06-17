@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Indexer (BlackLab 1.3 API)</title>
+<title>Indexer (BlackLab 1.3.3 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Indexer (BlackLab 1.3 API)";
+        parent.document.title="Indexer (BlackLab 1.3.3 API)";
     }
 //-->
 </script>
@@ -287,45 +287,52 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#index(java.lang.String,%20java.io.Reader)">index</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;documentName,
-     <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Reader.html?is-external=true" title="class or interface in java.io">Reader</a>&nbsp;reader)</code>
-<div class="block">Index a document from a Reader, using the specified type of DocIndexer
-
- Catches and reports any errors that occur.</div>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#index(java.lang.String,%20java.io.InputStream)">index</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;documentName,
+     <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;input)</code>
+<div class="block">Index a document from an InputStream.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#index(java.lang.String,%20java.io.Reader)">index</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;documentName,
+     <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Reader.html?is-external=true" title="class or interface in java.io">Reader</a>&nbsp;reader)</code>
+<div class="block">Index a document from a Reader.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#indexGzip(java.lang.String,%20java.io.InputStream)">indexGzip</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;gzFileName,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;gzipStream)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#indexTarGzip(java.lang.String,%20java.io.InputStream,%20java.lang.String,%20boolean)">indexTarGzip</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tgzFileName,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;tarGzipStream,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;glob,
             boolean&nbsp;recurseArchives)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#isSpecialOperatingSystemFile(java.io.File)">isSpecialOperatingSystemFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</code>
-<div class="block">Should we skip the specified file because it is a special OS file?</div>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#isSpecialOperatingSystemFile(java.lang.String)">isSpecialOperatingSystemFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileName)</code>
+<div class="block">Should we skip the specified file because it is a special OS file?
+
+ Skips Windows Thumbs.db file and Mac OSX .DS_Store file.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#log(java.lang.String,%20java.lang.Exception)">log</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;msg,
    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a>&nbsp;e)</code>
 <div class="block">Log an exception that occurred during indexing</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#rollback()">rollback</a></strong>()</code>
 <div class="block">Call this to roll back any changes made to the index this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setCollator(java.text.Collator)">setCollator</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/text/Collator.html?is-external=true" title="class or interface in java.text">Collator</a>&nbsp;collator)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -333,31 +340,31 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setContinueAfterInputError(boolean)">setContinueAfterInputError</a></strong>(boolean&nbsp;b)</code>
 <div class="block">If an error occurs (e.g.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setDocIndexer(java.lang.Class)">setDocIndexer</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../nl/inl/blacklab/index/DocIndexer.html" title="interface in nl.inl.blacklab.index">DocIndexer</a>&gt;&nbsp;docIndexerClass)</code>
 <div class="block">Set the DocIndexer class we should use to index documents.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setIndexerParam(java.util.Map)">setIndexerParam</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;indexerParam)</code>
 <div class="block">Set parameters we would like to be passed to the DocIndexer class</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setListener(nl.inl.blacklab.index.IndexListener)">setListener</a></strong>(<a href="../../../../nl/inl/blacklab/index/IndexListener.html" title="class in nl.inl.blacklab.index">IndexListener</a>&nbsp;listener)</code>
 <div class="block">Set the listener object that receives messages about indexing progress.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setMaxDocs(int)">setMaxDocs</a></strong>(int&nbsp;n)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -365,13 +372,13 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setMaxNumberOfDocsToIndex(int)">setMaxNumberOfDocsToIndex</a></strong>(int&nbsp;n)</code>
 <div class="block">Set number of documents after which we should stop.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setProcessArchivesAsDirectories(boolean)">setProcessArchivesAsDirectories</a></strong>(boolean&nbsp;b)</code>
 <div class="block">When we encounter a zip or tgz file, do we descend into it like it was a directory?
@@ -380,7 +387,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  ZIP64 format, otherwise you'll get the "invalid CEN header (bad signature)" error.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setProcessZipFilesAsDirectories(boolean)">setProcessZipFilesAsDirectories</a></strong>(boolean&nbsp;b)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -388,19 +395,19 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setRecurseSubdirs(boolean)">setRecurseSubdirs</a></strong>(boolean&nbsp;recurseSubdirs)</code>
 <div class="block">Should we recursively index files in subdirectories (and archives files, if that setting is on)?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#setRethrowInputError(boolean)">setRethrowInputError</a></strong>(boolean&nbsp;b)</code>
 <div class="block">If an error occurs (e.g.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/Indexer.html#update(org.apache.lucene.index.Term,%20org.apache.lucene.document.Document)">update</a></strong>(org.apache.lucene.index.Term&nbsp;term,
       org.apache.lucene.document.Document&nbsp;document)</code>
@@ -793,7 +800,7 @@ public&nbsp;int&nbsp;addToForwardIndex(<a href="http://docs.oracle.com/javase/7/
 <pre>public&nbsp;void&nbsp;index(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;documentName,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Reader.html?is-external=true" title="class or interface in java.io">Reader</a>&nbsp;reader)
            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
-<div class="block">Index a document from a Reader, using the specified type of DocIndexer
+<div class="block">Index a document from a Reader.
 
  Catches and reports any errors that occur.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>documentName</code> - some (preferably unique) name for this document (for example, the file
@@ -892,6 +899,21 @@ public&nbsp;void&nbsp;index(<a href="http://docs.oracle.com/javase/7/docs/api/ja
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
+<a name="index(java.lang.String, java.io.InputStream)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>index</h4>
+<pre>public&nbsp;void&nbsp;index(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;documentName,
+         <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;input)
+           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Index a document from an InputStream.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>documentName</code> - name for the InputStream (e.g. name of the file)</dd><dd><code>input</code> - the stream</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
 <a name="indexGzip(java.lang.String, java.io.InputStream)">
 <!--   -->
 </a>
@@ -914,15 +936,17 @@ public&nbsp;void&nbsp;index(<a href="http://docs.oracle.com/javase/7/docs/api/ja
                 boolean&nbsp;recurseArchives)</pre>
 </li>
 </ul>
-<a name="isSpecialOperatingSystemFile(java.io.File)">
+<a name="isSpecialOperatingSystemFile(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>isSpecialOperatingSystemFile</h4>
-<pre>protected&nbsp;boolean&nbsp;isSpecialOperatingSystemFile(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</pre>
-<div class="block">Should we skip the specified file because it is a special OS file?</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>file</code> - the file</dd>
+<pre>protected&nbsp;boolean&nbsp;isSpecialOperatingSystemFile(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileName)</pre>
+<div class="block">Should we skip the specified file because it is a special OS file?
+
+ Skips Windows Thumbs.db file and Mac OSX .DS_Store file.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fileName</code> - name of the file</dd>
 <dt><span class="strong">Returns:</span></dt><dd>true if we should skip it, false otherwise</dd></dl>
 </li>
 </ul>
@@ -1084,6 +1108,6 @@ public&nbsp;void&nbsp;index(<a href="http://docs.oracle.com/javase/7/docs/api/ja
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

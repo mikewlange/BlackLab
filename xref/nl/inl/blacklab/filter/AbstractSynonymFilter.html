@@ -135,7 +135,7 @@
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> 		<em class="jxr_comment">// we may have to loop to the first synonym. See end of loop.</em>
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> 		<strong class="jxr_keyword">do</strong> {
 <a class="jxr_linenumber" name="L129" href="#L129">129</a> 			<em class="jxr_comment">// Do we have any synonyms left?</em>
-<a class="jxr_linenumber" name="L130" href="#L130">130</a> 			<strong class="jxr_keyword">if</strong> (synonymStack.size() &gt; 0) {
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 			<strong class="jxr_keyword">if</strong> (!synonymStack.isEmpty()) {
 <a class="jxr_linenumber" name="L131" href="#L131">131</a> 				<em class="jxr_comment">// Yes, shift one in.</em>
 <a class="jxr_linenumber" name="L132" href="#L132">132</a> 				State syn = synonymStack.pop();
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 				restoreState(syn);
@@ -192,6 +192,6 @@
 <a class="jxr_linenumber" name="L184" href="#L184">184</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

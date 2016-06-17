@@ -99,7 +99,7 @@
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">synchronized</strong> T acquire() {
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  		<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>  			<strong class="jxr_keyword">if</strong> (neverPool || freePool.size() == 0) {
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  			<strong class="jxr_keyword">if</strong> (neverPool || freePool.isEmpty()) {
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  				<strong class="jxr_keyword">return</strong> createResource();
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  			}
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  			<strong class="jxr_keyword">return</strong> freePool.remove(0);
@@ -128,6 +128,6 @@
 <a class="jxr_linenumber" name="L120" href="#L120">120</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

@@ -157,21 +157,20 @@
 <a class="jxr_linenumber" name="L149" href="#L149">149</a> 		<em class="jxr_comment">// (much slower)</em>
 <a class="jxr_linenumber" name="L150" href="#L150">150</a> 		<strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L151" href="#L151">151</a> 			Terms vector = reader.getTermVector(doc, fieldName);
-<a class="jxr_linenumber" name="L152" href="#L152">152</a> 			TermsEnum termsEnum = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L153" href="#L153">153</a> 			termsEnum = vector.iterator();
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> 			<strong class="jxr_keyword">int</strong> termFreq = 0;
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> 			<strong class="jxr_keyword">while</strong> (termsEnum.next() != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> 			    termFreq += termsEnum.totalTermFreq();
-<a class="jxr_linenumber" name="L157" href="#L157">157</a> 			}
-<a class="jxr_linenumber" name="L158" href="#L158">158</a> 			<strong class="jxr_keyword">return</strong> termFreq;
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> 
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> 		} <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a class="jxr_linenumber" name="L161" href="#L161">161</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e);
-<a class="jxr_linenumber" name="L162" href="#L162">162</a> 		}
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> 	}
-<a class="jxr_linenumber" name="L164" href="#L164">164</a> }
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 			TermsEnum termsEnum = vector.iterator();
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> 			<strong class="jxr_keyword">int</strong> termFreq = 0;
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 			<strong class="jxr_keyword">while</strong> (termsEnum.next() != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 			    termFreq += termsEnum.totalTermFreq();
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 			}
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 			<strong class="jxr_keyword">return</strong> termFreq;
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> 		} <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(e);
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> 		}
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> 	}
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

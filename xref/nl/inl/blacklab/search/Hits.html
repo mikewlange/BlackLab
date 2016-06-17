@@ -1574,7 +1574,7 @@
 <a class="jxr_linenumber" name="L1566" href="#L1566">1566</a> 			hitsInSameDoc.add(hit);
 <a class="jxr_linenumber" name="L1567" href="#L1567">1567</a> 			index++;
 <a class="jxr_linenumber" name="L1568" href="#L1568">1568</a> 		}
-<a class="jxr_linenumber" name="L1569" href="#L1569">1569</a> 		<strong class="jxr_keyword">if</strong> (hitsInSameDoc.size() &gt; 0)
+<a class="jxr_linenumber" name="L1569" href="#L1569">1569</a> 		<strong class="jxr_keyword">if</strong> (!hitsInSameDoc.isEmpty())
 <a class="jxr_linenumber" name="L1570" href="#L1570">1570</a> 			findPartOfContext(hitsInSameDoc, index - hitsInSameDoc.size(), fis);
 <a class="jxr_linenumber" name="L1571" href="#L1571">1571</a> 
 <a class="jxr_linenumber" name="L1572" href="#L1572">1572</a> 		currentContextSize = desiredContextSize;
@@ -1907,12 +1907,12 @@
 <a class="jxr_linenumber" name="L1899" href="#L1899">1899</a> 	<strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> makeKwicsSingleDocForwardIndex(<a href="../../../../nl/inl/blacklab/forwardindex/ForwardIndex.html">ForwardIndex</a> forwardIndex,
 <a class="jxr_linenumber" name="L1900" href="#L1900">1900</a> 			ForwardIndex punctForwardIndex, Map&lt;String, ForwardIndex&gt; attrForwardIndices,
 <a class="jxr_linenumber" name="L1901" href="#L1901">1901</a> 			<strong class="jxr_keyword">int</strong> wordsAroundHit, Map&lt;Hit, Kwic&gt; kwics) {
-<a class="jxr_linenumber" name="L1902" href="#L1902">1902</a> 		<strong class="jxr_keyword">if</strong> (hits.size() == 0)
+<a class="jxr_linenumber" name="L1902" href="#L1902">1902</a> 		<strong class="jxr_keyword">if</strong> (hits.isEmpty())
 <a class="jxr_linenumber" name="L1903" href="#L1903">1903</a> 			<strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="L1904" href="#L1904">1904</a> 
 <a class="jxr_linenumber" name="L1905" href="#L1905">1905</a> 		<em class="jxr_comment">// Save existing context so we can restore it afterwards</em>
 <a class="jxr_linenumber" name="L1906" href="#L1906">1906</a> 		<strong class="jxr_keyword">int</strong>[][] oldContexts = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L1907" href="#L1907">1907</a> 		<strong class="jxr_keyword">if</strong> (hits.size() &gt; 0 &amp;&amp; contexts != <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L1907" href="#L1907">1907</a> 		<strong class="jxr_keyword">if</strong> (!hits.isEmpty() &amp;&amp; contexts != <strong class="jxr_keyword">null</strong>)
 <a class="jxr_linenumber" name="L1908" href="#L1908">1908</a> 			oldContexts = saveContexts();
 <a class="jxr_linenumber" name="L1909" href="#L1909">1909</a> 
 <a class="jxr_linenumber" name="L1910" href="#L1910">1910</a> 		<em class="jxr_comment">// TODO: more efficient to get all contexts with one getContextWords() call!</em>
@@ -1927,353 +1927,352 @@
 <a class="jxr_linenumber" name="L1919" href="#L1919">1919</a> 
 <a class="jxr_linenumber" name="L1920" href="#L1920">1920</a> 		<em class="jxr_comment">// Get attributes context</em>
 <a class="jxr_linenumber" name="L1921" href="#L1921">1921</a> 		String[] attrName = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L1922" href="#L1922">1922</a> 		ForwardIndex[] attrFI = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L1923" href="#L1923">1923</a> 		Terms[] attrTerms = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L1924" href="#L1924">1924</a> 		<strong class="jxr_keyword">int</strong>[][][] attrContext = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L1925" href="#L1925">1925</a> 		<strong class="jxr_keyword">if</strong> (attrForwardIndices != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1926" href="#L1926">1926</a> 			<strong class="jxr_keyword">int</strong> n = attrForwardIndices.size();
-<a class="jxr_linenumber" name="L1927" href="#L1927">1927</a> 			attrName = <strong class="jxr_keyword">new</strong> String[n];
-<a class="jxr_linenumber" name="L1928" href="#L1928">1928</a> 			attrFI = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/forwardindex/ForwardIndex.html">ForwardIndex</a>[n];
-<a class="jxr_linenumber" name="L1929" href="#L1929">1929</a> 			attrTerms = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/forwardindex/Terms.html">Terms</a>[n];
-<a class="jxr_linenumber" name="L1930" href="#L1930">1930</a> 			attrContext = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[n][][];
-<a class="jxr_linenumber" name="L1931" href="#L1931">1931</a> 			<strong class="jxr_keyword">int</strong> i = 0;
-<a class="jxr_linenumber" name="L1932" href="#L1932">1932</a> 			<strong class="jxr_keyword">for</strong> (Map.Entry&lt;String, ForwardIndex&gt; e: attrForwardIndices.entrySet()) {
-<a class="jxr_linenumber" name="L1933" href="#L1933">1933</a> 				attrName[i] = e.getKey();
-<a class="jxr_linenumber" name="L1934" href="#L1934">1934</a> 				attrFI[i] = e.getValue();
-<a class="jxr_linenumber" name="L1935" href="#L1935">1935</a> 				attrTerms[i] = attrFI[i].getTerms();
-<a class="jxr_linenumber" name="L1936" href="#L1936">1936</a> 				getContextWords(wordsAroundHit, Arrays.asList(attrFI[i]));
-<a class="jxr_linenumber" name="L1937" href="#L1937">1937</a> 				attrContext[i] = saveContexts();
-<a class="jxr_linenumber" name="L1938" href="#L1938">1938</a> 				i++;
-<a class="jxr_linenumber" name="L1939" href="#L1939">1939</a> 			}
-<a class="jxr_linenumber" name="L1940" href="#L1940">1940</a> 		}
-<a class="jxr_linenumber" name="L1941" href="#L1941">1941</a> 
-<a class="jxr_linenumber" name="L1942" href="#L1942">1942</a> 		<em class="jxr_comment">// Get word context</em>
-<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a> 		<strong class="jxr_keyword">if</strong> (forwardIndex != <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L1944" href="#L1944">1944</a> 			getContextWords(wordsAroundHit, Arrays.asList(forwardIndex));
-<a class="jxr_linenumber" name="L1945" href="#L1945">1945</a> 		Terms terms = forwardIndex == <strong class="jxr_keyword">null</strong> ? <strong class="jxr_keyword">null</strong> : forwardIndex.getTerms();
-<a class="jxr_linenumber" name="L1946" href="#L1946">1946</a> 
-<a class="jxr_linenumber" name="L1947" href="#L1947">1947</a> 		<em class="jxr_comment">// Make the concordances from the context</em>
-<a class="jxr_linenumber" name="L1948" href="#L1948">1948</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; hits.size(); i++) {
-<a class="jxr_linenumber" name="L1949" href="#L1949">1949</a> 			Hit h = hits.get(i);
-<a class="jxr_linenumber" name="L1950" href="#L1950">1950</a> 			List&lt;String&gt; tokens = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
-<a class="jxr_linenumber" name="L1951" href="#L1951">1951</a> 			<strong class="jxr_keyword">int</strong>[] context = contexts[i];
-<a class="jxr_linenumber" name="L1952" href="#L1952">1952</a> 			<strong class="jxr_keyword">int</strong> contextLength = context[CONTEXTS_LENGTH_INDEX];
-<a class="jxr_linenumber" name="L1953" href="#L1953">1953</a> 			<strong class="jxr_keyword">int</strong> contextRightStart = context[CONTEXTS_RIGHT_START_INDEX];
-<a class="jxr_linenumber" name="L1954" href="#L1954">1954</a> 			<strong class="jxr_keyword">int</strong> contextHitStart = context[CONTEXTS_HIT_START_INDEX];
-<a class="jxr_linenumber" name="L1955" href="#L1955">1955</a> 			<strong class="jxr_keyword">int</strong> indexInContext = CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS;
-<a class="jxr_linenumber" name="L1956" href="#L1956">1956</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; contextLength; j++, indexInContext++) {
-<a class="jxr_linenumber" name="L1957" href="#L1957">1957</a> 
-<a class="jxr_linenumber" name="L1958" href="#L1958">1958</a> 				<em class="jxr_comment">// Add punctuation before word</em>
-<a class="jxr_linenumber" name="L1959" href="#L1959">1959</a> 				<em class="jxr_comment">// (Applications may choose to ignore punctuation before the first word)</em>
-<a class="jxr_linenumber" name="L1960" href="#L1960">1960</a> 				<strong class="jxr_keyword">if</strong> (punctTerms == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1961" href="#L1961">1961</a> 					<em class="jxr_comment">// There is no punctuation forward index. Just put a space</em>
-<a class="jxr_linenumber" name="L1962" href="#L1962">1962</a> 					<em class="jxr_comment">// between every word.</em>
-<a class="jxr_linenumber" name="L1963" href="#L1963">1963</a> 					tokens.add(<span class="jxr_string">" "</span>);
-<a class="jxr_linenumber" name="L1964" href="#L1964">1964</a> 				} <strong class="jxr_keyword">else</strong>
-<a class="jxr_linenumber" name="L1965" href="#L1965">1965</a> 					tokens.add(punctTerms.get(punctContext[i][indexInContext]));
-<a class="jxr_linenumber" name="L1966" href="#L1966">1966</a> 
-<a class="jxr_linenumber" name="L1967" href="#L1967">1967</a> 				<em class="jxr_comment">// Add extra attributes (e.g. lemma, pos)</em>
-<a class="jxr_linenumber" name="L1968" href="#L1968">1968</a> 				<strong class="jxr_keyword">if</strong> (attrContext != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1969" href="#L1969">1969</a> 					<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> k = 0; k &lt; attrContext.length; k++) {
-<a class="jxr_linenumber" name="L1970" href="#L1970">1970</a> 						tokens.add(attrTerms[k].get(attrContext[k][i][indexInContext]));
-<a class="jxr_linenumber" name="L1971" href="#L1971">1971</a> 					}
-<a class="jxr_linenumber" name="L1972" href="#L1972">1972</a> 				}
-<a class="jxr_linenumber" name="L1973" href="#L1973">1973</a> 
-<a class="jxr_linenumber" name="L1974" href="#L1974">1974</a> 				<em class="jxr_comment">// Add word</em>
-<a class="jxr_linenumber" name="L1975" href="#L1975">1975</a> 				<strong class="jxr_keyword">if</strong> (terms != <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L1976" href="#L1976">1976</a> 					tokens.add(terms.get(context[indexInContext]));
-<a class="jxr_linenumber" name="L1977" href="#L1977">1977</a> 				<strong class="jxr_keyword">else</strong>
-<a class="jxr_linenumber" name="L1978" href="#L1978">1978</a> 					tokens.add(<span class="jxr_string">""</span>); <em class="jxr_comment">// weird, but make sure the numbers add up at the end</em>
-<a class="jxr_linenumber" name="L1979" href="#L1979">1979</a> 
-<a class="jxr_linenumber" name="L1980" href="#L1980">1980</a> 			}
-<a class="jxr_linenumber" name="L1981" href="#L1981">1981</a> 			List&lt;String&gt; properties = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
-<a class="jxr_linenumber" name="L1982" href="#L1982">1982</a> 			properties.add(concPunctFI);
-<a class="jxr_linenumber" name="L1983" href="#L1983">1983</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> k = 0; k &lt; attrContext.length; k++) {
-<a class="jxr_linenumber" name="L1984" href="#L1984">1984</a> 				properties.add(attrName[k]);
-<a class="jxr_linenumber" name="L1985" href="#L1985">1985</a> 			}
-<a class="jxr_linenumber" name="L1986" href="#L1986">1986</a> 			properties.add(concWordFI);
-<a class="jxr_linenumber" name="L1987" href="#L1987">1987</a> 			Kwic kwic = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Kwic.html">Kwic</a>(properties, tokens, contextHitStart, contextRightStart);
-<a class="jxr_linenumber" name="L1988" href="#L1988">1988</a> 			kwics.put(h, kwic);
-<a class="jxr_linenumber" name="L1989" href="#L1989">1989</a> 		}
-<a class="jxr_linenumber" name="L1990" href="#L1990">1990</a> 
-<a class="jxr_linenumber" name="L1991" href="#L1991">1991</a> 		<strong class="jxr_keyword">if</strong> (oldContexts != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1992" href="#L1992">1992</a> 			restoreContexts(oldContexts);
-<a class="jxr_linenumber" name="L1993" href="#L1993">1993</a> 		}
-<a class="jxr_linenumber" name="L1994" href="#L1994">1994</a> 	}
-<a class="jxr_linenumber" name="L1995" href="#L1995">1995</a> 
-<a class="jxr_linenumber" name="L1996" href="#L1996">1996</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1997" href="#L1997">1997</a> <em class="jxr_javadoccomment">	 * Get context words from the forward index.</em>
-<a class="jxr_linenumber" name="L1998" href="#L1998">1998</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L1999" href="#L1999">1999</a> <em class="jxr_javadoccomment">	 * NOTE: not synchronized because only ever called from synchronized methods!</em>
-<a class="jxr_linenumber" name="L2000" href="#L2000">2000</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2001" href="#L2001">2001</a> <em class="jxr_javadoccomment">	 * @param wordsAroundHit how many words of context we want</em>
-<a class="jxr_linenumber" name="L2002" href="#L2002">2002</a> <em class="jxr_javadoccomment">	 * @param contextSources</em>
-<a class="jxr_linenumber" name="L2003" href="#L2003">2003</a> <em class="jxr_javadoccomment">	 *            forward indices to get context from</em>
-<a class="jxr_linenumber" name="L2004" href="#L2004">2004</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2005" href="#L2005">2005</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> getContextWords(<strong class="jxr_keyword">int</strong> wordsAroundHit, List&lt;ForwardIndex&gt; contextSources) {
-<a class="jxr_linenumber" name="L2006" href="#L2006">2006</a> 
-<a class="jxr_linenumber" name="L2007" href="#L2007">2007</a> 		<strong class="jxr_keyword">int</strong> n = hits.size();
-<a class="jxr_linenumber" name="L2008" href="#L2008">2008</a> 		<strong class="jxr_keyword">if</strong> (n == 0)
-<a class="jxr_linenumber" name="L2009" href="#L2009">2009</a> 			<strong class="jxr_keyword">return</strong>;
-<a class="jxr_linenumber" name="L2010" href="#L2010">2010</a> 		<strong class="jxr_keyword">int</strong>[] startsOfSnippets = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[n];
-<a class="jxr_linenumber" name="L2011" href="#L2011">2011</a> 		<strong class="jxr_keyword">int</strong>[] endsOfSnippets = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[n];
-<a class="jxr_linenumber" name="L2012" href="#L2012">2012</a> 		<strong class="jxr_keyword">int</strong> i = 0;
-<a class="jxr_linenumber" name="L2013" href="#L2013">2013</a> 		<strong class="jxr_keyword">for</strong> (Hit h: hits) {
-<a class="jxr_linenumber" name="L2014" href="#L2014">2014</a> 			startsOfSnippets[i] = wordsAroundHit &gt;= h.start ? 0 : h.start - wordsAroundHit;
-<a class="jxr_linenumber" name="L2015" href="#L2015">2015</a> 			endsOfSnippets[i] = h.end + wordsAroundHit;
-<a class="jxr_linenumber" name="L2016" href="#L2016">2016</a> 			i++;
-<a class="jxr_linenumber" name="L2017" href="#L2017">2017</a> 		}
-<a class="jxr_linenumber" name="L2018" href="#L2018">2018</a> 
-<a class="jxr_linenumber" name="L2019" href="#L2019">2019</a> 		<strong class="jxr_keyword">int</strong> fiNumber = 0;
-<a class="jxr_linenumber" name="L2020" href="#L2020">2020</a> 		<strong class="jxr_keyword">int</strong> doc = hits.get(0).doc;
-<a class="jxr_linenumber" name="L2021" href="#L2021">2021</a> 		<strong class="jxr_keyword">for</strong> (ForwardIndex forwardIndex: contextSources) {
-<a class="jxr_linenumber" name="L2022" href="#L2022">2022</a> 			<em class="jxr_comment">// Get all the words from the forward index</em>
-<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a> 			List&lt;<strong class="jxr_keyword">int</strong>[]&gt; words;
-<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> 			<strong class="jxr_keyword">if</strong> (forwardIndex != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L2025" href="#L2025">2025</a> 				<em class="jxr_comment">// We have a forward index for this field. Use it.</em>
-<a class="jxr_linenumber" name="L2026" href="#L2026">2026</a> 				<strong class="jxr_keyword">int</strong> fiid = forwardIndex.luceneDocIdToFiid(doc);
-<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a> 				words = forwardIndex.retrievePartsInt(fiid, startsOfSnippets, endsOfSnippets);
-<a class="jxr_linenumber" name="L2028" href="#L2028">2028</a> 			} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L2029" href="#L2029">2029</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Cannot get context without a forward index"</span>);
-<a class="jxr_linenumber" name="L2030" href="#L2030">2030</a> 			}
-<a class="jxr_linenumber" name="L2031" href="#L2031">2031</a> 
-<a class="jxr_linenumber" name="L2032" href="#L2032">2032</a> 			<em class="jxr_comment">// Build the actual concordances</em>
-<a class="jxr_linenumber" name="L2033" href="#L2033">2033</a> 			Iterator&lt;<strong class="jxr_keyword">int</strong>[]&gt; wordsIt = words.iterator();
-<a class="jxr_linenumber" name="L2034" href="#L2034">2034</a> 			<strong class="jxr_keyword">int</strong> hitNum = 0;
-<a class="jxr_linenumber" name="L2035" href="#L2035">2035</a> 			<strong class="jxr_keyword">if</strong> (contexts == <strong class="jxr_keyword">null</strong> || contexts.length &lt; hits.size()) {
-<a class="jxr_linenumber" name="L2036" href="#L2036">2036</a> 				contexts = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[hits.size()][];
-<a class="jxr_linenumber" name="L2037" href="#L2037">2037</a> 			}
-<a class="jxr_linenumber" name="L2038" href="#L2038">2038</a> 			<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
-<a class="jxr_linenumber" name="L2039" href="#L2039">2039</a> 				<strong class="jxr_keyword">int</strong>[] theseWords = wordsIt.next();
-<a class="jxr_linenumber" name="L2040" href="#L2040">2040</a> 
-<a class="jxr_linenumber" name="L2041" href="#L2041">2041</a> 				<em class="jxr_comment">// Put the concordance in the Hit object</em>
-<a class="jxr_linenumber" name="L2042" href="#L2042">2042</a> 				<strong class="jxr_keyword">int</strong> firstWordIndex = startsOfSnippets[hitNum];
-<a class="jxr_linenumber" name="L2043" href="#L2043">2043</a> 
-<a class="jxr_linenumber" name="L2044" href="#L2044">2044</a> 				<strong class="jxr_keyword">if</strong> (fiNumber == 0) {
-<a class="jxr_linenumber" name="L2045" href="#L2045">2045</a> 					<em class="jxr_comment">// Allocate context array and set hit and right start and context length</em>
-<a class="jxr_linenumber" name="L2046" href="#L2046">2046</a> 					contexts[hitNum] = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS + theseWords.length * contextSources.size()];
-<a class="jxr_linenumber" name="L2047" href="#L2047">2047</a> 					contexts[hitNum][CONTEXTS_HIT_START_INDEX] = hit.start - firstWordIndex;
-<a class="jxr_linenumber" name="L2048" href="#L2048">2048</a> 					contexts[hitNum][CONTEXTS_RIGHT_START_INDEX] = hit.end - firstWordIndex;
-<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a> 					contexts[hitNum][CONTEXTS_LENGTH_INDEX] = theseWords.length;
-<a class="jxr_linenumber" name="L2050" href="#L2050">2050</a> 				}
-<a class="jxr_linenumber" name="L2051" href="#L2051">2051</a> 				<em class="jxr_comment">// Copy the context we just retrieved into the context array</em>
-<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a> 				<strong class="jxr_keyword">int</strong> start = fiNumber * theseWords.length + CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS;
-<a class="jxr_linenumber" name="L2053" href="#L2053">2053</a> 				System.arraycopy(theseWords, 0, contexts[hitNum], start, theseWords.length);
-<a class="jxr_linenumber" name="L2054" href="#L2054">2054</a> 				hitNum++;
-<a class="jxr_linenumber" name="L2055" href="#L2055">2055</a> 			}
-<a class="jxr_linenumber" name="L2056" href="#L2056">2056</a> 
-<a class="jxr_linenumber" name="L2057" href="#L2057">2057</a> 			fiNumber++;
-<a class="jxr_linenumber" name="L2058" href="#L2058">2058</a> 		}
-<a class="jxr_linenumber" name="L2059" href="#L2059">2059</a> 	}
-<a class="jxr_linenumber" name="L2060" href="#L2060">2060</a> 
-<a class="jxr_linenumber" name="L2061" href="#L2061">2061</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2062" href="#L2062">2062</a> <em class="jxr_javadoccomment">	 * Get the context information from the list of hits, so we can</em>
-<a class="jxr_linenumber" name="L2063" href="#L2063">2063</a> <em class="jxr_javadoccomment">	 * look up a different context but still have access to this one as well.</em>
-<a class="jxr_linenumber" name="L2064" href="#L2064">2064</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2065" href="#L2065">2065</a> <em class="jxr_javadoccomment">	 * NOTE: not synchronized because only ever called from synchronized methods!</em>
-<a class="jxr_linenumber" name="L2066" href="#L2066">2066</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2067" href="#L2067">2067</a> <em class="jxr_javadoccomment">	 * @return the context</em>
-<a class="jxr_linenumber" name="L2068" href="#L2068">2068</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2069" href="#L2069">2069</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[][] saveContexts() {
-<a class="jxr_linenumber" name="L2070" href="#L2070">2070</a> 		<strong class="jxr_keyword">int</strong>[][] saved = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[contexts.length][];
-<a class="jxr_linenumber" name="L2071" href="#L2071">2071</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; contexts.length; i++) {
-<a class="jxr_linenumber" name="L2072" href="#L2072">2072</a> 			saved[i] = Arrays.copyOf(contexts[i], contexts[i].length);
-<a class="jxr_linenumber" name="L2073" href="#L2073">2073</a> 		}
-<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a> 		<strong class="jxr_keyword">return</strong> saved;
-<a class="jxr_linenumber" name="L2075" href="#L2075">2075</a> 	}
-<a class="jxr_linenumber" name="L2076" href="#L2076">2076</a> 
-<a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2078" href="#L2078">2078</a> <em class="jxr_javadoccomment">	 * Put context information into the list of hits.</em>
-<a class="jxr_linenumber" name="L2079" href="#L2079">2079</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2080" href="#L2080">2080</a> <em class="jxr_javadoccomment">	 * NOTE: not synchronized because only ever called from synchronized methods!</em>
-<a class="jxr_linenumber" name="L2081" href="#L2081">2081</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2082" href="#L2082">2082</a> <em class="jxr_javadoccomment">	 * @param saved the context to restore</em>
-<a class="jxr_linenumber" name="L2083" href="#L2083">2083</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2084" href="#L2084">2084</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> restoreContexts(<strong class="jxr_keyword">int</strong>[][] saved) {
-<a class="jxr_linenumber" name="L2085" href="#L2085">2085</a> 		<strong class="jxr_keyword">if</strong> (contexts == <strong class="jxr_keyword">null</strong> || contexts.length != saved.length) {
-<a class="jxr_linenumber" name="L2086" href="#L2086">2086</a> 			contexts = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[saved.length][];
-<a class="jxr_linenumber" name="L2087" href="#L2087">2087</a> 		}
-<a class="jxr_linenumber" name="L2088" href="#L2088">2088</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; saved.length; i++) {
-<a class="jxr_linenumber" name="L2089" href="#L2089">2089</a> 			<strong class="jxr_keyword">if</strong> (contexts[i] == <strong class="jxr_keyword">null</strong> || contexts[i].length != saved[i].length) {
-<a class="jxr_linenumber" name="L2090" href="#L2090">2090</a> 				contexts[i] = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[saved[i].length];
-<a class="jxr_linenumber" name="L2091" href="#L2091">2091</a> 			}
-<a class="jxr_linenumber" name="L2092" href="#L2092">2092</a> 			System.arraycopy(saved[i], 0, contexts, 0, saved[i].length);
-<a class="jxr_linenumber" name="L2093" href="#L2093">2093</a> 		}
-<a class="jxr_linenumber" name="L2094" href="#L2094">2094</a> 	}
-<a class="jxr_linenumber" name="L2095" href="#L2095">2095</a> 
-<a class="jxr_linenumber" name="L2096" href="#L2096">2096</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2097" href="#L2097">2097</a> <em class="jxr_javadoccomment">	 * Retrieves the concordance information (left, hit and right context) for a number of hits in</em>
-<a class="jxr_linenumber" name="L2098" href="#L2098">2098</a> <em class="jxr_javadoccomment">	 * the same document from the ContentStore.</em>
-<a class="jxr_linenumber" name="L2099" href="#L2099">2099</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2100" href="#L2100">2100</a> <em class="jxr_javadoccomment">	 * NOTE1: it is assumed that all hits in this Hits object are in the same document!</em>
-<a class="jxr_linenumber" name="L2101" href="#L2101">2101</a> <em class="jxr_javadoccomment">	 * @param fieldName</em>
-<a class="jxr_linenumber" name="L2102" href="#L2102">2102</a> <em class="jxr_javadoccomment">	 *            Lucene index field to make conc for</em>
-<a class="jxr_linenumber" name="L2103" href="#L2103">2103</a> <em class="jxr_javadoccomment">	 * @param wordsAroundHit</em>
-<a class="jxr_linenumber" name="L2104" href="#L2104">2104</a> <em class="jxr_javadoccomment">	 *            number of words left and right of hit to fetch</em>
-<a class="jxr_linenumber" name="L2105" href="#L2105">2105</a> <em class="jxr_javadoccomment">	 * @param conc</em>
-<a class="jxr_linenumber" name="L2106" href="#L2106">2106</a> <em class="jxr_javadoccomment">	 *            where to add the concordances</em>
-<a class="jxr_linenumber" name="L2107" href="#L2107">2107</a> <em class="jxr_javadoccomment">	 * @param hl</em>
-<a class="jxr_linenumber" name="L2108" href="#L2108">2108</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2109" href="#L2109">2109</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> makeConcordancesSingleDocContentStore(String fieldName, <strong class="jxr_keyword">int</strong> wordsAroundHit, Map&lt;Hit, Concordance&gt; conc,
-<a class="jxr_linenumber" name="L2110" href="#L2110">2110</a> 			XmlHighlighter hl) {
-<a class="jxr_linenumber" name="L2111" href="#L2111">2111</a> 		<strong class="jxr_keyword">if</strong> (hits.size() == 0)
-<a class="jxr_linenumber" name="L2112" href="#L2112">2112</a> 			<strong class="jxr_keyword">return</strong>;
-<a class="jxr_linenumber" name="L2113" href="#L2113">2113</a> 		<strong class="jxr_keyword">int</strong> doc = hits.get(0).doc;
-<a class="jxr_linenumber" name="L2114" href="#L2114">2114</a> 		<strong class="jxr_keyword">int</strong> arrayLength = hits.size() * 2;
-<a class="jxr_linenumber" name="L2115" href="#L2115">2115</a> 		<strong class="jxr_keyword">int</strong>[] startsOfWords = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[arrayLength];
-<a class="jxr_linenumber" name="L2116" href="#L2116">2116</a> 		<strong class="jxr_keyword">int</strong>[] endsOfWords = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[arrayLength];
-<a class="jxr_linenumber" name="L2117" href="#L2117">2117</a> 
-<a class="jxr_linenumber" name="L2118" href="#L2118">2118</a> 		<em class="jxr_comment">// Determine the first and last word of the concordance, as well as the</em>
-<a class="jxr_linenumber" name="L2119" href="#L2119">2119</a> 		<em class="jxr_comment">// first and last word of the actual hit inside the concordance.</em>
-<a class="jxr_linenumber" name="L2120" href="#L2120">2120</a> 		<strong class="jxr_keyword">int</strong> startEndArrayIndex = 0;
-<a class="jxr_linenumber" name="L2121" href="#L2121">2121</a> 		<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
-<a class="jxr_linenumber" name="L2122" href="#L2122">2122</a> 			<strong class="jxr_keyword">int</strong> hitStart = hit.start;
-<a class="jxr_linenumber" name="L2123" href="#L2123">2123</a> 			<strong class="jxr_keyword">int</strong> hitEnd = hit.end - 1;
-<a class="jxr_linenumber" name="L2124" href="#L2124">2124</a> 
-<a class="jxr_linenumber" name="L2125" href="#L2125">2125</a> 			<strong class="jxr_keyword">int</strong> start = hitStart - wordsAroundHit;
-<a class="jxr_linenumber" name="L2126" href="#L2126">2126</a> 			<strong class="jxr_keyword">if</strong> (start &lt; 0)
-<a class="jxr_linenumber" name="L2127" href="#L2127">2127</a> 				start = 0;
-<a class="jxr_linenumber" name="L2128" href="#L2128">2128</a> 			<strong class="jxr_keyword">int</strong> end = hitEnd + wordsAroundHit;
-<a class="jxr_linenumber" name="L2129" href="#L2129">2129</a> 
-<a class="jxr_linenumber" name="L2130" href="#L2130">2130</a> 			startsOfWords[startEndArrayIndex] = start;
-<a class="jxr_linenumber" name="L2131" href="#L2131">2131</a> 			startsOfWords[startEndArrayIndex + 1] = hitStart;
-<a class="jxr_linenumber" name="L2132" href="#L2132">2132</a> 			endsOfWords[startEndArrayIndex] = hitEnd;
-<a class="jxr_linenumber" name="L2133" href="#L2133">2133</a> 			endsOfWords[startEndArrayIndex + 1] = end;
-<a class="jxr_linenumber" name="L2134" href="#L2134">2134</a> 
-<a class="jxr_linenumber" name="L2135" href="#L2135">2135</a> 			startEndArrayIndex += 2;
-<a class="jxr_linenumber" name="L2136" href="#L2136">2136</a> 		}
-<a class="jxr_linenumber" name="L2137" href="#L2137">2137</a> 
-<a class="jxr_linenumber" name="L2138" href="#L2138">2138</a> 		<em class="jxr_comment">// Get the relevant character offsets (overwrites the startsOfWords and endsOfWords</em>
-<a class="jxr_linenumber" name="L2139" href="#L2139">2139</a> 		<em class="jxr_comment">// arrays)</em>
-<a class="jxr_linenumber" name="L2140" href="#L2140">2140</a> 		searcher.getCharacterOffsets(doc, fieldName, startsOfWords, endsOfWords, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L2141" href="#L2141">2141</a> 
-<a class="jxr_linenumber" name="L2142" href="#L2142">2142</a> 		<em class="jxr_comment">// Make all the concordances</em>
-<a class="jxr_linenumber" name="L2143" href="#L2143">2143</a> 		List&lt;Concordance&gt; newConcs = searcher.makeConcordancesFromContentStore(doc, fieldName, startsOfWords,
-<a class="jxr_linenumber" name="L2144" href="#L2144">2144</a> 				endsOfWords, hl);
-<a class="jxr_linenumber" name="L2145" href="#L2145">2145</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; hits.size(); i++) {
-<a class="jxr_linenumber" name="L2146" href="#L2146">2146</a> 			conc.put(hits.get(i), newConcs.get(i));
-<a class="jxr_linenumber" name="L2147" href="#L2147">2147</a> 		}
-<a class="jxr_linenumber" name="L2148" href="#L2148">2148</a> 	}
-<a class="jxr_linenumber" name="L2149" href="#L2149">2149</a> 
-<a class="jxr_linenumber" name="L2150" href="#L2150">2150</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2151" href="#L2151">2151</a> <em class="jxr_javadoccomment">	 * Convenience method to get all hits in a single doc from a larger hitset.</em>
-<a class="jxr_linenumber" name="L2152" href="#L2152">2152</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2153" href="#L2153">2153</a> <em class="jxr_javadoccomment">	 * Don't use this for grouping or per-document results as it's relatively inefficient.</em>
-<a class="jxr_linenumber" name="L2154" href="#L2154">2154</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2155" href="#L2155">2155</a> <em class="jxr_javadoccomment">	 * @param docid the doc id to get hits for</em>
-<a class="jxr_linenumber" name="L2156" href="#L2156">2156</a> <em class="jxr_javadoccomment">	 * @return the list of hits in this doc (if any)</em>
-<a class="jxr_linenumber" name="L2157" href="#L2157">2157</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2158" href="#L2158">2158</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a> getHitsInDoc(<strong class="jxr_keyword">int</strong> docid) {
-<a class="jxr_linenumber" name="L2159" href="#L2159">2159</a> 		<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L2160" href="#L2160">2160</a> 			ensureAllHitsRead();
-<a class="jxr_linenumber" name="L2161" href="#L2161">2161</a> 		} <strong class="jxr_keyword">catch</strong> (InterruptedException e) {
-<a class="jxr_linenumber" name="L2162" href="#L2162">2162</a> 			<em class="jxr_comment">// Interrupted. Just return no hits;</em>
-<a class="jxr_linenumber" name="L2163" href="#L2163">2163</a> 			<em class="jxr_comment">// client should detect thread was interrupted if it</em>
-<a class="jxr_linenumber" name="L2164" href="#L2164">2164</a> 			<em class="jxr_comment">// wants to use background threads.</em>
-<a class="jxr_linenumber" name="L2165" href="#L2165">2165</a> 			Thread.currentThread().interrupt();
-<a class="jxr_linenumber" name="L2166" href="#L2166">2166</a> 			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher);
-<a class="jxr_linenumber" name="L2167" href="#L2167">2167</a> 		}
-<a class="jxr_linenumber" name="L2168" href="#L2168">2168</a> 		List&lt;Hit&gt; hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
-<a class="jxr_linenumber" name="L2169" href="#L2169">2169</a> 		<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
-<a class="jxr_linenumber" name="L2170" href="#L2170">2170</a> 			<strong class="jxr_keyword">if</strong> (hit.doc == docid)
-<a class="jxr_linenumber" name="L2171" href="#L2171">2171</a> 				hitsInDoc.add(hit);
-<a class="jxr_linenumber" name="L2172" href="#L2172">2172</a> 		}
-<a class="jxr_linenumber" name="L2173" href="#L2173">2173</a> 		Hits result = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher, hitsInDoc);
-<a class="jxr_linenumber" name="L2174" href="#L2174">2174</a> 		result.copySettingsFrom(<strong class="jxr_keyword">this</strong>);
-<a class="jxr_linenumber" name="L2175" href="#L2175">2175</a> 		<strong class="jxr_keyword">return</strong> result;
-<a class="jxr_linenumber" name="L2176" href="#L2176">2176</a> 	}
-<a class="jxr_linenumber" name="L2177" href="#L2177">2177</a> 
-<a class="jxr_linenumber" name="L2178" href="#L2178">2178</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2179" href="#L2179">2179</a> <em class="jxr_javadoccomment">	 * Return the context(s) for the specified hit number</em>
-<a class="jxr_linenumber" name="L2180" href="#L2180">2180</a> <em class="jxr_javadoccomment">	 * @param hitNumber which hit we want the context(s) for</em>
-<a class="jxr_linenumber" name="L2181" href="#L2181">2181</a> <em class="jxr_javadoccomment">	 * @return the context(s)</em>
-<a class="jxr_linenumber" name="L2182" href="#L2182">2182</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2183" href="#L2183">2183</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong>[] getHitContext(<strong class="jxr_keyword">int</strong> hitNumber) {
-<a class="jxr_linenumber" name="L2184" href="#L2184">2184</a> 		<strong class="jxr_keyword">return</strong> contexts[hitNumber];
-<a class="jxr_linenumber" name="L2185" href="#L2185">2185</a> 	}
-<a class="jxr_linenumber" name="L2186" href="#L2186">2186</a> 
-<a class="jxr_linenumber" name="L2187" href="#L2187">2187</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2188" href="#L2188">2188</a> <em class="jxr_javadoccomment">	 * Indicate how to use the forward indices to build concordances.</em>
-<a class="jxr_linenumber" name="L2189" href="#L2189">2189</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2190" href="#L2190">2190</a> <em class="jxr_javadoccomment">	 * @param wordFI FI to use as the text content of the &amp;lt;w/&amp;gt; tags (default "word"; null for no text content)</em>
-<a class="jxr_linenumber" name="L2191" href="#L2191">2191</a> <em class="jxr_javadoccomment">	 * @param punctFI FI to use as the text content between &amp;lt;w/&amp;gt; tags (default "punct"; null for just a space)</em>
-<a class="jxr_linenumber" name="L2192" href="#L2192">2192</a> <em class="jxr_javadoccomment">	 * @param attrFI FIs to use as the attributes of the &amp;lt;w/&amp;gt; tags (null for all other FIs)</em>
-<a class="jxr_linenumber" name="L2193" href="#L2193">2193</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2194" href="#L2194">2194</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setForwardIndexConcordanceParameters(String wordFI, String punctFI,
-<a class="jxr_linenumber" name="L2195" href="#L2195">2195</a> 			Collection&lt;String&gt; attrFI) {
-<a class="jxr_linenumber" name="L2196" href="#L2196">2196</a> 		concWordFI = wordFI;
-<a class="jxr_linenumber" name="L2197" href="#L2197">2197</a> 		concPunctFI = punctFI;
-<a class="jxr_linenumber" name="L2198" href="#L2198">2198</a> 		concAttrFI = attrFI;
-<a class="jxr_linenumber" name="L2199" href="#L2199">2199</a> 	}
-<a class="jxr_linenumber" name="L2200" href="#L2200">2200</a> 
-<a class="jxr_linenumber" name="L2201" href="#L2201">2201</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2202" href="#L2202">2202</a> <em class="jxr_javadoccomment">	 * Generate concordances from content store (slower).</em>
-<a class="jxr_linenumber" name="L2203" href="#L2203">2203</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2204" href="#L2204">2204</a> <em class="jxr_javadoccomment">	 * @param hits the hits for which to retrieve concordances</em>
-<a class="jxr_linenumber" name="L2205" href="#L2205">2205</a> <em class="jxr_javadoccomment">	 * @param contextSize how many words around the hit to retrieve</em>
-<a class="jxr_linenumber" name="L2206" href="#L2206">2206</a> <em class="jxr_javadoccomment">	 * @param fieldName field to use for building concordances</em>
-<a class="jxr_linenumber" name="L2207" href="#L2207">2207</a> <em class="jxr_javadoccomment">	 * @return the concordances</em>
-<a class="jxr_linenumber" name="L2208" href="#L2208">2208</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2209" href="#L2209">2209</a> 	<strong class="jxr_keyword">private</strong> Map&lt;Hit, Concordance&gt; retrieveConcordancesFromContentStore(<strong class="jxr_keyword">int</strong> contextSize, String fieldName) {
-<a class="jxr_linenumber" name="L2210" href="#L2210">2210</a> 		XmlHighlighter hl = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.html">XmlHighlighter</a>(); <em class="jxr_comment">// used to make fragments well-formed</em>
-<a class="jxr_linenumber" name="L2211" href="#L2211">2211</a> 		hl.setUnbalancedTagsStrategy(searcher.getDefaultUnbalancedTagsStrategy());
-<a class="jxr_linenumber" name="L2212" href="#L2212">2212</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = perDocumentGroupedHits();
-<a class="jxr_linenumber" name="L2213" href="#L2213">2213</a> 		Map&lt;Hit, Concordance&gt; conc = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
-<a class="jxr_linenumber" name="L2214" href="#L2214">2214</a> 		<strong class="jxr_keyword">for</strong> (List&lt;Hit&gt; l: hitsPerDocument.values()) {
-<a class="jxr_linenumber" name="L2215" href="#L2215">2215</a> 			Hits hitsInThisDoc = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher, l);
-<a class="jxr_linenumber" name="L2216" href="#L2216">2216</a> 			hitsInThisDoc.copySettingsFrom(<strong class="jxr_keyword">this</strong>);
-<a class="jxr_linenumber" name="L2217" href="#L2217">2217</a> 			hitsInThisDoc.makeConcordancesSingleDocContentStore(fieldName, contextSize, conc, hl);
-<a class="jxr_linenumber" name="L2218" href="#L2218">2218</a> 		}
-<a class="jxr_linenumber" name="L2219" href="#L2219">2219</a> 		<strong class="jxr_keyword">return</strong> conc;
-<a class="jxr_linenumber" name="L2220" href="#L2220">2220</a> 	}
-<a class="jxr_linenumber" name="L2221" href="#L2221">2221</a> 
-<a class="jxr_linenumber" name="L2222" href="#L2222">2222</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2223" href="#L2223">2223</a> <em class="jxr_javadoccomment">	 * Group hits in a map per document. Used by the retrieveConcordances methods.</em>
-<a class="jxr_linenumber" name="L2224" href="#L2224">2224</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2225" href="#L2225">2225</a> <em class="jxr_javadoccomment">	 * @param hits the hits to group.</em>
-<a class="jxr_linenumber" name="L2226" href="#L2226">2226</a> <em class="jxr_javadoccomment">	 * @return the grouped hits</em>
-<a class="jxr_linenumber" name="L2227" href="#L2227">2227</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2228" href="#L2228">2228</a> 	<strong class="jxr_keyword">private</strong> Map&lt;Integer, List&lt;Hit&gt;&gt; perDocumentGroupedHits() {
-<a class="jxr_linenumber" name="L2229" href="#L2229">2229</a> 		<em class="jxr_comment">// Group hits per document</em>
-<a class="jxr_linenumber" name="L2230" href="#L2230">2230</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
-<a class="jxr_linenumber" name="L2231" href="#L2231">2231</a> 		<strong class="jxr_keyword">for</strong> (Hit key: hits) {
-<a class="jxr_linenumber" name="L2232" href="#L2232">2232</a> 			List&lt;Hit&gt; hitsInDoc = hitsPerDocument.get(key.doc);
-<a class="jxr_linenumber" name="L2233" href="#L2233">2233</a> 			<strong class="jxr_keyword">if</strong> (hitsInDoc == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L2234" href="#L2234">2234</a> 				hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
-<a class="jxr_linenumber" name="L2235" href="#L2235">2235</a> 				hitsPerDocument.put(key.doc, hitsInDoc);
-<a class="jxr_linenumber" name="L2236" href="#L2236">2236</a> 			}
-<a class="jxr_linenumber" name="L2237" href="#L2237">2237</a> 			hitsInDoc.add(key);
-<a class="jxr_linenumber" name="L2238" href="#L2238">2238</a> 		}
-<a class="jxr_linenumber" name="L2239" href="#L2239">2239</a> 		<strong class="jxr_keyword">return</strong> hitsPerDocument;
-<a class="jxr_linenumber" name="L2240" href="#L2240">2240</a> 	}
-<a class="jxr_linenumber" name="L2241" href="#L2241">2241</a> 
-<a class="jxr_linenumber" name="L2242" href="#L2242">2242</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2243" href="#L2243">2243</a> <em class="jxr_javadoccomment">	 * Are we making concordances using the forward index (true) or using</em>
-<a class="jxr_linenumber" name="L2244" href="#L2244">2244</a> <em class="jxr_javadoccomment">	 * the content store (false)? Forward index is more efficient but returns</em>
-<a class="jxr_linenumber" name="L2245" href="#L2245">2245</a> <em class="jxr_javadoccomment">	 * concordances that don't include XML tags.</em>
-<a class="jxr_linenumber" name="L2246" href="#L2246">2246</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2247" href="#L2247">2247</a> <em class="jxr_javadoccomment">	 * @return true iff we use the forward index for making concordances.</em>
-<a class="jxr_linenumber" name="L2248" href="#L2248">2248</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2249" href="#L2249">2249</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../nl/inl/blacklab/search/ConcordanceType.html">ConcordanceType</a> getConcordanceType() {
-<a class="jxr_linenumber" name="L2250" href="#L2250">2250</a> 		<strong class="jxr_keyword">return</strong> concsType;
-<a class="jxr_linenumber" name="L2251" href="#L2251">2251</a> 	}
-<a class="jxr_linenumber" name="L2252" href="#L2252">2252</a> 
-<a class="jxr_linenumber" name="L2253" href="#L2253">2253</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2254" href="#L2254">2254</a> <em class="jxr_javadoccomment">	 * Do we want to retrieve concordances from the forward index or from the</em>
-<a class="jxr_linenumber" name="L2255" href="#L2255">2255</a> <em class="jxr_javadoccomment">	 * content store? Forward index is more efficient but doesn't exactly reproduces the</em>
-<a class="jxr_linenumber" name="L2256" href="#L2256">2256</a> <em class="jxr_javadoccomment">	 * original XML.</em>
-<a class="jxr_linenumber" name="L2257" href="#L2257">2257</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2258" href="#L2258">2258</a> <em class="jxr_javadoccomment">	 * The default type can be set by calling Searcher.setDefaultConcordanceType().</em>
-<a class="jxr_linenumber" name="L2259" href="#L2259">2259</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L2260" href="#L2260">2260</a> <em class="jxr_javadoccomment">	 * @param type the type of concordances to make</em>
-<a class="jxr_linenumber" name="L2261" href="#L2261">2261</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L2262" href="#L2262">2262</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setConcordanceType(<a href="../../../../nl/inl/blacklab/search/ConcordanceType.html">ConcordanceType</a> type) {
-<a class="jxr_linenumber" name="L2263" href="#L2263">2263</a> 		<strong class="jxr_keyword">this</strong>.concsType = type;
-<a class="jxr_linenumber" name="L2264" href="#L2264">2264</a> 	}
-<a class="jxr_linenumber" name="L2265" href="#L2265">2265</a> 
-<a class="jxr_linenumber" name="L2266" href="#L2266">2266</a> }
+<a class="jxr_linenumber" name="L1922" href="#L1922">1922</a> 		Terms[] attrTerms = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L1923" href="#L1923">1923</a> 		<strong class="jxr_keyword">int</strong>[][][] attrContext = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L1924" href="#L1924">1924</a> 		<strong class="jxr_keyword">if</strong> (attrForwardIndices != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L1925" href="#L1925">1925</a> 			<strong class="jxr_keyword">int</strong> n = attrForwardIndices.size();
+<a class="jxr_linenumber" name="L1926" href="#L1926">1926</a> 			attrName = <strong class="jxr_keyword">new</strong> String[n];
+<a class="jxr_linenumber" name="L1927" href="#L1927">1927</a> 			ForwardIndex[] attrFI = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/forwardindex/ForwardIndex.html">ForwardIndex</a>[n];
+<a class="jxr_linenumber" name="L1928" href="#L1928">1928</a> 			attrTerms = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/forwardindex/Terms.html">Terms</a>[n];
+<a class="jxr_linenumber" name="L1929" href="#L1929">1929</a> 			attrContext = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[n][][];
+<a class="jxr_linenumber" name="L1930" href="#L1930">1930</a> 			<strong class="jxr_keyword">int</strong> i = 0;
+<a class="jxr_linenumber" name="L1931" href="#L1931">1931</a> 			<strong class="jxr_keyword">for</strong> (Map.Entry&lt;String, ForwardIndex&gt; e: attrForwardIndices.entrySet()) {
+<a class="jxr_linenumber" name="L1932" href="#L1932">1932</a> 				attrName[i] = e.getKey();
+<a class="jxr_linenumber" name="L1933" href="#L1933">1933</a> 				attrFI[i] = e.getValue();
+<a class="jxr_linenumber" name="L1934" href="#L1934">1934</a> 				attrTerms[i] = attrFI[i].getTerms();
+<a class="jxr_linenumber" name="L1935" href="#L1935">1935</a> 				getContextWords(wordsAroundHit, Arrays.asList(attrFI[i]));
+<a class="jxr_linenumber" name="L1936" href="#L1936">1936</a> 				attrContext[i] = saveContexts();
+<a class="jxr_linenumber" name="L1937" href="#L1937">1937</a> 				i++;
+<a class="jxr_linenumber" name="L1938" href="#L1938">1938</a> 			}
+<a class="jxr_linenumber" name="L1939" href="#L1939">1939</a> 		}
+<a class="jxr_linenumber" name="L1940" href="#L1940">1940</a> 
+<a class="jxr_linenumber" name="L1941" href="#L1941">1941</a> 		<em class="jxr_comment">// Get word context</em>
+<a class="jxr_linenumber" name="L1942" href="#L1942">1942</a> 		<strong class="jxr_keyword">if</strong> (forwardIndex != <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a> 			getContextWords(wordsAroundHit, Arrays.asList(forwardIndex));
+<a class="jxr_linenumber" name="L1944" href="#L1944">1944</a> 		Terms terms = forwardIndex == <strong class="jxr_keyword">null</strong> ? <strong class="jxr_keyword">null</strong> : forwardIndex.getTerms();
+<a class="jxr_linenumber" name="L1945" href="#L1945">1945</a> 
+<a class="jxr_linenumber" name="L1946" href="#L1946">1946</a> 		<em class="jxr_comment">// Make the concordances from the context</em>
+<a class="jxr_linenumber" name="L1947" href="#L1947">1947</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; hits.size(); i++) {
+<a class="jxr_linenumber" name="L1948" href="#L1948">1948</a> 			Hit h = hits.get(i);
+<a class="jxr_linenumber" name="L1949" href="#L1949">1949</a> 			List&lt;String&gt; tokens = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L1950" href="#L1950">1950</a> 			<strong class="jxr_keyword">int</strong>[] context = contexts[i];
+<a class="jxr_linenumber" name="L1951" href="#L1951">1951</a> 			<strong class="jxr_keyword">int</strong> contextLength = context[CONTEXTS_LENGTH_INDEX];
+<a class="jxr_linenumber" name="L1952" href="#L1952">1952</a> 			<strong class="jxr_keyword">int</strong> contextRightStart = context[CONTEXTS_RIGHT_START_INDEX];
+<a class="jxr_linenumber" name="L1953" href="#L1953">1953</a> 			<strong class="jxr_keyword">int</strong> contextHitStart = context[CONTEXTS_HIT_START_INDEX];
+<a class="jxr_linenumber" name="L1954" href="#L1954">1954</a> 			<strong class="jxr_keyword">int</strong> indexInContext = CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS;
+<a class="jxr_linenumber" name="L1955" href="#L1955">1955</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; contextLength; j++, indexInContext++) {
+<a class="jxr_linenumber" name="L1956" href="#L1956">1956</a> 
+<a class="jxr_linenumber" name="L1957" href="#L1957">1957</a> 				<em class="jxr_comment">// Add punctuation before word</em>
+<a class="jxr_linenumber" name="L1958" href="#L1958">1958</a> 				<em class="jxr_comment">// (Applications may choose to ignore punctuation before the first word)</em>
+<a class="jxr_linenumber" name="L1959" href="#L1959">1959</a> 				<strong class="jxr_keyword">if</strong> (punctTerms == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L1960" href="#L1960">1960</a> 					<em class="jxr_comment">// There is no punctuation forward index. Just put a space</em>
+<a class="jxr_linenumber" name="L1961" href="#L1961">1961</a> 					<em class="jxr_comment">// between every word.</em>
+<a class="jxr_linenumber" name="L1962" href="#L1962">1962</a> 					tokens.add(<span class="jxr_string">" "</span>);
+<a class="jxr_linenumber" name="L1963" href="#L1963">1963</a> 				} <strong class="jxr_keyword">else</strong>
+<a class="jxr_linenumber" name="L1964" href="#L1964">1964</a> 					tokens.add(punctTerms.get(punctContext[i][indexInContext]));
+<a class="jxr_linenumber" name="L1965" href="#L1965">1965</a> 
+<a class="jxr_linenumber" name="L1966" href="#L1966">1966</a> 				<em class="jxr_comment">// Add extra attributes (e.g. lemma, pos)</em>
+<a class="jxr_linenumber" name="L1967" href="#L1967">1967</a> 				<strong class="jxr_keyword">if</strong> (attrContext != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L1968" href="#L1968">1968</a> 					<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> k = 0; k &lt; attrContext.length; k++) {
+<a class="jxr_linenumber" name="L1969" href="#L1969">1969</a> 						tokens.add(attrTerms[k].get(attrContext[k][i][indexInContext]));
+<a class="jxr_linenumber" name="L1970" href="#L1970">1970</a> 					}
+<a class="jxr_linenumber" name="L1971" href="#L1971">1971</a> 				}
+<a class="jxr_linenumber" name="L1972" href="#L1972">1972</a> 
+<a class="jxr_linenumber" name="L1973" href="#L1973">1973</a> 				<em class="jxr_comment">// Add word</em>
+<a class="jxr_linenumber" name="L1974" href="#L1974">1974</a> 				<strong class="jxr_keyword">if</strong> (terms != <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L1975" href="#L1975">1975</a> 					tokens.add(terms.get(context[indexInContext]));
+<a class="jxr_linenumber" name="L1976" href="#L1976">1976</a> 				<strong class="jxr_keyword">else</strong>
+<a class="jxr_linenumber" name="L1977" href="#L1977">1977</a> 					tokens.add(<span class="jxr_string">""</span>); <em class="jxr_comment">// weird, but make sure the numbers add up at the end</em>
+<a class="jxr_linenumber" name="L1978" href="#L1978">1978</a> 
+<a class="jxr_linenumber" name="L1979" href="#L1979">1979</a> 			}
+<a class="jxr_linenumber" name="L1980" href="#L1980">1980</a> 			List&lt;String&gt; properties = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L1981" href="#L1981">1981</a> 			properties.add(concPunctFI);
+<a class="jxr_linenumber" name="L1982" href="#L1982">1982</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> k = 0; k &lt; attrContext.length; k++) {
+<a class="jxr_linenumber" name="L1983" href="#L1983">1983</a> 				properties.add(attrName[k]);
+<a class="jxr_linenumber" name="L1984" href="#L1984">1984</a> 			}
+<a class="jxr_linenumber" name="L1985" href="#L1985">1985</a> 			properties.add(concWordFI);
+<a class="jxr_linenumber" name="L1986" href="#L1986">1986</a> 			Kwic kwic = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Kwic.html">Kwic</a>(properties, tokens, contextHitStart, contextRightStart);
+<a class="jxr_linenumber" name="L1987" href="#L1987">1987</a> 			kwics.put(h, kwic);
+<a class="jxr_linenumber" name="L1988" href="#L1988">1988</a> 		}
+<a class="jxr_linenumber" name="L1989" href="#L1989">1989</a> 
+<a class="jxr_linenumber" name="L1990" href="#L1990">1990</a> 		<strong class="jxr_keyword">if</strong> (oldContexts != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L1991" href="#L1991">1991</a> 			restoreContexts(oldContexts);
+<a class="jxr_linenumber" name="L1992" href="#L1992">1992</a> 		}
+<a class="jxr_linenumber" name="L1993" href="#L1993">1993</a> 	}
+<a class="jxr_linenumber" name="L1994" href="#L1994">1994</a> 
+<a class="jxr_linenumber" name="L1995" href="#L1995">1995</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1996" href="#L1996">1996</a> <em class="jxr_javadoccomment">	 * Get context words from the forward index.</em>
+<a class="jxr_linenumber" name="L1997" href="#L1997">1997</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L1998" href="#L1998">1998</a> <em class="jxr_javadoccomment">	 * NOTE: not synchronized because only ever called from synchronized methods!</em>
+<a class="jxr_linenumber" name="L1999" href="#L1999">1999</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2000" href="#L2000">2000</a> <em class="jxr_javadoccomment">	 * @param wordsAroundHit how many words of context we want</em>
+<a class="jxr_linenumber" name="L2001" href="#L2001">2001</a> <em class="jxr_javadoccomment">	 * @param contextSources</em>
+<a class="jxr_linenumber" name="L2002" href="#L2002">2002</a> <em class="jxr_javadoccomment">	 *            forward indices to get context from</em>
+<a class="jxr_linenumber" name="L2003" href="#L2003">2003</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2004" href="#L2004">2004</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> getContextWords(<strong class="jxr_keyword">int</strong> wordsAroundHit, List&lt;ForwardIndex&gt; contextSources) {
+<a class="jxr_linenumber" name="L2005" href="#L2005">2005</a> 
+<a class="jxr_linenumber" name="L2006" href="#L2006">2006</a> 		<strong class="jxr_keyword">int</strong> n = hits.size();
+<a class="jxr_linenumber" name="L2007" href="#L2007">2007</a> 		<strong class="jxr_keyword">if</strong> (n == 0)
+<a class="jxr_linenumber" name="L2008" href="#L2008">2008</a> 			<strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L2009" href="#L2009">2009</a> 		<strong class="jxr_keyword">int</strong>[] startsOfSnippets = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[n];
+<a class="jxr_linenumber" name="L2010" href="#L2010">2010</a> 		<strong class="jxr_keyword">int</strong>[] endsOfSnippets = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[n];
+<a class="jxr_linenumber" name="L2011" href="#L2011">2011</a> 		<strong class="jxr_keyword">int</strong> i = 0;
+<a class="jxr_linenumber" name="L2012" href="#L2012">2012</a> 		<strong class="jxr_keyword">for</strong> (Hit h: hits) {
+<a class="jxr_linenumber" name="L2013" href="#L2013">2013</a> 			startsOfSnippets[i] = wordsAroundHit &gt;= h.start ? 0 : h.start - wordsAroundHit;
+<a class="jxr_linenumber" name="L2014" href="#L2014">2014</a> 			endsOfSnippets[i] = h.end + wordsAroundHit;
+<a class="jxr_linenumber" name="L2015" href="#L2015">2015</a> 			i++;
+<a class="jxr_linenumber" name="L2016" href="#L2016">2016</a> 		}
+<a class="jxr_linenumber" name="L2017" href="#L2017">2017</a> 
+<a class="jxr_linenumber" name="L2018" href="#L2018">2018</a> 		<strong class="jxr_keyword">int</strong> fiNumber = 0;
+<a class="jxr_linenumber" name="L2019" href="#L2019">2019</a> 		<strong class="jxr_keyword">int</strong> doc = hits.get(0).doc;
+<a class="jxr_linenumber" name="L2020" href="#L2020">2020</a> 		<strong class="jxr_keyword">for</strong> (ForwardIndex forwardIndex: contextSources) {
+<a class="jxr_linenumber" name="L2021" href="#L2021">2021</a> 			<em class="jxr_comment">// Get all the words from the forward index</em>
+<a class="jxr_linenumber" name="L2022" href="#L2022">2022</a> 			List&lt;<strong class="jxr_keyword">int</strong>[]&gt; words;
+<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a> 			<strong class="jxr_keyword">if</strong> (forwardIndex != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> 				<em class="jxr_comment">// We have a forward index for this field. Use it.</em>
+<a class="jxr_linenumber" name="L2025" href="#L2025">2025</a> 				<strong class="jxr_keyword">int</strong> fiid = forwardIndex.luceneDocIdToFiid(doc);
+<a class="jxr_linenumber" name="L2026" href="#L2026">2026</a> 				words = forwardIndex.retrievePartsInt(fiid, startsOfSnippets, endsOfSnippets);
+<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a> 			} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L2028" href="#L2028">2028</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Cannot get context without a forward index"</span>);
+<a class="jxr_linenumber" name="L2029" href="#L2029">2029</a> 			}
+<a class="jxr_linenumber" name="L2030" href="#L2030">2030</a> 
+<a class="jxr_linenumber" name="L2031" href="#L2031">2031</a> 			<em class="jxr_comment">// Build the actual concordances</em>
+<a class="jxr_linenumber" name="L2032" href="#L2032">2032</a> 			Iterator&lt;<strong class="jxr_keyword">int</strong>[]&gt; wordsIt = words.iterator();
+<a class="jxr_linenumber" name="L2033" href="#L2033">2033</a> 			<strong class="jxr_keyword">int</strong> hitNum = 0;
+<a class="jxr_linenumber" name="L2034" href="#L2034">2034</a> 			<strong class="jxr_keyword">if</strong> (contexts == <strong class="jxr_keyword">null</strong> || contexts.length &lt; hits.size()) {
+<a class="jxr_linenumber" name="L2035" href="#L2035">2035</a> 				contexts = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[hits.size()][];
+<a class="jxr_linenumber" name="L2036" href="#L2036">2036</a> 			}
+<a class="jxr_linenumber" name="L2037" href="#L2037">2037</a> 			<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
+<a class="jxr_linenumber" name="L2038" href="#L2038">2038</a> 				<strong class="jxr_keyword">int</strong>[] theseWords = wordsIt.next();
+<a class="jxr_linenumber" name="L2039" href="#L2039">2039</a> 
+<a class="jxr_linenumber" name="L2040" href="#L2040">2040</a> 				<em class="jxr_comment">// Put the concordance in the Hit object</em>
+<a class="jxr_linenumber" name="L2041" href="#L2041">2041</a> 				<strong class="jxr_keyword">int</strong> firstWordIndex = startsOfSnippets[hitNum];
+<a class="jxr_linenumber" name="L2042" href="#L2042">2042</a> 
+<a class="jxr_linenumber" name="L2043" href="#L2043">2043</a> 				<strong class="jxr_keyword">if</strong> (fiNumber == 0) {
+<a class="jxr_linenumber" name="L2044" href="#L2044">2044</a> 					<em class="jxr_comment">// Allocate context array and set hit and right start and context length</em>
+<a class="jxr_linenumber" name="L2045" href="#L2045">2045</a> 					contexts[hitNum] = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS + theseWords.length * contextSources.size()];
+<a class="jxr_linenumber" name="L2046" href="#L2046">2046</a> 					contexts[hitNum][CONTEXTS_HIT_START_INDEX] = hit.start - firstWordIndex;
+<a class="jxr_linenumber" name="L2047" href="#L2047">2047</a> 					contexts[hitNum][CONTEXTS_RIGHT_START_INDEX] = hit.end - firstWordIndex;
+<a class="jxr_linenumber" name="L2048" href="#L2048">2048</a> 					contexts[hitNum][CONTEXTS_LENGTH_INDEX] = theseWords.length;
+<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a> 				}
+<a class="jxr_linenumber" name="L2050" href="#L2050">2050</a> 				<em class="jxr_comment">// Copy the context we just retrieved into the context array</em>
+<a class="jxr_linenumber" name="L2051" href="#L2051">2051</a> 				<strong class="jxr_keyword">int</strong> start = fiNumber * theseWords.length + CONTEXTS_NUMBER_OF_BOOKKEEPING_INTS;
+<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a> 				System.arraycopy(theseWords, 0, contexts[hitNum], start, theseWords.length);
+<a class="jxr_linenumber" name="L2053" href="#L2053">2053</a> 				hitNum++;
+<a class="jxr_linenumber" name="L2054" href="#L2054">2054</a> 			}
+<a class="jxr_linenumber" name="L2055" href="#L2055">2055</a> 
+<a class="jxr_linenumber" name="L2056" href="#L2056">2056</a> 			fiNumber++;
+<a class="jxr_linenumber" name="L2057" href="#L2057">2057</a> 		}
+<a class="jxr_linenumber" name="L2058" href="#L2058">2058</a> 	}
+<a class="jxr_linenumber" name="L2059" href="#L2059">2059</a> 
+<a class="jxr_linenumber" name="L2060" href="#L2060">2060</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2061" href="#L2061">2061</a> <em class="jxr_javadoccomment">	 * Get the context information from the list of hits, so we can</em>
+<a class="jxr_linenumber" name="L2062" href="#L2062">2062</a> <em class="jxr_javadoccomment">	 * look up a different context but still have access to this one as well.</em>
+<a class="jxr_linenumber" name="L2063" href="#L2063">2063</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2064" href="#L2064">2064</a> <em class="jxr_javadoccomment">	 * NOTE: not synchronized because only ever called from synchronized methods!</em>
+<a class="jxr_linenumber" name="L2065" href="#L2065">2065</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2066" href="#L2066">2066</a> <em class="jxr_javadoccomment">	 * @return the context</em>
+<a class="jxr_linenumber" name="L2067" href="#L2067">2067</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2068" href="#L2068">2068</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong>[][] saveContexts() {
+<a class="jxr_linenumber" name="L2069" href="#L2069">2069</a> 		<strong class="jxr_keyword">int</strong>[][] saved = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[contexts.length][];
+<a class="jxr_linenumber" name="L2070" href="#L2070">2070</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; contexts.length; i++) {
+<a class="jxr_linenumber" name="L2071" href="#L2071">2071</a> 			saved[i] = Arrays.copyOf(contexts[i], contexts[i].length);
+<a class="jxr_linenumber" name="L2072" href="#L2072">2072</a> 		}
+<a class="jxr_linenumber" name="L2073" href="#L2073">2073</a> 		<strong class="jxr_keyword">return</strong> saved;
+<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a> 	}
+<a class="jxr_linenumber" name="L2075" href="#L2075">2075</a> 
+<a class="jxr_linenumber" name="L2076" href="#L2076">2076</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> <em class="jxr_javadoccomment">	 * Put context information into the list of hits.</em>
+<a class="jxr_linenumber" name="L2078" href="#L2078">2078</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2079" href="#L2079">2079</a> <em class="jxr_javadoccomment">	 * NOTE: not synchronized because only ever called from synchronized methods!</em>
+<a class="jxr_linenumber" name="L2080" href="#L2080">2080</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2081" href="#L2081">2081</a> <em class="jxr_javadoccomment">	 * @param saved the context to restore</em>
+<a class="jxr_linenumber" name="L2082" href="#L2082">2082</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2083" href="#L2083">2083</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> restoreContexts(<strong class="jxr_keyword">int</strong>[][] saved) {
+<a class="jxr_linenumber" name="L2084" href="#L2084">2084</a> 		<strong class="jxr_keyword">if</strong> (contexts == <strong class="jxr_keyword">null</strong> || contexts.length != saved.length) {
+<a class="jxr_linenumber" name="L2085" href="#L2085">2085</a> 			contexts = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[saved.length][];
+<a class="jxr_linenumber" name="L2086" href="#L2086">2086</a> 		}
+<a class="jxr_linenumber" name="L2087" href="#L2087">2087</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; saved.length; i++) {
+<a class="jxr_linenumber" name="L2088" href="#L2088">2088</a> 			<strong class="jxr_keyword">if</strong> (contexts[i] == <strong class="jxr_keyword">null</strong> || contexts[i].length != saved[i].length) {
+<a class="jxr_linenumber" name="L2089" href="#L2089">2089</a> 				contexts[i] = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[saved[i].length];
+<a class="jxr_linenumber" name="L2090" href="#L2090">2090</a> 			}
+<a class="jxr_linenumber" name="L2091" href="#L2091">2091</a> 			System.arraycopy(saved[i], 0, contexts, 0, saved[i].length);
+<a class="jxr_linenumber" name="L2092" href="#L2092">2092</a> 		}
+<a class="jxr_linenumber" name="L2093" href="#L2093">2093</a> 	}
+<a class="jxr_linenumber" name="L2094" href="#L2094">2094</a> 
+<a class="jxr_linenumber" name="L2095" href="#L2095">2095</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2096" href="#L2096">2096</a> <em class="jxr_javadoccomment">	 * Retrieves the concordance information (left, hit and right context) for a number of hits in</em>
+<a class="jxr_linenumber" name="L2097" href="#L2097">2097</a> <em class="jxr_javadoccomment">	 * the same document from the ContentStore.</em>
+<a class="jxr_linenumber" name="L2098" href="#L2098">2098</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2099" href="#L2099">2099</a> <em class="jxr_javadoccomment">	 * NOTE1: it is assumed that all hits in this Hits object are in the same document!</em>
+<a class="jxr_linenumber" name="L2100" href="#L2100">2100</a> <em class="jxr_javadoccomment">	 * @param fieldName</em>
+<a class="jxr_linenumber" name="L2101" href="#L2101">2101</a> <em class="jxr_javadoccomment">	 *            Lucene index field to make conc for</em>
+<a class="jxr_linenumber" name="L2102" href="#L2102">2102</a> <em class="jxr_javadoccomment">	 * @param wordsAroundHit</em>
+<a class="jxr_linenumber" name="L2103" href="#L2103">2103</a> <em class="jxr_javadoccomment">	 *            number of words left and right of hit to fetch</em>
+<a class="jxr_linenumber" name="L2104" href="#L2104">2104</a> <em class="jxr_javadoccomment">	 * @param conc</em>
+<a class="jxr_linenumber" name="L2105" href="#L2105">2105</a> <em class="jxr_javadoccomment">	 *            where to add the concordances</em>
+<a class="jxr_linenumber" name="L2106" href="#L2106">2106</a> <em class="jxr_javadoccomment">	 * @param hl</em>
+<a class="jxr_linenumber" name="L2107" href="#L2107">2107</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2108" href="#L2108">2108</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> makeConcordancesSingleDocContentStore(String fieldName, <strong class="jxr_keyword">int</strong> wordsAroundHit, Map&lt;Hit, Concordance&gt; conc,
+<a class="jxr_linenumber" name="L2109" href="#L2109">2109</a> 			XmlHighlighter hl) {
+<a class="jxr_linenumber" name="L2110" href="#L2110">2110</a> 		<strong class="jxr_keyword">if</strong> (hits.isEmpty())
+<a class="jxr_linenumber" name="L2111" href="#L2111">2111</a> 			<strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L2112" href="#L2112">2112</a> 		<strong class="jxr_keyword">int</strong> doc = hits.get(0).doc;
+<a class="jxr_linenumber" name="L2113" href="#L2113">2113</a> 		<strong class="jxr_keyword">int</strong> arrayLength = hits.size() * 2;
+<a class="jxr_linenumber" name="L2114" href="#L2114">2114</a> 		<strong class="jxr_keyword">int</strong>[] startsOfWords = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[arrayLength];
+<a class="jxr_linenumber" name="L2115" href="#L2115">2115</a> 		<strong class="jxr_keyword">int</strong>[] endsOfWords = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[arrayLength];
+<a class="jxr_linenumber" name="L2116" href="#L2116">2116</a> 
+<a class="jxr_linenumber" name="L2117" href="#L2117">2117</a> 		<em class="jxr_comment">// Determine the first and last word of the concordance, as well as the</em>
+<a class="jxr_linenumber" name="L2118" href="#L2118">2118</a> 		<em class="jxr_comment">// first and last word of the actual hit inside the concordance.</em>
+<a class="jxr_linenumber" name="L2119" href="#L2119">2119</a> 		<strong class="jxr_keyword">int</strong> startEndArrayIndex = 0;
+<a class="jxr_linenumber" name="L2120" href="#L2120">2120</a> 		<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
+<a class="jxr_linenumber" name="L2121" href="#L2121">2121</a> 			<strong class="jxr_keyword">int</strong> hitStart = hit.start;
+<a class="jxr_linenumber" name="L2122" href="#L2122">2122</a> 			<strong class="jxr_keyword">int</strong> hitEnd = hit.end - 1;
+<a class="jxr_linenumber" name="L2123" href="#L2123">2123</a> 
+<a class="jxr_linenumber" name="L2124" href="#L2124">2124</a> 			<strong class="jxr_keyword">int</strong> start = hitStart - wordsAroundHit;
+<a class="jxr_linenumber" name="L2125" href="#L2125">2125</a> 			<strong class="jxr_keyword">if</strong> (start &lt; 0)
+<a class="jxr_linenumber" name="L2126" href="#L2126">2126</a> 				start = 0;
+<a class="jxr_linenumber" name="L2127" href="#L2127">2127</a> 			<strong class="jxr_keyword">int</strong> end = hitEnd + wordsAroundHit;
+<a class="jxr_linenumber" name="L2128" href="#L2128">2128</a> 
+<a class="jxr_linenumber" name="L2129" href="#L2129">2129</a> 			startsOfWords[startEndArrayIndex] = start;
+<a class="jxr_linenumber" name="L2130" href="#L2130">2130</a> 			startsOfWords[startEndArrayIndex + 1] = hitStart;
+<a class="jxr_linenumber" name="L2131" href="#L2131">2131</a> 			endsOfWords[startEndArrayIndex] = hitEnd;
+<a class="jxr_linenumber" name="L2132" href="#L2132">2132</a> 			endsOfWords[startEndArrayIndex + 1] = end;
+<a class="jxr_linenumber" name="L2133" href="#L2133">2133</a> 
+<a class="jxr_linenumber" name="L2134" href="#L2134">2134</a> 			startEndArrayIndex += 2;
+<a class="jxr_linenumber" name="L2135" href="#L2135">2135</a> 		}
+<a class="jxr_linenumber" name="L2136" href="#L2136">2136</a> 
+<a class="jxr_linenumber" name="L2137" href="#L2137">2137</a> 		<em class="jxr_comment">// Get the relevant character offsets (overwrites the startsOfWords and endsOfWords</em>
+<a class="jxr_linenumber" name="L2138" href="#L2138">2138</a> 		<em class="jxr_comment">// arrays)</em>
+<a class="jxr_linenumber" name="L2139" href="#L2139">2139</a> 		searcher.getCharacterOffsets(doc, fieldName, startsOfWords, endsOfWords, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L2140" href="#L2140">2140</a> 
+<a class="jxr_linenumber" name="L2141" href="#L2141">2141</a> 		<em class="jxr_comment">// Make all the concordances</em>
+<a class="jxr_linenumber" name="L2142" href="#L2142">2142</a> 		List&lt;Concordance&gt; newConcs = searcher.makeConcordancesFromContentStore(doc, fieldName, startsOfWords,
+<a class="jxr_linenumber" name="L2143" href="#L2143">2143</a> 				endsOfWords, hl);
+<a class="jxr_linenumber" name="L2144" href="#L2144">2144</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; hits.size(); i++) {
+<a class="jxr_linenumber" name="L2145" href="#L2145">2145</a> 			conc.put(hits.get(i), newConcs.get(i));
+<a class="jxr_linenumber" name="L2146" href="#L2146">2146</a> 		}
+<a class="jxr_linenumber" name="L2147" href="#L2147">2147</a> 	}
+<a class="jxr_linenumber" name="L2148" href="#L2148">2148</a> 
+<a class="jxr_linenumber" name="L2149" href="#L2149">2149</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2150" href="#L2150">2150</a> <em class="jxr_javadoccomment">	 * Convenience method to get all hits in a single doc from a larger hitset.</em>
+<a class="jxr_linenumber" name="L2151" href="#L2151">2151</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2152" href="#L2152">2152</a> <em class="jxr_javadoccomment">	 * Don't use this for grouping or per-document results as it's relatively inefficient.</em>
+<a class="jxr_linenumber" name="L2153" href="#L2153">2153</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2154" href="#L2154">2154</a> <em class="jxr_javadoccomment">	 * @param docid the doc id to get hits for</em>
+<a class="jxr_linenumber" name="L2155" href="#L2155">2155</a> <em class="jxr_javadoccomment">	 * @return the list of hits in this doc (if any)</em>
+<a class="jxr_linenumber" name="L2156" href="#L2156">2156</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2157" href="#L2157">2157</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a> getHitsInDoc(<strong class="jxr_keyword">int</strong> docid) {
+<a class="jxr_linenumber" name="L2158" href="#L2158">2158</a> 		<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L2159" href="#L2159">2159</a> 			ensureAllHitsRead();
+<a class="jxr_linenumber" name="L2160" href="#L2160">2160</a> 		} <strong class="jxr_keyword">catch</strong> (InterruptedException e) {
+<a class="jxr_linenumber" name="L2161" href="#L2161">2161</a> 			<em class="jxr_comment">// Interrupted. Just return no hits;</em>
+<a class="jxr_linenumber" name="L2162" href="#L2162">2162</a> 			<em class="jxr_comment">// client should detect thread was interrupted if it</em>
+<a class="jxr_linenumber" name="L2163" href="#L2163">2163</a> 			<em class="jxr_comment">// wants to use background threads.</em>
+<a class="jxr_linenumber" name="L2164" href="#L2164">2164</a> 			Thread.currentThread().interrupt();
+<a class="jxr_linenumber" name="L2165" href="#L2165">2165</a> 			<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher);
+<a class="jxr_linenumber" name="L2166" href="#L2166">2166</a> 		}
+<a class="jxr_linenumber" name="L2167" href="#L2167">2167</a> 		List&lt;Hit&gt; hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L2168" href="#L2168">2168</a> 		<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
+<a class="jxr_linenumber" name="L2169" href="#L2169">2169</a> 			<strong class="jxr_keyword">if</strong> (hit.doc == docid)
+<a class="jxr_linenumber" name="L2170" href="#L2170">2170</a> 				hitsInDoc.add(hit);
+<a class="jxr_linenumber" name="L2171" href="#L2171">2171</a> 		}
+<a class="jxr_linenumber" name="L2172" href="#L2172">2172</a> 		Hits result = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher, hitsInDoc);
+<a class="jxr_linenumber" name="L2173" href="#L2173">2173</a> 		result.copySettingsFrom(<strong class="jxr_keyword">this</strong>);
+<a class="jxr_linenumber" name="L2174" href="#L2174">2174</a> 		<strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L2175" href="#L2175">2175</a> 	}
+<a class="jxr_linenumber" name="L2176" href="#L2176">2176</a> 
+<a class="jxr_linenumber" name="L2177" href="#L2177">2177</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2178" href="#L2178">2178</a> <em class="jxr_javadoccomment">	 * Return the context(s) for the specified hit number</em>
+<a class="jxr_linenumber" name="L2179" href="#L2179">2179</a> <em class="jxr_javadoccomment">	 * @param hitNumber which hit we want the context(s) for</em>
+<a class="jxr_linenumber" name="L2180" href="#L2180">2180</a> <em class="jxr_javadoccomment">	 * @return the context(s)</em>
+<a class="jxr_linenumber" name="L2181" href="#L2181">2181</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2182" href="#L2182">2182</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong>[] getHitContext(<strong class="jxr_keyword">int</strong> hitNumber) {
+<a class="jxr_linenumber" name="L2183" href="#L2183">2183</a> 		<strong class="jxr_keyword">return</strong> contexts[hitNumber];
+<a class="jxr_linenumber" name="L2184" href="#L2184">2184</a> 	}
+<a class="jxr_linenumber" name="L2185" href="#L2185">2185</a> 
+<a class="jxr_linenumber" name="L2186" href="#L2186">2186</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2187" href="#L2187">2187</a> <em class="jxr_javadoccomment">	 * Indicate how to use the forward indices to build concordances.</em>
+<a class="jxr_linenumber" name="L2188" href="#L2188">2188</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2189" href="#L2189">2189</a> <em class="jxr_javadoccomment">	 * @param wordFI FI to use as the text content of the &amp;lt;w/&amp;gt; tags (default "word"; null for no text content)</em>
+<a class="jxr_linenumber" name="L2190" href="#L2190">2190</a> <em class="jxr_javadoccomment">	 * @param punctFI FI to use as the text content between &amp;lt;w/&amp;gt; tags (default "punct"; null for just a space)</em>
+<a class="jxr_linenumber" name="L2191" href="#L2191">2191</a> <em class="jxr_javadoccomment">	 * @param attrFI FIs to use as the attributes of the &amp;lt;w/&amp;gt; tags (null for all other FIs)</em>
+<a class="jxr_linenumber" name="L2192" href="#L2192">2192</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2193" href="#L2193">2193</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setForwardIndexConcordanceParameters(String wordFI, String punctFI,
+<a class="jxr_linenumber" name="L2194" href="#L2194">2194</a> 			Collection&lt;String&gt; attrFI) {
+<a class="jxr_linenumber" name="L2195" href="#L2195">2195</a> 		concWordFI = wordFI;
+<a class="jxr_linenumber" name="L2196" href="#L2196">2196</a> 		concPunctFI = punctFI;
+<a class="jxr_linenumber" name="L2197" href="#L2197">2197</a> 		concAttrFI = attrFI;
+<a class="jxr_linenumber" name="L2198" href="#L2198">2198</a> 	}
+<a class="jxr_linenumber" name="L2199" href="#L2199">2199</a> 
+<a class="jxr_linenumber" name="L2200" href="#L2200">2200</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2201" href="#L2201">2201</a> <em class="jxr_javadoccomment">	 * Generate concordances from content store (slower).</em>
+<a class="jxr_linenumber" name="L2202" href="#L2202">2202</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2203" href="#L2203">2203</a> <em class="jxr_javadoccomment">	 * @param hits the hits for which to retrieve concordances</em>
+<a class="jxr_linenumber" name="L2204" href="#L2204">2204</a> <em class="jxr_javadoccomment">	 * @param contextSize how many words around the hit to retrieve</em>
+<a class="jxr_linenumber" name="L2205" href="#L2205">2205</a> <em class="jxr_javadoccomment">	 * @param fieldName field to use for building concordances</em>
+<a class="jxr_linenumber" name="L2206" href="#L2206">2206</a> <em class="jxr_javadoccomment">	 * @return the concordances</em>
+<a class="jxr_linenumber" name="L2207" href="#L2207">2207</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2208" href="#L2208">2208</a> 	<strong class="jxr_keyword">private</strong> Map&lt;Hit, Concordance&gt; retrieveConcordancesFromContentStore(<strong class="jxr_keyword">int</strong> contextSize, String fieldName) {
+<a class="jxr_linenumber" name="L2209" href="#L2209">2209</a> 		XmlHighlighter hl = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/highlight/XmlHighlighter.html">XmlHighlighter</a>(); <em class="jxr_comment">// used to make fragments well-formed</em>
+<a class="jxr_linenumber" name="L2210" href="#L2210">2210</a> 		hl.setUnbalancedTagsStrategy(searcher.getDefaultUnbalancedTagsStrategy());
+<a class="jxr_linenumber" name="L2211" href="#L2211">2211</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = perDocumentGroupedHits();
+<a class="jxr_linenumber" name="L2212" href="#L2212">2212</a> 		Map&lt;Hit, Concordance&gt; conc = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L2213" href="#L2213">2213</a> 		<strong class="jxr_keyword">for</strong> (List&lt;Hit&gt; l: hitsPerDocument.values()) {
+<a class="jxr_linenumber" name="L2214" href="#L2214">2214</a> 			Hits hitsInThisDoc = <strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/search/Hits.html">Hits</a>(searcher, l);
+<a class="jxr_linenumber" name="L2215" href="#L2215">2215</a> 			hitsInThisDoc.copySettingsFrom(<strong class="jxr_keyword">this</strong>);
+<a class="jxr_linenumber" name="L2216" href="#L2216">2216</a> 			hitsInThisDoc.makeConcordancesSingleDocContentStore(fieldName, contextSize, conc, hl);
+<a class="jxr_linenumber" name="L2217" href="#L2217">2217</a> 		}
+<a class="jxr_linenumber" name="L2218" href="#L2218">2218</a> 		<strong class="jxr_keyword">return</strong> conc;
+<a class="jxr_linenumber" name="L2219" href="#L2219">2219</a> 	}
+<a class="jxr_linenumber" name="L2220" href="#L2220">2220</a> 
+<a class="jxr_linenumber" name="L2221" href="#L2221">2221</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2222" href="#L2222">2222</a> <em class="jxr_javadoccomment">	 * Group hits in a map per document. Used by the retrieveConcordances methods.</em>
+<a class="jxr_linenumber" name="L2223" href="#L2223">2223</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2224" href="#L2224">2224</a> <em class="jxr_javadoccomment">	 * @param hits the hits to group.</em>
+<a class="jxr_linenumber" name="L2225" href="#L2225">2225</a> <em class="jxr_javadoccomment">	 * @return the grouped hits</em>
+<a class="jxr_linenumber" name="L2226" href="#L2226">2226</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2227" href="#L2227">2227</a> 	<strong class="jxr_keyword">private</strong> Map&lt;Integer, List&lt;Hit&gt;&gt; perDocumentGroupedHits() {
+<a class="jxr_linenumber" name="L2228" href="#L2228">2228</a> 		<em class="jxr_comment">// Group hits per document</em>
+<a class="jxr_linenumber" name="L2229" href="#L2229">2229</a> 		Map&lt;Integer, List&lt;Hit&gt;&gt; hitsPerDocument = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L2230" href="#L2230">2230</a> 		<strong class="jxr_keyword">for</strong> (Hit key: hits) {
+<a class="jxr_linenumber" name="L2231" href="#L2231">2231</a> 			List&lt;Hit&gt; hitsInDoc = hitsPerDocument.get(key.doc);
+<a class="jxr_linenumber" name="L2232" href="#L2232">2232</a> 			<strong class="jxr_keyword">if</strong> (hitsInDoc == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L2233" href="#L2233">2233</a> 				hitsInDoc = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L2234" href="#L2234">2234</a> 				hitsPerDocument.put(key.doc, hitsInDoc);
+<a class="jxr_linenumber" name="L2235" href="#L2235">2235</a> 			}
+<a class="jxr_linenumber" name="L2236" href="#L2236">2236</a> 			hitsInDoc.add(key);
+<a class="jxr_linenumber" name="L2237" href="#L2237">2237</a> 		}
+<a class="jxr_linenumber" name="L2238" href="#L2238">2238</a> 		<strong class="jxr_keyword">return</strong> hitsPerDocument;
+<a class="jxr_linenumber" name="L2239" href="#L2239">2239</a> 	}
+<a class="jxr_linenumber" name="L2240" href="#L2240">2240</a> 
+<a class="jxr_linenumber" name="L2241" href="#L2241">2241</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2242" href="#L2242">2242</a> <em class="jxr_javadoccomment">	 * Are we making concordances using the forward index (true) or using</em>
+<a class="jxr_linenumber" name="L2243" href="#L2243">2243</a> <em class="jxr_javadoccomment">	 * the content store (false)? Forward index is more efficient but returns</em>
+<a class="jxr_linenumber" name="L2244" href="#L2244">2244</a> <em class="jxr_javadoccomment">	 * concordances that don't include XML tags.</em>
+<a class="jxr_linenumber" name="L2245" href="#L2245">2245</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2246" href="#L2246">2246</a> <em class="jxr_javadoccomment">	 * @return true iff we use the forward index for making concordances.</em>
+<a class="jxr_linenumber" name="L2247" href="#L2247">2247</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2248" href="#L2248">2248</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../nl/inl/blacklab/search/ConcordanceType.html">ConcordanceType</a> getConcordanceType() {
+<a class="jxr_linenumber" name="L2249" href="#L2249">2249</a> 		<strong class="jxr_keyword">return</strong> concsType;
+<a class="jxr_linenumber" name="L2250" href="#L2250">2250</a> 	}
+<a class="jxr_linenumber" name="L2251" href="#L2251">2251</a> 
+<a class="jxr_linenumber" name="L2252" href="#L2252">2252</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2253" href="#L2253">2253</a> <em class="jxr_javadoccomment">	 * Do we want to retrieve concordances from the forward index or from the</em>
+<a class="jxr_linenumber" name="L2254" href="#L2254">2254</a> <em class="jxr_javadoccomment">	 * content store? Forward index is more efficient but doesn't exactly reproduces the</em>
+<a class="jxr_linenumber" name="L2255" href="#L2255">2255</a> <em class="jxr_javadoccomment">	 * original XML.</em>
+<a class="jxr_linenumber" name="L2256" href="#L2256">2256</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2257" href="#L2257">2257</a> <em class="jxr_javadoccomment">	 * The default type can be set by calling Searcher.setDefaultConcordanceType().</em>
+<a class="jxr_linenumber" name="L2258" href="#L2258">2258</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L2259" href="#L2259">2259</a> <em class="jxr_javadoccomment">	 * @param type the type of concordances to make</em>
+<a class="jxr_linenumber" name="L2260" href="#L2260">2260</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L2261" href="#L2261">2261</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setConcordanceType(<a href="../../../../nl/inl/blacklab/search/ConcordanceType.html">ConcordanceType</a> type) {
+<a class="jxr_linenumber" name="L2262" href="#L2262">2262</a> 		<strong class="jxr_keyword">this</strong>.concsType = type;
+<a class="jxr_linenumber" name="L2263" href="#L2263">2263</a> 	}
+<a class="jxr_linenumber" name="L2264" href="#L2264">2264</a> 
+<a class="jxr_linenumber" name="L2265" href="#L2265">2265</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

@@ -189,7 +189,7 @@
 <a class="jxr_linenumber" name="L181" href="#L181">181</a> 		<strong class="jxr_keyword">for</strong> (Integer tag: startsAndEnds) {
 <a class="jxr_linenumber" name="L182" href="#L182">182</a> 			<strong class="jxr_keyword">if</strong> (tag &gt; 0) {
 <a class="jxr_linenumber" name="L183" href="#L183">183</a> 				<strong class="jxr_keyword">int</strong> startPositionToStore = tag - 2;  <em class="jxr_comment">// subtract 2 again to get original position (see above)</em>
-<a class="jxr_linenumber" name="L184" href="#L184">184</a> 				<strong class="jxr_keyword">if</strong> (emptyElementIndices.size() &gt; 0) {
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> 				<strong class="jxr_keyword">if</strong> (!emptyElementIndices.isEmpty()) {
 <a class="jxr_linenumber" name="L185" href="#L185">185</a> 					<em class="jxr_comment">// We have an unmatched close tag, probably an empty element between tokens (see below).</em>
 <a class="jxr_linenumber" name="L186" href="#L186">186</a> 					<em class="jxr_comment">// Is this the corresponding start tag?</em>
 <a class="jxr_linenumber" name="L187" href="#L187">187</a> 					<strong class="jxr_keyword">int</strong> index = emptyElementIndices.remove(emptyElementIndices.size() - 1);
@@ -208,7 +208,7 @@
 <a class="jxr_linenumber" name="L200" href="#L200">200</a> 			} <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L201" href="#L201">201</a> 				<em class="jxr_comment">// Close tag. Are there unmatched open tags?</em>
 <a class="jxr_linenumber" name="L202" href="#L202">202</a> 				<strong class="jxr_keyword">int</strong> endPositionToStore = -tag - 2 + 1; <em class="jxr_comment">// subtract 2 and add 1 to let it point to the next token again (see above)</em>
-<a class="jxr_linenumber" name="L203" href="#L203">203</a> 				<strong class="jxr_keyword">if</strong> (unmatchedOpenTagIndices.size() == 0) {
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> 				<strong class="jxr_keyword">if</strong> (unmatchedOpenTagIndices.isEmpty()) {
 <a class="jxr_linenumber" name="L204" href="#L204">204</a> 					<em class="jxr_comment">// No. This must be an empty element between two tokens. Because we don't know the</em>
 <a class="jxr_linenumber" name="L205" href="#L205">205</a> 					<em class="jxr_comment">// relative order of tags between tokens (this information is not in the index),</em>
 <a class="jxr_linenumber" name="L206" href="#L206">206</a> 					<em class="jxr_comment">// our sort messes this up.</em>
@@ -223,10 +223,10 @@
 <a class="jxr_linenumber" name="L215" href="#L215">215</a> 				}
 <a class="jxr_linenumber" name="L216" href="#L216">216</a> 			}
 <a class="jxr_linenumber" name="L217" href="#L217">217</a> 		}
-<a class="jxr_linenumber" name="L218" href="#L218">218</a> 		<strong class="jxr_keyword">if</strong> (unmatchedOpenTagIndices.size() &gt; 0) {
+<a class="jxr_linenumber" name="L218" href="#L218">218</a> 		<strong class="jxr_keyword">if</strong> (!unmatchedOpenTagIndices.isEmpty()) {
 <a class="jxr_linenumber" name="L219" href="#L219">219</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Unmatched open tags left for document"</span>);
 <a class="jxr_linenumber" name="L220" href="#L220">220</a> 		}
-<a class="jxr_linenumber" name="L221" href="#L221">221</a> 		<strong class="jxr_keyword">if</strong> (emptyElementIndices.size() &gt; 0) {
+<a class="jxr_linenumber" name="L221" href="#L221">221</a> 		<strong class="jxr_keyword">if</strong> (!emptyElementIndices.isEmpty()) {
 <a class="jxr_linenumber" name="L222" href="#L222">222</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Unmatched close tag left for document"</span>);
 <a class="jxr_linenumber" name="L223" href="#L223">223</a> 		}
 <a class="jxr_linenumber" name="L224" href="#L224">224</a> 	}
@@ -308,6 +308,6 @@
 <a class="jxr_linenumber" name="L300" href="#L300">300</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

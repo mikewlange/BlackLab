@@ -306,7 +306,7 @@
 <a class="jxr_linenumber" name="L298" href="#L298">298</a> 	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L299" href="#L299">299</a> <em class="jxr_javadoccomment">	 * States of the xmlToPlainText() state machine</em>
 <a class="jxr_linenumber" name="L300" href="#L300">300</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> enum <a href="../../../nl/inl/util/XmlUtil.html">XmlToPlainTextState</a> {
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> 	<strong class="jxr_keyword">private</strong> enum <a href="../../../nl/inl/util/XmlUtil.html">XmlToPlainTextState</a> {
 <a class="jxr_linenumber" name="L302" href="#L302">302</a> 
 <a class="jxr_linenumber" name="L303" href="#L303">303</a> 		<em class="jxr_javadoccomment">/** Copy these characters to the destination */</em>
 <a class="jxr_linenumber" name="L304" href="#L304">304</a> 		COPY,
@@ -373,7 +373,7 @@
 <a class="jxr_linenumber" name="L365" href="#L365">365</a> 			<strong class="jxr_keyword">case</strong> ';':
 <a class="jxr_linenumber" name="L366" href="#L366">366</a> 				<strong class="jxr_keyword">if</strong> (state == XmlToPlainTextState.IN_ENTITY) {
 <a class="jxr_linenumber" name="L367" href="#L367">367</a> 					<em class="jxr_comment">// Leaving entity</em>
-<a class="jxr_linenumber" name="L368" href="#L368">368</a> 					<strong class="jxr_keyword">char</strong> whichEntity = '!';
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> 					<strong class="jxr_keyword">char</strong> whichEntity;
 <a class="jxr_linenumber" name="L369" href="#L369">369</a> 					String entityName = conc.substring(entityStart, srcIndex);
 <a class="jxr_linenumber" name="L370" href="#L370">370</a> 					<strong class="jxr_keyword">if</strong> (entityName.equals(<span class="jxr_string">"lt"</span>))
 <a class="jxr_linenumber" name="L371" href="#L371">371</a> 						whichEntity = '&lt;';
@@ -440,6 +440,6 @@
 <a class="jxr_linenumber" name="L432" href="#L432">432</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

@@ -197,7 +197,7 @@
 <a class="jxr_linenumber" name="L189" href="#L189">189</a> 
 <a class="jxr_linenumber" name="L190" href="#L190">190</a> 	@Override
 <a class="jxr_linenumber" name="L191" href="#L191">191</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> getCapturedGroups(<strong class="jxr_keyword">int</strong> indexInBucket, <a href="../../../../../nl/inl/blacklab/search/Span.html">Span</a>[] capturedGroups) {
-<a class="jxr_linenumber" name="L192" href="#L192">192</a> 		<strong class="jxr_keyword">if</strong> (!doCapturedGroups || capturedGroupsPerEndpoint.size() == 0)
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 		<strong class="jxr_keyword">if</strong> (!doCapturedGroups || capturedGroupsPerEndpoint.isEmpty())
 <a class="jxr_linenumber" name="L193" href="#L193">193</a> 			<strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="L194" href="#L194">194</a> 		Span[] previouslyCapturedGroups = capturedGroupsPerEndpoint.get(indexInBucket);
 <a class="jxr_linenumber" name="L195" href="#L195">195</a> 		<strong class="jxr_keyword">if</strong> (previouslyCapturedGroups != <strong class="jxr_keyword">null</strong>) {
@@ -228,6 +228,6 @@
 <a class="jxr_linenumber" name="L220" href="#L220">220</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

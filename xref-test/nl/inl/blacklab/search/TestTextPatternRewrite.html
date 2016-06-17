@@ -251,28 +251,35 @@
 <a class="jxr_linenumber" name="L243" href="#L243">243</a> 		assertRewriteResult(<span class="jxr_string">"('a'{1,1}){2,3}"</span>, <span class="jxr_string">"REP(TERM(contents%word@i, a), 2, 3)"</span>);
 <a class="jxr_linenumber" name="L244" href="#L244">244</a> 		assertRewriteResult(<span class="jxr_string">"'a'{1,1}"</span>, <span class="jxr_string">"TERM(contents%word@i, a)"</span>);
 <a class="jxr_linenumber" name="L245" href="#L245">245</a> 		assertRewriteResult(<span class="jxr_string">"'a'? 'b'?"</span>, <span class="jxr_string">"OR(SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), TERM(contents%word@i, b), TERM(contents%word@i, a))"</span>);
-<a class="jxr_linenumber" name="L246" href="#L246">246</a> 	}
-<a class="jxr_linenumber" name="L247" href="#L247">247</a> 
-<a class="jxr_linenumber" name="L248" href="#L248">248</a> 	@Test
-<a class="jxr_linenumber" name="L249" href="#L249">249</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRewriteTags() {
-<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s/&gt; containing 'a' 'b'"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING)"</span>);
-<a class="jxr_linenumber" name="L251" href="#L251">251</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; []* 'a' 'b' []* &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING)"</span>);
-<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; 'a' 'b' []* &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING_AT_START)"</span>);
-<a class="jxr_linenumber" name="L253" href="#L253">253</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; []* 'a' 'b' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING_AT_END)"</span>);
-<a class="jxr_linenumber" name="L254" href="#L254">254</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; 'a' 'b' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), MATCHES)"</span>);
-<a class="jxr_linenumber" name="L255" href="#L255">255</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; ('a' 'b') 'c' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b), TERM(contents%word@i, c)), MATCHES)"</span>);
-<a class="jxr_linenumber" name="L256" href="#L256">256</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s test='1'&gt; 'a' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s, test=1), TERM(contents%word@i, a), MATCHES)"</span>);
-<a class="jxr_linenumber" name="L257" href="#L257">257</a> 	}
-<a class="jxr_linenumber" name="L258" href="#L258">258</a> 
-<a class="jxr_linenumber" name="L259" href="#L259">259</a> 	@Test
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRewriteNGramFilter() {
-<a class="jxr_linenumber" name="L261" href="#L261">261</a> 		assertRewriteResult(<span class="jxr_string">"[]{2,4} containing 'a' 'b'"</span>, <span class="jxr_string">"FILTERNGRAMS(SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING, 2, 4)"</span>);
-<a class="jxr_linenumber" name="L262" href="#L262">262</a> 		assertRewriteResult(<span class="jxr_string">"[]{1,2} within 'a' 'b' 'c'"</span>, <span class="jxr_string">"FILTERNGRAMS(SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b), TERM(contents%word@i, c)), WITHIN, 1, 2)"</span>);
-<a class="jxr_linenumber" name="L263" href="#L263">263</a> 	}
-<a class="jxr_linenumber" name="L264" href="#L264">264</a> 
-<a class="jxr_linenumber" name="L265" href="#L265">265</a> }
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 		assertRewriteResult(<span class="jxr_string">"'a' 'a'*"</span>, <span class="jxr_string">"REP(TERM(contents%word@i, a), 1, -1)"</span>);
+<a class="jxr_linenumber" name="L247" href="#L247">247</a> 		assertRewriteResult(<span class="jxr_string">"'a'? 'a'? 'b'"</span>, <span class="jxr_string">"OR(SEQ(REP(TERM(contents%word@i, a), 1, 2), TERM(contents%word@i, b)), TERM(contents%word@i, b))"</span>);
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 		assertRewriteResult(<span class="jxr_string">"'a'* 'a'"</span>, <span class="jxr_string">"REP(TERM(contents%word@i, a), 1, -1)"</span>);
+<a class="jxr_linenumber" name="L249" href="#L249">249</a> 		assertRewriteResult(<span class="jxr_string">"'a'* 'a'* 'b'"</span>, <span class="jxr_string">"OR(SEQ(REP(TERM(contents%word@i, a), 1, -1), TERM(contents%word@i, b)), TERM(contents%word@i, b))"</span>);
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		assertRewriteResult(<span class="jxr_string">"'a' 'a'+"</span>, <span class="jxr_string">"REP(TERM(contents%word@i, a), 2, -1)"</span>);
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> 		assertRewriteResult(<span class="jxr_string">"'a'+ 'a'"</span>, <span class="jxr_string">"REP(TERM(contents%word@i, a), 2, -1)"</span>);
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		assertRewriteResult(<span class="jxr_string">"'a'+ 'a'+"</span>, <span class="jxr_string">"REP(TERM(contents%word@i, a), 2, -1)"</span>);
+<a class="jxr_linenumber" name="L253" href="#L253">253</a> 	}
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 
+<a class="jxr_linenumber" name="L255" href="#L255">255</a> 	@Test
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRewriteTags() {
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s/&gt; containing 'a' 'b'"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING)"</span>);
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; []* 'a' 'b' []* &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING)"</span>);
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; 'a' 'b' []* &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING_AT_START)"</span>);
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; []* 'a' 'b' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING_AT_END)"</span>);
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; 'a' 'b' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), MATCHES)"</span>);
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s&gt; ('a' 'b') 'c' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s), SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b), TERM(contents%word@i, c)), MATCHES)"</span>);
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> 		assertRewriteResult(<span class="jxr_string">"&lt;s test='1'&gt; 'a' &lt;/s&gt;"</span>, <span class="jxr_string">"POSFILTER(TAGS(s, test=1), TERM(contents%word@i, a), MATCHES)"</span>);
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> 	}
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> 
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 	@Test
+<a class="jxr_linenumber" name="L267" href="#L267">267</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRewriteNGramFilter() {
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> 		assertRewriteResult(<span class="jxr_string">"[]{2,4} containing 'a' 'b'"</span>, <span class="jxr_string">"FILTERNGRAMS(SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b)), CONTAINING, 2, 4)"</span>);
+<a class="jxr_linenumber" name="L269" href="#L269">269</a> 		assertRewriteResult(<span class="jxr_string">"[]{1,2} within 'a' 'b' 'c'"</span>, <span class="jxr_string">"FILTERNGRAMS(SEQ(TERM(contents%word@i, a), TERM(contents%word@i, b), TERM(contents%word@i, c)), WITHIN, 1, 2)"</span>);
+<a class="jxr_linenumber" name="L270" href="#L270">270</a> 	}
+<a class="jxr_linenumber" name="L271" href="#L271">271</a> 
+<a class="jxr_linenumber" name="L272" href="#L272">272</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">INL</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>
