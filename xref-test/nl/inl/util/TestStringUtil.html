@@ -58,9 +58,11 @@
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEscapeDoubleQuotedString() {
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  		Assert.assertEquals(<span class="jxr_string">"Test &#92;&#92;\&quot; test &#92;&#92;&#92;&#92; test"</span>,
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  				StringUtil.escapeDoubleQuotedString(<span class="jxr_string">"Test \&quot; test &#92;&#92; test"</span>));
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  	}
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  }
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		Assert.assertEquals(<span class="jxr_string">"Newline &#92;&#92;n Return &#92;&#92;r Windows line end &#92;&#92;r&#92;&#92;n"</span>,
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  				StringUtil.escapeDoubleQuotedString(<span class="jxr_string">"Newline \n Return \r Windows line end \r\n"</span>));
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  	}
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
