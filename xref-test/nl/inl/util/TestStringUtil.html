@@ -62,7 +62,15 @@
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  				StringUtil.escapeDoubleQuotedString(<span class="jxr_string">"Newline \n Return \r Windows line end \r\n"</span>));
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  	}
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  }
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  	@SuppressWarnings(<span class="jxr_string">"deprecation"</span>)
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  	@Test
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCapitalize() {
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		Assert.assertEquals(<span class="jxr_string">"Aap"</span>, StringUtil.capitalizeFirst(<span class="jxr_string">"aap"</span>));
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  		Assert.assertEquals(<span class="jxr_string">"AAP"</span>, StringUtil.capitalizeFirst(<span class="jxr_string">"AAP"</span>));
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  		Assert.assertEquals(<span class="jxr_string">"'aap'"</span>, StringUtil.capitalizeFirst(<span class="jxr_string">"'aap'"</span>));
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  	}
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>

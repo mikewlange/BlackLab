@@ -21,22 +21,22 @@
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> java.util.Map;
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> java.util.TreeMap;
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.Searcher;
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.DateUtil;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.FileUtil;
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.Json;
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.StringUtil;
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.json.JSONObject;
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> org.apache.log4j.Logger;
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.DirectoryReader;
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.FieldInfo;
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.FieldInfos;
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.IndexReader;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.MultiFields;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.Terms;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.util.Bits;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.apache.commons.lang.StringUtils;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> org.apache.log4j.Logger;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.FieldInfo;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.FieldInfos;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.IndexReader;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.MultiFields;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.index.Terms;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> org.apache.lucene.util.Bits;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.Searcher;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.DateUtil;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.FileUtil;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.Json;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.StringUtil;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> nl.inl.util.json.JSONObject;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment"> * Determines the structure of a BlackLab index.</em>
@@ -135,7 +135,7 @@
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> <em class="jxr_javadoccomment">	 * @param indexDir where the index (and the metadata file) is stored</em>
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> <em class="jxr_javadoccomment">	 * @param createNewIndex whether we're creating a new index</em>
 <a class="jxr_linenumber" name="L129" href="#L129">129</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L130" href="#L130">130</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html">IndexStructure</a>(DirectoryReader reader, File indexDir, <strong class="jxr_keyword">boolean</strong> createNewIndex) {
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html">IndexStructure</a>(IndexReader reader, File indexDir, <strong class="jxr_keyword">boolean</strong> createNewIndex) {
 <a class="jxr_linenumber" name="L131" href="#L131">131</a> 		<strong class="jxr_keyword">this</strong>(reader, indexDir, createNewIndex, (File)<strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L132" href="#L132">132</a> 	}
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 
@@ -148,7 +148,7 @@
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> <em class="jxr_javadoccomment">	 * @param indexTemplateFile JSON file to use as template for index structure / metadata</em>
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">	 *   (if creating new index)</em>
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L143" href="#L143">143</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html">IndexStructure</a>(DirectoryReader reader, File indexDir,
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/indexstructure/IndexStructure.html">IndexStructure</a>(IndexReader reader, File indexDir,
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 			<strong class="jxr_keyword">boolean</strong> createNewIndex, File indexTemplateFile) {
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 		<em class="jxr_comment">//this.reader = reader;</em>
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 		<strong class="jxr_keyword">this</strong>.indexDir = indexDir;
@@ -179,7 +179,7 @@
 <a class="jxr_linenumber" name="L171" href="#L171">171</a> <em class="jxr_javadoccomment">	 * @param indexTemplateFile JSON file to use as template for index structure / metadata</em>
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> <em class="jxr_javadoccomment">	 *   (only if creating a new index)</em>
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> readMetadata(DirectoryReader reader, <strong class="jxr_keyword">boolean</strong> createNewIndex, File indexTemplateFile) {
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> readMetadata(IndexReader reader, <strong class="jxr_keyword">boolean</strong> createNewIndex, File indexTemplateFile) {
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 
 <a class="jxr_linenumber" name="L176" href="#L176">176</a> 		File metadataFile = <strong class="jxr_keyword">new</strong> File(indexDir, METADATA_FILE_NAME);
 <a class="jxr_linenumber" name="L177" href="#L177">177</a> 		<strong class="jxr_keyword">boolean</strong> usedTemplate = false;
@@ -805,9 +805,9 @@
 <a class="jxr_linenumber" name="L797" href="#L797">797</a> 		<strong class="jxr_keyword">if</strong> (displayName != <strong class="jxr_keyword">null</strong> &amp;&amp; displayName.length() != 0)
 <a class="jxr_linenumber" name="L798" href="#L798">798</a> 			dispName = displayName;
 <a class="jxr_linenumber" name="L799" href="#L799">799</a> 		<strong class="jxr_keyword">if</strong> (dispName.equalsIgnoreCase(<span class="jxr_string">"index"</span>))
-<a class="jxr_linenumber" name="L800" href="#L800">800</a> 			dispName = StringUtil.capitalizeFirst(indexDir.getName());
+<a class="jxr_linenumber" name="L800" href="#L800">800</a> 			dispName = StringUtils.capitalize(indexDir.getName());
 <a class="jxr_linenumber" name="L801" href="#L801">801</a> 		<strong class="jxr_keyword">if</strong> (dispName.equalsIgnoreCase(<span class="jxr_string">"index"</span>))
-<a class="jxr_linenumber" name="L802" href="#L802">802</a> 			dispName = StringUtil.capitalizeFirst(indexDir.getParentFile().getName());
+<a class="jxr_linenumber" name="L802" href="#L802">802</a> 			dispName = StringUtils.capitalize(indexDir.getParentFile().getName());
 <a class="jxr_linenumber" name="L803" href="#L803">803</a> 		<strong class="jxr_keyword">return</strong> dispName;
 <a class="jxr_linenumber" name="L804" href="#L804">804</a> 	}
 <a class="jxr_linenumber" name="L805" href="#L805">805</a> 

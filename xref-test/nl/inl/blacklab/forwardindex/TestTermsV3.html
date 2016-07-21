@@ -51,7 +51,7 @@
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  		dir = Utilities.createBlackLabTestDir(<span class="jxr_string">"Terms"</span>);
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  		<em class="jxr_comment">// Store some terms</em>
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  		t = <strong class="jxr_keyword">new</strong> TermsImplV3(<strong class="jxr_keyword">true</strong>, Collator.getInstance(<strong class="jxr_keyword">new</strong> Locale(<span class="jxr_string">"en"</span>, <span class="jxr_string">"GB"</span>)));
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  		t = <strong class="jxr_keyword">new</strong> TermsImplV3(<strong class="jxr_keyword">true</strong>, Collator.getInstance(<strong class="jxr_keyword">new</strong> Locale(<span class="jxr_string">"en"</span>, <span class="jxr_string">"GB"</span>)), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; str.length; i++) {
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  			t.indexOf(str[i]);
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  		}
@@ -59,7 +59,7 @@
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  		t.write(f); <em class="jxr_comment">// close so everything is guaranteed to be written</em>
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  		<em class="jxr_comment">// Open for reading</em>
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		t = <strong class="jxr_keyword">new</strong> TermsImplV3(false, Collator.getInstance(<strong class="jxr_keyword">new</strong> Locale(<span class="jxr_string">"en"</span>, <span class="jxr_string">"GB"</span>)), f);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		t = <strong class="jxr_keyword">new</strong> TermsImplV3(false, Collator.getInstance(<strong class="jxr_keyword">new</strong> Locale(<span class="jxr_string">"en"</span>, <span class="jxr_string">"GB"</span>)), f, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  	}
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  	@After
