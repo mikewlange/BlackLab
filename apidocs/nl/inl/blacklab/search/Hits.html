@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hits (BlackLab 1.4.0 API)</title>
+<title>Hits (BlackLab 1.6.0-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Hits (BlackLab 1.4.0 API)";
+        parent.document.title="Hits (BlackLab 1.6.0-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -105,7 +105,7 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;</dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -115,7 +115,7 @@
 <br>
 <pre>public abstract class <span class="strong">Hits</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true" title="class or interface in java.util">AbstractList</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;
-implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a></pre>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>, <a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a></pre>
 </li>
 </ul>
 </div>
@@ -662,7 +662,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Hits.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;hitQueryContext)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/Hits.html#setMaxHitsCounted(boolean)">setMaxHitsCounted</a></strong>(boolean&nbsp;maxHitsCounted)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -1140,7 +1140,10 @@ public static&nbsp;void&nbsp;setDefaultMaxHitsToCount(int&nbsp;n)</pre>
 <div class="block">Set the thread priority level for this Hits object.
 
  Allows us to set a query to low-priority, or to (almost) pause it.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>level</code> - the desired priority level</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/Prioritizable.html#setPriorityLevel(nl.inl.util.ThreadPriority.Level)">setPriorityLevel</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>level</code> - the desired priority level</dd></dl>
 </li>
 </ul>
 <a name="getPriorityLevel()">
@@ -1153,7 +1156,10 @@ public static&nbsp;void&nbsp;setDefaultMaxHitsToCount(int&nbsp;n)</pre>
 <div class="block">Get the thread priority level for this Hits object.
 
  Can be normal, low-priority, or (almost) paused.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the current priority level</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/Prioritizable.html#getPriorityLevel()">getPriorityLevel</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the current priority level</dd></dl>
 </li>
 </ul>
 <a name="copy()">
@@ -1188,7 +1194,7 @@ public static&nbsp;void&nbsp;setDefaultMaxHitsToCount(int&nbsp;n)</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaxHitsCounted</h4>
-<pre>protected abstract&nbsp;void&nbsp;setMaxHitsCounted(boolean&nbsp;maxHitsCounted)</pre>
+<pre>public abstract&nbsp;void&nbsp;setMaxHitsCounted(boolean&nbsp;maxHitsCounted)</pre>
 </li>
 </ul>
 <a name="setMaxHitsRetrieved(boolean)">

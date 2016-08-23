@@ -154,8 +154,8 @@
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 	@Override
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> 	<strong class="jxr_keyword">public</strong> String serialize() {
 <a class="jxr_linenumber" name="L148" href="#L148">148</a> 		String[] parts = ComplexFieldUtil.getNameComponents(luceneFieldName);
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		String propName = parts.length &gt; 1 ? parts[1] : <span class="jxr_string">""</span>;
-<a class="jxr_linenumber" name="L150" href="#L150">150</a> 		<strong class="jxr_keyword">return</strong> serializeReverse() + PropValSerializeUtil.combineParts(<span class="jxr_string">"left"</span>, propName, sensitive ? <span class="jxr_string">"s"</span> : <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		String thePropName = parts.length &gt; 1 ? parts[1] : <span class="jxr_string">""</span>;
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> 		<strong class="jxr_keyword">return</strong> serializeReverse() + PropValSerializeUtil.combineParts(<span class="jxr_string">"left"</span>, thePropName, sensitive ? <span class="jxr_string">"s"</span> : <span class="jxr_string">"i"</span>);
 <a class="jxr_linenumber" name="L151" href="#L151">151</a> 	}
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyLeftContext.html">HitPropertyLeftContext</a> deserialize(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String info) {

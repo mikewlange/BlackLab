@@ -225,9 +225,9 @@
 <a class="jxr_linenumber" name="L217" href="#L217">217</a> 	@Override
 <a class="jxr_linenumber" name="L218" href="#L218">218</a> 	<strong class="jxr_keyword">public</strong> String serialize() {
 <a class="jxr_linenumber" name="L219" href="#L219">219</a> 		String[] parts = ComplexFieldUtil.getNameComponents(luceneFieldName);
-<a class="jxr_linenumber" name="L220" href="#L220">220</a> 		String propName = parts.length &gt; 1 ? parts[1] : <span class="jxr_string">""</span>;
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> 		String thePropName = parts.length &gt; 1 ? parts[1] : <span class="jxr_string">""</span>;
 <a class="jxr_linenumber" name="L221" href="#L221">221</a> 		String contextWordSpec = serializeContextWordSpec();
-<a class="jxr_linenumber" name="L222" href="#L222">222</a> 		<strong class="jxr_keyword">return</strong> serializeReverse() + PropValSerializeUtil.combineParts(<span class="jxr_string">"context"</span>, propName, sensitive ? <span class="jxr_string">"s"</span> : <span class="jxr_string">"i"</span>, contextWordSpec);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a> 		<strong class="jxr_keyword">return</strong> serializeReverse() + PropValSerializeUtil.combineParts(<span class="jxr_string">"context"</span>, thePropName, sensitive ? <span class="jxr_string">"s"</span> : <span class="jxr_string">"i"</span>, contextWordSpec);
 <a class="jxr_linenumber" name="L223" href="#L223">223</a> 	}
 <a class="jxr_linenumber" name="L224" href="#L224">224</a> 
 <a class="jxr_linenumber" name="L225" href="#L225">225</a> 	<em class="jxr_javadoccomment">/**</em>

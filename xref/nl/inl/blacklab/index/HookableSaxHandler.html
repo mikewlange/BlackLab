@@ -171,19 +171,19 @@
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> 			String[] parts = expr.split(<span class="jxr_string">"/"</span>);
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> 			<strong class="jxr_keyword">int</strong> numberOfElementParts = parts.length;
 <a class="jxr_linenumber" name="L165" href="#L165">165</a> 			<strong class="jxr_keyword">if</strong> (parts[numberOfElementParts - 1].length() == 0) {
-<a class="jxr_linenumber" name="L166" href="#L166">166</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Double slash in simple-xpath expression"</span>);
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Double slash in simple-xpath expression"</span>);
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> 			}
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> 			<strong class="jxr_keyword">if</strong> (parts[numberOfElementParts - 1].charAt(0) == '@') {
-<a class="jxr_linenumber" name="L169" href="#L169">169</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Cannot match on attribute"</span>);
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Cannot match on attribute"</span>);
 <a class="jxr_linenumber" name="L170" href="#L170">170</a> 			}
 <a class="jxr_linenumber" name="L171" href="#L171">171</a> 			elementNames = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; numberOfElementParts; i++) {
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 				<strong class="jxr_keyword">if</strong> (parts[i].length() == 0) {
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Double slash in simple-xpath expression"</span>);
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Double slash in simple-xpath expression"</span>);
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 				}
 <a class="jxr_linenumber" name="L176" href="#L176">176</a> 				<strong class="jxr_keyword">if</strong> (parts[i].charAt(0) == '@') {
 <a class="jxr_linenumber" name="L177" href="#L177">177</a> 					<em class="jxr_comment">//throw new RuntimeException("Attribute can only be last path part");</em>
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Cannot match on attribute"</span>);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Cannot match on attribute"</span>);
 <a class="jxr_linenumber" name="L179" href="#L179">179</a> 				}
 <a class="jxr_linenumber" name="L180" href="#L180">180</a> 				elementNames.add(parts[i]);
 <a class="jxr_linenumber" name="L181" href="#L181">181</a> 			}

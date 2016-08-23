@@ -27,7 +27,7 @@
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.MockHits;
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.MockSearcher;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> nl.inl.blacklab.testutil.MockSearcher;
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../nl/inl/blacklab/search/TestHitsSample.html">TestHitsSample</a> {
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  
@@ -36,7 +36,7 @@
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong>[] aEnd   = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] { 2, 5, 3, 2, 4, 7 };
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> assertSampleRatio(<strong class="jxr_keyword">int</strong>[] expected, <strong class="jxr_keyword">float</strong> ratio, <strong class="jxr_keyword">long</strong> seed) {
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		Hits hits = HitsSample.fromHits(<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/MockHits.html">MockHits</a>(<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/MockSearcher.html">MockSearcher</a>(), aDoc, aStart, aEnd), ratio, seed);
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		Hits hits = HitsSample.fromHits(<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/MockHits.html">MockHits</a>(<strong class="jxr_keyword">new</strong> MockSearcher(), aDoc, aStart, aEnd), ratio, seed);
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  		<strong class="jxr_keyword">int</strong> i = 0;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  		Assert.assertEquals(expected.length, hits.size());
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  		<strong class="jxr_keyword">for</strong> (Hit hit: hits) {
@@ -48,7 +48,7 @@
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  	}
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> assertSampleNumber(<strong class="jxr_keyword">int</strong>[] expected, <strong class="jxr_keyword">int</strong> number, <strong class="jxr_keyword">long</strong> seed) {
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  		Hits hits = HitsSample.fromHits(<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/MockHits.html">MockHits</a>(<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/MockSearcher.html">MockSearcher</a>(), aDoc, aStart, aEnd), number, seed);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  		Hits hits = HitsSample.fromHits(<strong class="jxr_keyword">new</strong> <a href="../../../../nl/inl/blacklab/MockHits.html">MockHits</a>(<strong class="jxr_keyword">new</strong> MockSearcher(), aDoc, aStart, aEnd), number, seed);
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  		<strong class="jxr_keyword">int</strong> i = 0;
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  		Assert.assertEquals(expected.length, hits.size());
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  		<strong class="jxr_keyword">for</strong> (Hit hit: hits) {

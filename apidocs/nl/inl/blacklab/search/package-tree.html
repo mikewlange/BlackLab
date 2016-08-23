@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>nl.inl.blacklab.search Class Hierarchy (BlackLab 1.4.0 API)</title>
+<title>nl.inl.blacklab.search Class Hierarchy (BlackLab 1.6.0-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="nl.inl.blacklab.search Class Hierarchy (BlackLab 1.4.0 API)";
+        parent.document.title="nl.inl.blacklab.search Class Hierarchy (BlackLab 1.6.0-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -77,7 +77,7 @@
 <ul>
 <li type="circle">java.util.<a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true" title="class or interface in java.util"><span class="strong">AbstractList</span></a>&lt;E&gt; (implements java.util.<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;E&gt;)
 <ul>
-<li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search"><span class="strong">Hits</span></a> (implements java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>)
+<li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search"><span class="strong">Hits</span></a> (implements java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>, nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a>)
 <ul>
 <li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class in nl.inl.blacklab.search"><span class="strong">HitsImpl</span></a>
 <ul>
@@ -169,9 +169,35 @@
 <li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/TextPatternTranslatorString.html" title="class in nl.inl.blacklab.search"><span class="strong">TextPatternTranslatorString</span></a></li>
 </ul>
 </li>
+<li type="circle">java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang"><span class="strong">Throwable</span></a> (implements java.io.<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>)
+<ul>
+<li type="circle">java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang"><span class="strong">Exception</span></a>
+<ul>
+<li type="circle">java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html?is-external=true" title="class or interface in java.lang"><span class="strong">RuntimeException</span></a>
+<ul>
+<li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/BLRuntimeException.html" title="class in nl.inl.blacklab.search"><span class="strong">BLRuntimeException</span></a>
+<ul>
+<li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/InvalidQueryException.html" title="class in nl.inl.blacklab.search"><span class="strong">InvalidQueryException</span></a>
+<ul>
+<li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/RegexpTooLargeException.html" title="class in nl.inl.blacklab.search"><span class="strong">RegexpTooLargeException</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/TPBooleanClause.html" title="class in nl.inl.blacklab.search"><span class="strong">TPBooleanClause</span></a></li>
 </ul>
 </li>
+</ul>
+<h2 title="Interface Hierarchy">Interface Hierarchy</h2>
+<ul>
+<li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search"><span class="strong">Prioritizable</span></a></li>
+<li type="circle">nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/Searcher.LuceneDocTask.html" title="interface in nl.inl.blacklab.search"><span class="strong">Searcher.LuceneDocTask</span></a></li>
 </ul>
 <h2 title="Enum Hierarchy">Enum Hierarchy</h2>
 <ul>
