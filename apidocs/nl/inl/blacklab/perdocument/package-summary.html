@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>nl.inl.blacklab.perdocument (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>nl.inl.blacklab.perdocument (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="nl.inl.blacklab.perdocument (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="nl.inl.blacklab.perdocument (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -106,81 +110,75 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocGrouper.html" title="class in nl.inl.blacklab.perdocument">DocGrouper</a></td>
-<td class="colLast">Deprecated
-<div class="block"><i>renamed to DocGroups</i></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocGroupProperty.html" title="class in nl.inl.blacklab.perdocument">DocGroupProperty</a></td>
 <td class="colLast">
 <div class="block">Abstract base class for a property of a hit, like document title, hit text, right context, etc.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocGroupPropertyIdentity.html" title="class in nl.inl.blacklab.perdocument">DocGroupPropertyIdentity</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocGroupPropertySize.html" title="class in nl.inl.blacklab.perdocument">DocGroupPropertySize</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html" title="class in nl.inl.blacklab.perdocument">DocGroups</a></td>
 <td class="colLast">
 <div class="block">Applies grouping to the results in a DocResults object.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocProperty.html" title="class in nl.inl.blacklab.perdocument">DocProperty</a></td>
 <td class="colLast">
 <div class="block">Abstract base class for criteria on which to group DocResult objects.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocPropertyComplexFieldLength.html" title="class in nl.inl.blacklab.perdocument">DocPropertyComplexFieldLength</a></td>
 <td class="colLast">
 <div class="block">Retrieves the length of a complex field (i.e.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocPropertyDecade.html" title="class in nl.inl.blacklab.perdocument">DocPropertyDecade</a></td>
 <td class="colLast">
 <div class="block">For grouping DocResult objects by decade based on a
  stored field containing a year.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocPropertyMultiple.html" title="class in nl.inl.blacklab.perdocument">DocPropertyMultiple</a></td>
 <td class="colLast">
 <div class="block">A collection of GroupProperty's identifying a particular group.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocPropertyNumberOfHits.html" title="class in nl.inl.blacklab.perdocument">DocPropertyNumberOfHits</a></td>
 <td class="colLast">
 <div class="block">For grouping DocResult objects on the number of hits.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocPropertyStoredField.html" title="class in nl.inl.blacklab.perdocument">DocPropertyStoredField</a></td>
 <td class="colLast">
 <div class="block">For grouping DocResult objects by the value of a stored field in the Lucene documents.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocResult.html" title="class in nl.inl.blacklab.perdocument">DocResult</a></td>
 <td class="colLast">
 <div class="block">A document result, containing a Lucene document from the index and a collection of Hit objects.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a></td>
 <td class="colLast">
 <div class="block">A list of DocResult objects (document-level query results).</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html" title="class in nl.inl.blacklab.perdocument">DocResultsWindow</a></td>
 <td class="colLast">
 <div class="block">A list of DocResult objects (document-level query results).</div>
@@ -241,6 +239,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

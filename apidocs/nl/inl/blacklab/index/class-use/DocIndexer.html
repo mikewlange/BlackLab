@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Uses of Interface nl.inl.blacklab.index.DocIndexer (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>Uses of Interface nl.inl.blacklab.index.DocIndexer (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Uses of Interface nl.inl.blacklab.index.DocIndexer (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="Uses of Interface nl.inl.blacklab.index.DocIndexer (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -116,13 +120,19 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/DocIndexerPlainTextBasic.html" title="class in nl.inl.blacklab.index">DocIndexerPlainTextBasic</a></strong></code>
+<div class="block">Simple example indexer for plain text files.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/DocIndexerXml.html" title="class in nl.inl.blacklab.index">DocIndexerXml</a></strong></code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
 <div class="block"><i>use DocIndexerXmlHandlers instead; see project site for a guide</i></div>
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html" title="class in nl.inl.blacklab.index">DocIndexerXmlHandlers</a></strong></code>
 <div class="block">Abstract base class for a DocIndexer processing XML files using the hookable
@@ -229,16 +239,6 @@
 <div class="block">Construct Indexer</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/index/Indexer.html#Indexer(java.io.File,%20boolean,%20java.lang.Class,%20java.lang.String)">Indexer</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;directory,
-       boolean&nbsp;create,
-       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../../../nl/inl/blacklab/index/DocIndexer.html" title="interface in nl.inl.blacklab.index">DocIndexer</a>&gt;&nbsp;docIndexerClass,
-       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentsFieldName)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use version without contents field name</i></div>
-</div>
-</td>
-</tr>
 </tbody>
 </table>
 </li>
@@ -331,9 +331,12 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/indexers/MetadataFetcherKbDpo.html#MetadataFetcherKbDpo(nl.inl.blacklab.index.DocIndexer)">MetadataFetcherKbDpo</a></strong>(<a href="../../../../../nl/inl/blacklab/index/DocIndexer.html" title="interface in nl.inl.blacklab.index">DocIndexer</a>&nbsp;docIndexer)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/indexers/MetadataFetcherCgnImdi.html#MetadataFetcherCgnImdi(nl.inl.blacklab.index.DocIndexer)">MetadataFetcherCgnImdi</a></strong>(<a href="../../../../../nl/inl/blacklab/index/DocIndexer.html" title="interface in nl.inl.blacklab.index">DocIndexer</a>&nbsp;docIndexer)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/indexers/MetadataFetcherKbDpo.html#MetadataFetcherKbDpo(nl.inl.blacklab.index.DocIndexer)">MetadataFetcherKbDpo</a></strong>(<a href="../../../../../nl/inl/blacklab/index/DocIndexer.html" title="interface in nl.inl.blacklab.index">DocIndexer</a>&nbsp;docIndexer)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/indexers/MetadataFetcherSonarCmdi.html#MetadataFetcherSonarCmdi(nl.inl.blacklab.index.DocIndexer)">MetadataFetcherSonarCmdi</a></strong>(<a href="../../../../../nl/inl/blacklab/index/DocIndexer.html" title="interface in nl.inl.blacklab.index">DocIndexer</a>&nbsp;docIndexer)</code>&nbsp;</td>
 </tr>
 </tbody>
@@ -408,6 +411,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

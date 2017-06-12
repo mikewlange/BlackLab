@@ -10,10 +10,12 @@ nl.inl.blacklab.perdocument
 nl.inl.blacklab.queryParser.contextql
 nl.inl.blacklab.queryParser.corpusql
 nl.inl.blacklab.search
+nl.inl.blacklab.search.fimatch
 nl.inl.blacklab.search.grouping
 nl.inl.blacklab.search.indexstructure
 nl.inl.blacklab.search.lucene
-nl.inl.blacklab.search.sequences
+nl.inl.blacklab.search.lucene.optimize
+nl.inl.blacklab.search.matchfilter
 nl.inl.blacklab.testutil
 nl.inl.blacklab.tools
 nl.inl.blacklab.tools.debug

@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>TextPatternTerm (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>TextPatternTerm (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="TextPatternTerm (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="TextPatternTerm (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -36,7 +40,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../nl/inl/blacklab/search/TextPatternTags.html" title="class in nl.inl.blacklab.search"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../nl/inl/blacklab/search/TextPatternWildcard.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?nl/inl/blacklab/search/TextPatternTerm.html" target="_top">Frames</a></li>
@@ -134,6 +138,13 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#value">value</a></strong></code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_nl.inl.blacklab.search.TextPattern">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></h3>
+<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#MAX_UNLIMITED">MAX_UNLIMITED</a></code></li>
+</ul>
 </li>
 </ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -170,14 +181,6 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#equals(java.lang.Object)">equals</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#getMaxLength()">getMaxLength</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#getMinLength()">getMinLength</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>org.apache.lucene.index.Term</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#getTerm(java.lang.String)">getTerm</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fieldName)</code>&nbsp;</td>
 </tr>
@@ -186,28 +189,23 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#getValue()">getValue</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#hasConstantLength()">hasConstantLength</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#hashCode()">hashCode</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#toString(nl.inl.blacklab.search.QueryExecutionContext)">toString</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">translate</a></strong>(<a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
-         <a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
-<div class="block">Translate this TextPattern into some other representation.</div>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternTerm.html#translate(nl.inl.blacklab.search.QueryExecutionContext)">translate</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
+<div class="block">Translate this TextPattern into a BLSpanQuery.</div>
 </td>
 </tr>
 </table>
@@ -216,7 +214,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></h3>
-<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#addRepetitionMaxValues(int,%20int)">addRepetitionMaxValues</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List,%20nl.inl.blacklab.search.QueryExecutionContext)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#combineWithPrecedingPart(nl.inl.blacklab.search.TextPattern)">combineWithPrecedingPart</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#inverted()">inverted</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#isSingleTokenNot()">isSingleTokenNot</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#matchesEmptySequence()">matchesEmptySequence</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#noEmpty()">noEmpty</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#okayToInvertForOptimization()">okayToInvertForOptimization</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#producesSingleTokens()">producesSingleTokens</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#rewrite()">rewrite</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher,%20java.lang.String)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.Searcher)">translate</a></code></li>
+<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List,%20nl.inl.blacklab.search.QueryExecutionContext)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher,%20java.lang.String)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.Searcher)">translate</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -291,22 +289,19 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <pre>public&nbsp;org.apache.lucene.index.Term&nbsp;getTerm(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fieldName)</pre>
 </li>
 </ul>
-<a name="translate(nl.inl.blacklab.search.TextPatternTranslator, nl.inl.blacklab.search.QueryExecutionContext)">
+<a name="translate(nl.inl.blacklab.search.QueryExecutionContext)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>translate</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;translate(<a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
-              <a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">TextPattern</a></code></strong></div>
-<div class="block">Translate this TextPattern into some other representation.
-
- For example, TextPatternTranslatorSpanQuery translates it into Lucene SpanQuerys.</div>
+<pre>public&nbsp;<a href="../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a>&nbsp;translate(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.QueryExecutionContext)">TextPattern</a></code></strong></div>
+<div class="block">Translate this TextPattern into a BLSpanQuery.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">translate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-<dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - type of object to translate to</dd><dt><span class="strong">Parameters:</span></dt><dd><code>translator</code> - the translator to use</dd><dd><code>context</code> - query execution context to use</dd>
+<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.QueryExecutionContext)">translate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - query execution context to use</dd>
 <dt><span class="strong">Returns:</span></dt><dd>result of the translation</dd></dl>
 </li>
 </ul>
@@ -320,45 +315,6 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="hasConstantLength()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hasConstantLength</h4>
-<pre>public&nbsp;boolean&nbsp;hasConstantLength()</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#hasConstantLength()">hasConstantLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getMinLength()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMinLength</h4>
-<pre>public&nbsp;int&nbsp;getMinLength()</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#getMinLength()">getMinLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getMaxLength()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMaxLength</h4>
-<pre>public&nbsp;int&nbsp;getMaxLength()</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#getMaxLength()">getMaxLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -431,7 +387,7 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.h
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../nl/inl/blacklab/search/TextPatternTags.html" title="class in nl.inl.blacklab.search"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../nl/inl/blacklab/search/TextPatternWildcard.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?nl/inl/blacklab/search/TextPatternTerm.html" target="_top">Frames</a></li>
@@ -471,6 +427,6 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.h
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

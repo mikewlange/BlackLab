@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SingleDocIdFilter (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>SingleDocIdFilter (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SingleDocIdFilter (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="SingleDocIdFilter (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -89,12 +93,7 @@
 <li>org.apache.lucene.search.Query</li>
 <li>
 <ul class="inheritance">
-<li>org.apache.lucene.search.Filter</li>
-<li>
-<ul class="inheritance">
 <li>nl.inl.blacklab.search.SingleDocIdFilter</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -110,7 +109,7 @@
 <hr>
 <br>
 <pre>public class <span class="strong">SingleDocIdFilter</span>
-extends org.apache.lucene.search.Filter</pre>
+extends org.apache.lucene.search.Query</pre>
 <div class="block">A Filter that only matches a single Lucene document id.
 
  Used for finding hits in a single document (for highlighting).</div>
@@ -150,22 +149,15 @@ extends org.apache.lucene.search.Filter</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>org.apache.lucene.search.DocIdSet</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/SingleDocIdFilter.html#getDocIdSet(org.apache.lucene.index.LeafReaderContext,%20org.apache.lucene.util.Bits)">getDocIdSet</a></strong>(org.apache.lucene.index.LeafReaderContext&nbsp;ctx,
-           org.apache.lucene.util.Bits&nbsp;bits)</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.lucene.search.Weight</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/SingleDocIdFilter.html#createWeight(org.apache.lucene.search.IndexSearcher,%20boolean)">createWeight</a></strong>(org.apache.lucene.search.IndexSearcher&nbsp;searcher,
+            boolean&nbsp;needsScores)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/SingleDocIdFilter.html#toString(java.lang.String)">toString</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;field)</code>&nbsp;</td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.Filter">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;org.apache.lucene.search.Filter</h3>
-<code>createWeight</code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.Query">
 <!--   -->
@@ -211,18 +203,20 @@ extends org.apache.lucene.search.Filter</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getDocIdSet(org.apache.lucene.index.LeafReaderContext, org.apache.lucene.util.Bits)">
+<a name="createWeight(org.apache.lucene.search.IndexSearcher, boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDocIdSet</h4>
-<pre>public&nbsp;org.apache.lucene.search.DocIdSet&nbsp;getDocIdSet(org.apache.lucene.index.LeafReaderContext&nbsp;ctx,
-                                            org.apache.lucene.util.Bits&nbsp;bits)</pre>
+<h4>createWeight</h4>
+<pre>public&nbsp;org.apache.lucene.search.Weight&nbsp;createWeight(org.apache.lucene.search.IndexSearcher&nbsp;searcher,
+                                           boolean&nbsp;needsScores)
+                                             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getDocIdSet</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.Filter</code></dd>
-</dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code>createWeight</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.Query</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="toString(java.lang.String)">
@@ -305,6 +299,6 @@ extends org.apache.lucene.search.Filter</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

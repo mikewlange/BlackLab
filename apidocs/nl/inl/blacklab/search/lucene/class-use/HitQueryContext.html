@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Uses of Class nl.inl.blacklab.search.lucene.HitQueryContext (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>Uses of Class nl.inl.blacklab.search.lucene.HitQueryContext (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Uses of Class nl.inl.blacklab.search.lucene.HitQueryContext (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="Uses of Class nl.inl.blacklab.search.lucene.HitQueryContext (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -87,10 +91,8 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#nl.inl.blacklab.search.sequences">nl.inl.blacklab.search.sequences</a></td>
-<td class="colLast">
-<div class="block">Classes dealing with regex-like patterns of token-level queries, like required for CorpusQL.</div>
-</td>
+<td class="colFirst"><a href="#nl.inl.blacklab.search.matchfilter">nl.inl.blacklab.search.matchfilter</a></td>
+<td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -155,30 +157,24 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">SpansDocLevelAndNot.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/SpansDocLevelAndNot.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">SpansUnique.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/SpansUnique.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><span class="strong">BLSpans.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/BLSpans.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>
 <div class="block">Called by setHitQueryContext() to pass the context to child clauses.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">SpansFiltered.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/SpansFiltered.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><span class="strong">SpansConstrained.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/SpansConstrained.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">SpansDocLevelAnd.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/SpansDocLevelAnd.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+<td class="colLast"><span class="strong">BLSpansWrapper.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/BLSpansWrapper.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">BLSpansWrapper.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/BLSpansWrapper.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+<td class="colLast"><span class="strong">SpansInBuckets.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/SpansInBuckets.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>
+<div class="block">Pass the hit query context to the underlying BLSpans.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -187,15 +183,19 @@
  groups themselves a way to register themselves..</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">SpansConstrained.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/lucene/SpansConstrained.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="nl.inl.blacklab.search.sequences">
+<li class="blockList"><a name="nl.inl.blacklab.search.matchfilter">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a> in <a href="../../../../../../nl/inl/blacklab/search/sequences/package-summary.html">nl.inl.blacklab.search.sequences</a></h3>
+<h3>Uses of <a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a> in <a href="../../../../../../nl/inl/blacklab/search/matchfilter/package-summary.html">nl.inl.blacklab.search.matchfilter</a></h3>
 <table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../nl/inl/blacklab/search/sequences/package-summary.html">nl.inl.blacklab.search.sequences</a> with parameters of type <a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../nl/inl/blacklab/search/matchfilter/package-summary.html">nl.inl.blacklab.search.matchfilter</a> with parameters of type <a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -203,13 +203,46 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">PerDocumentSortedSpans.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/sequences/PerDocumentSortedSpans.html#passHitQueryContextToClauses(nl.inl.blacklab.search.lucene.HitQueryContext)">passHitQueryContextToClauses</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+<td class="colLast"><span class="strong">MatchFilterString.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterString.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">SpansInBuckets.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/sequences/SpansInBuckets.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>
-<div class="block">Pass the hit query context to the underlying BLSpans.</div>
+<td class="colLast"><span class="strong">MatchFilterImplication.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterImplication.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">MatchFilterEquals.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterEquals.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">MatchFilterTokenPropertyEqualsString.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterTokenPropertyEqualsString.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">MatchFilterAnd.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterAnd.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">MatchFilterSameTokens.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterSameTokens.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>abstract void</code></td>
+<td class="colLast"><span class="strong">MatchFilter.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilter.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>
+<div class="block">Pass the hit query context object to this constraint,
+ so we can look up the group numbers we need.</div>
 </td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">MatchFilterOr.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterOr.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">MatchFilterTokenProperty.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterTokenProperty.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">MatchFilterNot.</span><code><strong><a href="../../../../../../nl/inl/blacklab/search/matchfilter/MatchFilterNot.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a></strong>(<a href="../../../../../../nl/inl/blacklab/search/lucene/HitQueryContext.html" title="class in nl.inl.blacklab.search.lucene">HitQueryContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -263,6 +296,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

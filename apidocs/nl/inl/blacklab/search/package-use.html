@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Uses of Package nl.inl.blacklab.search (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>Uses of Package nl.inl.blacklab.search (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Uses of Package nl.inl.blacklab.search (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="Uses of Package nl.inl.blacklab.search (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -103,29 +107,24 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="#nl.inl.blacklab.search.fimatch">nl.inl.blacklab.search.fimatch</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="#nl.inl.blacklab.search.grouping">nl.inl.blacklab.search.grouping</a></td>
 <td class="colLast">
 <div class="block">Classes for grouping hits.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="#nl.inl.blacklab.search.lucene">nl.inl.blacklab.search.lucene</a></td>
 <td class="colLast">
 <div class="block">Our own extensions to Lucene, used by BlackLab.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="#nl.inl.blacklab.search.sequences">nl.inl.blacklab.search.sequences</a></td>
-<td class="colLast">
-<div class="block">Classes dealing with regex-like patterns of token-level queries, like required for CorpusQL.</div>
-</td>
-</tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#nl.inl.blacklab.testutil">nl.inl.blacklab.testutil</a></td>
-<td class="colLast">
-<div class="block">Package for test applications, for example doing performance testing
-                on the different parts of BlackLab.</div>
-</td>
+<td class="colFirst"><a href="#nl.inl.blacklab.search.matchfilter">nl.inl.blacklab.search.matchfilter</a></td>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="#nl.inl.blacklab.tools">nl.inl.blacklab.tools</a></td>
@@ -167,15 +166,13 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Hit.html#nl.inl.blacklab.perdocument">Hit</a>
-<div class="block">Class for a hit.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Hits.html#nl.inl.blacklab.perdocument">Hits</a>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Prioritizable.html#nl.inl.blacklab.perdocument">Prioritizable</a>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/ResultsWindow.html#nl.inl.blacklab.perdocument">ResultsWindow</a>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Searcher.html#nl.inl.blacklab.perdocument">Searcher</a>&nbsp;</td>
@@ -306,6 +303,14 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/QueryExplanation.html#nl.inl.blacklab.search">QueryExplanation</a>
+<div class="block">Object used to explain how a SpanQuery is rewritten.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/ResultsWindow.html#nl.inl.blacklab.search">ResultsWindow</a>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Searcher.html#nl.inl.blacklab.search">Searcher</a>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -335,7 +340,7 @@
 </tr>
 <tr class="altColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternAndNot.html#nl.inl.blacklab.search">TextPatternAndNot</a>
-<div class="block">AND query for combining different properties from a complex field.</div>
+<div class="block">AND (NOT) query for combining different properties from a complex field.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -344,24 +349,24 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternPositionFilter.Operation.html#nl.inl.blacklab.search">TextPatternPositionFilter.Operation</a>
-<div class="block">The different positional operations</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternTerm.html#nl.inl.blacklab.search">TextPatternTerm</a>
 <div class="block">A TextPattern matching a word.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternTranslator.html#nl.inl.blacklab.search">TextPatternTranslator</a>
-<div class="block">Interface for translating a TextPattern into a different representation.</div>
-</td>
+</tbody>
+</table>
+</li>
+<li class="blockList"><a name="nl.inl.blacklab.search.fimatch">
+<!--   -->
+</a>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
+<caption><span>Classes in <a href="../../../../nl/inl/blacklab/search/package-summary.html">nl.inl.blacklab.search</a> used by <a href="../../../../nl/inl/blacklab/search/fimatch/package-summary.html">nl.inl.blacklab.search.fimatch</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Class and Description</th>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TPBooleanClause.html#nl.inl.blacklab.search">TPBooleanClause</a>
-<div class="block">Adapted from Lucene's BooleanClause.</div>
-</td>
+<tbody>
+<tr class="altColor">
+<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Searcher.html#nl.inl.blacklab.search.fimatch">Searcher</a>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -376,14 +381,9 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Hit.html#nl.inl.blacklab.search.grouping">Hit</a>
-<div class="block">Class for a hit.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Hits.html#nl.inl.blacklab.search.grouping">Hits</a>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Searcher.html#nl.inl.blacklab.search.grouping">Searcher</a>&nbsp;</td>
 </tr>
 </tbody>
@@ -404,91 +404,26 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/QueryExecutionContext.html#nl.inl.blacklab.search.lucene">QueryExecutionContext</a>
-<div class="block">Represents the current "execution context" for executing a TextPattern query.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Span.html#nl.inl.blacklab.search.lucene">Span</a>
 <div class="block">A start and end position (no document id).</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternPositionFilter.Operation.html#nl.inl.blacklab.search.lucene">TextPatternPositionFilter.Operation</a>
-<div class="block">The different positional operations</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternTranslator.html#nl.inl.blacklab.search.lucene">TextPatternTranslator</a>
-<div class="block">Interface for translating a TextPattern into a different representation.</div>
-</td>
-</tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="nl.inl.blacklab.search.sequences">
+<li class="blockList"><a name="nl.inl.blacklab.search.matchfilter">
 <!--   -->
 </a>
 <table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../nl/inl/blacklab/search/package-summary.html">nl.inl.blacklab.search</a> used by <a href="../../../../nl/inl/blacklab/search/sequences/package-summary.html">nl.inl.blacklab.search.sequences</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../nl/inl/blacklab/search/package-summary.html">nl.inl.blacklab.search</a> used by <a href="../../../../nl/inl/blacklab/search/matchfilter/package-summary.html">nl.inl.blacklab.search.matchfilter</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colOne" scope="col">Class and Description</th>
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Hit.html#nl.inl.blacklab.search.sequences">Hit</a>
-<div class="block">Class for a hit.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/QueryExecutionContext.html#nl.inl.blacklab.search.sequences">QueryExecutionContext</a>
-<div class="block">Represents the current "execution context" for executing a TextPattern query.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Span.html#nl.inl.blacklab.search.sequences">Span</a>
+<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Span.html#nl.inl.blacklab.search.matchfilter">Span</a>
 <div class="block">A start and end position (no document id).</div>
 </td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPattern.html#nl.inl.blacklab.search.sequences">TextPattern</a>
-<div class="block">Describes some pattern of words in a content field.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternAndNot.html#nl.inl.blacklab.search.sequences">TextPatternAndNot</a>
-<div class="block">AND query for combining different properties from a complex field.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternPositionFilter.Operation.html#nl.inl.blacklab.search.sequences">TextPatternPositionFilter.Operation</a>
-<div class="block">The different positional operations</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/TextPatternTranslator.html#nl.inl.blacklab.search.sequences">TextPatternTranslator</a>
-<div class="block">Interface for translating a TextPattern into a different representation.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li class="blockList"><a name="nl.inl.blacklab.testutil">
-<!--   -->
-</a>
-<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../nl/inl/blacklab/search/package-summary.html">nl.inl.blacklab.search</a> used by <a href="../../../../nl/inl/blacklab/testutil/package-summary.html">nl.inl.blacklab.testutil</a></span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Class and Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/QueryExecutionContext.html#nl.inl.blacklab.testutil">QueryExecutionContext</a>
-<div class="block">Represents the current "execution context" for executing a TextPattern query.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../nl/inl/blacklab/search/class-use/Searcher.html#nl.inl.blacklab.testutil">Searcher</a>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -570,6 +505,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

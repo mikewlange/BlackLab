@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>nl.inl.blacklab.search (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>nl.inl.blacklab.search (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
@@ -12,6 +12,7 @@
 <h2 title="Interfaces">Interfaces</h2>
 <ul title="Interfaces">
 <li><a href="Prioritizable.html" title="interface in nl.inl.blacklab.search" target="classFrame"><i>Prioritizable</i></a></li>
+<li><a href="ResultsWindow.html" title="interface in nl.inl.blacklab.search" target="classFrame"><i>ResultsWindow</i></a></li>
 <li><a href="Searcher.LuceneDocTask.html" title="interface in nl.inl.blacklab.search" target="classFrame"><i>Searcher.LuceneDocTask</i></a></li>
 </ul>
 <h2 title="Classes">Classes</h2>
@@ -31,6 +32,7 @@
 <li><a href="HitsWindow.html" title="class in nl.inl.blacklab.search" target="classFrame">HitsWindow</a></li>
 <li><a href="Kwic.html" title="class in nl.inl.blacklab.search" target="classFrame">Kwic</a></li>
 <li><a href="QueryExecutionContext.html" title="class in nl.inl.blacklab.search" target="classFrame">QueryExecutionContext</a></li>
+<li><a href="QueryExplanation.html" title="class in nl.inl.blacklab.search" target="classFrame">QueryExplanation</a></li>
 <li><a href="Searcher.html" title="class in nl.inl.blacklab.search" target="classFrame">Searcher</a></li>
 <li><a href="SearcherImpl.html" title="class in nl.inl.blacklab.search" target="classFrame">SearcherImpl</a></li>
 <li><a href="SingleDocIdFilter.html" title="class in nl.inl.blacklab.search" target="classFrame">SingleDocIdFilter</a></li>
@@ -41,13 +43,13 @@
 <li><a href="TextPattern.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPattern</a></li>
 <li><a href="TextPatternAnd.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternAnd</a></li>
 <li><a href="TextPatternAndNot.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternAndNot</a></li>
-<li><a href="TextPatternBoolean.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternBoolean</a></li>
+<li><a href="TextPatternAnyToken.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternAnyToken</a></li>
 <li><a href="TextPatternCaptureGroup.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternCaptureGroup</a></li>
 <li><a href="TextPatternCombiner.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternCombiner</a></li>
-<li><a href="TextPatternContaining.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternContaining</a></li>
-<li><a href="TextPatternDocLevelAnd.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternDocLevelAnd</a></li>
-<li><a href="TextPatternDocLevelAndNot.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternDocLevelAndNot</a></li>
+<li><a href="TextPatternConstrained.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternConstrained</a></li>
 <li><a href="TextPatternEdge.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternEdge</a></li>
+<li><a href="TextPatternExpansion.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternExpansion</a></li>
+<li><a href="TextPatternFilterNGrams.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternFilterNGrams</a></li>
 <li><a href="TextPatternFuzzy.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternFuzzy</a></li>
 <li><a href="TextPatternNot.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternNot</a></li>
 <li><a href="TextPatternOr.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternOr</a></li>
@@ -55,19 +57,17 @@
 <li><a href="TextPatternPrefix.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternPrefix</a></li>
 <li><a href="TextPatternProperty.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternProperty</a></li>
 <li><a href="TextPatternRegex.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternRegex</a></li>
+<li><a href="TextPatternRepetition.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternRepetition</a></li>
 <li><a href="TextPatternSensitive.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternSensitive</a></li>
+<li><a href="TextPatternSequence.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternSequence</a></li>
 <li><a href="TextPatternTags.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternTags</a></li>
 <li><a href="TextPatternTerm.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternTerm</a></li>
-<li><a href="TextPatternTranslator.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternTranslator</a></li>
-<li><a href="TextPatternTranslatorString.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternTranslatorString</a></li>
 <li><a href="TextPatternWildcard.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternWildcard</a></li>
-<li><a href="TextPatternWithin.html" title="class in nl.inl.blacklab.search" target="classFrame">TextPatternWithin</a></li>
 <li><a href="TPBooleanClause.html" title="class in nl.inl.blacklab.search" target="classFrame">TPBooleanClause</a></li>
 </ul>
 <h2 title="Enums">Enums</h2>
 <ul title="Enums">
 <li><a href="ConcordanceType.html" title="enum in nl.inl.blacklab.search" target="classFrame">ConcordanceType</a></li>
-<li><a href="TextPatternPositionFilter.Operation.html" title="enum in nl.inl.blacklab.search" target="classFrame">TextPatternPositionFilter.Operation</a></li>
 </ul>
 <h2 title="Exceptions">Exceptions</h2>
 <ul title="Exceptions">

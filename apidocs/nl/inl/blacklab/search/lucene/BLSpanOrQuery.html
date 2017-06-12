@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLSpanOrQuery (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>BLSpanOrQuery (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="BLSpanOrQuery (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="BLSpanOrQuery (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -35,8 +39,8 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanMultiTermQueryWrapper.BLTopTermsSpanBooleanQueryRewrite.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanMultiTermQueryWrapper.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.SpanOrWeight.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?nl/inl/blacklab/search/lucene/BLSpanOrQuery.html" target="_top">Frames</a></li>
@@ -60,8 +64,8 @@
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.lucene.BLSpanQuery">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
@@ -92,7 +96,7 @@
 <li>org.apache.lucene.search.spans.SpanQuery</li>
 <li>
 <ul class="inheritance">
-<li>org.apache.lucene.search.spans.SpanOrQuery</li>
+<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">nl.inl.blacklab.search.lucene.BLSpanQuery</a></li>
 <li>
 <ul class="inheritance">
 <li>nl.inl.blacklab.search.lucene.BLSpanOrQuery</li>
@@ -114,17 +118,49 @@
 </dl>
 <hr>
 <br>
-<pre>public class <span class="strong">BLSpanOrQuery</span>
-extends org.apache.lucene.search.spans.SpanOrQuery</pre>
-<div class="block">Matches the union of its clauses.
-
- BL-specific version (search for "// BL") that produces a BLSpans.</div>
+<pre>public final class <span class="strong">BLSpanOrQuery</span>
+extends <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></pre>
+<div class="block">Matches the union of its clauses.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested_class_summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>class&nbsp;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.SpanOrWeight.html" title="class in nl.inl.blacklab.search.lucene">BLSpanOrQuery.SpanOrWeight</a></strong></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_nl.inl.blacklab.search.lucene.BLSpanQuery">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;nl.inl.blacklab.search.lucene.<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></h3>
+<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#MAX_UNLIMITED">MAX_UNLIMITED</a></code></li>
+</ul>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor_summary">
@@ -137,8 +173,8 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#BLSpanOrQuery(org.apache.lucene.search.spans.SpanQuery...)">BLSpanOrQuery</a></strong>(org.apache.lucene.search.spans.SpanQuery...&nbsp;clauses)</code>
-<div class="block">Construct a BLSpanOrQuery merging the provided clauses.</div>
+<td class="colOne"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#BLSpanOrQuery(nl.inl.blacklab.search.lucene.BLSpanQuery...)">BLSpanOrQuery</a></strong>(<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a>...&nbsp;clauses)</code>
+<div class="block">Construct a SpanOrQuery merging the provided clauses.</div>
 </td>
 </tr>
 </table>
@@ -157,21 +193,35 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanOrQuery</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#clone()">clone</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#canMakeNfa()">canMakeNfa</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>nl.inl.blacklab.search.lucene.BLSpanWeight</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#createWeight(org.apache.lucene.search.IndexSearcher,%20boolean)">createWeight</a></strong>(org.apache.lucene.search.IndexSearcher&nbsp;searcher,
+            boolean&nbsp;needsScores)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#equals(java.lang.Object)">equals</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;o)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#forwardMatchingCost()">forwardMatchingCost</a></strong>()</code>
+<div class="block">Return an (very rough) indication of how expensive finding a match
+ for this query using an NFA would be.</div>
+</td>
+</tr>
 <tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#extractTerms(java.util.Set)">extractTerms</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;org.apache.lucene.index.Term&gt;&nbsp;terms)</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.lucene.search.spans.SpanQuery[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#getClauses()">getClauses</a></strong>()</code>
+<div class="block">Return the clauses whose spans are matched.</div>
+</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanOrQuery</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#from(org.apache.lucene.search.spans.SpanOrQuery)">from</a></strong>(org.apache.lucene.search.spans.SpanOrQuery&nbsp;soq)</code>
-<div class="block">Convert a SpanOrQuery to a BLSpanOrQuery</div>
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#getCostCalculationSkip(int)">getCostCalculationSkip</a></strong>(int&nbsp;n)</code>
+<div class="block">For great numbers of clauses, approximate by only calculating cost of some terms</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -179,50 +229,139 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#getField()">getField</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>org.apache.lucene.search.spans.Spans</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#getSpans(org.apache.lucene.index.LeafReaderContext,%20org.apache.lucene.util.Bits,%20java.util.Map)">getSpans</a></strong>(org.apache.lucene.index.LeafReaderContext&nbsp;context,
-        org.apache.lucene.util.Bits&nbsp;acceptDocs,
-        <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;org.apache.lucene.index.Term,org.apache.lucene.index.TermContext&gt;&nbsp;termContexts)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/fimatch/Nfa.html" title="class in nl.inl.blacklab.search.fimatch">Nfa</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#getNfa(nl.inl.blacklab.search.fimatch.ForwardIndexAccessor,%20int)">getNfa</a></strong>(<a href="../../../../../nl/inl/blacklab/search/fimatch/ForwardIndexAccessor.html" title="class in nl.inl.blacklab.search.fimatch">ForwardIndexAccessor</a>&nbsp;fiAccessor,
+      int&nbsp;direction)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#getNfaTokenStateTerms(java.util.Set)">getNfaTokenStateTerms</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;terms)</code>
+<div class="block">Checks if this OR node could be converted into a single
+ NFA token state with a list of terms, and collects the terms.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#getRealField()">getRealField</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hashCode()">hashCode</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>org.apache.lucene.search.Query</code></td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsAllSameLength()">hitsAllSameLength</a></strong>()</code>
+<div class="block">Do our hits have constant length?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsAreUnique()">hitsAreUnique</a></strong>()</code>
+<div class="block">Is it guaranteed that no two hits have the same start and end position?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsEndPointSorted()">hitsEndPointSorted</a></strong>()</code>
+<div class="block">When hit B follows hit A, is it guaranteed that B.end &gt;= A.end?
+ Also, if A.end == B.end, is B.start &gt; A.start?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsHaveUniqueEnd()">hitsHaveUniqueEnd</a></strong>()</code>
+<div class="block">Is it guaranteed that no two hits have the same end position?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsHaveUniqueStart()">hitsHaveUniqueStart</a></strong>()</code>
+<div class="block">Is it guaranteed that no two hits have the same start position?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsLengthMax()">hitsLengthMax</a></strong>()</code>
+<div class="block">How long could our longest hit be?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsLengthMin()">hitsLengthMin</a></strong>()</code>
+<div class="block">How long could our shortest hit be?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#hitsStartPointSorted()">hitsStartPointSorted</a></strong>()</code>
+<div class="block">When hit B follows hit A, is it guaranteed that B.start &gt;= A.start?
+ Also, if A.start == B.start, is B.end &gt; A.end?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#matchesEmptySequence()">matchesEmptySequence</a></strong>()</code>
+<div class="block">Does this query match the empty sequence?
+
+ For example, the query [word="cow"]* matches the empty sequence.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#noEmpty()">noEmpty</a></strong>()</code>
+<div class="block">Return a version of this clause that cannot match the empty sequence.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#reverseMatchingCost(org.apache.lucene.index.IndexReader)">reverseMatchingCost</a></strong>(org.apache.lucene.index.IndexReader&nbsp;reader)</code>
+<div class="block">Return an (very rough) indication of how many hits this
+ clause might return.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#rewrite(org.apache.lucene.index.IndexReader)">rewrite</a></strong>(org.apache.lucene.index.IndexReader&nbsp;reader)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#setClausesAreSimpleTermsInSameProperty(boolean)">setClausesAreSimpleTermsInSameProperty</a></strong>(boolean&nbsp;b)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#setField(java.lang.String)">setField</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;field)</code>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#setField(java.lang.String)">setField</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;luceneField)</code>
 <div class="block">Explicitly set the field for this query.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#setHitsAreFixedLength(int)">setHitsAreFixedLength</a></strong>(int&nbsp;i)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#toString(java.lang.String)">toString</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;theField)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html#toString(java.lang.String)">toString</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;field)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.spans.SpanOrQuery">
+<li class="blockList"><a name="methods_inherited_from_class_nl.inl.blacklab.search.lucene.BLSpanQuery">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;org.apache.lucene.search.spans.SpanOrQuery</h3>
-<code>addClause, getClauses</code></li>
+<h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.lucene.<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></h3>
+<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#addMaxValues(int,%20int)">addMaxValues</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#canInternalizeNeighbour(nl.inl.blacklab.search.lucene.BLSpanQuery,%20boolean)">canInternalizeNeighbour</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#ensureSorted(nl.inl.blacklab.search.lucene.BLSpanQuery)">ensureSorted</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#ensureSortedUnique(nl.inl.blacklab.search.lucene.BLSpanQuery)">ensureSortedUnique</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#getNfaTwoWay(nl.inl.blacklab.search.fimatch.ForwardIndexAccessor,%20int)">getNfaTwoWay</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#inf(int)">inf</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#internalizeNeighbour(nl.inl.blacklab.search.lucene.BLSpanQuery,%20boolean)">internalizeNeighbour</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#inverted()">inverted</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#isSingleTokenNot()">isSingleTokenNot</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#optimize(org.apache.lucene.index.IndexReader)">optimize</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#producesSingleTokens()">producesSingleTokens</a>, <a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#wrap(org.apache.lucene.search.spans.SpanQuery)">wrap</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.spans.SpanQuery">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.lucene.search.spans.SpanQuery</h3>
-<code>createWeight</code></li>
+<code>getTermContexts, getTermContexts</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.lucene.search.Query">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.lucene.search.Query</h3>
-<code>getBoost, setBoost, toString</code></li>
+<code>clone, getBoost, setBoost, toString</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -245,15 +384,16 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="BLSpanOrQuery(org.apache.lucene.search.spans.SpanQuery...)">
+<a name="BLSpanOrQuery(nl.inl.blacklab.search.lucene.BLSpanQuery...)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BLSpanOrQuery</h4>
-<pre>public&nbsp;BLSpanOrQuery(org.apache.lucene.search.spans.SpanQuery...&nbsp;clauses)</pre>
-<div class="block">Construct a BLSpanOrQuery merging the provided clauses.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clauses</code> - clauses to combine using OR</dd></dl>
+<pre>public&nbsp;BLSpanOrQuery(<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a>...&nbsp;clauses)</pre>
+<div class="block">Construct a SpanOrQuery merging the provided clauses.
+ All clauses must have the same field.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clauses</code> - clauses to OR together</dd></dl>
 </li>
 </ul>
 </li>
@@ -264,6 +404,30 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getClauses()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getClauses</h4>
+<pre>public&nbsp;org.apache.lucene.search.spans.SpanQuery[]&nbsp;getClauses()</pre>
+<div class="block">Return the clauses whose spans are matched.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the clauses</dd></dl>
+</li>
+</ul>
+<a name="setField(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setField</h4>
+<pre>public&nbsp;void&nbsp;setField(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;luceneField)</pre>
+<div class="block">Explicitly set the field for this query. Required because some queries
+ rewrite to 0-clause or queries, and we need to be able to call get[Real]Field()
+ later.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>luceneField</code> - the Lucene field for this query (what getRealField() returns)</dd></dl>
+</li>
+</ul>
 <a name="getField()">
 <!--   -->
 </a>
@@ -273,33 +437,20 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getField()</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code>getField</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#getField()">getField</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="extractTerms(java.util.Set)">
+<a name="getRealField()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>extractTerms</h4>
-<pre>public&nbsp;void&nbsp;extractTerms(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;org.apache.lucene.index.Term&gt;&nbsp;terms)</pre>
+<h4>getRealField</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRealField()</pre>
 <dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code>extractTerms</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
-</dl>
-</li>
-</ul>
-<a name="clone()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>clone</h4>
-<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanOrQuery</a>&nbsp;clone()</pre>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code>clone</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#getRealField()">getRealField</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -309,13 +460,168 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>rewrite</h4>
-<pre>public&nbsp;org.apache.lucene.search.Query&nbsp;rewrite(org.apache.lucene.index.IndexReader&nbsp;reader)
-                                       throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a>&nbsp;rewrite(org.apache.lucene.index.IndexReader&nbsp;reader)
+                    throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code>rewrite</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#rewrite(org.apache.lucene.index.IndexReader)">rewrite</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="matchesEmptySequence()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>matchesEmptySequence</h4>
+<pre>public&nbsp;boolean&nbsp;matchesEmptySequence()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#matchesEmptySequence()">BLSpanQuery</a></code></strong></div>
+<div class="block">Does this query match the empty sequence?
+
+ For example, the query [word="cow"]* matches the empty sequence. We need to know this so we
+ can rewrite to the appropriate queries. A query of the form "AB*" would be translated into
+ "A|AB+", so each component of the query actually generates non-empty matches.
+
+ We default to no because most queries don't match the empty sequence.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#matchesEmptySequence()">matchesEmptySequence</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if this query matches the empty sequence, false otherwise</dd></dl>
+</li>
+</ul>
+<a name="noEmpty()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>noEmpty</h4>
+<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a>&nbsp;noEmpty()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#noEmpty()">BLSpanQuery</a></code></strong></div>
+<div class="block">Return a version of this clause that cannot match the empty sequence.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>a version that doesn't match the empty sequence</dd></dl>
+</li>
+</ul>
+<a name="hitsAllSameLength()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsAllSameLength</h4>
+<pre>public&nbsp;boolean&nbsp;hitsAllSameLength()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsAllSameLength()">BLSpanQuery</a></code></strong></div>
+<div class="block">Do our hits have constant length?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsAllSameLength()">hitsAllSameLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if they do, false if not</dd></dl>
+</li>
+</ul>
+<a name="hitsLengthMin()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsLengthMin</h4>
+<pre>public&nbsp;int&nbsp;hitsLengthMin()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsLengthMin()">BLSpanQuery</a></code></strong></div>
+<div class="block">How long could our shortest hit be?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsLengthMin()">hitsLengthMin</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>length of the shortest hit possible</dd></dl>
+</li>
+</ul>
+<a name="hitsLengthMax()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsLengthMax</h4>
+<pre>public&nbsp;int&nbsp;hitsLengthMax()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsLengthMax()">BLSpanQuery</a></code></strong></div>
+<div class="block">How long could our longest hit be?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsLengthMax()">hitsLengthMax</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>length of the longest hit possible, or Integer.MAX_VALUE if unlimited</dd></dl>
+</li>
+</ul>
+<a name="hitsEndPointSorted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsEndPointSorted</h4>
+<pre>public&nbsp;boolean&nbsp;hitsEndPointSorted()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsEndPointSorted()">BLSpanQuery</a></code></strong></div>
+<div class="block">When hit B follows hit A, is it guaranteed that B.end &gt;= A.end?
+ Also, if A.end == B.end, is B.start &gt; A.start?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsEndPointSorted()">hitsEndPointSorted</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if this is guaranteed, false if not</dd></dl>
+</li>
+</ul>
+<a name="hitsStartPointSorted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsStartPointSorted</h4>
+<pre>public&nbsp;boolean&nbsp;hitsStartPointSorted()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsStartPointSorted()">BLSpanQuery</a></code></strong></div>
+<div class="block">When hit B follows hit A, is it guaranteed that B.start &gt;= A.start?
+ Also, if A.start == B.start, is B.end &gt; A.end?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsStartPointSorted()">hitsStartPointSorted</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if this is guaranteed, false if not</dd></dl>
+</li>
+</ul>
+<a name="hitsHaveUniqueStart()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsHaveUniqueStart</h4>
+<pre>public&nbsp;boolean&nbsp;hitsHaveUniqueStart()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsHaveUniqueStart()">BLSpanQuery</a></code></strong></div>
+<div class="block">Is it guaranteed that no two hits have the same start position?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsHaveUniqueStart()">hitsHaveUniqueStart</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if this is guaranteed, false if not</dd></dl>
+</li>
+</ul>
+<a name="hitsHaveUniqueEnd()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsHaveUniqueEnd</h4>
+<pre>public&nbsp;boolean&nbsp;hitsHaveUniqueEnd()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsHaveUniqueEnd()">BLSpanQuery</a></code></strong></div>
+<div class="block">Is it guaranteed that no two hits have the same end position?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsHaveUniqueEnd()">hitsHaveUniqueEnd</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if this is guaranteed, false if not</dd></dl>
+</li>
+</ul>
+<a name="hitsAreUnique()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hitsAreUnique</h4>
+<pre>public&nbsp;boolean&nbsp;hitsAreUnique()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsAreUnique()">BLSpanQuery</a></code></strong></div>
+<div class="block">Is it guaranteed that no two hits have the same start and end position?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hitsAreUnique()">hitsAreUnique</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if this is guaranteed, false if not</dd></dl>
 </li>
 </ul>
 <a name="toString(java.lang.String)">
@@ -324,10 +630,10 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;theField)</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;field)</pre>
 <dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#toString(java.lang.String)">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -339,8 +645,8 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <h4>equals</h4>
 <pre>public&nbsp;boolean&nbsp;equals(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;o)</pre>
 <dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code>equals</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -352,51 +658,140 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <h4>hashCode</h4>
 <pre>public&nbsp;int&nbsp;hashCode()</pre>
 <dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code>hashCode</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#hashCode()">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="getSpans(org.apache.lucene.index.LeafReaderContext, org.apache.lucene.util.Bits, java.util.Map)">
+<a name="createWeight(org.apache.lucene.search.IndexSearcher, boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getSpans</h4>
-<pre>public&nbsp;org.apache.lucene.search.spans.Spans&nbsp;getSpans(org.apache.lucene.index.LeafReaderContext&nbsp;context,
-                                            org.apache.lucene.util.Bits&nbsp;acceptDocs,
-                                            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;org.apache.lucene.index.Term,org.apache.lucene.index.TermContext&gt;&nbsp;termContexts)
-                                              throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<h4>createWeight</h4>
+<pre>public&nbsp;nl.inl.blacklab.search.lucene.BLSpanWeight&nbsp;createWeight(org.apache.lucene.search.IndexSearcher&nbsp;searcher,
+                                                      boolean&nbsp;needsScores)
+                                                        throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code>getSpans</code>&nbsp;in class&nbsp;<code>org.apache.lucene.search.spans.SpanOrQuery</code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#createWeight(org.apache.lucene.search.IndexSearcher,%20boolean)">createWeight</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="setField(java.lang.String)">
+<a name="getNfa(nl.inl.blacklab.search.fimatch.ForwardIndexAccessor, int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setField</h4>
-<pre>public&nbsp;void&nbsp;setField(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;field)</pre>
-<div class="block">Explicitly set the field for this query. Required because some queries
- rewrite to 0-clause or queries, and we need to be able to call getField()
- later.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>field</code> - the field for this query</dd></dl>
+<h4>getNfa</h4>
+<pre>public&nbsp;<a href="../../../../../nl/inl/blacklab/search/fimatch/Nfa.html" title="class in nl.inl.blacklab.search.fimatch">Nfa</a>&nbsp;getNfa(<a href="../../../../../nl/inl/blacklab/search/fimatch/ForwardIndexAccessor.html" title="class in nl.inl.blacklab.search.fimatch">ForwardIndexAccessor</a>&nbsp;fiAccessor,
+         int&nbsp;direction)</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#getNfa(nl.inl.blacklab.search.fimatch.ForwardIndexAccessor,%20int)">getNfa</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+</dl>
 </li>
 </ul>
-<a name="from(org.apache.lucene.search.spans.SpanOrQuery)">
+<a name="getNfaTokenStateTerms(java.util.Set)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNfaTokenStateTerms</h4>
+<pre>protected&nbsp;boolean&nbsp;getNfaTokenStateTerms(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;terms)</pre>
+<div class="block">Checks if this OR node could be converted into a single
+ NFA token state with a list of terms, and collects the terms.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>terms</code> - terms for the NFA token state, if possible (or null if we're not interested in the terms)</dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if this node can be converted into a single NFA token state</dd></dl>
+</li>
+</ul>
+<a name="canMakeNfa()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>canMakeNfa</h4>
+<pre>public&nbsp;boolean&nbsp;canMakeNfa()</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#canMakeNfa()">canMakeNfa</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="reverseMatchingCost(org.apache.lucene.index.IndexReader)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reverseMatchingCost</h4>
+<pre>public&nbsp;long&nbsp;reverseMatchingCost(org.apache.lucene.index.IndexReader&nbsp;reader)</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#reverseMatchingCost(org.apache.lucene.index.IndexReader)">BLSpanQuery</a></code></strong></div>
+<div class="block">Return an (very rough) indication of how many hits this
+ clause might return.
+
+ Used to decide what parts of the query
+ to match using the forward index.
+
+ Based on term frequency, which are combined using simple
+ rules of thumb.
+
+ Another way to think of this is an indication of how much
+ computation this clause will require when matching using the
+ reverse index.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#reverseMatchingCost(org.apache.lucene.index.IndexReader)">reverseMatchingCost</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>reader</code> - the index reader</dd>
+<dt><span class="strong">Returns:</span></dt><dd>rough estimation of the number of hits</dd></dl>
+</li>
+</ul>
+<a name="getCostCalculationSkip(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCostCalculationSkip</h4>
+<pre>protected static&nbsp;int&nbsp;getCostCalculationSkip(int&nbsp;n)</pre>
+<div class="block">For great numbers of clauses, approximate by only calculating cost of some terms</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>n</code> - number of clauses</dd>
+<dt><span class="strong">Returns:</span></dt><dd>number of clauses to skip after every calculation</dd></dl>
+</li>
+</ul>
+<a name="forwardMatchingCost()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>forwardMatchingCost</h4>
+<pre>public&nbsp;int&nbsp;forwardMatchingCost()</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#forwardMatchingCost()">BLSpanQuery</a></code></strong></div>
+<div class="block">Return an (very rough) indication of how expensive finding a match
+ for this query using an NFA would be.
+
+ Used to decide what parts of the query to match using the forward index.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html#forwardMatchingCost()">forwardMatchingCost</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>rough estimation of the NFA complexity</dd></dl>
+</li>
+</ul>
+<a name="setHitsAreFixedLength(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHitsAreFixedLength</h4>
+<pre>public&nbsp;void&nbsp;setHitsAreFixedLength(int&nbsp;i)</pre>
+</li>
+</ul>
+<a name="setClausesAreSimpleTermsInSameProperty(boolean)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>from</h4>
-<pre>public static&nbsp;<a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanOrQuery</a>&nbsp;from(org.apache.lucene.search.spans.SpanOrQuery&nbsp;soq)</pre>
-<div class="block">Convert a SpanOrQuery to a BLSpanOrQuery</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>soq</code> - query to convert</dd>
-<dt><span class="strong">Returns:</span></dt><dd>the result</dd></dl>
+<h4>setClausesAreSimpleTermsInSameProperty</h4>
+<pre>public&nbsp;void&nbsp;setClausesAreSimpleTermsInSameProperty(boolean&nbsp;b)</pre>
 </li>
 </ul>
 </li>
@@ -425,8 +820,8 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanMultiTermQueryWrapper.BLTopTermsSpanBooleanQueryRewrite.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpans.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanMultiTermQueryWrapper.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/lucene/BLSpanOrQuery.SpanOrWeight.html" title="class in nl.inl.blacklab.search.lucene"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?nl/inl/blacklab/search/lucene/BLSpanOrQuery.html" target="_top">Frames</a></li>
@@ -450,8 +845,8 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.lucene.BLSpanQuery">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
@@ -466,6 +861,6 @@ extends org.apache.lucene.search.spans.SpanOrQuery</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

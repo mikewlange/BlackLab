@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Terms (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>Terms (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Terms (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="Terms (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -186,21 +190,43 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#indexOf(org.eclipse.collections.api.set.primitive.MutableIntSet,%20java.lang.String,%20boolean,%20boolean)">indexOf</a></strong>(org.eclipse.collections.api.set.primitive.MutableIntSet&nbsp;results,
+       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;term,
+       boolean&nbsp;caseSensitive,
+       boolean&nbsp;diacSensitive)</code>
+<div class="block">Get the index number(s) of terms matching a string.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>abstract int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#indexOf(java.lang.String)">indexOf</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;term)</code>
 <div class="block">Get the existing index number of a term, or add it to the term list
  and assign it a new index number.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>abstract int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#numberOfTerms()">numberOfTerms</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../nl/inl/blacklab/forwardindex/Terms.html" title="class in nl.inl.blacklab.forwardindex">Terms</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#open(boolean,%20nl.inl.blacklab.forwardindex.Collators,%20java.io.File,%20boolean)">open</a></strong>(boolean&nbsp;indexMode,
+    <a href="../../../../nl/inl/blacklab/forwardindex/Collators.html" title="class in nl.inl.blacklab.forwardindex">Collators</a>&nbsp;collators,
+    <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;termsFile,
+    boolean&nbsp;useBlockBasedTermsFile)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#setBlockBasedFile(boolean)">setBlockBasedFile</a></strong>(boolean&nbsp;useBlockBasedTermsFile)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>abstract boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#termsEqual(int[],%20boolean,%20boolean)">termsEqual</a></strong>(int[]&nbsp;termId,
+          boolean&nbsp;caseSensitive,
+          boolean&nbsp;diacSensitive)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#toSortOrder(int[],%20int[],%20boolean)">toSortOrder</a></strong>(int[]&nbsp;termId,
            int[]&nbsp;sortOrder,
@@ -208,7 +234,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Convert an array of term ids to sort positions</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/forwardindex/Terms.html#write(java.io.File)">write</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;termsFile)</code>
 <div class="block">Write the terms file</div>
@@ -281,14 +307,31 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Get the existing index number of a term, or add it to the term list
  and assign it a new index number.
 
- In index mode, this is fast. In search mode, the first call to this
- method might be slow (because the mapping has to be built), but later
- calls will be fast.
+ In index mode, this is fast. In search mode, this is slower, because
+ we have to do a binary search through the memory-mapped terms file.
+ However, this is only done rarely.
 
- If you want the first call in search mode to be fast, call
+ If you care about this being fast, call
  buildTermIndex() at the start of your application.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>term</code> - the term to get the index number for</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the term's index number</dd></dl>
+</li>
+</ul>
+<a name="indexOf(org.eclipse.collections.api.set.primitive.MutableIntSet, java.lang.String, boolean, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>indexOf</h4>
+<pre>public abstract&nbsp;void&nbsp;indexOf(org.eclipse.collections.api.set.primitive.MutableIntSet&nbsp;results,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;term,
+           boolean&nbsp;caseSensitive,
+           boolean&nbsp;diacSensitive)</pre>
+<div class="block">Get the index number(s) of terms matching a string.
+
+ This is used in search mode when translating queries into NFAs. Depending on
+ case-sensitivity settings, a single term string may match multiple terms.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>results</code> - (out) index numbers for the matching term(s)</dd><dd><code>term</code> - the term to get the index number for</dd><dd><code>caseSensitive</code> - compare case-sensitively? (currently switches both case- and diacritics-sensitivity)</dd><dd><code>diacSensitive</code> - compare diacritics-sensitively? (currently ignored)</dd></dl>
 </li>
 </ul>
 <a name="buildTermIndex()">
@@ -388,10 +431,33 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <a name="setBlockBasedFile(boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setBlockBasedFile</h4>
 <pre>protected abstract&nbsp;void&nbsp;setBlockBasedFile(boolean&nbsp;useBlockBasedTermsFile)</pre>
+</li>
+</ul>
+<a name="open(boolean, nl.inl.blacklab.forwardindex.Collators, java.io.File, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>open</h4>
+<pre>public static&nbsp;<a href="../../../../nl/inl/blacklab/forwardindex/Terms.html" title="class in nl.inl.blacklab.forwardindex">Terms</a>&nbsp;open(boolean&nbsp;indexMode,
+         <a href="../../../../nl/inl/blacklab/forwardindex/Collators.html" title="class in nl.inl.blacklab.forwardindex">Collators</a>&nbsp;collators,
+         <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;termsFile,
+         boolean&nbsp;useBlockBasedTermsFile)</pre>
+</li>
+</ul>
+<a name="termsEqual(int[], boolean, boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>termsEqual</h4>
+<pre>public abstract&nbsp;boolean&nbsp;termsEqual(int[]&nbsp;termId,
+                 boolean&nbsp;caseSensitive,
+                 boolean&nbsp;diacSensitive)</pre>
 </li>
 </ul>
 </li>
@@ -461,6 +527,6 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

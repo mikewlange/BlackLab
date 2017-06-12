@@ -26,53 +26,40 @@
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> java.util.ArrayList;
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.junit.Assert;
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../nl/inl/util/TestStringUtil.html">TestStringUtil</a> {
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  	@Test
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testJoin() {
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  		Assert.assertEquals(<span class="jxr_string">"aap noot mies"</span>,
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  				StringUtil.join(Arrays.asList(<span class="jxr_string">"aap"</span>, <span class="jxr_string">"noot"</span>, <span class="jxr_string">"mies"</span>), <span class="jxr_string">" "</span>));
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  		Assert.assertEquals(<span class="jxr_string">"aap"</span>, StringUtil.join(Arrays.asList(<span class="jxr_string">"aap"</span>), <span class="jxr_string">" "</span>));
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  		Assert.assertEquals(<span class="jxr_string">""</span>, StringUtil.join(<strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;(), <span class="jxr_string">" "</span>));
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	}
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	@Test
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemoveAccents() {
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  		Assert.assertEquals(<span class="jxr_string">"He, jij!"</span>, StringUtil.removeAccents(<span class="jxr_string">"Hé, jij!"</span>));
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	}
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  	@Test
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemovePunctuation() {
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		Assert.assertEquals(<span class="jxr_string">"Hé  jij1 "</span>, StringUtil.removePunctuation(<span class="jxr_string">"Hé, jij1!"</span>));
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  	}
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  	@Test
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEscapeXmlChars() {
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>  		Assert.assertEquals(<span class="jxr_string">"Test &amp;lt; &amp;amp; &amp;gt; &amp;quot; test"</span>,
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  				StringUtil.escapeXmlChars(<span class="jxr_string">"Test &lt; &amp; &gt; \&quot; test"</span>));
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  	}
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  	@Test
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEscapeDoubleQuotedString() {
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		Assert.assertEquals(<span class="jxr_string">"Test &#92;&#92;\&quot; test &#92;&#92;&#92;&#92; test"</span>,
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  				StringUtil.escapeDoubleQuotedString(<span class="jxr_string">"Test \&quot; test &#92;&#92; test"</span>));
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		Assert.assertEquals(<span class="jxr_string">"Newline &#92;&#92;n Return &#92;&#92;r Windows line end &#92;&#92;r&#92;&#92;n"</span>,
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  				StringUtil.escapeDoubleQuotedString(<span class="jxr_string">"Newline \n Return \r Windows line end \r\n"</span>));
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  	}
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  	@SuppressWarnings(<span class="jxr_string">"deprecation"</span>)
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  	@Test
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCapitalize() {
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		Assert.assertEquals(<span class="jxr_string">"Aap"</span>, StringUtil.capitalizeFirst(<span class="jxr_string">"aap"</span>));
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  		Assert.assertEquals(<span class="jxr_string">"AAP"</span>, StringUtil.capitalizeFirst(<span class="jxr_string">"AAP"</span>));
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  		Assert.assertEquals(<span class="jxr_string">"'aap'"</span>, StringUtil.capitalizeFirst(<span class="jxr_string">"'aap'"</span>));
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>  	}
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  }
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.apache.commons.lang3.StringUtils;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> org.junit.Assert;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../nl/inl/util/TestStringUtil.html">TestStringUtil</a> {
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  	@Test
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testJoin() {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  		Assert.assertEquals(<span class="jxr_string">"aap noot mies"</span>,
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  				StringUtil.join(Arrays.asList(<span class="jxr_string">"aap"</span>, <span class="jxr_string">"noot"</span>, <span class="jxr_string">"mies"</span>), <span class="jxr_string">" "</span>));
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  		Assert.assertEquals(<span class="jxr_string">"aap"</span>, StringUtil.join(Arrays.asList(<span class="jxr_string">"aap"</span>), <span class="jxr_string">" "</span>));
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		Assert.assertEquals(<span class="jxr_string">""</span>, StringUtil.join(<strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;(), <span class="jxr_string">" "</span>));
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  	}
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	@Test
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemoveAccents() {
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  		Assert.assertEquals(<span class="jxr_string">"He, jij!"</span>, StringUtils.stripAccents(<span class="jxr_string">"Hé, jij!"</span>));
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  	}
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  	@Test
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEscapeXmlChars() {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  		Assert.assertEquals(<span class="jxr_string">"Test &amp;lt; &amp;amp; &amp;gt; &amp;quot; test"</span>,
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  				StringUtil.escapeXmlChars(<span class="jxr_string">"Test &lt; &amp; &gt; \&quot; test"</span>));
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  	}
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  	@Test
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCapitalize() {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  		Assert.assertEquals(<span class="jxr_string">"Aap"</span>, StringUtils.capitalize(<span class="jxr_string">"aap"</span>));
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  		Assert.assertEquals(<span class="jxr_string">"AAP"</span>, StringUtils.capitalize(<span class="jxr_string">"AAP"</span>));
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  		Assert.assertEquals(<span class="jxr_string">"'aap'"</span>, StringUtils.capitalize(<span class="jxr_string">"'aap'"</span>));
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  	}
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

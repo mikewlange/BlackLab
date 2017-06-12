@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DocResultsWindow (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>DocResultsWindow (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DocResultsWindow (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="DocResultsWindow (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -62,13 +66,13 @@
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#fields_inherited_from_class_nl.inl.blacklab.perdocument.DocResults">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -100,12 +104,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/perdocument/DocResult.html" title="class in nl.inl.blacklab.perdocument">DocResult</a>&gt;, <a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a></dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/perdocument/DocResult.html" title="class in nl.inl.blacklab.perdocument">DocResult</a>&gt;, <a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a>, <a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">DocResultsWindow</span>
-extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a></pre>
+extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a>
+implements <a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></pre>
 <div class="block">A list of DocResult objects (document-level query results). The list may be sorted by calling
  DocResults.sort().</div>
 </li>
@@ -129,29 +134,6 @@ extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title=
 </ul>
 </li>
 </ul>
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#DocResultsWindow(nl.inl.blacklab.perdocument.DocResults,%20int,%20int)">DocResultsWindow</a></strong>(<a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a>&nbsp;source,
-                int&nbsp;first,
-                int&nbsp;numberPerPage)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use DocResults.window() instead</i></div>
-</div>
-</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_summary">
@@ -166,7 +148,9 @@ extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title=
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#first()">first</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#first()">first</a></strong>()</code>
+<div class="block">What's the first in the window?</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a></code></td>
@@ -174,31 +158,69 @@ extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title=
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#hasNext()">hasNext</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#hasNext()">hasNext</a></strong>()</code>
+<div class="block">Are there more results in the original Hits object beyond our window?</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#hasPrevious()">hasPrevious</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#hasPrevious()">hasPrevious</a></strong>()</code>
+<div class="block">Are there more results in the original Hits object "to the left" of our window?</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#last()">last</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#last()">last</a></strong>()</code>
+<div class="block">What's the last in the window?</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#nextFrom()">nextFrom</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#nextFrom()">nextFrom</a></strong>()</code>
+<div class="block">Where would the next window start?</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#number()">number</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#number()">number</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>use ResultsWindow.size()</i></div>
+</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#prevFrom()">prevFrom</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#prevFrom()">prevFrom</a></strong>()</code>
+<div class="block">Where would the previous window start?</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#totalResults()">totalResults</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#requestedWindowSize()">requestedWindowSize</a></strong>()</code>
+<div class="block">How many results per page did we request?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#sourceSize()">sourceSize</a></strong>()</code>
+<div class="block">How many results are available in the original source Hits object?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#sourceTotalSize()">sourceTotalSize</a></strong>()</code>
+<div class="block">How many total results are in the original source Hits object?
+
+ NOTE: this includes results that were counted but not retrieved.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocResultsWindow.html#totalResults()">totalResults</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>use ResultsWindow.sourceSize()</i></div>
+</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -206,7 +228,7 @@ extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title=
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;nl.inl.blacklab.perdocument.<a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a></h3>
-<code><a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#add(nl.inl.blacklab.perdocument.DocResult)">add</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#countBy(nl.inl.blacklab.perdocument.DocProperty)">countBy</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#countSoFarDocsCounted()">countSoFarDocsCounted</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#countSoFarDocsRetrieved()">countSoFarDocsRetrieved</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#get(int)">get</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#getOriginalHits()">getOriginalHits</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#getPriorityLevel()">getPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#getResults()">getResults</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#getSearcher()">getSearcher</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#groupedBy(nl.inl.blacklab.perdocument.DocProperty)">groupedBy</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#intSum(nl.inl.blacklab.perdocument.DocProperty)">intSum</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#iterator()">iterator</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#maxHitsCounted()">maxHitsCounted</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#maxHitsRetrieved()">maxHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#setPriorityLevel(nl.inl.util.ThreadPriority.Level)">setPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#size()">size</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#sizeAtLeast(int)">sizeAtLeast</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#sort(nl.inl.blacklab.perdocument.DocProperty,%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#subList(int,%20int)">subList</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#tooManyHits()">tooManyHits</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#totalSize()">totalSize</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#window(int,%20int)">window</a></code></li>
+<code><a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#_fromHits(nl.inl.blacklab.search.Searcher,%20nl.inl.blacklab.search.Hits)">_fromHits</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#_fromQuery(nl.inl.blacklab.search.Searcher,%20org.apache.lucene.search.Query)">_fromQuery</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#countBy(nl.inl.blacklab.perdocument.DocProperty)">countBy</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#countSoFarDocsCounted()">countSoFarDocsCounted</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#countSoFarDocsRetrieved()">countSoFarDocsRetrieved</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#get(int)">get</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#getOriginalHits()">getOriginalHits</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#getPriorityLevel()">getPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#getSearcher()">getSearcher</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#groupedBy(nl.inl.blacklab.perdocument.DocProperty)">groupedBy</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#intSum(nl.inl.blacklab.perdocument.DocProperty)">intSum</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#iterator()">iterator</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#maxHitsCounted()">maxHitsCounted</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#maxHitsRetrieved()">maxHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#setPriorityLevel(nl.inl.util.ThreadPriority.Level)">setPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#size()">size</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#sizeAtLeast(int)">sizeAtLeast</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#sort(nl.inl.blacklab.perdocument.DocProperty,%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#subList(int,%20int)">subList</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#totalSize()">totalSize</a>, <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html#window(int,%20int)">window</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -214,6 +236,13 @@ extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title=
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
 <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_nl.inl.blacklab.search.ResultsWindow">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></h3>
+<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#size()">size</a></code></li>
 </ul>
 </li>
 </ul>
@@ -223,28 +252,6 @@ extends <a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title=
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="DocResultsWindow(nl.inl.blacklab.perdocument.DocResults, int, int)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>DocResultsWindow</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a>&nbsp;source,
-                           int&nbsp;first,
-                           int&nbsp;numberPerPage)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use DocResults.window() instead</i></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>source</code> - </dd><dd><code>first</code> - </dd><dd><code>numberPerPage</code> - </dd></dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_detail">
@@ -258,6 +265,12 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <li class="blockList">
 <h4>hasNext</h4>
 <pre>public&nbsp;boolean&nbsp;hasNext()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#hasNext()">ResultsWindow</a></code></strong></div>
+<div class="block">Are there more results in the original Hits object beyond our window?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#hasNext()">hasNext</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if there are, false if not.</dd></dl>
 </li>
 </ul>
 <a name="hasPrevious()">
@@ -267,6 +280,12 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <li class="blockList">
 <h4>hasPrevious</h4>
 <pre>public&nbsp;boolean&nbsp;hasPrevious()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#hasPrevious()">ResultsWindow</a></code></strong></div>
+<div class="block">Are there more results in the original Hits object "to the left" of our window?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#hasPrevious()">hasPrevious</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if there are, false if not.</dd></dl>
 </li>
 </ul>
 <a name="nextFrom()">
@@ -276,6 +295,12 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <li class="blockList">
 <h4>nextFrom</h4>
 <pre>public&nbsp;int&nbsp;nextFrom()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#nextFrom()">ResultsWindow</a></code></strong></div>
+<div class="block">Where would the next window start?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#nextFrom()">nextFrom</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the first result beyond our window</dd></dl>
 </li>
 </ul>
 <a name="prevFrom()">
@@ -285,6 +310,12 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <li class="blockList">
 <h4>prevFrom</h4>
 <pre>public&nbsp;int&nbsp;prevFrom()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#prevFrom()">ResultsWindow</a></code></strong></div>
+<div class="block">Where would the previous window start?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#prevFrom()">prevFrom</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the start result for the previous page</dd></dl>
 </li>
 </ul>
 <a name="first()">
@@ -294,6 +325,12 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <li class="blockList">
 <h4>first</h4>
 <pre>public&nbsp;int&nbsp;first()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#first()">ResultsWindow</a></code></strong></div>
+<div class="block">What's the first in the window?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#first()">first</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the first result</dd></dl>
 </li>
 </ul>
 <a name="last()">
@@ -303,6 +340,12 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <li class="blockList">
 <h4>last</h4>
 <pre>public&nbsp;int&nbsp;last()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#last()">ResultsWindow</a></code></strong></div>
+<div class="block">What's the last in the window?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#last()">last</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the last result</dd></dl>
 </li>
 </ul>
 <a name="number()">
@@ -311,7 +354,11 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <ul class="blockList">
 <li class="blockList">
 <h4>number</h4>
-<pre>public&nbsp;int&nbsp;number()</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;int&nbsp;number()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use ResultsWindow.size()</i></div>
+<div class="block">Return the number of results.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>number of results</dd></dl>
 </li>
 </ul>
 <a name="totalResults()">
@@ -320,16 +367,67 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <ul class="blockList">
 <li class="blockList">
 <h4>totalResults</h4>
-<pre>public&nbsp;int&nbsp;totalResults()</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;int&nbsp;totalResults()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use ResultsWindow.sourceSize()</i></div>
+<div class="block">Return the total number of results</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>total number of results</dd></dl>
 </li>
 </ul>
 <a name="getOriginalDocs()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getOriginalDocs</h4>
 <pre>public&nbsp;<a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a>&nbsp;getOriginalDocs()</pre>
+</li>
+</ul>
+<a name="sourceSize()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sourceSize</h4>
+<pre>public&nbsp;int&nbsp;sourceSize()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#sourceSize()">ResultsWindow</a></code></strong></div>
+<div class="block">How many results are available in the original source Hits object?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#sourceSize()">sourceSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>total number of results</dd></dl>
+</li>
+</ul>
+<a name="sourceTotalSize()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sourceTotalSize</h4>
+<pre>public&nbsp;int&nbsp;sourceTotalSize()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#sourceTotalSize()">ResultsWindow</a></code></strong></div>
+<div class="block">How many total results are in the original source Hits object?
+
+ NOTE: this includes results that were counted but not retrieved.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#sourceTotalSize()">sourceTotalSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>total number of results</dd></dl>
+</li>
+</ul>
+<a name="requestedWindowSize()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>requestedWindowSize</h4>
+<pre>public&nbsp;int&nbsp;requestedWindowSize()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#requestedWindowSize()">ResultsWindow</a></code></strong></div>
+<div class="block">How many results per page did we request?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#requestedWindowSize()">requestedWindowSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>number of results per page requested</dd></dl>
 </li>
 </ul>
 </li>
@@ -385,13 +483,13 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#fields_inherited_from_class_nl.inl.blacklab.perdocument.DocResults">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -399,6 +497,6 @@ public&nbsp;DocResultsWindow(<a href="../../../../nl/inl/blacklab/perdocument/Do
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

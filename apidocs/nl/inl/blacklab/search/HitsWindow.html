@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HitsWindow (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>HitsWindow (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="HitsWindow (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="HitsWindow (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -62,13 +66,13 @@
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.HitsImpl">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -115,12 +119,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a></dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;, <a href="../../../../nl/inl/blacklab/search/Prioritizable.html" title="interface in nl.inl.blacklab.search">Prioritizable</a>, <a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">HitsWindow</span>
-extends <a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class in nl.inl.blacklab.search">HitsImpl</a></pre>
+extends <a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class in nl.inl.blacklab.search">HitsImpl</a>
+implements <a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></pre>
 <div class="block">Represents a subset of a Hits object, for example a page of hits.</div>
 </li>
 </ul>
@@ -155,29 +160,6 @@ extends <a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class 
 <h3>Fields inherited from class&nbsp;java.util.<a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true" title="class or interface in java.util">AbstractList</a></h3>
 <code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#modCount" title="class or interface in java.util">modCount</a></code></li>
 </ul>
-</li>
-</ul>
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../nl/inl/blacklab/search/HitsWindow.html#HitsWindow(nl.inl.blacklab.search.Hits,%20int,%20int)">HitsWindow</a></strong>(<a href="../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;source,
-          int&nbsp;first,
-          int&nbsp;windowSize)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use Hits.window(first, windowSize).</i></div>
-</div>
-</td>
-</tr>
-</table>
 </li>
 </ul>
 <!-- ========== METHOD SUMMARY =========== -->
@@ -236,6 +218,12 @@ extends <a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class 
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/HitsWindow.html#requestedWindowSize()">requestedWindowSize</a></strong>()</code>
+<div class="block">How many results per page did we request?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/HitsWindow.html#size()">size</a></strong>()</code>
 <div class="block">How many hits are in this window?
 
@@ -243,26 +231,18 @@ extends <a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class 
  as the window may not be full.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/HitsWindow.html#sourceSize()">sourceSize</a></strong>()</code>
 <div class="block">How many hits are available in the original source Hits object?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/HitsWindow.html#sourceTotalSize()">sourceTotalSize</a></strong>()</code>
 <div class="block">How many total hits are in the original source Hits object?
 
  NOTE: this includes hits that were counted but not retrieved.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/HitsWindow.html#totalHits()">totalHits</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use sourceSize() or sourceTotalSize()</i></div>
-</div>
 </td>
 </tr>
 </table>
@@ -271,21 +251,21 @@ extends <a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class in nl.inl.blacklab.search">HitsImpl</a></h3>
-<code><a href="../../../../nl/inl/blacklab/search/HitsImpl.html#clearConcordances()">clearConcordances</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#copy()">copy</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarDocsCounted()">countSoFarDocsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarDocsRetrieved()">countSoFarDocsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarHitsCounted()">countSoFarHitsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarHitsRetrieved()">countSoFarHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#doneFetchingHits()">doneFetchingHits</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#findContext(java.util.List)">findContext</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#get(int)">get</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getByOriginalOrder(int)">getByOriginalOrder</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getCapturedGroupMap(nl.inl.blacklab.search.Hit)">getCapturedGroupMap</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getCapturedGroups(nl.inl.blacklab.search.Hit)">getCapturedGroups</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getCollocations(java.lang.String,%20nl.inl.blacklab.search.QueryExecutionContext)">getCollocations</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getConcordance(nl.inl.blacklab.search.Hit,%20int)">getConcordance</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getConcordance(java.lang.String,%20nl.inl.blacklab.search.Hit,%20int)">getConcordance</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getContextFieldPropName()">getContextFieldPropName</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getHitContext(int)">getHitContext</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getHitsInDoc(int)">getHitsInDoc</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getIterator(boolean)">getIterator</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getKwic(nl.inl.blacklab.search.Hit,%20int)">getKwic</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getKwic(java.lang.String,%20nl.inl.blacklab.search.Hit,%20int)">getKwic</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#hasCapturedGroups()">hasCapturedGroups</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#maxHitsCounted()">maxHitsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#maxHitsRetrieved()">maxHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#numberOfDocs()">numberOfDocs</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setContextField(java.util.List)">setContextField</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setContextSize(int)">setContextSize</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setMaxHitsCounted(boolean)">setMaxHitsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setMaxHitsRetrieved(boolean)">setMaxHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#sizeAtLeast(int)">sizeAtLeast</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#sort(nl.inl.blacklab.search.grouping.HitProperty,%20boolean,%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#totalNumberOfDocs()">totalNumberOfDocs</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#totalSize()">totalSize</a></code></li>
+<code><a href="../../../../nl/inl/blacklab/search/HitsImpl.html#copy()">copy</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarDocsCounted()">countSoFarDocsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarDocsRetrieved()">countSoFarDocsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarHitsCounted()">countSoFarHitsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#countSoFarHitsRetrieved()">countSoFarHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#doneFetchingHits()">doneFetchingHits</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#findContext(java.util.List)">findContext</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#get(int)">get</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getByOriginalOrder(int)">getByOriginalOrder</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getCapturedGroupMap(nl.inl.blacklab.search.Hit)">getCapturedGroupMap</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getCapturedGroups(nl.inl.blacklab.search.Hit)">getCapturedGroups</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getCollocations(java.lang.String,%20nl.inl.blacklab.search.QueryExecutionContext)">getCollocations</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getConcordance(nl.inl.blacklab.search.Hit,%20int)">getConcordance</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getConcordance(java.lang.String,%20nl.inl.blacklab.search.Hit,%20int)">getConcordance</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getContextFieldPropName()">getContextFieldPropName</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getHitContext(int)">getHitContext</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getHitsInDoc(int)">getHitsInDoc</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getIterator(boolean)">getIterator</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getKwic(nl.inl.blacklab.search.Hit,%20int)">getKwic</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#getKwic(java.lang.String,%20nl.inl.blacklab.search.Hit,%20int)">getKwic</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#hasCapturedGroups()">hasCapturedGroups</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#maxHitsCounted()">maxHitsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#maxHitsRetrieved()">maxHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#numberOfDocs()">numberOfDocs</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setContextField(java.util.List)">setContextField</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setContextSize(int)">setContextSize</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setMaxHitsCounted(boolean)">setMaxHitsCounted</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#setMaxHitsRetrieved(boolean)">setMaxHitsRetrieved</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#sizeAtLeast(int)">sizeAtLeast</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#sort(nl.inl.blacklab.search.grouping.HitProperty,%20boolean,%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#totalNumberOfDocs()">totalNumberOfDocs</a>, <a href="../../../../nl/inl/blacklab/search/HitsImpl.html#totalSize()">totalSize</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_nl.inl.blacklab.search.Hits">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a></h3>
-<code><a href="../../../../nl/inl/blacklab/search/Hits.html#copySettingsFrom(nl.inl.blacklab.search.Hits)">copySettingsFrom</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#emptyList(nl.inl.blacklab.search.Searcher)">emptyList</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#fromList(nl.inl.blacklab.search.Searcher,%20java.util.List)">fromList</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#fromSpanQuery(nl.inl.blacklab.search.Searcher,%20org.apache.lucene.search.spans.SpanQuery)">fromSpanQuery</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#fromSpans(nl.inl.blacklab.search.Searcher,%20java.lang.String,%20org.apache.lucene.search.spans.Spans)">fromSpans</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getCapturedGroupNames()">getCapturedGroupNames</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getCollocations()">getCollocations</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcAttrFI()">getConcAttrFI</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcordance(nl.inl.blacklab.search.Hit)">getConcordance</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcordanceFieldName()">getConcordanceFieldName</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcordanceType()">getConcordanceType</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcPunctFI()">getConcPunctFI</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcWordFI()">getConcWordFI</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getContextSize()">getContextSize</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getDefaultMaxHitsToCount()">getDefaultMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getDefaultMaxHitsToRetrieve()">getDefaultMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getHitQueryContext()">getHitQueryContext</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getHits()">getHits</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getKwic(nl.inl.blacklab.search.Hit)">getKwic</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getMaxHitsToCount()">getMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getMaxHitsToRetrieve()">getMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getPriorityLevel()">getPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getSearcher()">getSearcher</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#groupedBy(nl.inl.blacklab.search.grouping.HitProperty)">groupedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#hitsInOriginalOrder()">hitsInOriginalOrder</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#iterator()">iterator</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#perDocResults()">perDocResults</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setConcordanceField(java.lang.String)">setConcordanceField</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setConcordanceType(nl.inl.blacklab.search.ConcordanceType)">setConcordanceType</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setDefaultMaxHitsToCount(int)">setDefaultMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setDefaultMaxHitsToRetrieve(int)">setDefaultMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setForwardIndexConcordanceParameters(java.lang.String,%20java.lang.String,%20java.util.Collection)">setForwardIndexConcordanceParameters</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setMaxHitsToCount(int)">setMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setMaxHitsToRetrieve(int)">setMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setPriorityLevel(nl.inl.util.ThreadPriority.Level)">setPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#settings()">settings</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty...)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty[],%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty,%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sortedBy(nl.inl.blacklab.search.grouping.HitProperty)">sortedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sortedBy(nl.inl.blacklab.search.grouping.HitProperty,%20boolean)">sortedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sortedBy(nl.inl.blacklab.search.grouping.HitProperty,%20boolean,%20boolean)">sortedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#subList(int,%20int)">subList</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#tooManyHits()">tooManyHits</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#window(int,%20int)">window</a></code></li>
+<code><a href="../../../../nl/inl/blacklab/search/Hits.html#copySettingsFrom(nl.inl.blacklab.search.Hits)">copySettingsFrom</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#emptyList(nl.inl.blacklab.search.Searcher)">emptyList</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#filteredBy(nl.inl.blacklab.search.grouping.HitProperty,%20nl.inl.blacklab.search.grouping.HitPropValue)">filteredBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#fromList(nl.inl.blacklab.search.Searcher,%20java.util.List)">fromList</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#fromSpanQuery(nl.inl.blacklab.search.Searcher,%20org.apache.lucene.search.spans.SpanQuery)">fromSpanQuery</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#fromSpans(nl.inl.blacklab.search.Searcher,%20java.lang.String,%20nl.inl.blacklab.search.lucene.BLSpans)">fromSpans</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getCapturedGroupNames()">getCapturedGroupNames</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getCollocations()">getCollocations</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcAttrFI()">getConcAttrFI</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcordance(nl.inl.blacklab.search.Hit)">getConcordance</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcordanceFieldName()">getConcordanceFieldName</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcordanceType()">getConcordanceType</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcPunctFI()">getConcPunctFI</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getConcWordFI()">getConcWordFI</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getContextSize()">getContextSize</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getDefaultMaxHitsToCount()">getDefaultMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getDefaultMaxHitsToRetrieve()">getDefaultMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getHitQueryContext()">getHitQueryContext</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getHits()">getHits</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getKwic(nl.inl.blacklab.search.Hit)">getKwic</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getMaxHitsToCount()">getMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getMaxHitsToRetrieve()">getMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getPriorityLevel()">getPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#getSearcher()">getSearcher</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#groupedBy(nl.inl.blacklab.search.grouping.HitProperty)">groupedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#hitsInOriginalOrder()">hitsInOriginalOrder</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#iterator()">iterator</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#perDocResults()">perDocResults</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setConcordanceField(java.lang.String)">setConcordanceField</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setConcordanceType(nl.inl.blacklab.search.ConcordanceType)">setConcordanceType</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setDefaultMaxHitsToCount(int)">setDefaultMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setDefaultMaxHitsToRetrieve(int)">setDefaultMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setForwardIndexConcordanceParameters(java.lang.String,%20java.lang.String,%20java.util.Collection)">setForwardIndexConcordanceParameters</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setHitQueryContext(nl.inl.blacklab.search.lucene.HitQueryContext)">setHitQueryContext</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setMaxHitsToCount(int)">setMaxHitsToCount</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setMaxHitsToRetrieve(int)">setMaxHitsToRetrieve</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#setPriorityLevel(nl.inl.util.ThreadPriority.Level)">setPriorityLevel</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#settings()">settings</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty...)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty[],%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sort(nl.inl.blacklab.search.grouping.HitProperty,%20boolean)">sort</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sortedBy(nl.inl.blacklab.search.grouping.HitProperty)">sortedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sortedBy(nl.inl.blacklab.search.grouping.HitProperty,%20boolean)">sortedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#sortedBy(nl.inl.blacklab.search.grouping.HitProperty,%20boolean,%20boolean)">sortedBy</a>, <a href="../../../../nl/inl/blacklab/search/Hits.html#window(int,%20int)">window</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.util.AbstractList">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.util.<a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true" title="class or interface in java.util">AbstractList</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#add(E)" title="class or interface in java.util">add</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#add(int,%20E)" title="class or interface in java.util">add</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#addAll(int,%20java.util.Collection)" title="class or interface in java.util">addAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#clear()" title="class or interface in java.util">clear</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.util">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#hashCode()" title="class or interface in java.util">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#indexOf(java.lang.Object)" title="class or interface in java.util">indexOf</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#lastIndexOf(java.lang.Object)" title="class or interface in java.util">lastIndexOf</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#listIterator()" title="class or interface in java.util">listIterator</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#listIterator(int)" title="class or interface in java.util">listIterator</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#remove(int)" title="class or interface in java.util">remove</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#removeRange(int,%20int)" title="class or interface in java.util">removeRange</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#set(int,%20E)" title="class or interface in java.util">set</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#add(E)" title="class or interface in java.util">add</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#add(int,%20E)" title="class or interface in java.util">add</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#addAll(int,%20java.util.Collection)" title="class or interface in java.util">addAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#clear()" title="class or interface in java.util">clear</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.util">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#hashCode()" title="class or interface in java.util">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#indexOf(java.lang.Object)" title="class or interface in java.util">indexOf</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#lastIndexOf(java.lang.Object)" title="class or interface in java.util">lastIndexOf</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#listIterator()" title="class or interface in java.util">listIterator</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#listIterator(int)" title="class or interface in java.util">listIterator</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#remove(int)" title="class or interface in java.util">remove</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#removeRange(int,%20int)" title="class or interface in java.util">removeRange</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#set(int,%20E)" title="class or interface in java.util">set</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html?is-external=true#subList(int,%20int)" title="class or interface in java.util">subList</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.util.AbstractCollection">
@@ -316,32 +296,6 @@ extends <a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class 
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="HitsWindow(nl.inl.blacklab.search.Hits, int, int)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>HitsWindow</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;source,
-                     int&nbsp;first,
-                     int&nbsp;windowSize)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use Hits.window(first, windowSize).</i></div>
-<div class="block">Construct a HitsWindow object.
-
- NOTE: this method will be made package-private in a future release.
- Use Hits.window() to construct a HitsWindow instead.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>source</code> - the larger Hits object we would like a window into</dd><dd><code>first</code> - the first hit in our window</dd><dd><code>windowSize</code> - the size of our window</dd></dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_detail">
@@ -356,7 +310,10 @@ public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" ti
 <h4>hasNext</h4>
 <pre>public&nbsp;boolean&nbsp;hasNext()</pre>
 <div class="block">Are there more hits in the original Hits object beyond our window?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>true if there are, false if not.</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#hasNext()">hasNext</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if there are, false if not.</dd></dl>
 </li>
 </ul>
 <a name="hasPrevious()">
@@ -367,7 +324,10 @@ public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" ti
 <h4>hasPrevious</h4>
 <pre>public&nbsp;boolean&nbsp;hasPrevious()</pre>
 <div class="block">Are there more hits in the original Hits object "to the left" of our window?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>true if there are, false if not.</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#hasPrevious()">hasPrevious</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if there are, false if not.</dd></dl>
 </li>
 </ul>
 <a name="nextFrom()">
@@ -378,7 +338,10 @@ public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" ti
 <h4>nextFrom</h4>
 <pre>public&nbsp;int&nbsp;nextFrom()</pre>
 <div class="block">Where would the next window start?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>index of the first hit beyond our window</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#nextFrom()">nextFrom</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the first hit beyond our window</dd></dl>
 </li>
 </ul>
 <a name="prevFrom()">
@@ -389,7 +352,10 @@ public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" ti
 <h4>prevFrom</h4>
 <pre>public&nbsp;int&nbsp;prevFrom()</pre>
 <div class="block">Where would the previous window start?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>index of the start hit for the previous page</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#prevFrom()">prevFrom</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the start hit for the previous page</dd></dl>
 </li>
 </ul>
 <a name="first()">
@@ -400,7 +366,10 @@ public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" ti
 <h4>first</h4>
 <pre>public&nbsp;int&nbsp;first()</pre>
 <div class="block">What's the first in the window?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>index of the first hit</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#first()">first</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the first hit</dd></dl>
 </li>
 </ul>
 <a name="last()">
@@ -411,7 +380,10 @@ public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" ti
 <h4>last</h4>
 <pre>public&nbsp;int&nbsp;last()</pre>
 <div class="block">What's the last in the window?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>index of the last hit</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#last()">last</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>index of the last hit</dd></dl>
 </li>
 </ul>
 <a name="size()">
@@ -430,22 +402,11 @@ public&nbsp;HitsWindow(<a href="../../../../nl/inl/blacklab/search/Hits.html" ti
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true#size()" title="class or interface in java.util">size</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;</code></dd>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true#size()" title="class or interface in java.util">size</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../nl/inl/blacklab/search/Hit.html" title="class in nl.inl.blacklab.search">Hit</a>&gt;</code></dd>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#size()">size</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/HitsImpl.html#size()">size</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/HitsImpl.html" title="class in nl.inl.blacklab.search">HitsImpl</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>number of hits</dd></dl>
-</li>
-</ul>
-<a name="totalHits()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>totalHits</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;int&nbsp;totalHits()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use sourceSize() or sourceTotalSize()</i></div>
-<div class="block">How many hits are available in the original source Hits object?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>total number of hits</dd></dl>
 </li>
 </ul>
 <a name="sourceSize()">
@@ -456,7 +417,10 @@ public&nbsp;int&nbsp;totalHits()</pre>
 <h4>sourceSize</h4>
 <pre>public&nbsp;int&nbsp;sourceSize()</pre>
 <div class="block">How many hits are available in the original source Hits object?</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>total number of hits</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#sourceSize()">sourceSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>total number of hits</dd></dl>
 </li>
 </ul>
 <a name="sourceTotalSize()">
@@ -469,18 +433,36 @@ public&nbsp;int&nbsp;totalHits()</pre>
 <div class="block">How many total hits are in the original source Hits object?
 
  NOTE: this includes hits that were counted but not retrieved.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>total number of hits</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#sourceTotalSize()">sourceTotalSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>total number of hits</dd></dl>
 </li>
 </ul>
 <a name="getOriginalHits()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getOriginalHits</h4>
 <pre>public&nbsp;<a href="../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;getOriginalHits()</pre>
 <div class="block">Return the Hits object we were made from</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the original Hits object</dd></dl>
+</li>
+</ul>
+<a name="requestedWindowSize()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>requestedWindowSize</h4>
+<pre>public&nbsp;int&nbsp;requestedWindowSize()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#requestedWindowSize()">ResultsWindow</a></code></strong></div>
+<div class="block">How many results per page did we request?</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html#requestedWindowSize()">requestedWindowSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/ResultsWindow.html" title="interface in nl.inl.blacklab.search">ResultsWindow</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>number of results per page requested</dd></dl>
 </li>
 </ul>
 </li>
@@ -536,13 +518,13 @@ public&nbsp;int&nbsp;totalHits()</pre>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#fields_inherited_from_class_nl.inl.blacklab.search.HitsImpl">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -550,6 +532,6 @@ public&nbsp;int&nbsp;totalHits()</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

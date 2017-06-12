@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DocGroups (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>DocGroups (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DocGroups (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="DocGroups (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -62,13 +66,13 @@
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -95,17 +99,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/perdocument/DocGroup.html" title="class in nl.inl.blacklab.perdocument">DocGroup</a>&gt;</dd>
-</dl>
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../nl/inl/blacklab/perdocument/DocGrouper.html" title="class in nl.inl.blacklab.perdocument">DocGrouper</a></dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/perdocument/DocGroup.html" title="class in nl.inl.blacklab.perdocument">DocGroup</a>&gt;, <a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">DocGroups</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/perdocument/DocGroup.html" title="class in nl.inl.blacklab.perdocument">DocGroup</a>&gt;</pre>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../nl/inl/blacklab/perdocument/DocGroup.html" title="class in nl.inl.blacklab.perdocument">DocGroup</a>&gt;, <a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></pre>
 <div class="block">Applies grouping to the results in a DocResults object.</div>
 </li>
 </ul>
@@ -113,29 +113,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#DocGroups(nl.inl.blacklab.perdocument.DocResults,%20nl.inl.blacklab.perdocument.DocProperty)">DocGroups</a></strong>(<a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a>&nbsp;docResults,
-         <a href="../../../../nl/inl/blacklab/perdocument/DocProperty.html" title="class in nl.inl.blacklab.perdocument">DocProperty</a>&nbsp;groupBy)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use DocResults.groupedBy(docProperty). This constructor
-           will be made package private eventually.</i></div>
-</div>
-</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_summary">
@@ -162,7 +139,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#getLargestGroupSize()">getLargestGroupSize</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#getLargestGroupSize()">getLargestGroupSize</a></strong>()</code>
+<div class="block">Return the size of the largest group</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a></code></td>
@@ -170,7 +149,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#getTotalResults()">getTotalResults</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#getTotalResults()">getTotalResults</a></strong>()</code>
+<div class="block">Get the total number of results that were grouped</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&lt;<a href="../../../../nl/inl/blacklab/perdocument/DocGroup.html" title="class in nl.inl.blacklab.perdocument">DocGroup</a>&gt;</code></td>
@@ -178,7 +159,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#numberOfGroups()">numberOfGroups</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#numberOfGroups()">numberOfGroups</a></strong>()</code>
+<div class="block">Return the number of groups</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -189,15 +172,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#sort(nl.inl.blacklab.perdocument.DocGroupProperty,%20boolean)">sort</a></strong>(<a href="../../../../nl/inl/blacklab/perdocument/DocGroupProperty.html" title="class in nl.inl.blacklab.perdocument">DocGroupProperty</a>&nbsp;prop,
     boolean&nbsp;sortReverse)</code>
 <div class="block">Order the groups based on the specified group property.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/perdocument/DocGroups.html#sortGroups(nl.inl.blacklab.perdocument.DocGroupProperty,%20boolean)">sortGroups</a></strong>(<a href="../../../../nl/inl/blacklab/perdocument/DocGroupProperty.html" title="class in nl.inl.blacklab.perdocument">DocGroupProperty</a>&nbsp;prop,
-          boolean&nbsp;sortReverse)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>renamed to sort()</i></div>
-</div>
 </td>
 </tr>
 </table>
@@ -216,29 +190,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="DocGroups(nl.inl.blacklab.perdocument.DocResults, nl.inl.blacklab.perdocument.DocProperty)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>DocGroups</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;DocGroups(<a href="../../../../nl/inl/blacklab/perdocument/DocResults.html" title="class in nl.inl.blacklab.perdocument">DocResults</a>&nbsp;docResults,
-                    <a href="../../../../nl/inl/blacklab/perdocument/DocProperty.html" title="class in nl.inl.blacklab.perdocument">DocProperty</a>&nbsp;groupBy)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use DocResults.groupedBy(docProperty). This constructor
-           will be made package private eventually.</i></div>
-<div class="block">Constructor. Fills the groups from the given document results.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>docResults</code> - the results to group.</dd><dd><code>groupBy</code> - the criterium to group on.</dd></dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_detail">
@@ -261,20 +212,6 @@ public&nbsp;DocGroups(<a href="../../../../nl/inl/blacklab/perdocument/DocResult
 <li class="blockList">
 <h4>getGroup</h4>
 <pre>public&nbsp;<a href="../../../../nl/inl/blacklab/perdocument/DocGroup.html" title="class in nl.inl.blacklab.perdocument">DocGroup</a>&nbsp;getGroup(<a href="../../../../nl/inl/blacklab/search/grouping/HitPropValue.html" title="class in nl.inl.blacklab.search.grouping">HitPropValue</a>&nbsp;groupId)</pre>
-</li>
-</ul>
-<a name="sortGroups(nl.inl.blacklab.perdocument.DocGroupProperty, boolean)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>sortGroups</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;void&nbsp;sortGroups(<a href="../../../../nl/inl/blacklab/perdocument/DocGroupProperty.html" title="class in nl.inl.blacklab.perdocument">DocGroupProperty</a>&nbsp;prop,
-                         boolean&nbsp;sortReverse)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>renamed to sort()</i></div>
-<div class="block">Order the groups based on the specified group property.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>prop</code> - the property to sort on</dd><dd><code>sortReverse</code> - if true, perform reverse sort</dd></dl>
 </li>
 </ul>
 <a name="sort(nl.inl.blacklab.perdocument.DocGroupProperty, boolean)">
@@ -318,6 +255,12 @@ public&nbsp;void&nbsp;sortGroups(<a href="../../../../nl/inl/blacklab/perdocumen
 <li class="blockList">
 <h4>numberOfGroups</h4>
 <pre>public&nbsp;int&nbsp;numberOfGroups()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#numberOfGroups()">DocOrHitGroups</a></code></strong></div>
+<div class="block">Return the number of groups</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#numberOfGroups()">numberOfGroups</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>number of groups</dd></dl>
 </li>
 </ul>
 <a name="getLargestGroupSize()">
@@ -327,6 +270,12 @@ public&nbsp;void&nbsp;sortGroups(<a href="../../../../nl/inl/blacklab/perdocumen
 <li class="blockList">
 <h4>getLargestGroupSize</h4>
 <pre>public&nbsp;int&nbsp;getLargestGroupSize()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getLargestGroupSize()">DocOrHitGroups</a></code></strong></div>
+<div class="block">Return the size of the largest group</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getLargestGroupSize()">getLargestGroupSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>size of the largest group</dd></dl>
 </li>
 </ul>
 <a name="getTotalResults()">
@@ -336,6 +285,12 @@ public&nbsp;void&nbsp;sortGroups(<a href="../../../../nl/inl/blacklab/perdocumen
 <li class="blockList">
 <h4>getTotalResults</h4>
 <pre>public&nbsp;int&nbsp;getTotalResults()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getTotalResults()">DocOrHitGroups</a></code></strong></div>
+<div class="block">Get the total number of results that were grouped</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getTotalResults()">getTotalResults</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the number of results that were grouped</dd></dl>
 </li>
 </ul>
 <a name="getGroupCriteria()">
@@ -409,13 +364,13 @@ public&nbsp;void&nbsp;sortGroups(<a href="../../../../nl/inl/blacklab/perdocumen
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -423,6 +378,6 @@ public&nbsp;void&nbsp;sortGroups(<a href="../../../../nl/inl/blacklab/perdocumen
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

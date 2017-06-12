@@ -57,20 +57,32 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  		Hits hits = testIndex.find(<span class="jxr_string">" 'the' "</span>);
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  		HitProperty p = <strong class="jxr_keyword">new</strong> HitPropertyContextWords(hits, <span class="jxr_string">"contents"</span>, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"L1-1;H1-2"</span>);
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  		HitGroups g = hits.groupedBy(p);
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		HitGroup group;
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {NO_TERM, term(<span class="jxr_string">"The"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		Assert.assertEquals(1, group.size());
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {term(<span class="jxr_string">"over"</span>), term(<span class="jxr_string">"the"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  		Assert.assertEquals(1, group.size());
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {term(<span class="jxr_string">"May"</span>), term(<span class="jxr_string">"the"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  		Assert.assertEquals(1, group.size());
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {term(<span class="jxr_string">"is"</span>), term(<span class="jxr_string">"the"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		Assert.assertEquals(1, group.size());
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  	}
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>  }
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		Assert.assertEquals(4, g.numberOfGroups());
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		HitGroup group;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {NO_TERM, term(<span class="jxr_string">"The"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		Assert.assertEquals(1, group.size());
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {term(<span class="jxr_string">"over"</span>), term(<span class="jxr_string">"the"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  		Assert.assertEquals(1, group.size());
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {term(<span class="jxr_string">"May"</span>), term(<span class="jxr_string">"the"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  		Assert.assertEquals(1, group.size());
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {term(<span class="jxr_string">"is"</span>), term(<span class="jxr_string">"the"</span>), NO_TERM}, <strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  		Assert.assertEquals(1, group.size());
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  	}
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  	@Test
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHitPropContextWordsReverse() <strong class="jxr_keyword">throws</strong> ParseException {
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		Hits hits = testIndex.find(<span class="jxr_string">" 'the' 'lazy' "</span>);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		HitProperty p = <strong class="jxr_keyword">new</strong> HitPropertyContextWords(hits, <span class="jxr_string">"contents"</span>, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"L1;H2-1;R1"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		HitGroups g = hits.groupedBy(p);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  		Assert.assertEquals(1, g.numberOfGroups());
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  		HitGroup group;
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		group = g.getGroup(<strong class="jxr_keyword">new</strong> HitPropValueContextWords(hits, <span class="jxr_string">"word"</span>, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {term(<span class="jxr_string">"over"</span>), term(<span class="jxr_string">"lazy"</span>), term(<span class="jxr_string">"the"</span>), term(<span class="jxr_string">"dog"</span>)}, <strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		Assert.assertEquals(1, group.size());
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  	}
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DocIndexerAbstract (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>DocIndexerAbstract (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DocIndexerAbstract (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="DocIndexerAbstract (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -36,7 +40,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../nl/inl/blacklab/index/DocIndexer.MaxDocsReachedException.html" title="class in nl.inl.blacklab.index"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../nl/inl/blacklab/index/DocIndexerXml.html" title="class in nl.inl.blacklab.index"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../nl/inl/blacklab/index/DocIndexerPlainTextBasic.html" title="class in nl.inl.blacklab.index"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?nl/inl/blacklab/index/DocIndexerAbstract.html" target="_top">Frames</a></li>
@@ -99,7 +103,7 @@
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../nl/inl/blacklab/index/DocIndexerXml.html" title="class in nl.inl.blacklab.index">DocIndexerXml</a>, <a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html" title="class in nl.inl.blacklab.index">DocIndexerXmlHandlers</a></dd>
+<dd><a href="../../../../nl/inl/blacklab/index/DocIndexerPlainTextBasic.html" title="class in nl.inl.blacklab.index">DocIndexerPlainTextBasic</a>, <a href="../../../../nl/inl/blacklab/index/DocIndexerXml.html" title="class in nl.inl.blacklab.index">DocIndexerXml</a>, <a href="../../../../nl/inl/blacklab/index/DocIndexerXmlHandlers.html" title="class in nl.inl.blacklab.index">DocIndexerXmlHandlers</a></dd>
 </dl>
 <hr>
 <br>
@@ -226,108 +230,92 @@ implements <a href="../../../../nl/inl/blacklab/index/DocIndexer.html" title="in
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getContentPosition()">getContentPosition</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>renamed to getCharacterPositionInContent() for clarity</i></div>
-</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getContentPositionNoStore()">getContentPositionNoStore</a></strong>()</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
 <div class="block"><i>will be handled differently in the future.</i></div>
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/index/Indexer.html" title="class in nl.inl.blacklab.index">Indexer</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getIndexer()">getIndexer</a></strong>()</code>
 <div class="block">Returns our Indexer object</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../nl/inl/blacklab/search/indexstructure/FieldType.html" title="enum in nl.inl.blacklab.search.indexstructure">FieldType</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getMetadataFieldTypeFromIndexerProperties(java.lang.String)">getMetadataFieldTypeFromIndexerProperties</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fieldName)</code>
 <div class="block">Return the fieldtype to use for the specified field.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getParameter(java.lang.String)">getParameter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Get a parameter that was set for this indexer</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getParameter(java.lang.String,%20boolean)">getParameter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             boolean&nbsp;defaultValue)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getParameter(java.lang.String,%20int)">getParameter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             int&nbsp;defaultValue)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#getParameter(java.lang.String,%20java.lang.String)">getParameter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;defaultValue)</code>
 <div class="block">Get a parameter that was set for this indexer</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#hasParameter(java.lang.String)">hasParameter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Check if the specified parameter has a value</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected org.apache.lucene.document.FieldType</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#luceneTypeFromIndexStructType(nl.inl.blacklab.search.indexstructure.FieldType)">luceneTypeFromIndexStructType</a></strong>(<a href="../../../../nl/inl/blacklab/search/indexstructure/FieldType.html" title="enum in nl.inl.blacklab.search.indexstructure">FieldType</a>&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#processContent(char[],%20int,%20int)">processContent</a></strong>(char[]&nbsp;buffer,
               int&nbsp;start,
               int&nbsp;length)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#processContent(java.lang.String)">processContent</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentToProcess)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#reportCharsProcessed()">reportCharsProcessed</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#reportTokensProcessed(int)">reportTokensProcessed</a></strong>(int&nbsp;n)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#setOmitNorms(boolean)">setOmitNorms</a></strong>(boolean&nbsp;b)</code>
 <div class="block">Enables or disables norms.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#setParameter(java.lang.String,%20java.lang.String)">setParameter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block">Set a parameter for this indexer (such as which type of metadata block to process)</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#setParameters(java.util.Map)">setParameters</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;param)</code>
 <div class="block">Set a number of parameters for this indexer</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/index/DocIndexerAbstract.html#startCaptureContent()">startCaptureContent</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>pass the field name you're capturing content for</i></div>
-</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -494,18 +482,6 @@ implements <a href="../../../../nl/inl/blacklab/index/DocIndexer.html" title="in
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>b</code> - if true, doesn't store norms; if false, does store norms</dd></dl>
 </li>
 </ul>
-<a name="startCaptureContent()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>startCaptureContent</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;void&nbsp;startCaptureContent()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>pass the field name you're capturing content for</i></div>
-<div class="block">Starts capturing of content.</div>
-</li>
-</ul>
 <a name="startCaptureContent(java.lang.String)">
 <!--   -->
 </a>
@@ -571,19 +547,6 @@ public&nbsp;void&nbsp;startCaptureContent()</pre>
 <li class="blockList">
 <h4>processContent</h4>
 <pre>public&nbsp;void&nbsp;processContent(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentToProcess)</pre>
-</li>
-</ul>
-<a name="getContentPosition()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getContentPosition</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;int&nbsp;getContentPosition()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>renamed to getCharacterPositionInContent() for clarity</i></div>
-<div class="block">Returns the current position in the original XML content in chars.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the current char position.</dd></dl>
 </li>
 </ul>
 <a name="getCharacterPosition()">
@@ -795,7 +758,7 @@ public&nbsp;int&nbsp;getContentPositionNoStore()</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../nl/inl/blacklab/index/DocIndexer.MaxDocsReachedException.html" title="class in nl.inl.blacklab.index"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../nl/inl/blacklab/index/DocIndexerXml.html" title="class in nl.inl.blacklab.index"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../nl/inl/blacklab/index/DocIndexerPlainTextBasic.html" title="class in nl.inl.blacklab.index"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?nl/inl/blacklab/index/DocIndexerAbstract.html" target="_top">Frames</a></li>
@@ -835,6 +798,6 @@ public&nbsp;int&nbsp;getContentPositionNoStore()</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

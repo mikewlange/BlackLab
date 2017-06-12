@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>nl.inl.blacklab.search.grouping (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>nl.inl.blacklab.search.grouping (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="nl.inl.blacklab.search.grouping (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="nl.inl.blacklab.search.grouping (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -35,7 +39,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../nl/inl/blacklab/search/package-summary.html">Prev Package</a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/fimatch/package-summary.html">Prev Package</a></li>
 <li><a href="../../../../../nl/inl/blacklab/search/indexstructure/package-summary.html">Next Package</a></li>
 </ul>
 <ul class="navList">
@@ -70,6 +74,21 @@
 </div>
 <div class="contentContainer">
 <ul class="blockList">
+<li class="blockList">
+<table class="packageSummary" border="0" cellpadding="3" cellspacing="0" summary="Interface Summary table, listing interfaces, and an explanation">
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
 <li class="blockList">
 <table class="packageSummary" border="0" cellpadding="3" cellspacing="0" summary="Class Summary table, listing classes, and an explanation">
 <caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
@@ -147,42 +166,48 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitPosition.html" title="class in nl.inl.blacklab.search.grouping">HitPropertyHitPosition</a></td>
+<td class="colLast">
+<div class="block">A hit property for sorting on hit token position.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyHitText.html" title="class in nl.inl.blacklab.search.grouping">HitPropertyHitText</a></td>
 <td class="colLast">
 <div class="block">A hit property for grouping on the text actually matched.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyLeftContext.html" title="class in nl.inl.blacklab.search.grouping">HitPropertyLeftContext</a></td>
 <td class="colLast">
 <div class="block">A hit property for grouping on the context of the hit.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyMultiple.html" title="class in nl.inl.blacklab.search.grouping">HitPropertyMultiple</a></td>
 <td class="colLast">
 <div class="block">A collection of GroupProperty's identifying a particular group.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyRightContext.html" title="class in nl.inl.blacklab.search.grouping">HitPropertyRightContext</a></td>
 <td class="colLast">
 <div class="block">A hit property for grouping on the context of the hit.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyWordLeft.html" title="class in nl.inl.blacklab.search.grouping">HitPropertyWordLeft</a></td>
 <td class="colLast">
 <div class="block">A hit property for grouping on the context of the hit.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropertyWordRight.html" title="class in nl.inl.blacklab.search.grouping">HitPropertyWordRight</a></td>
 <td class="colLast">
 <div class="block">A hit property for grouping on the context of the hit.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValue.html" title="class in nl.inl.blacklab.search.grouping">HitPropValue</a></td>
 <td class="colLast">
 <div class="block">A concrete value of a HitProperty of a Hit
@@ -192,54 +217,42 @@
  sorting of large results sets)</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContext.html" title="class in nl.inl.blacklab.search.grouping">HitPropValueContext</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWord.html" title="class in nl.inl.blacklab.search.grouping">HitPropValueContextWord</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html" title="class in nl.inl.blacklab.search.grouping">HitPropValueContextWords</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueDecade.html" title="class in nl.inl.blacklab.search.grouping">HitPropValueDecade</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueInt.html" title="class in nl.inl.blacklab.search.grouping">HitPropValueInt</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueMultiple.html" title="class in nl.inl.blacklab.search.grouping">HitPropValueMultiple</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueString.html" title="class in nl.inl.blacklab.search.grouping">HitPropValueString</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/PropValSerializeUtil.html" title="class in nl.inl.blacklab.search.grouping">PropValSerializeUtil</a></td>
 <td class="colLast">
 <div class="block">Takes care of serializing/deserializing
  Hit/DocProperties and -Values with proper escaping.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/RandomAccessGroup.html" title="class in nl.inl.blacklab.search.grouping">RandomAccessGroup</a></td>
-<td class="colLast">Deprecated
-<div class="block"><i>renamed to HitGroup</i></div>
-</td>
-</tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/RandomAccessGroups.html" title="class in nl.inl.blacklab.search.grouping">RandomAccessGroups</a></td>
-<td class="colLast">Deprecated
-<div class="block"><i>renamed to HitGroups</i></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html" title="class in nl.inl.blacklab.search.grouping">ResultsGrouper</a></td>
 <td class="colLast">
 <div class="block">Groups results on the basis of a list of criteria, and provide random access to the resulting
@@ -292,7 +305,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../nl/inl/blacklab/search/package-summary.html">Prev Package</a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/fimatch/package-summary.html">Prev Package</a></li>
 <li><a href="../../../../../nl/inl/blacklab/search/indexstructure/package-summary.html">Next Package</a></li>
 </ul>
 <ul class="navList">
@@ -318,6 +331,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

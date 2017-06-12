@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HitGroups (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>HitGroups (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="HitGroups (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="HitGroups (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -95,17 +99,17 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../../nl/inl/blacklab/search/grouping/HitGroup.html" title="class in nl.inl.blacklab.search.grouping">HitGroup</a>&gt;</dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../../nl/inl/blacklab/search/grouping/HitGroup.html" title="class in nl.inl.blacklab.search.grouping">HitGroup</a>&gt;, <a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../../nl/inl/blacklab/search/grouping/RandomAccessGroups.html" title="class in nl.inl.blacklab.search.grouping">RandomAccessGroups</a>, <a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html" title="class in nl.inl.blacklab.search.grouping">ResultsGrouper</a></dd>
+<dd><a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html" title="class in nl.inl.blacklab.search.grouping">ResultsGrouper</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public abstract class <span class="strong">HitGroups</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../../nl/inl/blacklab/search/grouping/HitGroup.html" title="class in nl.inl.blacklab.search.grouping">HitGroup</a>&gt;</pre>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../../nl/inl/blacklab/search/grouping/HitGroup.html" title="class in nl.inl.blacklab.search.grouping">HitGroup</a>&gt;, <a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></pre>
 <div class="block">Groups results on the basis of a list of criteria.
 
  This class allows random access to the groups, and each group
@@ -349,7 +353,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 <h4>getTotalResults</h4>
 <pre>public abstract&nbsp;int&nbsp;getTotalResults()</pre>
 <div class="block">Get the total number of hits</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the number of hits</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getTotalResults()">getTotalResults</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the number of hits</dd></dl>
 </li>
 </ul>
 <a name="getLargestGroupSize()">
@@ -360,7 +367,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 <h4>getLargestGroupSize</h4>
 <pre>public abstract&nbsp;int&nbsp;getLargestGroupSize()</pre>
 <div class="block">Return the size of the largest group</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>size of the largest group</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getLargestGroupSize()">getLargestGroupSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>size of the largest group</dd></dl>
 </li>
 </ul>
 <a name="numberOfGroups()">
@@ -371,7 +381,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 <h4>numberOfGroups</h4>
 <pre>public abstract&nbsp;int&nbsp;numberOfGroups()</pre>
 <div class="block">Return the number of groups</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>number of groups</dd></dl>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#numberOfGroups()">numberOfGroups</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>number of groups</dd></dl>
 </li>
 </ul>
 <a name="getGroupIdentity(int)">
@@ -459,6 +472,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

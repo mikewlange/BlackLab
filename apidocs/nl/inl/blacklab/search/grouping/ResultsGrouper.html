@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ResultsGrouper (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>ResultsGrouper (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ResultsGrouper (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="ResultsGrouper (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -35,7 +39,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../nl/inl/blacklab/search/grouping/RandomAccessGroups.html" title="class in nl.inl.blacklab.search.grouping"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/grouping/PropValSerializeUtil.html" title="class in nl.inl.blacklab.search.grouping"><span class="strong">Prev Class</span></a></li>
 <li>Next Class</li>
 </ul>
 <ul class="navList">
@@ -62,13 +66,13 @@
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -100,7 +104,7 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../../nl/inl/blacklab/search/grouping/HitGroup.html" title="class in nl.inl.blacklab.search.grouping">HitGroup</a>&gt;</dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="../../../../../nl/inl/blacklab/search/grouping/HitGroup.html" title="class in nl.inl.blacklab.search.grouping">HitGroup</a>&gt;, <a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></dd>
 </dl>
 <hr>
 <br>
@@ -137,38 +141,6 @@ extends <a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html" 
 </table>
 </li>
 </ul>
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html#ResultsGrouper(nl.inl.blacklab.search.Hits,%20nl.inl.blacklab.search.grouping.HitProperty)">ResultsGrouper</a></strong>(<a href="../../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;hits,
-              <a href="../../../../../nl/inl/blacklab/search/grouping/HitProperty.html" title="class in nl.inl.blacklab.search.grouping">HitProperty</a>&nbsp;criteria)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use Hits.groupedBy(criteria). Constructor will be made package-private eventually.</i></div>
-</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html#ResultsGrouper(nl.inl.blacklab.search.Searcher,%20org.apache.lucene.search.spans.SpanQuery,%20nl.inl.blacklab.search.grouping.HitProperty,%20java.lang.String)">ResultsGrouper</a></strong>(<a href="../../../../../nl/inl/blacklab/search/Searcher.html" title="class in nl.inl.blacklab.search">Searcher</a>&nbsp;searcher,
-              org.apache.lucene.search.spans.SpanQuery&nbsp;source,
-              <a href="../../../../../nl/inl/blacklab/search/grouping/HitProperty.html" title="class in nl.inl.blacklab.search.grouping">HitProperty</a>&nbsp;criteria,
-              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;defaultConcField)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>use Hits.groupedBy(criteria).</i></div>
-</div>
-</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_summary">
@@ -182,12 +154,10 @@ extends <a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html" 
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html#addHit(nl.inl.blacklab.search.Hits,%20int)">addHit</a></strong>(<a href="../../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;hits,
-      int&nbsp;originalHitIndex)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>No longer supported, will throw an exception. Use Hits.groupedBy() instead.</i></div>
-</div>
+<td class="colFirst"><code>static <a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html" title="class in nl.inl.blacklab.search.grouping">ResultsGrouper</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html#_fromHits(nl.inl.blacklab.search.Hits,%20nl.inl.blacklab.search.grouping.HitProperty)">_fromHits</a></strong>(<a href="../../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;hits,
+         <a href="../../../../../nl/inl/blacklab/search/grouping/HitProperty.html" title="class in nl.inl.blacklab.search.grouping">HitProperty</a>&nbsp;criteria)</code>
+<div class="block">Don't use this; use Hits.groupedBy().</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -279,65 +249,23 @@ extends <a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html" 
 </ul>
 </li>
 </ul>
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="ResultsGrouper(nl.inl.blacklab.search.Searcher, org.apache.lucene.search.spans.SpanQuery, nl.inl.blacklab.search.grouping.HitProperty, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>ResultsGrouper</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;ResultsGrouper(<a href="../../../../../nl/inl/blacklab/search/Searcher.html" title="class in nl.inl.blacklab.search">Searcher</a>&nbsp;searcher,
-                         org.apache.lucene.search.spans.SpanQuery&nbsp;source,
-                         <a href="../../../../../nl/inl/blacklab/search/grouping/HitProperty.html" title="class in nl.inl.blacklab.search.grouping">HitProperty</a>&nbsp;criteria,
-                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;defaultConcField)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use Hits.groupedBy(criteria).</i></div>
-<div class="block">Construct a ResultsGrouper object, by grouping the supplied spans.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>searcher</code> - our Searcher object</dd><dd><code>source</code> - the Spans to group</dd><dd><code>criteria</code> - the criteria to group on</dd><dd><code>defaultConcField</code> - the default concordance field</dd></dl>
-</li>
-</ul>
-<a name="ResultsGrouper(nl.inl.blacklab.search.Hits, nl.inl.blacklab.search.grouping.HitProperty)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>ResultsGrouper</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;ResultsGrouper(<a href="../../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;hits,
-                         <a href="../../../../../nl/inl/blacklab/search/grouping/HitProperty.html" title="class in nl.inl.blacklab.search.grouping">HitProperty</a>&nbsp;criteria)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use Hits.groupedBy(criteria). Constructor will be made package-private eventually.</i></div>
-<div class="block">Construct a ResultsGrouper object, by grouping the supplied hits.
-
- NOTE: this will be made package-private in a future release.
- Use Hits.groupedBy(criteria) instead.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>hits</code> - the hits to group</dd><dd><code>criteria</code> - the criteria to group on</dd></dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="addHit(nl.inl.blacklab.search.Hits, int)">
+<a name="_fromHits(nl.inl.blacklab.search.Hits, nl.inl.blacklab.search.grouping.HitProperty)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>addHit</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
-public&nbsp;void&nbsp;addHit(<a href="../../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;hits,
-                     int&nbsp;originalHitIndex)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>No longer supported, will throw an exception. Use Hits.groupedBy() instead.</i></div>
-<div class="block">Add a hit to the appropriate group. NO LONGER SUPPORTED, WILL THROW AN EXCEPTION!</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>hits</code> - the hits object this hit is in</dd><dd><code>originalHitIndex</code> - original (before sorting) index of the hit</dd></dl>
+<h4>_fromHits</h4>
+<pre>public static&nbsp;<a href="../../../../../nl/inl/blacklab/search/grouping/ResultsGrouper.html" title="class in nl.inl.blacklab.search.grouping">ResultsGrouper</a>&nbsp;_fromHits(<a href="../../../../../nl/inl/blacklab/search/Hits.html" title="class in nl.inl.blacklab.search">Hits</a>&nbsp;hits,
+                       <a href="../../../../../nl/inl/blacklab/search/grouping/HitProperty.html" title="class in nl.inl.blacklab.search.grouping">HitProperty</a>&nbsp;criteria)</pre>
+<div class="block">Don't use this; use Hits.groupedBy().</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>hits</code> - hits to group</dd><dd><code>criteria</code> - criteria to group by</dd>
+<dt><span class="strong">Returns:</span></dt><dd>grouped hits</dd></dl>
 </li>
 </ul>
 <a name="getTotalResults()">
@@ -349,6 +277,8 @@ public&nbsp;void&nbsp;addHit(<a href="../../../../../nl/inl/blacklab/search/Hits
 <pre>public&nbsp;int&nbsp;getTotalResults()</pre>
 <div class="block">Get the total number of hits</div>
 <dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getTotalResults()">getTotalResults</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html#getTotalResults()">getTotalResults</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html" title="class in nl.inl.blacklab.search.grouping">HitGroups</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>the number of hits</dd></dl>
@@ -407,6 +337,8 @@ public&nbsp;void&nbsp;addHit(<a href="../../../../../nl/inl/blacklab/search/Hits
 <div class="block">Return the size of the largest group</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#getLargestGroupSize()">getLargestGroupSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
+<dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html#getLargestGroupSize()">getLargestGroupSize</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html" title="class in nl.inl.blacklab.search.grouping">HitGroups</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>size of the largest group</dd></dl>
 </li>
@@ -420,6 +352,8 @@ public&nbsp;void&nbsp;addHit(<a href="../../../../../nl/inl/blacklab/search/Hits
 <pre>public&nbsp;int&nbsp;numberOfGroups()</pre>
 <div class="block">Return the number of groups</div>
 <dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html#numberOfGroups()">numberOfGroups</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/DocOrHitGroups.html" title="interface in nl.inl.blacklab.search.grouping">DocOrHitGroups</a></code></dd>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html#numberOfGroups()">numberOfGroups</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../nl/inl/blacklab/search/grouping/HitGroups.html" title="class in nl.inl.blacklab.search.grouping">HitGroups</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>number of groups</dd></dl>
@@ -482,7 +416,7 @@ public&nbsp;void&nbsp;addHit(<a href="../../../../../nl/inl/blacklab/search/Hits
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../nl/inl/blacklab/search/grouping/RandomAccessGroups.html" title="class in nl.inl.blacklab.search.grouping"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../nl/inl/blacklab/search/grouping/PropValSerializeUtil.html" title="class in nl.inl.blacklab.search.grouping"><span class="strong">Prev Class</span></a></li>
 <li>Next Class</li>
 </ul>
 <ul class="navList">
@@ -509,13 +443,13 @@ public&nbsp;void&nbsp;addHit(<a href="../../../../../nl/inl/blacklab/search/Hits
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -523,6 +457,6 @@ public&nbsp;void&nbsp;addHit(<a href="../../../../../nl/inl/blacklab/search/Hits
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>TextPatternAndNot (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>TextPatternAndNot (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="TextPatternAndNot (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="TextPatternAndNot (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -36,7 +40,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../nl/inl/blacklab/search/TextPatternBoolean.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../nl/inl/blacklab/search/TextPatternAnyToken.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?nl/inl/blacklab/search/TextPatternAndNot.html" target="_top">Frames</a></li>
@@ -104,13 +108,13 @@
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search">TextPatternAnd</a>, <a href="../../../../nl/inl/blacklab/search/sequences/TextPatternSequence.html" title="class in nl.inl.blacklab.search.sequences">TextPatternSequence</a></dd>
+<dd><a href="../../../../nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search">TextPatternAnd</a>, <a href="../../../../nl/inl/blacklab/search/TextPatternSequence.html" title="class in nl.inl.blacklab.search">TextPatternSequence</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">TextPatternAndNot</span>
 extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></pre>
-<div class="block">AND query for combining different properties from a complex field.
+<div class="block">AND (NOT) query for combining different properties from a complex field.
 
  Note that when generating a SpanQuery, the Span start and end are also matched! Therefore only
  two hits in the same document at the same start and end position will produce a match. This is
@@ -143,6 +147,13 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#include">include</a></strong></code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_nl.inl.blacklab.search.TextPattern">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></h3>
+<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#MAX_UNLIMITED">MAX_UNLIMITED</a></code></li>
+</ul>
 </li>
 </ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -188,75 +199,22 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#getMaxLength()">getMaxLength</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#getMinLength()">getMinLength</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#hasConstantLength()">hasConstantLength</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#hashCode()">hashCode</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#inverted()">inverted</a></strong>()</code>
-<div class="block">Return an inverted version of this TextPattern.</div>
-</td>
-</tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#isSingleTokenNot()">isSingleTokenNot</a></strong>()</code>
-<div class="block">Is this (sub)pattern only a negative clause, producing all tokens that
- don't satisfy certain conditions?
-
- Used for optimization decisions, i.e.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#okayToInvertForOptimization()">okayToInvertForOptimization</a></strong>()</code>
-<div class="block">Is it okay to invert this TextPattern for optimization?
-
- Heuristic used to determine when to optimize
- a query by inverting one or more of its subqueries.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#replaceClause(nl.inl.blacklab.search.TextPattern,%20nl.inl.blacklab.search.TextPattern...)">replaceClause</a></strong>(<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;oldClause,
-             <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>...&nbsp;newClauses)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#replaceClauseNot(nl.inl.blacklab.search.TextPattern,%20nl.inl.blacklab.search.TextPattern...)">replaceClauseNot</a></strong>(<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;oldClause,
-                <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>...&nbsp;newClauses)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#rewrite()">rewrite</a></strong>()</code>
-<div class="block">Rewrite the TextPattern before translation.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#toString(nl.inl.blacklab.search.QueryExecutionContext)">toString</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">translate</a></strong>(<a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
-         <a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
-<div class="block">Translate this TextPattern into some other representation.</div>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../nl/inl/blacklab/search/TextPatternAndNot.html#translate(nl.inl.blacklab.search.QueryExecutionContext)">translate</a></strong>(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</code>
+<div class="block">Translate this TextPattern into a BLSpanQuery.</div>
 </td>
 </tr>
 </table>
@@ -265,7 +223,7 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;nl.inl.blacklab.search.<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></h3>
-<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#addRepetitionMaxValues(int,%20int)">addRepetitionMaxValues</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List,%20nl.inl.blacklab.search.QueryExecutionContext)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#combineWithPrecedingPart(nl.inl.blacklab.search.TextPattern)">combineWithPrecedingPart</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#matchesEmptySequence()">matchesEmptySequence</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#noEmpty()">noEmpty</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#producesSingleTokens()">producesSingleTokens</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher,%20java.lang.String)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.Searcher)">translate</a></code></li>
+<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#clausesToString(java.util.List,%20nl.inl.blacklab.search.QueryExecutionContext)">clausesToString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#toString(nl.inl.blacklab.search.Searcher,%20java.lang.String)">toString</a>, <a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.Searcher)">translate</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -341,42 +299,19 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="replaceClause(nl.inl.blacklab.search.TextPattern, nl.inl.blacklab.search.TextPattern...)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>replaceClause</h4>
-<pre>public&nbsp;void&nbsp;replaceClause(<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;oldClause,
-                 <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>...&nbsp;newClauses)</pre>
-</li>
-</ul>
-<a name="replaceClauseNot(nl.inl.blacklab.search.TextPattern, nl.inl.blacklab.search.TextPattern...)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>replaceClauseNot</h4>
-<pre>public&nbsp;void&nbsp;replaceClauseNot(<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;oldClause,
-                    <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>...&nbsp;newClauses)</pre>
-</li>
-</ul>
-<a name="translate(nl.inl.blacklab.search.TextPatternTranslator, nl.inl.blacklab.search.QueryExecutionContext)">
+<a name="translate(nl.inl.blacklab.search.QueryExecutionContext)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>translate</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;translate(<a href="../../../../nl/inl/blacklab/search/TextPatternTranslator.html" title="class in nl.inl.blacklab.search">TextPatternTranslator</a>&lt;T&gt;&nbsp;translator,
-              <a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">TextPattern</a></code></strong></div>
-<div class="block">Translate this TextPattern into some other representation.
-
- For example, TextPatternTranslatorSpanQuery translates it into Lucene SpanQuerys.</div>
+<pre>public&nbsp;<a href="../../../../nl/inl/blacklab/search/lucene/BLSpanQuery.html" title="class in nl.inl.blacklab.search.lucene">BLSpanQuery</a>&nbsp;translate(<a href="../../../../nl/inl/blacklab/search/QueryExecutionContext.html" title="class in nl.inl.blacklab.search">QueryExecutionContext</a>&nbsp;context)</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.QueryExecutionContext)">TextPattern</a></code></strong></div>
+<div class="block">Translate this TextPattern into a BLSpanQuery.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.TextPatternTranslator,%20nl.inl.blacklab.search.QueryExecutionContext)">translate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-<dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - type of object to translate to</dd><dt><span class="strong">Parameters:</span></dt><dd><code>translator</code> - the translator to use</dd><dd><code>context</code> - query execution context to use</dd>
+<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#translate(nl.inl.blacklab.search.QueryExecutionContext)">translate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - query execution context to use</dd>
 <dt><span class="strong">Returns:</span></dt><dd>result of the translation</dd></dl>
 </li>
 </ul>
@@ -393,76 +328,6 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 </dl>
 </li>
 </ul>
-<a name="inverted()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>inverted</h4>
-<pre>public&nbsp;<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;inverted()</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#inverted()">TextPattern</a></code></strong></div>
-<div class="block">Return an inverted version of this TextPattern.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#inverted()">inverted</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>the inverted TextPattern</dd></dl>
-</li>
-</ul>
-<a name="okayToInvertForOptimization()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>okayToInvertForOptimization</h4>
-<pre>protected&nbsp;boolean&nbsp;okayToInvertForOptimization()</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#okayToInvertForOptimization()">TextPattern</a></code></strong></div>
-<div class="block">Is it okay to invert this TextPattern for optimization?
-
- Heuristic used to determine when to optimize
- a query by inverting one or more of its subqueries.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#okayToInvertForOptimization()">okayToInvertForOptimization</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if it is, false if not</dd></dl>
-</li>
-</ul>
-<a name="isSingleTokenNot()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isSingleTokenNot</h4>
-<pre>public&nbsp;boolean&nbsp;isSingleTokenNot()</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#isSingleTokenNot()">TextPattern</a></code></strong></div>
-<div class="block">Is this (sub)pattern only a negative clause, producing all tokens that
- don't satisfy certain conditions?
-
- Used for optimization decisions, i.e. in TextPatternOr.rewrite().</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#isSingleTokenNot()">isSingleTokenNot</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if it's negative-only, false if not</dd></dl>
-</li>
-</ul>
-<a name="rewrite()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>rewrite</h4>
-<pre>public&nbsp;<a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a>&nbsp;rewrite()</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#rewrite()">TextPattern</a></code></strong></div>
-<div class="block">Rewrite the TextPattern before translation.
-
- This changes the structure of certain queries so they can be executed
- more efficiently.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#rewrite()">rewrite</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>either the original TextPattern (if no rewriting was necessary),
- or the rewritten TextPattern</dd></dl>
-</li>
-</ul>
 <a name="equals(java.lang.Object)">
 <!--   -->
 </a>
@@ -473,45 +338,6 @@ extends <a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="cla
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="hasConstantLength()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hasConstantLength</h4>
-<pre>public&nbsp;boolean&nbsp;hasConstantLength()</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#hasConstantLength()">hasConstantLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getMinLength()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMinLength</h4>
-<pre>public&nbsp;int&nbsp;getMinLength()</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#getMinLength()">getMinLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getMaxLength()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMaxLength</h4>
-<pre>public&nbsp;int&nbsp;getMaxLength()</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../nl/inl/blacklab/search/TextPattern.html#getMaxLength()">getMaxLength</a></code>&nbsp;in class&nbsp;<code><a href="../../../../nl/inl/blacklab/search/TextPattern.html" title="class in nl.inl.blacklab.search">TextPattern</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -584,7 +410,7 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.h
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../nl/inl/blacklab/search/TextPatternAnd.html" title="class in nl.inl.blacklab.search"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../nl/inl/blacklab/search/TextPatternBoolean.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../nl/inl/blacklab/search/TextPatternAnyToken.html" title="class in nl.inl.blacklab.search"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?nl/inl/blacklab/search/TextPatternAndNot.html" target="_top">Frames</a></li>
@@ -624,6 +450,6 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.h
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>

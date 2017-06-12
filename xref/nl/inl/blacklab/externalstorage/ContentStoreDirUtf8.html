@@ -770,46 +770,55 @@
 <a class="jxr_linenumber" name="L762" href="#L762">762</a> 
 <a class="jxr_linenumber" name="L763" href="#L763">763</a> 						<em class="jxr_comment">// 3 - take just what we need</em>
 <a class="jxr_linenumber" name="L764" href="#L764">764</a> 						<strong class="jxr_keyword">int</strong> firstChar = a % e.blockSizeCharacters;
-<a class="jxr_linenumber" name="L765" href="#L765">765</a> 						result[i] = decoded.toString().substring(firstChar, firstChar + b - a);
-<a class="jxr_linenumber" name="L766" href="#L766">766</a> 					}
-<a class="jxr_linenumber" name="L767" href="#L767">767</a> 				}
-<a class="jxr_linenumber" name="L768" href="#L768">768</a> 			}
-<a class="jxr_linenumber" name="L769" href="#L769">769</a> 			<strong class="jxr_keyword">return</strong> result;
-<a class="jxr_linenumber" name="L770" href="#L770">770</a> 		} <strong class="jxr_keyword">catch</strong> (Exception e) {
-<a class="jxr_linenumber" name="L771" href="#L771">771</a> 			<strong class="jxr_keyword">throw</strong> ExUtil.wrapRuntimeException(e);
-<a class="jxr_linenumber" name="L772" href="#L772">772</a> 		}
-<a class="jxr_linenumber" name="L773" href="#L773">773</a> 	}
-<a class="jxr_linenumber" name="L774" href="#L774">774</a> 
-<a class="jxr_linenumber" name="L775" href="#L775">775</a> 	@Override
-<a class="jxr_linenumber" name="L776" href="#L776">776</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> delete(<strong class="jxr_keyword">int</strong> id) {
-<a class="jxr_linenumber" name="L777" href="#L777">777</a> 		TocEntry e = toc.get(id);
-<a class="jxr_linenumber" name="L778" href="#L778">778</a> 		e.deleted = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L779" href="#L779">779</a> 		tocModified = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L780" href="#L780">780</a> 	}
-<a class="jxr_linenumber" name="L781" href="#L781">781</a> 
-<a class="jxr_linenumber" name="L782" href="#L782">782</a> 	@Override
-<a class="jxr_linenumber" name="L783" href="#L783">783</a> 	<strong class="jxr_keyword">public</strong> Set&lt;Integer&gt; getDocIds() {
-<a class="jxr_linenumber" name="L784" href="#L784">784</a> 		<strong class="jxr_keyword">return</strong> toc.keySet();
-<a class="jxr_linenumber" name="L785" href="#L785">785</a> 	}
-<a class="jxr_linenumber" name="L786" href="#L786">786</a> 
-<a class="jxr_linenumber" name="L787" href="#L787">787</a> 	@Override
-<a class="jxr_linenumber" name="L788" href="#L788">788</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isDeleted(<strong class="jxr_keyword">int</strong> id) {
-<a class="jxr_linenumber" name="L789" href="#L789">789</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).deleted;
-<a class="jxr_linenumber" name="L790" href="#L790">790</a> 	}
-<a class="jxr_linenumber" name="L791" href="#L791">791</a> 
-<a class="jxr_linenumber" name="L792" href="#L792">792</a> 	@Override
-<a class="jxr_linenumber" name="L793" href="#L793">793</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getDocLength(<strong class="jxr_keyword">int</strong> id) {
-<a class="jxr_linenumber" name="L794" href="#L794">794</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).entryLengthCharacters;
-<a class="jxr_linenumber" name="L795" href="#L795">795</a> 	}
-<a class="jxr_linenumber" name="L796" href="#L796">796</a> 
-<a class="jxr_linenumber" name="L797" href="#L797">797</a> 	@Override
-<a class="jxr_linenumber" name="L798" href="#L798">798</a> 	<strong class="jxr_keyword">public</strong> Set&lt;Integer&gt; idSet() {
-<a class="jxr_linenumber" name="L799" href="#L799">799</a> 		<strong class="jxr_keyword">return</strong> toc.keySet();
-<a class="jxr_linenumber" name="L800" href="#L800">800</a> 	}
-<a class="jxr_linenumber" name="L801" href="#L801">801</a> 
-<a class="jxr_linenumber" name="L802" href="#L802">802</a> }
+<a class="jxr_linenumber" name="L765" href="#L765">765</a> 						String decodedStr = decoded.toString();
+<a class="jxr_linenumber" name="L766" href="#L766">766</a> 						<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L767" href="#L767">767</a> 							result[i] = decodedStr.substring(firstChar, firstChar + b - a);
+<a class="jxr_linenumber" name="L768" href="#L768">768</a> 						} <strong class="jxr_keyword">catch</strong> (StringIndexOutOfBoundsException e1) {
+<a class="jxr_linenumber" name="L769" href="#L769">769</a> 							System.err.println(<span class="jxr_string">"ERROR!\ndecodedStr.length() = "</span> + decodedStr.length() + <span class="jxr_string">"\n"</span> +
+<a class="jxr_linenumber" name="L770" href="#L770">770</a> 									<span class="jxr_string">"firstChar = "</span> + firstChar + <span class="jxr_string">"\na = "</span> + a + <span class="jxr_string">"\nb = "</span> + b +
+<a class="jxr_linenumber" name="L771" href="#L771">771</a> 									<span class="jxr_string">"\nfirstBlock = "</span> + firstBlock + <span class="jxr_string">"\nlastBlock = "</span> + lastBlock);
+<a class="jxr_linenumber" name="L772" href="#L772">772</a> 							System.err.flush();
+<a class="jxr_linenumber" name="L773" href="#L773">773</a> 							<strong class="jxr_keyword">throw</strong> e1;
+<a class="jxr_linenumber" name="L774" href="#L774">774</a> 						}
+<a class="jxr_linenumber" name="L775" href="#L775">775</a> 					}
+<a class="jxr_linenumber" name="L776" href="#L776">776</a> 				}
+<a class="jxr_linenumber" name="L777" href="#L777">777</a> 			}
+<a class="jxr_linenumber" name="L778" href="#L778">778</a> 			<strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L779" href="#L779">779</a> 		} <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L780" href="#L780">780</a> 			<strong class="jxr_keyword">throw</strong> ExUtil.wrapRuntimeException(e);
+<a class="jxr_linenumber" name="L781" href="#L781">781</a> 		}
+<a class="jxr_linenumber" name="L782" href="#L782">782</a> 	}
+<a class="jxr_linenumber" name="L783" href="#L783">783</a> 
+<a class="jxr_linenumber" name="L784" href="#L784">784</a> 	@Override
+<a class="jxr_linenumber" name="L785" href="#L785">785</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">synchronized</strong> <strong class="jxr_keyword">void</strong> delete(<strong class="jxr_keyword">int</strong> id) {
+<a class="jxr_linenumber" name="L786" href="#L786">786</a> 		TocEntry e = toc.get(id);
+<a class="jxr_linenumber" name="L787" href="#L787">787</a> 		e.deleted = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L788" href="#L788">788</a> 		tocModified = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L789" href="#L789">789</a> 	}
+<a class="jxr_linenumber" name="L790" href="#L790">790</a> 
+<a class="jxr_linenumber" name="L791" href="#L791">791</a> 	@Override
+<a class="jxr_linenumber" name="L792" href="#L792">792</a> 	<strong class="jxr_keyword">public</strong> Set&lt;Integer&gt; getDocIds() {
+<a class="jxr_linenumber" name="L793" href="#L793">793</a> 		<strong class="jxr_keyword">return</strong> toc.keySet();
+<a class="jxr_linenumber" name="L794" href="#L794">794</a> 	}
+<a class="jxr_linenumber" name="L795" href="#L795">795</a> 
+<a class="jxr_linenumber" name="L796" href="#L796">796</a> 	@Override
+<a class="jxr_linenumber" name="L797" href="#L797">797</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isDeleted(<strong class="jxr_keyword">int</strong> id) {
+<a class="jxr_linenumber" name="L798" href="#L798">798</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).deleted;
+<a class="jxr_linenumber" name="L799" href="#L799">799</a> 	}
+<a class="jxr_linenumber" name="L800" href="#L800">800</a> 
+<a class="jxr_linenumber" name="L801" href="#L801">801</a> 	@Override
+<a class="jxr_linenumber" name="L802" href="#L802">802</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getDocLength(<strong class="jxr_keyword">int</strong> id) {
+<a class="jxr_linenumber" name="L803" href="#L803">803</a> 		<strong class="jxr_keyword">return</strong> toc.get(id).entryLengthCharacters;
+<a class="jxr_linenumber" name="L804" href="#L804">804</a> 	}
+<a class="jxr_linenumber" name="L805" href="#L805">805</a> 
+<a class="jxr_linenumber" name="L806" href="#L806">806</a> 	@Override
+<a class="jxr_linenumber" name="L807" href="#L807">807</a> 	<strong class="jxr_keyword">public</strong> Set&lt;Integer&gt; idSet() {
+<a class="jxr_linenumber" name="L808" href="#L808">808</a> 		<strong class="jxr_keyword">return</strong> toc.keySet();
+<a class="jxr_linenumber" name="L809" href="#L809">809</a> 	}
+<a class="jxr_linenumber" name="L810" href="#L810">810</a> 
+<a class="jxr_linenumber" name="L811" href="#L811">811</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

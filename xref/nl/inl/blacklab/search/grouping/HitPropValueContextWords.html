@@ -8,90 +8,88 @@
 <div id="overview"><a href="../../../../../../apidocs/nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> nl.inl.blacklab.search.grouping;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.forwardindex.Terms;
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.Hits;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> nl.inl.util.ArrayUtil;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContext.html">HitPropValueContext</a> {
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   	<strong class="jxr_keyword">int</strong>[] valueTokenId;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  	<strong class="jxr_keyword">int</strong>[] valueSortOrder;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.forwardindex.Terms;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.index.complex.ComplexFieldUtil;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> nl.inl.blacklab.search.Hits;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> nl.inl.util.ArrayUtil;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContext.html">HitPropValueContext</a> {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  	<strong class="jxr_keyword">int</strong>[] valueTokenId;
 <a class="jxr_linenumber" name="L12" href="#L12">12</a>  
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  	<strong class="jxr_keyword">boolean</strong> sensitive;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  	<strong class="jxr_keyword">int</strong>[] valueSortOrder;
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String propName, <strong class="jxr_keyword">int</strong>[] value, <strong class="jxr_keyword">boolean</strong> sensitive) {
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  		<strong class="jxr_keyword">super</strong>(hits, propName);
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  		<strong class="jxr_keyword">this</strong>.valueTokenId = value;
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  		<strong class="jxr_keyword">this</strong>.sensitive = sensitive;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  		valueSortOrder = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[value.length];
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  		terms.toSortOrder(value, valueSortOrder, sensitive);
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  	}
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  	@Override
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compareTo(Object o) {
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  		<strong class="jxr_keyword">return</strong> ArrayUtil.compareArrays(valueSortOrder, ((HitPropValueContextWords) o).valueSortOrder);
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  	}
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	@Override
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> hashCode() {
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  		<strong class="jxr_keyword">int</strong> result = 0;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> v: valueSortOrder) {
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  			result ^= ((Integer) v).hashCode();
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  		}
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  		<strong class="jxr_keyword">return</strong> result;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	}
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValue.html">HitPropValue</a> deserialize(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String info) {
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  		String[] parts = PropValSerializeUtil.splitParts(info);
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  		String fieldName = hits.settings().concordanceField();
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		String propName = parts[0];
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  		<strong class="jxr_keyword">boolean</strong> sensitive = parts[1].equalsIgnoreCase(<span class="jxr_string">"s"</span>);
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  		<strong class="jxr_keyword">int</strong>[] ids = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[parts.length - 2];
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  		Terms termsObj = hits.getSearcher().getForwardIndex(ComplexFieldUtil.propertyField(fieldName, propName)).getTerms();
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 2; i &lt; parts.length; i++) {
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>  			<strong class="jxr_keyword">int</strong> tokenId;
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  			<strong class="jxr_keyword">if</strong> (parts[i].length() == 0)
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  				tokenId = Terms.NO_TERM; <em class="jxr_comment">// no token</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  			<strong class="jxr_keyword">else</strong>
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  				tokenId = termsObj.indexOf(parts[i]);
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>  			ids[i - 2] = tokenId;
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		}
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a>(hits, propName, ids, sensitive);
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  	}
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  	@Override
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  	<strong class="jxr_keyword">public</strong> String toString() {
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  		StringBuilder b = <strong class="jxr_keyword">new</strong> StringBuilder();
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> v: valueTokenId) {
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  			String word = v &lt; 0 ? <span class="jxr_string">"-"</span> : terms.get(v);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>  			<strong class="jxr_keyword">if</strong> (word.length() &gt; 0) {
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  				<strong class="jxr_keyword">if</strong> (b.length() &gt; 0)
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  					b.append(<span class="jxr_string">" "</span>);
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>  				b.append(word);
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  			}
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		}
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		<strong class="jxr_keyword">return</strong> b.toString();
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  	}
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  	@Override
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>  	<strong class="jxr_keyword">public</strong> String serialize() {
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		String[] parts = <strong class="jxr_keyword">new</strong> String[valueTokenId.length + 3];
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		parts[0] = <span class="jxr_string">"cws"</span>;
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		parts[1] = propName;
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		parts[2] = (sensitive ? <span class="jxr_string">"s"</span> : <span class="jxr_string">"i"</span>);
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; valueTokenId.length; i++) {
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>  			<strong class="jxr_keyword">int</strong> v = valueTokenId[i];
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  			<strong class="jxr_keyword">if</strong> (v &lt; 0)
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  				parts[i + 3] = <span class="jxr_string">""</span>; <em class="jxr_comment">// no token</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  			<strong class="jxr_keyword">else</strong>
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  				parts[i + 3] = terms.get(v);
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  		}
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  		<strong class="jxr_keyword">return</strong> PropValSerializeUtil.combineParts(parts);
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  	}
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  }
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  	<strong class="jxr_keyword">boolean</strong> sensitive;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a>(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String propName, <strong class="jxr_keyword">int</strong>[] value, <strong class="jxr_keyword">boolean</strong> sensitive) {
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  		<strong class="jxr_keyword">super</strong>(hits, propName);
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  		<strong class="jxr_keyword">this</strong>.valueTokenId = value;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  		<strong class="jxr_keyword">this</strong>.sensitive = sensitive;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  		valueSortOrder = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[value.length];
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  		terms.toSortOrder(value, valueSortOrder, sensitive);
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  	}
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  	@Override
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compareTo(Object o) {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  		<strong class="jxr_keyword">return</strong> ArrayUtil.compareArrays(valueSortOrder, ((HitPropValueContextWords) o).valueSortOrder);
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	}
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  	@Override
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> hashCode() {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  		<strong class="jxr_keyword">return</strong> Arrays.hashCode(valueSortOrder);
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	}
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValue.html">HitPropValue</a> deserialize(<a href="../../../../../nl/inl/blacklab/search/Hits.html">Hits</a> hits, String info) {
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  		String[] parts = PropValSerializeUtil.splitParts(info);
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  		String fieldName = hits.settings().concordanceField();
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  		String propName = parts[0];
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  		<strong class="jxr_keyword">boolean</strong> sensitive = parts[1].equalsIgnoreCase(<span class="jxr_string">"s"</span>);
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		<strong class="jxr_keyword">int</strong>[] ids = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[parts.length - 2];
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  		Terms termsObj = hits.getSearcher().getForwardIndex(ComplexFieldUtil.propertyField(fieldName, propName)).getTerms();
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 2; i &lt; parts.length; i++) {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  			<strong class="jxr_keyword">int</strong> tokenId;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  			<strong class="jxr_keyword">if</strong> (parts[i].length() == 0)
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  				tokenId = Terms.NO_TERM; <em class="jxr_comment">// no token</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  			<strong class="jxr_keyword">else</strong>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  				tokenId = termsObj.indexOf(parts[i]);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  			ids[i - 2] = tokenId;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  		}
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/inl/blacklab/search/grouping/HitPropValueContextWords.html">HitPropValueContextWords</a>(hits, propName, ids, sensitive);
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  	}
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  	@Override
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">public</strong> String toString() {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		StringBuilder b = <strong class="jxr_keyword">new</strong> StringBuilder();
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> v: valueTokenId) {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  			String word = v &lt; 0 ? <span class="jxr_string">"-"</span> : terms.get(v);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  			<strong class="jxr_keyword">if</strong> (word.length() &gt; 0) {
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  				<strong class="jxr_keyword">if</strong> (b.length() &gt; 0)
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  					b.append(<span class="jxr_string">" "</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  				b.append(word);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  			}
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  		}
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  		<strong class="jxr_keyword">return</strong> b.toString();
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  	}
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  	@Override
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  	<strong class="jxr_keyword">public</strong> String serialize() {
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  		String[] parts = <strong class="jxr_keyword">new</strong> String[valueTokenId.length + 3];
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  		parts[0] = <span class="jxr_string">"cws"</span>;
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		parts[1] = propName;
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		parts[2] = (sensitive ? <span class="jxr_string">"s"</span> : <span class="jxr_string">"i"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; valueTokenId.length; i++) {
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  			<strong class="jxr_keyword">int</strong> v = valueTokenId[i];
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  			<strong class="jxr_keyword">if</strong> (v &lt; 0)
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  				parts[i + 3] = <span class="jxr_string">""</span>; <em class="jxr_comment">// no token</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  			<strong class="jxr_keyword">else</strong>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  				parts[i + 3] = terms.get(v);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  		}
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<strong class="jxr_keyword">return</strong> PropValSerializeUtil.combineParts(parts);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  	}
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</div>
 </body>
 </html>

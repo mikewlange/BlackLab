@@ -3,13 +3,17 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Uses of Package nl.inl.blacklab.search.lucene (BlackLab 1.6.0-SNAPSHOT API)</title>
+<title>Uses of Package nl.inl.blacklab.search.lucene (BlackLab 1.6.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
-    if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Uses of Package nl.inl.blacklab.search.lucene (BlackLab 1.6.0-SNAPSHOT API)";
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="Uses of Package nl.inl.blacklab.search.lucene (BlackLab 1.6.0 API)";
+        }
+    }
+    catch(err) {
     }
 //-->
 </script>
@@ -87,10 +91,12 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#nl.inl.blacklab.search.sequences">nl.inl.blacklab.search.sequences</a></td>
-<td class="colLast">
-<div class="block">Classes dealing with regex-like patterns of token-level queries, like required for CorpusQL.</div>
-</td>
+<td class="colFirst"><a href="#nl.inl.blacklab.search.lucene.optimize">nl.inl.blacklab.search.lucene.optimize</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="#nl.inl.blacklab.search.matchfilter">nl.inl.blacklab.search.matchfilter</a></td>
+<td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -105,13 +111,23 @@
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/BLSpanQuery.html#nl.inl.blacklab.search">BLSpanQuery</a>
+<div class="block">A required interface for a BlackLab SpanQuery.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/BLSpans.html#nl.inl.blacklab.search">BLSpans</a>
 <div class="block">Will be the base class for all our own Spans classes.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/HitQueryContext.html#nl.inl.blacklab.search">HitQueryContext</a>
 <div class="block">Provides per-hit query-wide context, such as captured groups.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQueryPositionFilter.Operation.html#nl.inl.blacklab.search">SpanQueryPositionFilter.Operation</a>
+<div class="block">The different positional operations</div>
 </td>
 </tr>
 </tbody>
@@ -127,8 +143,8 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/BLSpanOrQuery.html#nl.inl.blacklab.search.lucene">BLSpanOrQuery</a>
-<div class="block">Matches the union of its clauses.</div>
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/BLSpanQuery.html#nl.inl.blacklab.search.lucene">BLSpanQuery</a>
+<div class="block">A required interface for a BlackLab SpanQuery.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -137,52 +153,76 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/BLSpanTermQuery.html#nl.inl.blacklab.search.lucene">BLSpanTermQuery</a>
+<div class="block">BL-specific subclass of SpanTermQuery that changes what getField() returns
+ (the complex field name instead of the full Lucene field name) in order to be
+ able to combine queries in different Lucene fields using AND and OR.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/HitQueryContext.html#nl.inl.blacklab.search.lucene">HitQueryContext</a>
 <div class="block">Provides per-hit query-wide context, such as captured groups.</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQueryAndNot.html#nl.inl.blacklab.search.lucene">SpanQueryAndNot</a>
+<div class="block">A SpanQuery for an AND NOT query.</div>
+</td>
+</tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQueryBase.html#nl.inl.blacklab.search.lucene">SpanQueryBase</a>
-<div class="block">A base class for a SpanQuery with an array of clauses.</div>
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQueryFiSeq.html#nl.inl.blacklab.search.lucene">SpanQueryFiSeq</a>
+<div class="block">Find hits that match the specified NFA, starting from the
+ specified anchor query (either the start of end of those hits,
+ with a possible offset added), in the specified direction.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpansAbstract.html#nl.inl.blacklab.search.lucene">SpansAbstract</a>
-<div class="block">SpansAbstract is our abstract base class for implementing our own Spans
- classes.</div>
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQueryPositionFilter.html#nl.inl.blacklab.search.lucene">SpanQueryPositionFilter</a>
+<div class="block">Filters hits from a producer query based on the hit positions of a filter query.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQueryPositionFilter.Operation.html#nl.inl.blacklab.search.lucene">SpanQueryPositionFilter.Operation</a>
+<div class="block">The different positional operations</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQuerySequence.html#nl.inl.blacklab.search.lucene">SpanQuerySequence</a>
+<div class="block">Combines spans, keeping only combinations of hits that occur one after the other.</div>
 </td>
 </tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="nl.inl.blacklab.search.sequences">
+<li class="blockList"><a name="nl.inl.blacklab.search.lucene.optimize">
 <!--   -->
 </a>
 <table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../../nl/inl/blacklab/search/lucene/package-summary.html">nl.inl.blacklab.search.lucene</a> used by <a href="../../../../../nl/inl/blacklab/search/sequences/package-summary.html">nl.inl.blacklab.search.sequences</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../../nl/inl/blacklab/search/lucene/package-summary.html">nl.inl.blacklab.search.lucene</a> used by <a href="../../../../../nl/inl/blacklab/search/lucene/optimize/package-summary.html">nl.inl.blacklab.search.lucene.optimize</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colOne" scope="col">Class and Description</th>
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/BLSpans.html#nl.inl.blacklab.search.sequences">BLSpans</a>
-<div class="block">Will be the base class for all our own Spans classes.</div>
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/BLSpanQuery.html#nl.inl.blacklab.search.lucene.optimize">BLSpanQuery</a>
+<div class="block">A required interface for a BlackLab SpanQuery.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/HitQueryContext.html#nl.inl.blacklab.search.sequences">HitQueryContext</a>
-<div class="block">Provides per-hit query-wide context, such as captured groups.</div>
-</td>
+</tbody>
+</table>
+</li>
+<li class="blockList"><a name="nl.inl.blacklab.search.matchfilter">
+<!--   -->
+</a>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
+<caption><span>Classes in <a href="../../../../../nl/inl/blacklab/search/lucene/package-summary.html">nl.inl.blacklab.search.lucene</a> used by <a href="../../../../../nl/inl/blacklab/search/matchfilter/package-summary.html">nl.inl.blacklab.search.matchfilter</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Class and Description</th>
 </tr>
+<tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpanQueryBase.html#nl.inl.blacklab.search.sequences">SpanQueryBase</a>
-<div class="block">A base class for a SpanQuery with an array of clauses.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/SpansAbstract.html#nl.inl.blacklab.search.sequences">SpansAbstract</a>
-<div class="block">SpansAbstract is our abstract base class for implementing our own Spans
- classes.</div>
+<td class="colOne"><a href="../../../../../nl/inl/blacklab/search/lucene/class-use/HitQueryContext.html#nl.inl.blacklab.search.matchfilter">HitQueryContext</a>
+<div class="block">Provides per-hit query-wide context, such as captured groups.</div>
 </td>
 </tr>
 </tbody>
@@ -235,6 +275,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2016 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2017 <a href="http://www.inl.nl">Instituut voor Nederlandse Taal (INT)</a>. All rights reserved.</small></p>
 </body>
 </html>
