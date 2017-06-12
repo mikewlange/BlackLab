@@ -267,17 +267,78 @@
 <p><a name="supported-features" id="supported-features"></a></p>
 <div class="section">
 <h3><a name="Supported_features"></a>Supported features</h3>
-<p>BlackLab currently supports (arguably) most of the important features of Corpus Query Language: * <tt>[word=&quot;bank&quot;]</tt> or just <tt>&quot;bank&quot;</tt>: matching on token annotations (also called properties or attributes), using regular expressions and <tt>=</tt>, <tt>!=</tt>, <tt>!</tt>. * <tt>&quot;(?-i)Mr\.&quot; &quot;(?-i)Banks&quot;</tt>: case/accent sensitive matching. Note that, unlike in CWB, case-INsensitive matching is currently the default. To explicitly match case-/accent-insensitively, use <tt>&quot;(?i)...&quot;</tt>. * <tt>[lemma=&quot;bank&quot; &amp; pos=&quot;V&quot;]</tt>: combining criteria using <tt>&amp;</tt>, <tt>|</tt> and <tt>!</tt>. Parentheses can also be used for grouping. * <tt>&quot;a&quot; [] &quot;day&quot;</tt>: matchall pattern <tt>[]</tt> matches any token * <tt>[pos=&quot;ADJ&quot;]+</tt>: regular expression operators <tt>+</tt>, <tt>*</tt>, <tt>?</tt>, <tt>{n}</tt>, <tt>{n,m}</tt> at the token level * <tt>[pos=&quot;ADJ&quot;] &quot;cow&quot;</tt>: sequences of token constraints. * <tt>&quot;happy&quot; &quot;dog&quot; | &quot;sad&quot; cat&quot;</tt>: <tt>|</tt>, <tt>&amp;</tt> and parentheses can be used to build complex sequence queries. * <tt>&lt;s&gt; &quot;The&quot;</tt>: querying with tag positions using e.g. <tt>&lt;s&gt;</tt> (start of sentence), <tt>&lt;/s&gt;</tt> (end of sentence), <tt>&lt;s/&gt;</tt> (whole sentence) or <tt>&lt;s&gt; ... &lt;/s&gt;</tt> (equivalent to <tt>&lt;s/&gt; containing ...</tt>). XML attribute values may be used as well, e.g. <tt>&lt;ne type=&quot;PERS&quot;/&gt;</tt> (named entities that are persons). * <tt>&quot;you&quot; &quot;are&quot; within &lt;s/&gt;</tt>: using <tt>within</tt> and <tt>containing</tt> operators to find hits inside another set of hits. * <tt>&quot;big&quot; A:[]</tt>: using an anchor to capture a token position to process those captured matches separately later (using the Java interface; capture information is not yet returned by BlackLab Server). Note that BlackLab can actually capture entire groups of tokens as well, similarly to regular expression engines. * <tt>&quot;big&quot; A:[] &quot;or&quot; &quot;small&quot; B:[] :: A.word = B.word</tt>: global constraints on captured tokens, such as requiring them to contain the same word.</p>
+<p>BlackLab currently supports (arguably) most of the important features of Corpus Query Language:</p>
+
+<ul>
+  
+<li><tt>[word=&quot;bank&quot;]</tt> or just <tt>&quot;bank&quot;</tt>: matching on token annotations (also called properties or attributes), using regular expressions and <tt>=</tt>, <tt>!=</tt>, <tt>!</tt>.</li>
+  
+<li><tt>&quot;(?-i)Mr\.&quot; &quot;(?-i)Banks&quot;</tt>: case/accent sensitive matching. Note that, unlike in CWB, case-INsensitive matching is currently the default. To explicitly match case-/accent-insensitively, use <tt>&quot;(?i)...&quot;</tt>.</li>
+  
+<li><tt>[lemma=&quot;bank&quot; &amp; pos=&quot;V&quot;]</tt>: combining criteria using <tt>&amp;</tt>, <tt>|</tt> and <tt>!</tt>. Parentheses can also be used for grouping.</li>
+  
+<li><tt>&quot;a&quot; [] &quot;day&quot;</tt>: matchall pattern <tt>[]</tt> matches any token</li>
+  
+<li><tt>[pos=&quot;ADJ&quot;]+</tt>: regular expression operators <tt>+</tt>, <tt>*</tt>, <tt>?</tt>, <tt>{n}</tt>, <tt>{n,m}</tt> at the token level</li>
+  
+<li><tt>[pos=&quot;ADJ&quot;] &quot;cow&quot;</tt>: sequences of token constraints.</li>
+  
+<li><tt>&quot;happy&quot; &quot;dog&quot; | &quot;sad&quot; cat&quot;</tt>: <tt>|</tt>, <tt>&amp;</tt> and parentheses can be used to build complex sequence queries.</li>
+  
+<li><tt>&lt;s&gt; &quot;The&quot;</tt>: querying with tag positions using e.g. <tt>&lt;s&gt;</tt> (start of sentence), <tt>&lt;/s&gt;</tt> (end of sentence), <tt>&lt;s/&gt;</tt> (whole sentence) or <tt>&lt;s&gt; ... &lt;/s&gt;</tt> (equivalent to <tt>&lt;s/&gt; containing ...</tt>). XML attribute values may be used as well, e.g. <tt>&lt;ne type=&quot;PERS&quot;/&gt;</tt> (named entities that are persons).</li>
+  
+<li><tt>&quot;you&quot; &quot;are&quot; within &lt;s/&gt;</tt>: using <tt>within</tt> and <tt>containing</tt> operators to find hits inside another set of hits.</li>
+  
+<li><tt>&quot;big&quot; A:[]</tt>: using an anchor to capture a token position to process those captured matches separately later (using the Java interface; capture information is not yet returned by BlackLab Server). Note that BlackLab can actually capture entire groups of tokens as well, similarly to regular expression engines.</li>
+  
+<li><tt>&quot;big&quot; A:[] &quot;or&quot; &quot;small&quot; B:[] :: A.word = B.word</tt>: global constraints on captured tokens, such as requiring them to contain the same word.</li>
+</ul>
 <p>See below for features not in this list that may be added soon, and let us know if you want a particular feature to be added.</p>
 <p><a name="differences-cwb" id="differences-cwb"></a></p></div>
 <div class="section">
 <h3><a name="Differences_from_CWB"></a>Differences from CWB</h3>
 <p>BlackLab&#x2019;s CQL syntax and behaviour differs in a few small ways from CWBs. In future, we&#x2019;ll aim towards greater compliance with CWB&#x2019;s de-facto standard (with some extra features and conveniences).</p>
-<p>For now, here&#x2019;s what you should know: * Case-insensitive search is currently the default in BlackLab, although you can change this if you wish. CWB and Sketch Engine use case-sensitive search as the default. We may change our default in a future major version.<br /> If you want to switch case/diacritics sensitivity, use <tt>&quot;(?-i)..&quot;</tt> (case sensitive) or <tt>&quot;(?i)..&quot;</tt> (case insensitive, usually the default). CWBs <tt>%cd</tt> flags for setting case/diacritics-sensitivity are not (yet) supported, but will be added. * If you want to match a string literally, not as a regular expression, use backslash escaping: <tt>&quot;e\.g\.&quot;</tt>. <tt>%l</tt> for literal matching is not yet supported, but will be added. * BlackLab supports result set manipulation such as: sorting (including on specific context words), grouping/frequency distribution, subsets, sampling, setting context size, etc. However, these are supported through the REST and Java APIs, not through a command interface like in CWB. See <a href="blacklab-server-overview.html">BlackLab Server overview</a>). * Querying XML elements and attributes looks natural in BlackLab: <tt>&lt;s/&gt;</tt> means &#x201c;sentences&#x201d;, <tt>&lt;s&gt;</tt> means &#x201c;starts of sentences&#x201d;, <tt>&lt;s type='A'&gt;</tt> means &#x201c;sentence tags with a type attribute with value A&#x201d;. This natural syntax differs from CWBs in some places, however, particularly when matching XML attributes. While we believe our syntax is the superior one, we may add support for the CWB syntax as an alternative.<br /> We only support literal matching of XML attributes at the moment, but this will be expanded to full regex matching. * In global constraints (expressions occurring after <tt>::</tt>), only literal matching (no regex matching) is currently supported. Regex matching will be added soon. For now, instead of <tt>A:[] &quot;dog&quot; :: A.word = &quot;happy|sad&quot;</tt>, use <tt>&quot;happy|sad&quot; &quot;dog&quot;</tt>.<br />* To expand your query to return whole sentences, use <tt>&lt;s/&gt; containing (...)</tt>. We don&#x2019;t yet support CWBs <tt>expand to</tt>, <tt>expand left to</tt>, etc., but may add this in the future. * The implication operator <tt>-&gt;</tt> is currently only supported in global constraints (expressions after the <tt>::</tt> operator), not in a regular token constraints. We may add this if there&#x2019;s demand for it. * We don&#x2019;t support the <tt>@</tt> anchor and corresponding <tt>target</tt> label; use a named anchor instead. If someone makes a good case for it, we will consider adding this feature. * backreferences to anchors only work in global constraints, so this doesn&#x2019;t work: <tt>A:[] [] [word = A.word]</tt>. Instead, use something like: <tt>A:[] [] B:[] :: A.word = B.word</tt>. We hope to add support for these in the near future, but our matching approach may not allow full support for this in all cases.</p>
+<p>For now, here&#x2019;s what you should know:</p>
+
+<ul>
+  
+<li>Case-insensitive search is currently the default in BlackLab, although you can change this if you wish. CWB and Sketch Engine use case-sensitive search as the default. We may change our default in a future major version.<br /> If you want to switch case/diacritics sensitivity, use <tt>&quot;(?-i)..&quot;</tt> (case sensitive) or <tt>&quot;(?i)..&quot;</tt> (case insensitive, usually the default). CWBs <tt>%cd</tt> flags for setting case/diacritics-sensitivity are not (yet) supported, but will be added.</li>
+  
+<li>If you want to match a string literally, not as a regular expression, use backslash escaping: <tt>&quot;e\.g\.&quot;</tt>. <tt>%l</tt> for literal matching is not yet supported, but will be added.</li>
+  
+<li>BlackLab supports result set manipulation such as: sorting (including on specific context words), grouping/frequency distribution, subsets, sampling, setting context size, etc. However, these are supported through the REST and Java APIs, not through a command interface like in CWB. See <a href="blacklab-server-overview.html">BlackLab Server overview</a>).</li>
+  
+<li>Querying XML elements and attributes looks natural in BlackLab: <tt>&lt;s/&gt;</tt> means &#x201c;sentences&#x201d;, <tt>&lt;s&gt;</tt> means &#x201c;starts of sentences&#x201d;, <tt>&lt;s type='A'&gt;</tt> means &#x201c;sentence tags with a type attribute with value A&#x201d;. This natural syntax differs from CWBs in some places, however, particularly when matching XML attributes. While we believe our syntax is the superior one, we may add support for the CWB syntax as an alternative.<br /> We only support literal matching of XML attributes at the moment, but this will be expanded to full regex matching.</li>
+  
+<li>In global constraints (expressions occurring after <tt>::</tt>), only literal matching (no regex matching) is currently supported. Regex matching will be added soon. For now, instead of <tt>A:[] &quot;dog&quot; :: A.word = &quot;happy|sad&quot;</tt>, use <tt>&quot;happy|sad&quot; &quot;dog&quot;</tt>.</li>
+  
+<li>To expand your query to return whole sentences, use <tt>&lt;s/&gt; containing (...)</tt>. We don&#x2019;t yet support CWBs <tt>expand to</tt>, <tt>expand left to</tt>, etc., but may add this in the future.</li>
+  
+<li>The implication operator <tt>-&gt;</tt> is currently only supported in global constraints (expressions after the <tt>::</tt> operator), not in a regular token constraints. We may add this if there&#x2019;s demand for it.</li>
+  
+<li>We don&#x2019;t support the <tt>@</tt> anchor and corresponding <tt>target</tt> label; use a named anchor instead. If someone makes a good case for it, we will consider adding this feature.</li>
+  
+<li>backreferences to anchors only work in global constraints, so this doesn&#x2019;t work: <tt>A:[] [] [word = A.word]</tt>. Instead, use something like: <tt>A:[] [] B:[] :: A.word = B.word</tt>. We hope to add support for these in the near future, but our matching approach may not allow full support for this in all cases.</li>
+</ul>
 <p><a name="unsupported" id="unsupported"></a></p></div>
 <div class="section">
 <h3><a name="aCurrently_unsupported_features"></a>(Currently) unsupported features</h3>
-<p>The following features are not (yet) supported: * <tt>intersection</tt>, <tt>union</tt> and <tt>difference</tt> operators. These three operators will be added in the future. For now, the first two can be achieved using <tt>&amp;</tt> and <tt>|</tt> at the sequence level, e.g. <tt>&quot;double&quot; [] &amp; [] &quot;trouble&quot;</tt> to match the intersection of these queries, i.e. &#x201c;double trouble&#x201d; and <tt>&quot;happy&quot; &quot;dog&quot; | &quot;sad &quot;cat&quot;</tt> to match the union of &#x201c;happy dog&#x201d; and &#x201c;sad cat&#x201d;. * <tt>_</tt> meaning &#x201c;the current token&#x201d; in token constraints. We will add this soon. * <tt>lbound</tt>, <tt>rbound</tt> functions to get the edge of a region. We will probably add these. * <tt>distance</tt>, <tt>distabs</tt> functions and <tt>match</tt>, <tt>matchend</tt> anchor points (sometimes used in global constraints). We will see about adding these. * using an XML element name to mean &#x2018;token is contained within&#x2019;, like <tt>[(pos = &quot;N&quot;) &amp; !np]</tt> meaning &#x201c;noun NOT inside in an  tag&#x201d;. We will see about adding these. * a number of less well-known features. If people ask, we will consider adding them.</p>
+<p>The following features are not (yet) supported:</p>
+
+<ul>
+  
+<li><tt>intersection</tt>, <tt>union</tt> and <tt>difference</tt> operators. These three operators will be added in the future. For now, the first two can be achieved using <tt>&amp;</tt> and <tt>|</tt> at the sequence level, e.g. <tt>&quot;double&quot; [] &amp; [] &quot;trouble&quot;</tt> to match the intersection of these queries, i.e. &#x201c;double trouble&#x201d; and <tt>&quot;happy&quot; &quot;dog&quot; | &quot;sad &quot;cat&quot;</tt> to match the union of &#x201c;happy dog&#x201d; and &#x201c;sad cat&#x201d;.</li>
+  
+<li><tt>_</tt> meaning &#x201c;the current token&#x201d; in token constraints. We will add this soon.</li>
+  
+<li><tt>lbound</tt>, <tt>rbound</tt> functions to get the edge of a region. We will probably add these.</li>
+  
+<li><tt>distance</tt>, <tt>distabs</tt> functions and <tt>match</tt>, <tt>matchend</tt> anchor points (sometimes used in global constraints). We will see about adding these.</li>
+  
+<li>using an XML element name to mean &#x2018;token is contained within&#x2019;, like <tt>[(pos = &quot;N&quot;) &amp; !np]</tt> meaning &#x201c;noun NOT inside in an  tag&#x201d;. We will see about adding these.</li>
+  
+<li>a number of less well-known features. If people ask, we will consider adding them.</li>
+</ul>
 <p><a name="using-cql" id="using-cql"></a></p></div></div>
 <div class="section">
 <h2><a name="Using_Corpus_Query_Language"></a>Using Corpus Query Language</h2>
