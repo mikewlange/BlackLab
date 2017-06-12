@@ -271,27 +271,27 @@
 
 <ul>
   
-<li><tt>[word=&quot;bank&quot;]</tt> or just <tt>&quot;bank&quot;</tt>: matching on token annotations (also called properties or attributes), using regular expressions and <tt>=</tt>, <tt>!=</tt>, <tt>!</tt>.</li>
+<li>Matching on token annotations (also called properties or attributes), using regular expressions and <tt>=</tt>, <tt>!=</tt>, <tt>!</tt>. Example: <tt>[word=&quot;bank&quot;]</tt> (or just <tt>&quot;bank&quot;</tt>)</li>
   
-<li><tt>&quot;(?-i)Mr\.&quot; &quot;(?-i)Banks&quot;</tt>: case/accent sensitive matching. Note that, unlike in CWB, case-INsensitive matching is currently the default. To explicitly match case-/accent-insensitively, use <tt>&quot;(?i)...&quot;</tt>.</li>
+<li>Case/accent sensitive matching. Note that, unlike in CWB, case-INsensitive matching is currently the default. To explicitly match case-/accent-insensitively, use <tt>&quot;(?i)...&quot;</tt>. Example: <tt>&quot;(?-i)Mr\.&quot; &quot;(?-i)Banks&quot;</tt></li>
   
-<li><tt>[lemma=&quot;bank&quot; &amp; pos=&quot;V&quot;]</tt>: combining criteria using <tt>&amp;</tt>, <tt>|</tt> and <tt>!</tt>. Parentheses can also be used for grouping.</li>
+<li>Combining criteria using <tt>&amp;</tt>, <tt>|</tt> and <tt>!</tt>. Parentheses can also be used for grouping. Example: <tt>[lemma=&quot;bank&quot; &amp; pos=&quot;V&quot;]</tt></li>
   
-<li><tt>&quot;a&quot; [] &quot;day&quot;</tt>: matchall pattern <tt>[]</tt> matches any token</li>
+<li>Matchall pattern <tt>[]</tt> matches any token. Example: <tt>&quot;a&quot; [] &quot;day&quot;</tt></li>
   
-<li><tt>[pos=&quot;ADJ&quot;]+</tt>: regular expression operators <tt>+</tt>, <tt>*</tt>, <tt>?</tt>, <tt>{n}</tt>, <tt>{n,m}</tt> at the token level</li>
+<li>Regular expression operators <tt>+</tt>, <tt>*</tt>, <tt>?</tt>, <tt>{n}</tt>, <tt>{n,m}</tt> at the token level. Example: <tt>[pos=&quot;ADJ&quot;]+</tt></li>
   
-<li><tt>[pos=&quot;ADJ&quot;] &quot;cow&quot;</tt>: sequences of token constraints.</li>
+<li>Sequences of token constraints. Example: <tt>[pos=&quot;ADJ&quot;] &quot;cow&quot;</tt></li>
   
-<li><tt>&quot;happy&quot; &quot;dog&quot; | &quot;sad&quot; cat&quot;</tt>: <tt>|</tt>, <tt>&amp;</tt> and parentheses can be used to build complex sequence queries.</li>
+<li>Operators <tt>|</tt>, <tt>&amp;</tt> and parentheses can be used to build complex sequence queries. Example: <tt>&quot;happy&quot; &quot;dog&quot; | &quot;sad&quot; cat&quot;</tt></li>
   
-<li><tt>&lt;s&gt; &quot;The&quot;</tt>: querying with tag positions using e.g. <tt>&lt;s&gt;</tt> (start of sentence), <tt>&lt;/s&gt;</tt> (end of sentence), <tt>&lt;s/&gt;</tt> (whole sentence) or <tt>&lt;s&gt; ... &lt;/s&gt;</tt> (equivalent to <tt>&lt;s/&gt; containing ...</tt>). XML attribute values may be used as well, e.g. <tt>&lt;ne type=&quot;PERS&quot;/&gt;</tt> (named entities that are persons).</li>
+<li>Querying with tag positions using e.g. <tt>&lt;s&gt;</tt> (start of sentence), <tt>&lt;/s&gt;</tt> (end of sentence), <tt>&lt;s/&gt;</tt> (whole sentence) or <tt>&lt;s&gt; ... &lt;/s&gt;</tt> (equivalent to <tt>&lt;s/&gt; containing ...</tt>). Example: <tt>&lt;s&gt; &quot;The&quot;</tt>. XML attribute values may be used as well, e.g. <tt>&lt;ne type=&quot;PERS&quot;/&gt;</tt> (&#x201c;named entities that are persons&#x201d;).</li>
   
-<li><tt>&quot;you&quot; &quot;are&quot; within &lt;s/&gt;</tt>: using <tt>within</tt> and <tt>containing</tt> operators to find hits inside another set of hits.</li>
+<li>Using <tt>within</tt> and <tt>containing</tt> operators to find hits inside another set of hits. Example: <tt>&quot;you&quot; &quot;are&quot; within &lt;s/&gt;</tt></li>
   
-<li><tt>&quot;big&quot; A:[]</tt>: using an anchor to capture a token position to process those captured matches separately later (using the Java interface; capture information is not yet returned by BlackLab Server). Note that BlackLab can actually capture entire groups of tokens as well, similarly to regular expression engines.</li>
+<li>Using an anchor to capture a token position. Example: <tt>&quot;big&quot; A:[]</tt>. Captured matches can be used in global constraints (see next item) or processed separately later (using the Java interface; capture information is not yet returned by BlackLab Server). Note that BlackLab can actually capture entire groups of tokens as well, similarly to regular expression engines.</li>
   
-<li><tt>&quot;big&quot; A:[] &quot;or&quot; &quot;small&quot; B:[] :: A.word = B.word</tt>: global constraints on captured tokens, such as requiring them to contain the same word.</li>
+<li>Global constraints on captured tokens, such as requiring them to contain the same word. Example: <tt>&quot;big&quot; A:[] &quot;or&quot; &quot;small&quot; B:[] :: A.word = B.word</tt></li>
 </ul>
 <p>See below for features not in this list that may be added soon, and let us know if you want a particular feature to be added.</p>
 <p><a name="differences-cwb" id="differences-cwb"></a></p></div>
