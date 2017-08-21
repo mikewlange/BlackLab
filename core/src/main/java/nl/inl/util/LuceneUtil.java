@@ -15,11 +15,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.index.LeafReaderContext;
-import org.apache.lucene.index.LogMergePolicy;
-import org.apache.lucene.index.MergePolicy;
 import org.apache.lucene.index.PostingsEnum;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.Terms;
@@ -361,20 +357,6 @@ public class LuceneUtil {
 		} catch (IOException e) {
 			throw ExUtil.wrapRuntimeException(e);
 		}
-	}
-
-	public static IndexWriterConfig getIndexWriterConfig(Analyzer analyzer, boolean create) {
-		IndexWriterConfig config = new IndexWriterConfig(analyzer);
-		config.setOpenMode(create ? OpenMode.CREATE : OpenMode.CREATE_OR_APPEND);
-		config.setRAMBufferSizeMB(150); // faster indexing
-
-		// Set merge factor (if using LogMergePolicy, which is the default up to version LUCENE_32,
-		// so yes)
-		MergePolicy mp = config.getMergePolicy();
-		if (mp instanceof LogMergePolicy) {
-			((LogMergePolicy) mp).setMergeFactor(40); // faster indexing
-		}
-		return config;
 	}
 
 	public static long getSumTotalTermFreq(IndexReader reader, String luceneField) {

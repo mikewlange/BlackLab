@@ -33,12 +33,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.miscellaneous.PerFieldAnalyzerWrapper;
+import org.apache.lucene.codecs.Codec;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.index.LeafReaderContext;
 import org.apache.lucene.index.MultiFields;
 import org.apache.lucene.index.PostingsEnum;
@@ -55,6 +57,7 @@ import org.apache.lucene.store.LockObtainFailedException;
 import org.apache.lucene.util.Bits;
 
 import nl.inl.blacklab.analysis.BLDutchAnalyzer;
+import nl.inl.blacklab.codec.BLCodec;
 import nl.inl.blacklab.externalstorage.ContentStore;
 import nl.inl.blacklab.forwardindex.ForwardIndex;
 import nl.inl.blacklab.index.complex.ComplexFieldUtil;
@@ -565,7 +568,14 @@ public class SearcherImpl extends Searcher implements Closeable {
 		Directory indexLuceneDir = FSDirectory.open(indexPath);
 		if (useAnalyzer == null)
 			useAnalyzer = new BLDutchAnalyzer();
-		IndexWriterConfig config = LuceneUtil.getIndexWriterConfig(useAnalyzer, create);
+
+		// Create config
+        IndexWriterConfig config = new IndexWriterConfig(useAnalyzer);
+        config.setOpenMode(create ? OpenMode.CREATE : OpenMode.CREATE_OR_APPEND);
+        config.setRAMBufferSizeMB(150); // faster indexing
+        config.setCodec(new BLCodec(BLCodec.CODEC_NAME, Codec.getDefault())); // our own custom codec (extended from Lucene)
+        config.setUseCompoundFile(false); // @@@ TEST
+
 		IndexWriter writer = new IndexWriter(indexLuceneDir, config);
 
 		if (create)
