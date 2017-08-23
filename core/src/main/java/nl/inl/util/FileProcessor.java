@@ -82,11 +82,11 @@ public class FileProcessor implements AutoCloseable {
      */
     private final class ProcessFileTask implements Runnable {
     	private final File fileToIndex;
-    
+
     	ProcessFileTask(File fileToIndex) {
     		this.fileToIndex = fileToIndex;
     	}
-    
+
     	@Override
     	public void run() {
             try {

@@ -43,8 +43,7 @@ public class BLFieldsProducer extends FieldsProducer {
         version = BLCodecPostingsFormat.VERSION_CURRENT;
 
         // Load the delegate postingsFormatName from this file
-        this.delegateFieldsProducer = PostingsFormat.forName(postingsFormatName)
-                .fieldsProducer(state);
+        this.delegateFieldsProducer = PostingsFormat.forName(postingsFormatName).fieldsProducer(state);
     }
 
     /*
@@ -135,22 +134,16 @@ public class BLFieldsProducer extends FieldsProducer {
 
     private static IndexInput openIndexFile(SegmentReadState state, String name, String extension,
             Integer minimum, Integer maximum) throws IOException {
-        String fileName = IndexFileNames.segmentFileName(state.segmentInfo.name,
-                state.segmentSuffix, extension);
-        IndexInput object;
-        object = state.directory.openInput(fileName, state.context);
-        int minVersion = (minimum == null) ? BLCodecPostingsFormat.VERSION_START
-                : minimum.intValue();
-        int maxVersion = (maximum == null) ? BLCodecPostingsFormat.VERSION_CURRENT
-                : maximum.intValue();
+        String fileName = IndexFileNames.segmentFileName(state.segmentInfo.name, state.segmentSuffix, extension);
+        IndexInput object = state.directory.openInput(fileName, state.context);
+        int minVersion = (minimum == null) ? BLCodecPostingsFormat.VERSION_START : minimum.intValue();
+        int maxVersion = (maximum == null) ? BLCodecPostingsFormat.VERSION_CURRENT : maximum.intValue();
         try {
-            CodecUtil.checkIndexHeader(object, name, minVersion, maxVersion,
-                    state.segmentInfo.getId(), state.segmentSuffix);
+            CodecUtil.checkIndexHeader(object, name, minVersion, maxVersion, state.segmentInfo.getId(), state.segmentSuffix);
         } catch (IndexFormatTooOldException e) {
             object.close();
             logger.debug(e);
-            throw new IndexFormatTooOldException(e.getMessage(), e.getVersion(),
-                    e.getMinVersion(), e.getMaxVersion());
+            throw new IndexFormatTooOldException(e.getMessage(), e.getVersion(), e.getMinVersion(), e.getMaxVersion());
         }
         return object;
     }

@@ -12,8 +12,8 @@ import org.apache.lucene.index.SegmentReadState;
 import org.apache.lucene.index.SegmentWriteState;
 
 /**
- * BlackLab Postings Format: a customization of Lucene's way of "postings" information
- * (e.g. term occurrences, term vector, etc.) in the index, to accomodate our forward
+ * BlackLab Postings Format: an extension of Lucene's "postings" information
+ * (e.g. term frequence, positions, offsets, etc.) in the index, to accomodate our forward
  * index and (optional) content store.
  *
  * Adapted from <a href="https://github.com/meertensinstituut/mtas/">MTAS</a>.
