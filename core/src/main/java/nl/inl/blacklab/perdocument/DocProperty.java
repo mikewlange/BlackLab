@@ -92,25 +92,14 @@ public abstract class DocProperty {
 		String[] parts = PropValSerializeUtil.splitPartFirstRest(serialized);
 		String type = parts[0].toLowerCase();
 		String info = parts.length > 1 ? parts[1] : "";
-		List<String> types = Arrays.asList("decade", "numhits", "field", "fieldlen");
-		int typeNum = types.indexOf(type);
+
 		DocProperty result;
-		switch (typeNum) {
-		case 0:
-			result = DocPropertyDecade.deserialize(info);
-			break;
-		case 1:
-			result = DocPropertyNumberOfHits.deserialize();
-			break;
-		case 2:
-			result = DocPropertyStoredField.deserialize(info);
-			break;
-		case 3:
-			result = DocPropertyComplexFieldLength.deserialize(info);
-			break;
-		default:
-			logger.debug("Unknown DocProperty '" + type + "'");
-			return null;
+		switch (type) {
+		case "decade":   result = DocPropertyDecade.deserialize(info);             break;
+		case "numhits":  result = DocPropertyNumberOfHits.deserialize();           break;
+		case "field":    result = DocPropertyStoredField.deserialize(info);        break;
+		case "fieldlen": result = DocPropertyComplexFieldLength.deserialize(info); break;
+		default: logger.debug("Unknown DocProperty '" + type + "'");               return null;
 		}
 		result.setReverse(reverse);
 		return result;

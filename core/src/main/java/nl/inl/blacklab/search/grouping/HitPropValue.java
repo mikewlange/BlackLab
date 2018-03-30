@@ -1,7 +1,6 @@
 package nl.inl.blacklab.search.grouping;
 
 import java.text.Collator;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -50,24 +49,16 @@ public abstract class HitPropValue implements Comparable<Object> {
 		String[] parts = PropValSerializeUtil.splitPartFirstRest(serialized);
 		String type = parts[0].toLowerCase();
 		String info = parts.length > 1 ? parts[1] : "";
-		List<String> types = Arrays.asList("cwo", "cws", "dec", "int", "str"/*, "mul"*/);
-		int typeNum = types.indexOf(type);
-		switch (typeNum) {
-		case 0:
-			return HitPropValueContextWord.deserialize(hits, info);
-		case 1:
-			return HitPropValueContextWords.deserialize(hits, info);
-		case 2:
-			return HitPropValueDecade.deserialize(info);
-		case 3:
-			return HitPropValueInt.deserialize(info);
-		case 4:
-			return HitPropValueString.deserialize(info);
-		/*case 5:
-			return HitPropValueMultiple.deserialize(searcher, info);*/
+
+		switch (type) {
+		case "cwo": return HitPropValueContextWord.deserialize(hits, info);
+		case "cws": return HitPropValueContextWords.deserialize(hits, info);
+		case "dec": return HitPropValueDecade.deserialize(info);
+		case "int": return HitPropValueInt.deserialize(info);
+		case "str": return HitPropValueString.deserialize(info);
+//		case "mul": return HitPropValueMultiple.deserialize(searcher, info);
+		default: logger.debug("Unknown HitPropValue '" + type + "'"); return null;
 		}
-		logger.debug("Unknown HitPropValue '" + type + "'");
-		return null;
 	}
 
 	/**

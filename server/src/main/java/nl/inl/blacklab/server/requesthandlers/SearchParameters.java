@@ -384,7 +384,7 @@ public class SearchParameters {
 		return facetProps;
 	}
 
-	private DocGroupSettings docGroupSettings() throws BlsException {
+	public DocGroupSettings docGroupSettings() throws BlsException {
 		if (!isDocsOperation)
 			return null; // we're doing per-hits stuff, so sort doesn't apply to docs
 		String groupBy = getString("group");

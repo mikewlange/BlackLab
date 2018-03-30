@@ -31,8 +31,12 @@ import nl.inl.blacklab.server.BlackLabServer;
 import nl.inl.blacklab.server.datastream.DataStream;
 import nl.inl.blacklab.server.exceptions.BlsException;
 import nl.inl.blacklab.server.jobs.Job;
+import nl.inl.blacklab.server.jobs.JobDescription;
+import nl.inl.blacklab.server.jobs.JobDocs;
+import nl.inl.blacklab.server.jobs.JobDocsTotal;
 import nl.inl.blacklab.server.jobs.JobHitsGrouped;
 import nl.inl.blacklab.server.jobs.JobHitsTotal;
+import nl.inl.blacklab.server.jobs.JobWithDocs;
 import nl.inl.blacklab.server.jobs.User;
 import nl.inl.blacklab.server.search.BlsConfig;
 
@@ -131,14 +135,24 @@ public class RequestHandlerHits extends RequestHandler {
 			Searcher searcher = total.getSearcher();
 
 			boolean includeTokenCount = searchParam.getBoolean("includetokencount");
+			int totalTokensInDocsWithHits = -1;
 			int totalTokens = -1;
 			IndexStructure struct = searcher.getIndexStructure();
 			if (includeTokenCount) {
-				perDocResults = window.getOriginalHits().perDocResults();
+				JobDescription descDocs = new JobDocs.JobDescDocs(searchParam, null, searchParam.getSearchSettings(), searchParam.getFilterQuery(), searchParam.getIndexName());
+				JobDescription descDocsTotal = new JobDocsTotal.JobDescDocsTotal(searchParam, descDocs, searchParam.getSearchSettings());
+
+				JobWithDocs jwd = (JobWithDocs) searchMan.search(user, descDocsTotal, true);
+				DocResults results = jwd.getDocResults();
+
 				// Determine total number of tokens in result set
 				String fieldName = struct.getMainContentsField().getName();
 				DocProperty propTokens = new DocPropertyComplexFieldLength(fieldName);
-				totalTokens = perDocResults.intSum(propTokens);
+
+				totalTokensInDocsWithHits = window.getOriginalHits().perDocResults().intSum(propTokens);
+				totalTokens = results.intSum(propTokens);
+
+				jwd.decrRef();
 			}
 
 			// Search is done; construct the results object
@@ -153,8 +167,10 @@ public class RequestHandlerHits extends RequestHandler {
 			// TODO timing is now broken because we always retrieve total and use a window on top of it,
 			// so we can no longer differentiate the total time from the time to retrieve the requested window
 			addSummaryCommonFields(ds, searchParam, job.userWaitTime(), totalTime, window, total, false, (DocResults)null, (DocOrHitGroups)null, window);
-			if (includeTokenCount)
-				ds.entry("tokensInMatchingDocuments", totalTokens);
+			if (includeTokenCount) {
+				ds.entry("tokensInMatchingDocuments", totalTokensInDocsWithHits);
+				ds.entry("tokensInAllMatchingDocuments", totalTokens);
+			}
 			ds.startEntry("docFields");
 			RequestHandler.dataStreamDocFields(ds, searcher.getIndexStructure());
 			ds.endEntry();
