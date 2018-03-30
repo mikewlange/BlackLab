@@ -44,11 +44,29 @@ public class RequestHandlerHitsGrouped extends RequestHandler {
 	// register the total tokens in the docgroup with every hitgroup that contains all the same group identities (and more) as the document group
 	private void enrich(HitGroups hitGroups, DocGroups docGroups) throws BlsException {
 		// the identity of the group should be the same - but without the hitgroup values taken into account
-		// what a bitch and a half eh
+
 
 		String tokenMainField = getSearcher().getIndexStructure().getMainContentsField().getName();
 		DocProperty propTokens = new DocPropertyComplexFieldLength(tokenMainField);
 
+		/*
+		 * Essentially what we have here is:
+		 *
+		 * docGroups: these are filtered by the metadata filter, so they contain all documents matching the filter, with or without hits
+		 * these are grouped on the grouping properties applicable to documents.
+		 *
+		 * hitGroups: these are grouped on all properties, also those only applicable to hits (context, token properties, etc..)
+		 * so realistically currently there are potentially many hitGroups for each DocGroup
+		 * Jan's proposal is to forbid grouping on hit properties when viewing frequencies,
+		 *  in other words only showing frequencies when not grouping on hit properties
+		 *
+		 * We might also be able to adapt the HitGroup object to take into account all input docGroups, not just containing the actual hits.
+		 * we'd probably need 2 getter functions: getInputDocumentsWithHits, getAllInputDocuments (or something)
+		 * 
+		 * On top of that we need to calculate 2 frequencies:
+		 *  - relative to all documents matching the filter (sum of tokens in all docgroups)
+		 *  - relative to documents in the specific group (sum of all tokens in only the matching docgroup for the hitgroup)
+		 */
 		for (DocGroup dg : docGroups) {
 			List<String> groupPropertyValues = dg.getIdentity().getPropValues();
 
@@ -60,9 +78,6 @@ public class RequestHandlerHitsGrouped extends RequestHandler {
 					dg.getIdentity(),
 					dg.size(),
 					dg.getResults().intSum(propTokens))); // cache?
-
-
-
 
 			//.findFirst().ifPresent(consumer);
 		}
