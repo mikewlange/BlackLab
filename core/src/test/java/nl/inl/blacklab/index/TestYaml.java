@@ -16,7 +16,7 @@
 package nl.inl.blacklab.index;
 
 import java.io.File;
-import nl.inl.blacklab.index.config.InputFormatConfigException;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -39,8 +39,8 @@ public class TestYaml {
         try {
             factoryConfig.load("nodups", new File("src/test/resources/yaml/nodups.blf.yaml"));
             Assert.fail("expected duplicates error");
-        } catch (InputFormatConfigException ex) {
-            Assert.assertTrue(ex.getMessage().contains("Duplicate"));
+        } catch (IllegalArgumentException ex) {
+            Assert.assertTrue(ex.getMessage().equals("A config format with this name already exists."));
         }
     }
     
