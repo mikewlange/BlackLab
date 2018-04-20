@@ -116,54 +116,6 @@ public class IndexStructure {
 
 	}
 
-	/** Check if a Lucene field has offsets stored.
-	 *
-	 * @param reader our index
-	 * @param luceneFieldName field to check
-	 * @return true iff field has offsets
-	 */
-	static boolean hasOffsets(IndexReader reader, String luceneFieldName) {
-    	// Iterate over documents in the index until we find a property
-    	// for this complex field that has stored character offsets. This is
-    	// our main property.
-
-    	// Note that we can't simply retrieve the field from a document and
-    	// check the FieldType to see if it has offsets or not, as that information
-    	// is incorrect at search time (always set to false, even if it has offsets).
-
-    	Bits liveDocs = MultiFields.getLiveDocs(reader);
-    	for (int n = 0; n < reader.maxDoc(); n++) {
-    		if (liveDocs == null || liveDocs.get(n)) {
-    			try {
-    				Terms terms = reader.getTermVector(n, luceneFieldName);
-    				if (terms == null) {
-    					// No term vector; probably not stored in this document.
-    					continue;
-    				}
-    				if (terms.hasOffsets()) {
-    					// This field has offsets stored. Must be the main alternative.
-    					return true;
-    				}
-    				// This alternative has no offsets stored. Don't look at any more
-    				// documents, go to the next alternative.
-    				break;
-    			} catch (IOException e) {
-    				throw new RuntimeException(e);
-    			}
-    		}
-    	}
-    	return false;
-    }
-
-    /**
-     * Format the current date and time according to the SQL datetime convention.
-     *
-     * @return a string representation, e.g. "1980-02-01 00:00:00"
-     */
-    static String getTimestamp() {
-    	return DATETIME_FORMAT.format(new Date());
-    }
-
     /** Logical groups of metadata fields, for presenting them in the user interface. */
 	protected Map<String, MetadataGroup> metadataGroups = new LinkedHashMap<>();
 
@@ -439,6 +391,113 @@ public class IndexStructure {
 		timeModified = IndexStructure.getTimestamp();
 	}
 
+	public void writeMetadata() {
+        String ext = saveAsJson ? ".json" : ".yaml";
+        File metadataFile = new File(indexDir, METADATA_FILE_NAME + ext);
+        try {
+            boolean isJson = metadataFile.getName().endsWith(".json");
+            ObjectMapper mapper = isJson ? Json.getJsonObjectMapper() : Json.getYamlObjectMapper();
+            mapper.writeValue(metadataFile, encodeToJson());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /** Encode the index structure to an (in-memory) JSON structure.
+     * @return json structure
+     */
+    private ObjectNode encodeToJson() {
+        ObjectMapper mapper = Json.getJsonObjectMapper();
+        ObjectNode jsonRoot = mapper.createObjectNode();
+        jsonRoot.put("displayName", displayName);
+        jsonRoot.put("description", description);
+        jsonRoot.put("contentViewable", contentViewable);
+        jsonRoot.put("textDirection", textDirection.getCode());
+        jsonRoot.put("documentFormat", documentFormat);
+        jsonRoot.put("tokenCount", tokenCount);
+        ObjectNode versionInfo = jsonRoot.putObject("versionInfo");
+        versionInfo.put("blackLabBuildTime", blackLabBuildTime);
+        versionInfo.put("blackLabVersion", blackLabVersion);
+        versionInfo.put("indexFormat", indexFormat);
+        versionInfo.put("timeCreated", timeCreated);
+        versionInfo.put("timeModified", timeModified);
+        versionInfo.put("alwaysAddClosingToken", true); // Indicates that we always index words+1 tokens (last token is for XML tags after the last word)
+        versionInfo.put("tagLengthInPayload", true); // Indicates that start tag property payload contains tag lengths, and there is no end tag property
+
+        ObjectNode fieldInfo = jsonRoot.putObject("fieldInfo");
+        fieldInfo.put("namingScheme", ComplexFieldUtil.avoidSpecialCharsInFieldNames() ? "NO_SPECIAL_CHARS": "DEFAULT");
+        fieldInfo.put("defaultAnalyzer", defaultAnalyzerName);
+        if (titleField != null)
+            fieldInfo.put("titleField", titleField);
+        if (authorField != null)
+            fieldInfo.put("authorField", authorField);
+        if (dateField != null)
+            fieldInfo.put("dateField", dateField);
+        if (pidField != null)
+            fieldInfo.put("pidField", pidField);
+        ArrayNode metadataFieldGroups = fieldInfo.putArray("metadataFieldGroups");
+        ObjectNode metadataFields = fieldInfo.putObject("metadataFields");
+        ObjectNode jsonComplexFields = fieldInfo.putObject("complexFields");
+
+        // Add metadata field group info
+        for (MetadataGroup g: metadataGroups.values()) {
+            ObjectNode group = metadataFieldGroups.addObject();
+            group.put("name", g.getName());
+            if (g.addRemainingFields())
+                group.put("addRemainingFields", true);
+            ArrayNode arr = group.putArray("fields");
+            Json.arrayOfStrings(arr, g.getFields());
+        }
+
+        // Add metadata field info
+        for (MetadataFieldDesc f: metadataFieldInfos.values()) {
+            UnknownCondition unknownCondition = f.getUnknownCondition();
+            ObjectNode fi = metadataFields.putObject(f.getName());
+            fi.put("displayName", f.getDisplayName());
+            fi.put("uiType", f.getUiType());
+            fi.put("description", f.getDescription());
+            fi.put("type", f.getType().stringValue());
+            fi.put("analyzer", f.getAnalyzerName());
+            fi.put("unknownValue", f.getUnknownValue());
+            fi.put("unknownCondition", unknownCondition == null ? defaultUnknownCondition : unknownCondition.toString());
+            fi.put("valueListComplete", f.isValueListComplete());
+            Map<String, Integer> values = f.getValueDistribution();
+            if (values != null) {
+                ObjectNode jsonValues = fi.putObject("values");
+                for (Map.Entry<String, Integer> e: values.entrySet()) {
+                    jsonValues.put(e.getKey(), e.getValue());
+                }
+            }
+            Map<String, String> displayValues = f.getDisplayValues();
+            if (displayValues != null) {
+                ObjectNode jsonDisplayValues = fi.putObject("displayValues");
+                for (Map.Entry<String, String> e: displayValues.entrySet()) {
+                    jsonDisplayValues.put(e.getKey(), e.getValue());
+                }
+            }
+            List<String> displayOrder = f.getDisplayOrder();
+            if (displayOrder != null) {
+                ArrayNode jsonDisplayValues = fi.putArray("displayOrder");
+                for (String value: displayOrder) {
+                    jsonDisplayValues.add(value);
+                }
+            }
+        }
+
+        // Add complex field info
+        for (ComplexFieldDesc f: complexFields.values()) {
+            ObjectNode fieldInfo2 = jsonComplexFields.putObject(f.getName());
+            fieldInfo2.put("displayName", f.getDisplayName());
+            fieldInfo2.put("description", f.getDescription());
+            fieldInfo2.put("mainProperty", f.getMainProperty().getName());
+            ArrayNode arr = fieldInfo2.putArray("displayOrder");
+            Json.arrayOfStrings(arr, f.getDisplayOrder());
+        }
+
+        return jsonRoot;
+
+    }
+
 	/**
 	 * The main contents field in our index. This is either the complex field with the name "contents",
 	 * or if that doesn't exist, the first complex field found.
@@ -474,6 +533,48 @@ public class IndexStructure {
 		if (fieldName.endsWith("Numeric") || fieldName.endsWith("Num"))
 			type = FieldType.NUMERIC;
 		return type;
+	}
+
+	/**
+	 * Check if a Lucene field has offsets stored.
+	 *
+	 * @param reader
+	 *            our index
+	 * @param luceneFieldName
+	 *            field to check
+	 * @return true iff field has offsets
+	 */
+	static boolean hasOffsets(IndexReader reader, String luceneFieldName) {
+		// Iterate over documents in the index until we find a property
+		// for this complex field that has stored character offsets. This is
+		// our main property.
+
+		// Note that we can't simply retrieve the field from a document and
+		// check the FieldType to see if it has offsets or not, as that information
+		// is incorrect at search time (always set to false, even if it has offsets).
+
+		Bits liveDocs = MultiFields.getLiveDocs(reader);
+		for (int n = 0; n < reader.maxDoc(); n++) {
+			if (liveDocs == null || liveDocs.get(n)) {
+				try {
+					Terms terms = reader.getTermVector(n, luceneFieldName);
+					if (terms == null) {
+						// No term vector; probably not stored in this document.
+						continue;
+					}
+					if (terms.hasOffsets()) {
+						// This field has offsets stored. Must be the main alternative.
+						return true;
+					}
+					// This alternative has no offsets stored. Don't look at any more
+					// documents, go to the next alternative.
+					break;
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+		return false;
 	}
 
 	private ComplexFieldDesc getOrCreateComplexField(String name) {
@@ -885,113 +986,6 @@ public class IndexStructure {
         this.textDirection = textDirection;
     }
 
-	public void writeMetadata() {
-        String ext = saveAsJson ? ".json" : ".yaml";
-        File metadataFile = new File(indexDir, METADATA_FILE_NAME + ext);
-        try {
-            boolean isJson = metadataFile.getName().endsWith(".json");
-            ObjectMapper mapper = isJson ? Json.getJsonObjectMapper() : Json.getYamlObjectMapper();
-            mapper.writeValue(metadataFile, encodeToJson());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    /** Encode the index structure to an (in-memory) JSON structure.
-     * @return json structure
-     */
-    private ObjectNode encodeToJson() {
-        ObjectMapper mapper = Json.getJsonObjectMapper();
-        ObjectNode jsonRoot = mapper.createObjectNode();
-        jsonRoot.put("displayName", displayName);
-        jsonRoot.put("description", description);
-        jsonRoot.put("contentViewable", contentViewable);
-        jsonRoot.put("textDirection", textDirection.getCode());
-        jsonRoot.put("documentFormat", documentFormat);
-        jsonRoot.put("tokenCount", tokenCount);
-        ObjectNode versionInfo = jsonRoot.putObject("versionInfo");
-        versionInfo.put("blackLabBuildTime", blackLabBuildTime);
-        versionInfo.put("blackLabVersion", blackLabVersion);
-        versionInfo.put("indexFormat", indexFormat);
-        versionInfo.put("timeCreated", timeCreated);
-        versionInfo.put("timeModified", timeModified);
-        versionInfo.put("alwaysAddClosingToken", true); // Indicates that we always index words+1 tokens (last token is for XML tags after the last word)
-        versionInfo.put("tagLengthInPayload", true); // Indicates that start tag property payload contains tag lengths, and there is no end tag property
-
-        ObjectNode fieldInfo = jsonRoot.putObject("fieldInfo");
-        fieldInfo.put("namingScheme", ComplexFieldUtil.avoidSpecialCharsInFieldNames() ? "NO_SPECIAL_CHARS": "DEFAULT");
-        fieldInfo.put("defaultAnalyzer", defaultAnalyzerName);
-        if (titleField != null)
-            fieldInfo.put("titleField", titleField);
-        if (authorField != null)
-            fieldInfo.put("authorField", authorField);
-        if (dateField != null)
-            fieldInfo.put("dateField", dateField);
-        if (pidField != null)
-            fieldInfo.put("pidField", pidField);
-        ArrayNode metadataFieldGroups = fieldInfo.putArray("metadataFieldGroups");
-        ObjectNode metadataFields = fieldInfo.putObject("metadataFields");
-        ObjectNode jsonComplexFields = fieldInfo.putObject("complexFields");
-
-        // Add metadata field group info
-        for (MetadataGroup g: metadataGroups.values()) {
-            ObjectNode group = metadataFieldGroups.addObject();
-            group.put("name", g.getName());
-            if (g.addRemainingFields())
-                group.put("addRemainingFields", true);
-            ArrayNode arr = group.putArray("fields");
-            Json.arrayOfStrings(arr, g.getFields());
-        }
-
-        // Add metadata field info
-        for (MetadataFieldDesc f: metadataFieldInfos.values()) {
-            UnknownCondition unknownCondition = f.getUnknownCondition();
-            ObjectNode fi = metadataFields.putObject(f.getName());
-            fi.put("displayName", f.getDisplayName());
-            fi.put("uiType", f.getUiType());
-            fi.put("description", f.getDescription());
-            fi.put("type", f.getType().stringValue());
-            fi.put("analyzer", f.getAnalyzerName());
-            fi.put("unknownValue", f.getUnknownValue());
-            fi.put("unknownCondition", unknownCondition == null ? defaultUnknownCondition : unknownCondition.toString());
-            fi.put("valueListComplete", f.isValueListComplete());
-            Map<String, Integer> values = f.getValueDistribution();
-            if (values != null) {
-                ObjectNode jsonValues = fi.putObject("values");
-                for (Map.Entry<String, Integer> e: values.entrySet()) {
-                    jsonValues.put(e.getKey(), e.getValue());
-                }
-            }
-            Map<String, String> displayValues = f.getDisplayValues();
-            if (displayValues != null) {
-                ObjectNode jsonDisplayValues = fi.putObject("displayValues");
-                for (Map.Entry<String, String> e: displayValues.entrySet()) {
-                    jsonDisplayValues.put(e.getKey(), e.getValue());
-                }
-            }
-            List<String> displayOrder = f.getDisplayOrder();
-            if (displayOrder != null) {
-                ArrayNode jsonDisplayValues = fi.putArray("displayOrder");
-                for (String value: displayOrder) {
-                    jsonDisplayValues.add(value);
-                }
-            }
-        }
-
-        // Add complex field info
-        for (ComplexFieldDesc f: complexFields.values()) {
-            ObjectNode fieldInfo2 = jsonComplexFields.putObject(f.getName());
-            fieldInfo2.put("displayName", f.getDisplayName());
-            fieldInfo2.put("description", f.getDescription());
-            fieldInfo2.put("mainProperty", f.getMainProperty().getName());
-            ArrayNode arr = fieldInfo2.putArray("displayOrder");
-            Json.arrayOfStrings(arr, f.getDisplayOrder());
-        }
-
-        return jsonRoot;
-
-    }
-
     /** Extract the index structure from the (in-memory) JSON structure (and Lucene index).
      *
      * Looks at the Lucene index to detect certain information (sometimes) missing from the
@@ -1309,6 +1303,15 @@ public class IndexStructure {
             if (format.isConfigurationBased())
                 addFieldInfoFromConfig(metadata, complex, metaGroups, format.getConfig());
         }
+    }
+
+    /**
+     * Format the current date and time according to the SQL datetime convention.
+     *
+     * @return a string representation, e.g. "1980-02-01 00:00:00"
+     */
+    static String getTimestamp() {
+    	return DATETIME_FORMAT.format(new Date());
     }
 
 
