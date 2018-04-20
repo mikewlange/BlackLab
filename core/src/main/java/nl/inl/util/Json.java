@@ -35,11 +35,9 @@ public class Json {
         jsonFactory = new JsonFactory();
         jsonFactory.enable(JsonParser.Feature.ALLOW_COMMENTS);
         jsonObjectMapper = new ObjectMapper(jsonFactory);
-        jsonObjectMapper.configure(JsonParser.Feature.STRICT_DUPLICATE_DETECTION, true);
 
         yamlFactory = new YAMLFactory();
         yamlObjectMapper = new ObjectMapper(yamlFactory);
-        yamlObjectMapper.configure(JsonParser.Feature.STRICT_DUPLICATE_DETECTION, true);
     }
 
     public static ObjectMapper getJsonObjectMapper() {
@@ -228,6 +226,21 @@ public class Json {
 			return parent.get(name).booleanValue();
 		return defVal;
 	}
+
+    /**
+     * Get a long value from a JSON Object, or substitute a default value
+     * if the key doesn't exist.
+     *
+     * @param parent parent node to get the object from
+     * @param name name of the value to get
+     * @param defVal value to use if key doesn't exist
+     * @return the long value
+     */
+    public static long getLong(ObjectNode parent, String name, int defVal) {
+        if (parent.has(name))
+            return parent.get(name).longValue();
+        return defVal;
+    }
 
     public static ArrayNode arrayOfStrings(ArrayNode arr, List<String> fields) {
         for (String str: fields) {
