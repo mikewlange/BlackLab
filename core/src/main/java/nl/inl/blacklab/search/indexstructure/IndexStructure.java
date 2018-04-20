@@ -513,6 +513,10 @@ public class IndexStructure {
 	    }
 	}
 
+	public boolean hasMetadataField(String fieldName) {
+		return metadataFieldInfos.containsKey(fieldName);
+	}
+
 	public MetadataFieldDesc getMetadataFieldDesc(String fieldName) {
 	    MetadataFieldDesc d = null;
         // Synchronized because we sometimes register new metadata fields during indexing
